@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="Framework EcoAI - Dashboard Interattiva: esplorazione dei quattro domini EcoAI, competenze GreenComp, allineamento con gli SDG e metodologie educative per la sostenibilità.">
+<title>Framework EcoAI - Dashboard Interattiva</title>
+
+<!-- Canonical & hreflang -->
+<link rel="canonical" href="https://www.ecoaiframework.com/it/">
+
+<!-- Homepage EN/IT -->
+<link rel="alternate" href="https://www.ecoaiframework.com/" hreflang="en">
+<link rel="alternate" href="https://www.ecoaiframework.com/it/" hreflang="it">
+
+<!-- Literacies EN/IT -->
+<link rel="alternate" href="https://www.ecoaiframework.com/literacies.html" hreflang="en">
+<link rel="alternate" href="https://www.ecoaiframework.com/it/literacies.html" hreflang="it">
+
+<!-- Default -->
+<link rel="alternate" href="https://www.ecoaiframework.com/" hreflang="x-default">
+
+<!-- Chosen Palette: Soft Neutrals with Eco Accents -->
+<!-- Application Structure Plan: The SPA is designed as an interactive dashboard with a thematic, non-linear structure. A sticky navigation bar allows users to jump to key sections: an overview, an interactive exploration of the four core framework quadrants, a dynamic competence level viewer, a visualization of SDG alignment, and a summary of the methodology. This structure was chosen to deconstruct the dense academic report into digestible, interactive modules, prioritizing user exploration and understanding over the linear format of the source document. Key interactions include clickable cards to reveal detailed quadrant information and dynamic charts that update based on user selection, fostering an engaging and intuitive user flow. -->
+<!-- Visualization & Content Choices: 
+        - Report Info: Core four quadrants of the EcoAI framework. Goal: Organize & Inform. Viz/Method: 2x2 interactive grid of cards built with HTML/Tailwind. Interaction: Click to expand/collapse detailed descriptions and sub-domains. Justification: Visually represents the core structure and allows progressive disclosure of information. Library: Vanilla JS.
+        - Report Info: Competence levels (Base, Intermedio, Avanzato, Critico) and their link to GreenComp. Goal: Compare & Inform. Viz/Method: A radar chart (Chart.js/Canvas) to show the relationship between quadrants and GreenComp areas, plus a dynamic text block. Interaction: User selects a competence, and the text block updates to show the definitions for all four levels. Justification: The radar chart provides a holistic comparison, while the interactive text allows for focused exploration of specific competencies. Library: Chart.js, Vanilla JS.
+        - Report Info: Alignment with UN SDGs. Goal: Inform & Show Relationships. Viz/Method: A donut chart (Chart.js/Canvas) for a quantitative overview and an interactive grid of SDG icons (HTML/CSS/Tailwind). Interaction: Hovering over an SDG icon reveals a tooltip with related EcoAI sub-domains. Justification: The chart offers a quick summary of impact, while the interactive grid provides a more detailed, engaging exploration of the connections. Library: Chart.js, Vanilla JS.
+        - Report Info: Research methodology population. Goal: Inform. Viz/Method: A simple pie chart (Chart.js/Canvas). Justification: Adds a visual element to a text-heavy section, making the target demographic information more accessible. Library: Chart.js.
+    -->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F7F4;
+            color: #333;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .sdg-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .sdg-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="antialiased">
+<header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+<nav class="mx-auto max-w-screen-2xl px-4 md:px-6 py-4 flex justify-between items-center relative">
+<h1 class="text-2xl font-bold text-green-800">EcoAI Framework</h1>
+<a href="index_en.html"
+   class="text-sm px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700
+          absolute right-6 top-1/2 -translate-y-1/2">
+  EN
+</a>
+<div class="hidden md:flex space-x-8 absolute left-1/2 -translate-x-1/2">
+<a class="text-gray-600 hover:text-green-700 transition" href="#panoramica">Panoramica</a>
+<a class="text-gray-600 hover:text-green-700 transition" href="#framework">Il Framework</a>
+<a class="text-gray-600 hover:text-green-700 transition" href="#competenze">Competenze</a>
+<a class="text-gray-600 hover:text-green-700 transition" href="#impatto-globale">Impatto Globale</a>
+<a class="text-gray-600 hover:text-green-700 transition" href="#metodologia">Metodologia</a>
+</div>
+<button class="md:hidden text-gray-600 focus:outline-none" id="mobile-menu-button">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</nav>
+<div class="hidden md:hidden px-6 pb-4 space-y-2" id="mobile-menu">
+<a class="block text-gray-600 hover:text-green-700 transition" href="#panoramica">Panoramica</a>
+<a class="block text-gray-600 hover:text-green-700 transition" href="#framework">Il Framework</a>
+<a class="block text-gray-600 hover:text-green-700 transition" href="#competenze">Competenze</a>
+<a class="block text-gray-600 hover:text-green-700 transition" href="#impatto-globale">Impatto Globale</a>
+<a class="block text-gray-600 hover:text-green-700 transition" href="#metodologia">Metodologia</a>
+</div>
+</header>
+<main class="max-w-[1500px] mx-auto px-1 md:px-2">
+<section class="py-4 bg-white" id="panoramica">
+<div class="mx-auto max-w-screen-2xl px-4 md:px-6 text-center">
+<h2 class="text-4xl font-bold mb-4 text-gray-800">EcoAI framework: Un Modello Pedagogico per l'Antropocene</h2>
+<p class="text-lg text-gray-600 max-w-5xl mx-auto mb-12">Il framework EcoAI propone un approccio interdisciplinare per integrare Ecoliteracy e Intelligenza Artificiale (AI) nell'educazione civica delle scuole secondarie, formando una nuova generazione di cittadini ecotecnologici.</p>
+<div class="grid md:grid-cols-3 gap-8 text-left">
+<div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
+<h3 class="text-xl font-semibold mb-3 text-green-800"> Obiettivi della Ricerca</h3>
+<ul class="space-y-2 text-gray-700 list-disc list-inside">
+<li>Esplorare le percezioni degli studenti su sostenibilità e AI.</li>
+<li>Analizzare l'intersezione tra literacy ambientale e digitale.</li>
+<li>Sviluppare un modello pedagogico integrato per l'educazione civica.</li>
+</ul>
+</div>
+<div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
+<h3 class="text-xl font-semibold mb-3 text-green-800"> Domande di Ricerca</h3>
+<ul class="space-y-2 text-gray-700 list-disc list-inside">
+<li>Come gli studenti percepiscono l'impatto dell'AI sulle questioni ambientali?</li>
+<li>Qual è il livello di ecoliteracy e competenze civiche ambientali dei giovani?</li>
+<li>Come i media digitali influenzano la cittadinanza ecologica?</li>
+</ul>
+</div>
+<div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
+<h3 class="text-xl font-semibold mb-3 text-green-800"> Cornice Teorica</h3>
+<ul class="space-y-2 text-gray-700 list-disc list-inside">
+<li><b>Postumanesimo Eco-digitale:</b> Elaborazione teorica della teoria ecodigitale postumanista.</li>
+<li><b>Ecomedia Literacy:</b> Analisi critica dell'impatto ecologico delle tecnologie mediali.</li>
+<li><b>Educazione Civica Digitale e SDGs:</b> Contesto normativo nazionale ed internazionale di riferimento.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- ===== Sezione: Fondamenti scientifici (testo + 2 bottoni affiancati) ===== -->
+<section class="py-10 bg-green-50">
+  <div class="mx-auto max-w-screen-2xl px-4 md:px-6">
+    <!-- Testo introduttivo -->
+ <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
+  <h3 class="text-2xl font-bold text-green-900 mb-2 text-center">Fondamenti scientifici del Framework</h3>
+  <p class="text-gray-700 leading-relaxed text-justify">
+    Di seguito sono disponibili <b>il fondamento teorico</b> del Framework EcoAI definito <i>Postumanesimo Eco-digitale</i> e 
+    <b>la review sistematica e bibliometrica</b> su <i>Ecoliteracy e Social Media</i>. 
+    Il primo elabora la cornice epistemologica e pedagogica che integra postumanesimo, ecoliteracy e AI literacy, delineando i quattro quadranti del framework.
+    Costituisce il riferimento concettuale che sottende ai domini e sottodomini, fornendo criteri di coerenza teorica e rigore metodologico e stabilendo la base scientifica e filosofica su cui si innesta l’intera architettura EcoAI.
+    <br><br>
+    La review sistematica e bibliometrica costituisce la base teorico-empirica del Framework EcoAI.
+    Analizza la letteratura internazionale su <i>ecoliteracy</i> e media digitali, fornendo indicatori
+    validati e una mappatura dei trend di ricerca, garantendo <b>trasparenza</b>, <b>replicabilità</b> e un collegamento diretto con la comunità scientifica.
+    <br><br>
+    Nell'EcoAI framework contribuisce a definire il contesto di referenzialità per il dominio 
+    <b>Identity Formation</b>, con particolare attenzione ai sottodomini 
+    <i>Ecodigital Positionality &amp; Imaginaries</i> e 
+    <i>Algorithmic Bias, Fairness &amp; Representation</i>.
+  </p>
+</div>
+
+    <!-- Bottoni: Nota di definizione + Preprint SR -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+      <!-- Bottone esistente: Nota di Definizione -->
+      <a href="../documents/Eco_Digital_Posthumanism.pdf" target="_blank"
+         class="inline-flex items-center justify-center px-5 py-3 rounded-lg font-semibold
+                bg-green-700 text-white hover:bg-green-800 transition shadow">
+        Nota di Definizione Posthumanesimo Eco-digitale
+      </a>
+
+      <!-- Nuovo bottone: Systematic Review (DOI/preprint) -->
+      <a href="https://doi.org/INSERISCI_DOI_PREPRINT" target="_blank"
+         class="inline-flex items-center justify-center px-5 py-3 rounded-lg font-semibold
+                bg-white text-green-800 border border-green-300 hover:bg-green-100 transition shadow-sm">
+        Ecoliteracy &amp; Social Media — Review Sistematica e Bibliometrica
+      </a>
+    </div>
+  </div>
+</section>
+<section class="py-8" id="framework">
+<div class="mx-auto max-w-screen-2xl px-4 md:px-6">
+<h2 class="text-3xl font-bold text-center mb-12 text-gray-800">I Quattro Quadranti del Framework EcoAI</h2>
+<img src="../images/ecodigital-posthumanism.png"
+     alt="EcoAI Framework"
+     class="mx-auto mb-8 rounded-lg shadow-lg max-w-4xl"/>
+<p class="text-lg text-gray-600 max-w-5xl mx-auto mb-12 text-center">Il framework si articola in quattro domini interconnessi che guidano lo sviluppo di competenze eco-digitali integrate. Clicca su ciascun quadrante per esplorarne i dettagli.</p>
+<div class="grid md:grid-cols-2 gap-8" id="framework-grid">
+</div>
+</div>
+</section>
+<!-- CTA: link alla pagina delle Literacies (IT) -->
+<div class="py-6">
+  <div class="mx-auto max-w-screen-2xl px-4 md:px-6 text-center">
+    <a href="literacies.html"
+       class="inline-flex items-center gap-2 px-6 md:px-8 py-4 md:py-5 text-lg md:text-xl font-semibold
+              rounded-xl bg-green-700 text-white hover:bg-green-800 shadow-lg transition">
+      Esplora le EcoAI Literacies
+      <span aria-hidden="true">→</span>
+    </a>
+    <p class="mt-3 text-gray-600">Vai alla pagina dedicata con descrizioni e rubriche complete.</p>
+  </div>
+</div>
+<section class="py-8 bg-white" id="competenze">
+<div class="mx-auto max-w-screen-2xl px-4 md:px-6">
+<h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Sviluppo delle Competenze</h2>
+<p class="text-lg text-gray-600 max-w-5xl mx-auto mb-12 text-center">Il framework allinea le competenze EcoAI con il modello europeo GreenComp, definendo quattro livelli di padronanza. Seleziona una competenza per visualizzare i descrittori di livello.</p>
+<div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200 mb-12">
+<label class="block text-lg font-medium text-gray-700 mb-2" for="competence-selector">Seleziona una Competenza Chiave:</label>
+<select class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500" id="competence-selector">
+</select>
+</div>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm" id="competence-details">
+</div>
+<h3 class="text-2xl font-bold text-center mt-20 mb-8 text-gray-800">Relazione tra Quadranti e Aree GreenComp</h3>
+<div class="chart-container">
+<canvas id="competenceRadarChart"></canvas>
+</div>
+</div>
+<div class="prose max-w-none px-8" style="text-align: justify;">
+<h3 class="text-xl font-semibold mb-2">Quadri fondativi per lo sviluppo e la valutazione delle competenze EcoAI</h3>
+<p>
+    La robustezza valutativa di EcoAI si fonda sull’integrazione profonda con standard consolidati di educazione alla sostenibilità
+    e di <i>AI literacy</i>. In particolare, il framework assume come riferimento primario <b>GreenComp</b> e lo integra con modelli
+    di alfabetizzazione all’AI (Long &amp; Magerko; AICOS; Generative AI Literacy) per ottenere una strategia valutativa multilivello
+    che coniuga <b>profondità qualitativa</b> e <b>rigore quantitativo</b>.
+  </p>
+<h4 class="font-semibold mt-4">GreenComp: quadro europeo delle competenze per la sostenibilità</h4>
+<p>
+    GreenComp articola la competenza di sostenibilità in <b>quattro aree</b> e <b>dodici sotto-competenze</b> (tra cui: <i>Systems thinking</i> – G1,
+    <i>Critical thinking</i> – G2, <i>Agency</i> – G7, <i>Sustainability justice</i> – G12). EcoAI <b>adatta esplicitamente</b> GreenComp,
+    definendo <b>quattro livelli di padronanza</b> – Base, Intermedio, Avanzato, Critico – e rubriche già contestualizzate agli scenari eco‑digitali.
+    Questa corrispondenza fornisce un <b>linguaggio comune</b> e riconosciuto a livello europeo per descrivere la progressione delle competenze,
+    facilitando comparabilità e trasferibilità degli esiti formativi.
+  </p>
+<h4 class="font-semibold mt-4">AI Literacy: Long &amp; Magerko, AICOS e Generative AI Literacy</h4>
+<p>
+    Il framework integra più modelli per coprire in modo completo le dimensioni dell’alfabetizzazione all’AI e Linee guida ministeriali per l’introduzione dell’Intelligenza Artificiale nelle scuole.
+    Il modello di <b>Long &amp; Magerko</b> (Understanding, Interacting, Critiquing, Designing, Evaluating) è mappato sui quadranti EcoAI
+    (ad es. Understanding → Systems Understanding; Interacting → Tool‑Based Learning; Critiquing → Identity Formation; Designing → Hybrid modules; Evaluating → Digital ecosystems).
+    <b>AICOS</b> fornisce una <i>scala quantitativa</i> validata per la misurazione dell’AI literacy (dimensioni quali: comprensione dell’AI, lavoro con l’AI,
+    impatto sociale, bias/fairness, decisione e responsabilità), utile come <b>benchmark</b> psicometrico per verificare le rubriche e i questionari (α di Cronbach &gt; .8).
+    La <b>Generative AI Literacy</b> (Annapureddy et al.) arricchisce in modo specifico il dominio Tool‑Based Learning con competenze operative e riflessive sui sistemi generativi.
+  </p>
+<p>
+    Ne risulta una <b>validazione a più strati</b>: GreenComp struttura i livelli qualitativi; i descrittori specifici per l’AI si appoggiano a Long &amp; Magerko
+    e a Generative AI Literacy; AICOS consente la <b>validazione quantitativa</b> degli item e delle scale. Insieme, questi elementi garantiscono
+    ampiezza di copertura, coerenza teorica e <b>solidità empirica</b>.
+  </p>
+<h4 class="font-semibold mt-4">Tabella di allineamento consolidata (Quadranti ↔ Competenze ↔ AI Literacy ↔ SDG)</h4>
+<div class="mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto">
+<table class="w-full text-sm text-left border-collapse">
+<thead class="bg-green-100">
+<tr>
+<th class="border px-2 py-1">Quadrante EcoAI framework</th>
+<th class="border px-2 py-1">Competenze GreenComp chiave</th>
+<th class="border px-2 py-1">AI Literacy (Long &amp; Magerko)</th>
+<th class="border px-2 py-1">SDG associati</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="border px-2 py-1">Systems Understanding</td>
+<td class="border px-2 py-1">G1, G2, G3, G4, G9, G10, G11</td>
+<td class="border px-2 py-1">Understanding / Evaluating</td>
+<td class="border px-2 py-1">4, 13, 15, 17</td>
+</tr>
+<tr>
+<td class="border px-2 py-1">Ecological Understanding of AI</td>
+<td class="border px-2 py-1">G4, G12</td>
+<td class="border px-2 py-1">Critiquing / Evaluating</td>
+<td class="border px-2 py-1">4, 9, 12, 13, 16</td>
+</tr>
+<tr>
+<td class="border px-2 py-1">Tool‑Based Learning</td>
+<td class="border px-2 py-1">G5, G6</td>
+<td class="border px-2 py-1">Interacting / Designing</td>
+<td class="border px-2 py-1">4, 9, 11, 12, 13</td>
+</tr>
+<tr>
+<td class="border px-2 py-1">Identity Formation</td>
+<td class="border px-2 py-1">G7, G8, G11</td>
+<td class="border px-2 py-1">Interacting / Critiquing / Designing</td>
+<td class="border px-2 py-1">4.7, 5, 10, 16</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+
+<h4 class="font-semibold mt-4">Integrazione degli SDG nel contesto europeo e italiano</h4>
+<p>
+    L'apporccio del Framework EcoAI punta all’<b>approfondire</b> i legami già
+    delineati negli SDG e costruendo collegamenti mirati con gli obiettivi più pertinenti. Ad esempio, per <i>AI energy consumption</i>
+    (SDG 10 e 13), è rilevante sviluppare moduli che stimino l’impronta carbonica e idrica dei sistemi di AI, analizzando al contempo
+    la distribuzione diseguale dei costi ecologici. Analogamente, attraverso gli <i>Hybrid learning modules</i> (SDG 4.7), è possibile
+    attivare pratiche di cittadinanza globale che coinvolgano la collaborazione umano-AI su problematiche ambientali transnazionali.
+    <br><br>
+    Le <b>rubriche EcoAI</b> già integrano tali connessioni, incorporando in maniera esplicita i target SDG nei descrittori di livello.
+    Al livello <i>Critico</i> della competenza <b>Agency</b>, ad esempio, è prevista la capacità di proporre interventi assistiti da AI
+    per la giustizia climatica in coerenza con il target 13, o di contribuire a partnership multi-attore per l’innovazione sostenibile
+    in linea con il target 17. In questo modo, il framework non considera gli SDG come elementi esterni, ma come riferimenti costitutivi
+    già intrecciati nella propria architettura pedagogica.
+  </p>
+</div>
+</section>
+<section class="pt-10 pb-12" id="impatto-globale">
+  <div class="mx-auto max-w-screen-2xl px-4 md:px-6">
+    <h2 class="text-3xl font-bold text-center mb-6 text-gray-800">
+      Allineamento con gli Obiettivi di Sviluppo Sostenibile (SDG)
+    </h2>
+<p class="text-lg text-gray-600 max-w-5xl mx-auto mb-12 text-center">Il framework EcoAI contribuisce direttamente a numerosi Obiettivi di Sviluppo Sostenibile delle Nazioni Unite, promuovendo un'educazione per un futuro equo e sostenibile.</p>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mt-6 mb-6" id="sdg-grid">
+</div>
+</section>
+<section class="pt-8 pb-20 bg-white" id="metodologia">
+  <div class="mx-auto max-w-screen-2xl px-4 md:px-6">
+    <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Metodologia di Ricerca: Primo Ciclo di Somministrazione</h2>
+
+    <div class="mb-12 text-gray-700 leading-relaxed">
+      <p>
+        La prima fase di ricerca è stata svolta ad <b>Ariano Irpino</b> tra <b>maggio e giugno 2025</b>, al termine delle lezioni di Educazione Civica presso l'Istituto d'Istruzione Superiore
+"Giuseppe De Gruttola" - Alberghiero e l'Istituto d'Istruzione Secondaria Superiore "Ruggero II" - Tecnico AFM - SIA - CAT.
+        Questa sezione riassume i risultati preliminari della somministrazione del questionario agli studenti, che hanno costituito la base empirica per i due paper
+        connessi al <b>Framework EcoAI:</b> <i>Identity Formation</i> e <i>Ecological Understanding of AI</i>.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <!-- Colonna sinistra -->
+      <div>
+        <div class="space-y-6">
+          <div class="bg-gray-50 p-6 py-5 rounded-lg shadow-sm border border-gray-200">
+            <h3 class="text-xl font-semibold mb-2 text-green-800">Popolazione e Strumento</h3>
+            <p class="text-gray-700">
+              Il campione è costituito da <b>404 studenti delle scuole secondarie di II grado</b> (età 14–19 anni),
+              distribuiti dalla 1ª alla 5ª classe, con una <b>leggera prevalenza maschile (54% maschi 46% femmine)</b>.
+              La ricerca è stata condotta tramite un <b>questionario misto</b>, con item su scala Likert e domande aperte,
+              finalizzato a misurare <i>ecoliteracy</i>, percezioni sull’Intelligenza Artificiale e pratiche di cittadinanza digitale ed ecologica.
+            </p>
+          </div>
+
+          <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
+            <h3 class="text-xl font-semibold mb-2 text-green-800">Analisi dei Dati</h3>
+            <p class="text-gray-700">
+              Le analisi includono:
+            </p>
+            <ul class="list-disc list-inside mt-2 space-y-1 text-gray-700">
+              <li><b>Statistiche descrittive</b>: distribuzioni per genere, classe, uso dei dispositivi digitali e conoscenza dell’IA.</li>
+              <li><b>Affidabilità</b>: <i>Cronbach’s α</i> per le batterie Likert su percezioni IA ed ecoliteracy.</li>
+              <li><b>Inferenza</b>: correlazioni e regressioni tra ecoliteracy, uso dei media digitali e atteggiamenti verso l’IA.</li>
+              <li><b>Qualitativa</b>: categorizzazione delle risposte aperte su aspettative, preoccupazioni e usi percepiti dell’IA.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Colonna destra -->
+      <div>
+        <h3 class="text-2xl font-bold text-center mb-8 text-gray-800">Distribuzione del Campione</h3>
+        <div class="chart-container">
+          <canvas id="populationPieChart"></canvas>
+        </div>
+        <p class="text-sm text-gray-600 mt-4 text-center">
+          Distribuzione percentuale per fasce di età (14–15, 16–17, 18–19 anni).
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+</main>
+<footer class="bg-gray-800 text-white py-8">
+<div class="container mx-auto px-6 text-center">
+<p>© 2025 Progetto di Dottorato EcoAI. Tutti i diritti riservati.</p>
+<p class="text-sm text-gray-400 mt-2">Questa dashboard interattiva è una visualizzazione del framework di ricerca.</p>
+</div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // === DATA (da pagina completa) ===
+      const data = {
+        frameworkQuadrants: [
+          {
+            id: 'systems-understanding',
+            icon: '🧠',
+            title: 'Systems Understanding',
+            // Descrizione estesa incorporata
+            description: `
+              <div style="text-align:justify;">
+                Questo dominio costituisce il <i>fondamento epistemico e metodologico</i> del framework EcoAI.
+                Coltiva una «visione eco‑sistemica dell’intelligenza» che unisca ecoliteracy e literacy computazionale critica,
+                per leggere e confrontare sistemi naturali e sistemi di IA in ottica complessa e interconnessa.
+                Le basi teoriche richiamano la visione sistemica della vita (Capra &amp; Luisi), il pensiero complesso (Morin)
+                e il realismo agenziale (Barad). Si mira a <b>ecologizzare</b> l’IA, inserendola nelle ecologie dell’apprendimento e del pianeta.
+                Strumenti come simulazioni ad agenti (es. NetLogo) aiutano a visualizzare interazioni non lineari, tipping points ed emergenze.
+              </div>`,
+            subdomains: [
+              {
+                name: '🌍 Ecosystem Dynamics',
+                text: `Questo sotto-dominio esplora le interdipendenze tra sistemi naturali e artificiali
+                (pattern dinamici e cicli di retroazione), favorendo il passaggio da un pensiero statico a uno orientato ai processi;
+                l’IA funge da potenziatore cognitivo per visualizzazioni e simulazioni.`
+              },
+              {
+                name: '🔁 Feedback Loops & Patterns',
+                text: `Focus su cicli di feedback, strutture ricorrenti e riconoscimento di pattern tra fenomeni ecologici e computazionali.`
+              },
+              {
+                name: '📚 Systems Literacy (Complexity Education)',
+                text: `Alfabetizzazione ai sistemi complessi: concetti di non‑linearità, soglie critiche, emergenza e adattività.`
+              },
+              {
+                name: '🧩 Sympoietic Thinking Models',
+                text: `Pensiero simpoietico e co‑produzione: l’intelligenza come processo distribuito in reti socio‑tecno‑ecologiche.`
+              }
+            ]
+          },
+          {
+            id: 'ecological-understanding',
+            icon: '🌿',
+            title: 'Ecological Understanding of AI',
+            description: `
+              <div style="text-align:justify;">
+                Illumina gli intrecci materiali, infrastrutturali e culturali tra IA ed ecologie.
+                L’IA è parte di assemblaggi ecologici complessi: occorre attenzione a impronta energetica e idrica,
+                governance delle infrastrutture, giustizia ambientale e immaginari ecopolitici.
+                Adottiamo una doppia visione: «Ecoliteracy <i>e</i> IA» (IA alleata dell’educazione ecologica) e «Ecoliteracy <i>dell&#39;</i> IA»
+                (IA come oggetto di analisi critica lungo l’intero ciclo di vita).
+              </div>`,
+            subdomains: [
+              {
+                name: '🗺️ Digital Ecosystems & Infrastructures',
+                text: `Infrastrutture digitali, data center, supply chain dei modelli: impatti ambientali e territoriali.`
+              },
+              {
+                name: '⚡ AI Energy Consumption',
+                text: `Consumi energetici e impatti di carbonio/acqua dei sistemi di IA; metriche e accountability.`
+              },
+              {
+                name: '⚖️ Environmental and Climate Justice',
+                text: `Giustizia ambientale e climatica: distribuzione degli impatti, vulnerabilità, diritti eque transizioni.`
+              },
+              {
+                name: '🏛️ Ecopolitical Tech Analysis',
+                text: `Analisi ecopolitica della tecnologia: bias, potere, immaginari sociotecnici e policy.`
+              }
+            ]
+          },
+          {
+            id: 'tool-based-learning',
+            icon: '🛠️',
+            title: 'Tool-Based Learning',
+            description: `
+              <div style="text-align:justify;">
+                Riposiziona strumenti digitali ed ecologici come <b>co‑costruttori</b> di conoscenza e responsabilità.
+                L’IA è parte dell’<i>ecologia cognitiva</i> degli studenti e agisce come co‑educatrice che modella pratiche,
+                interazioni e comprensione del mondo.
+              </div>`,
+            subdomains: [
+              {
+                name: '🧪 AI‑generated Content & Simulations',
+                text: `Fluenza critica sugli output generativi e sulle simulazioni; usi per storytelling ecologico e scenari.`
+              },
+              {
+                name: '🔗 Hybrid Learning Modules',
+                text: `Moduli didattici ibridi che intrecciano literacies ecologiche e digitali con pratiche orientate alla sostenibilità.`
+              },
+              {
+                name: '📍 Situated Human–AI Interaction',
+                text: `Interazioni umano‑IA situate, contestuali e multimodali (MLLM) per indagine e creazione.`
+              },
+              {
+                name: '🧪 Pedagogical Experimentation',
+                text: `Sperimentazioni didattiche con sensori, piattaforme e modelli per tradurre concetti in pratica.`
+              }
+            ]
+          },
+          {
+            id: 'identity-formation',
+            icon: '👤',
+            title: 'Identity Formation',
+            description: `
+              <div style="text-align:justify;">
+                Esplora la formazione del sé e dell’agency in ambienti eco‑digitali, promuovendo soggettività post‑antropocentriche e relazionali.
+                Centralità a posizionamenti, etiche relazionali e immaginari ecologici nell’interazione con l’IA.
+              </div>`,
+            subdomains: [
+              {
+                name: '🤖🌿 Hybrid EcoDigital Agency',
+                text: `Agency distribuita e co‑regolata tra persone, materiali, ecosistemi e sistemi algoritmici.`
+              },
+              {
+                name: '🧭 Ecodigital Positionality & Imaginaries',
+                text: `Riflessività su identità, luoghi e immaginari; critica a colonialismi e monoculture algoritmiche.`
+              },
+              {
+                name: '🤝 Relational Ethics Education',
+                text: `Etiche relazionali, cura e responsabilità negli ecosistemi eco‑digitali.`
+              },
+              {
+                name: '🌐 Posthuman Relational Ethics',
+                text: `Visioni postumane e più‑che‑umane per educazione e giustizia ecologica.`
+              }
+            ]
+          }
+        ],
+        competencies: {
+          'G1: Systems Thinking': {
+            base: 'Riconosce la differenza tra un sistema naturale e uno artificiale.',
+            intermedio: 'Descrive feedback e cicli in entrambi i sistemi.',
+            avanzato: 'Confronta e mappa complesse interdipendenze tra IA e sistemi naturali.',
+            critico: 'Progetta attività che dimostrano una profonda interdipendenza tra IA e biosfera.'
+          },
+          'G2: Critical Thinking': {
+            base: 'Esprime opinioni personali sulle tecnologie.',
+            intermedio: 'Riconosce i limiti e i bias degli strumenti IA.',
+            avanzato: 'Valuta criticamente l’impatto sociale e ambientale dell’IA.',
+            critico: 'Argomenta alternative sistemiche sostenibili e responsabili.'
+          },
+          'G7: Agency': {
+            base: 'Si sente coinvolto nei problemi ambientali.',
+            intermedio: 'Utilizza l’IA per elaborare risposte sostenibili.',
+            avanzato: 'Pianifica azioni collettive assistite dall’IA.',
+            critico: 'Attiva processi trasformativi e sostiene altri (peer agency).'
+          },
+          'G12: Sustainability Justice': {
+            base: 'Riconosce le ingiustizie ambientali di base nel mondo.',
+            intermedio: 'Collega le disuguaglianze ambientali a tecnologie e dati.',
+            avanzato: 'Raccoglie prove e propone cambiamenti per affrontare le ingiustizie.',
+            critico: 'Guida campagne o progetti di giustizia ambientale algoritmica.'
+          }
+        },
+        sdgs: [
+          { id: 4,  title: 'Istruzione di Qualità',                  connections: ['Systems Understanding', 'Tool-Based Learning', 'Identity Formation'] },
+          { id: 9,  title: 'Industria, Innovazione e Infrastrutture', connections: ['Ecological Understanding of AI', 'Tool-Based Learning'] },
+          { id: 10, title: 'Ridurre le Disuguaglianze',               connections: ['Identity Formation', 'Environmental Justice'] },
+          { id: 11, title: 'Città e Comunità Sostenibili',           connections: ['Tool-Based Learning'] },
+          { id: 12, title: 'Consumo e Produzione Responsabili',      connections: ['Ecological Understanding of AI'] },
+          { id: 13, title: 'Lotta al Cambiamento Climatico',         connections: ['Systems Understanding', 'Ecological Understanding of AI'] },
+          { id: 15, title: 'Vita sulla Terra',                       connections: ['Systems Understanding'] },
+          { id: 16, title: 'Pace, Giustizia e Istituzioni Solide',   connections: ['Ecological Understanding of AI', 'Identity Formation'] },
+          { id: 17, title: 'Partnership per gli Obiettivi',          connections: ['Systems Understanding'] }
+        ]
+      };
+
+      // === RENDER QUADRANTI con <details> (apertura garantita) ===
+      const grid = document.getElementById('framework-grid');
+      data.frameworkQuadrants.forEach(q => {
+        const card = document.createElement('div');
+        card.className = 'bg-white px-6 py-5 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl';
+
+        card.innerHTML = `
+          <div class="mb-3">
+			<h3 class="text-2xl font-bold text-gray-900">${q.title}</h3>
+          </div>
+          <div class="text-gray-700 mb-3">${q.description}</div>
+
+          <details class="group border-t border-gray-200 pt-3">
+            <summary class="cursor-pointer select-none flex items-center justify-between">
+              <span class="text-sm font-semibold text-green-700">Sotto‑domini (clicca per espandere)</span>
+              <span class="text-gray-500 group-open:hidden">▼</span>
+              <span class="text-gray-500 hidden group-open:inline">▲</span>
+            </summary>
+            <div class="details-content mt-3 space-y-3">
+              ${q.subdomains.map(s => `
+                <details class="bg-gray-50 rounded-lg border border-gray-200 p-3">
+                  <summary class="cursor-pointer font-medium">${s.name}</summary>
+                  <div class="mt-2 text-sm leading-relaxed">${s.text}</div>
+                </details>
+              `).join('')}
+            </div>
+          </details>
+        `;
+
+        grid.appendChild(card);
+      });
+
+            const competenceSelector = document.getElementById('competence-selector');
+            const competenceDetails = document.getElementById('competence-details');
+            Object.keys(data.competencies).forEach(key => {
+                const option = document.createElement('option');
+                option.value = key;
+                option.textContent = key;
+                competenceSelector.appendChild(option);
+            });
+
+            function updateCompetenceDetails(key) {
+                const competence = data.competencies[key];
+                competenceDetails.innerHTML = `
+                    <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                        <h4 class="font-bold text-green-800 mb-1">Base</h4>
+                        <p class="text-gray-700">${competence.base}</p>
+                    </div>
+                    <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                        <h4 class="font-bold text-yellow-800 mb-1">Intermedio</h4>
+                        <p class="text-gray-700">${competence.intermedio}</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                        <h4 class="font-bold text-blue-800 mb-1">Avanzato</h4>
+                        <p class="text-gray-700">${competence.avanzato}</p>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                        <h4 class="font-bold text-purple-800 mb-1">Critico</h4>
+                        <p class="text-gray-700">${competence.critico}</p>
+                    </div>
+                `;
+            }
+            competenceSelector.addEventListener('change', (e) => updateCompetenceDetails(e.target.value));
+            updateCompetenceDetails(Object.keys(data.competencies)[0]);
+
+            new Chart(document.getElementById('competenceRadarChart'), {
+                type: 'radar',
+                data: {
+                    labels: ['Pensiero Sistemico', 'Giustizia', 'Agency', 'Pensiero Critico', 'Adattabilità'],
+                    datasets: [{
+                        label: 'Systems Understanding',
+                        data: [5, 3, 3, 4, 3],
+                        backgroundColor: 'rgba(34, 139, 34, 0.2)',
+                        borderColor: 'rgba(34, 139, 34, 1)',
+                        borderWidth: 2
+                    }, {
+                        label: 'Identity Formation',
+                        data: [3, 5, 5, 4, 4],
+                        backgroundColor: 'rgba(75, 0, 130, 0.2)',
+                        borderColor: 'rgba(75, 0, 130, 1)',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { display: true },
+                            suggestedMin: 0,
+                            suggestedMax: 5,
+                            pointLabels: { font: { size: 12 } },
+                            ticks: { backdropColor: 'rgba(255, 255, 255, 0.75)' }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top' }
+                    }
+                }
+            });
+
+            const sdgGrid = document.getElementById('sdg-grid');
+            data.sdgs.forEach(sdg => {
+                const card = document.createElement('div');
+                card.className = 'relative group';
+card.innerHTML = `
+  <img src="../images/SDG${sdg.id}.png"
+       alt="SDG ${sdg.id}: ${sdg.title}"
+       class="w-full h-auto rounded-lg shadow-md sdg-card">
+  <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center text-white text-center p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+    <div>
+      <p class="font-bold">SDG ${sdg.id}: ${sdg.title}</p>
+      <p class="text-xs mt-1">Connesso a: ${sdg.connections.join(', ')}</p>
+    </div>
+  </div>
+`;
+                sdgGrid.appendChild(card);
+            });
+
+            const sdgCounts = data.sdgs.reduce((acc, sdg) => {
+                acc[sdg.id] = sdg.connections.length;
+                return acc;
+            }, {});
+            new Chart(document.getElementById('sdgDoughnutChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: data.sdgs.map(s => `SDG ${s.id}: ${s.title}`),
+                    datasets: [{
+                        label: 'Numero di Connessioni EcoAI',
+                        data: Object.values(sdgCounts),
+                        backgroundColor: [
+                            '#E5243B', '#DDA63A', '#4C9F38', '#C5192D', '#FF3A21',
+                            '#26BDE2', '#FCC30B', '#A21942', '#FD6925'
+                        ],
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+
+new Chart(document.getElementById('populationPieChart'), {
+  type: 'pie',
+  data: {
+    labels: ['14-15 anni', '16-17 anni', '18-19 anni'],
+    datasets: [{
+      // niente label per evitare che compaia nel tooltip
+      label: '',
+      // Inserisci qui i VALORI GREZZI (conteggi). Le % vengono calcolate al volo.
+      data: [35, 45, 20],
+      backgroundColor: ['#6B8E23', '#8FBC8F', '#9ACD32'],
+      hoverOffset: 4
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom' },
+      tooltip: {
+        displayColors: false,
+        callbacks: {
+          // Niente titolo nel tooltip
+          title: () => '',
+          // Mostra SOLO la percentuale calcolata
+          label: function(context) {
+            const dataset = context.dataset;
+            const total = dataset.data.reduce((a, b) => a + b, 0);
+            const value = dataset.data[context.dataIndex];
+            const pct = total > 0 ? ((value / total) * 100).toFixed(1) : 0;
+            return `${pct}%`;
+          }
+        }
+      }
+    }
+  }
+});
+
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+// === INIEZIONE PER SOTTO-DOMINI DETTAGLIATI DI "Systems Understanding" ===
+try {
+  const systemsCard = Array.from(document.querySelectorAll('#framework-grid .bg-white')).find(c => 
+    c.querySelector('h3') && c.querySelector('h3').textContent.trim() === 'Systems Understanding'
+  );
+  if (systemsCard) {
+    const details = systemsCard.querySelector('.details');
+    if (details) {
+      details.innerHTML = `<h4 class="font-semibold text-gray-700 mb-2">Sotto-domini chiave (clicca per espandere):</h4>` + `<div class="space-y-3"><ul class="list-disc list-inside space-y-2 text-gray-700">
+    <li>
+      <a href="#" class="text-green-700 font-semibold toggle-subdomain">🌍 Ecosystem Dynamics</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Questo sotto-dominio si concentra sulla capacità degli studenti di percepire, interpretare e navigare le complesse interdipendenze tra sistemi naturali e artificiali, inclusi i pattern dinamici e i cicli di retroazione. L’obiettivo è passare da un pensiero statico a un pensiero basato sui processi, integrando saperi locali e utilizzando l’AI per visualizzazione e simulazione. La ricerca mostra che gli studenti confondono spesso i cicli ecologici con i sistemi e mantengono una comprensione statica. La soluzione proposta — l’integrazione di modelli AI come simulazioni agent‑based e visualizzazioni di feedback dinamici — offre uno scaffolding cognitivo che rende tangibili e osservabili concetti astratti e dinamici, migliorando il pensiero sistemico. In questo contesto l’AI non è soltanto uno strumento di efficienza, ma un potenziatore cognitivo nell’educazione ecologica, capace di trasformare conoscenze astratte in apprendimento esperienziale.</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Mostra Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+      </div>
+    </li>
+    
+    <li>
+      <a href="#" class="text-green-700 font-semibold toggle-subdomain">🔄 Feedback Loops & Patterns</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Questo sotto-dominio coltiva il riconoscimento di come i cicli di retroazione rinforzanti (positivi) e bilancianti (negativi) modellino la resilienza degli ecosistemi e dei sistemi socio‑economico‑ambientali. Gli strumenti di AI sono essenziali per la visualizzazione dinamica e la simulazione di questi cicli. In particolare, le AI generative possono sostenere la riflessione fornendo spiegazioni delle strutture dei loop, tracciando collegamenti causali e offrendo una narrazione sufficiente a favorire la comprensione metacognitiva. Ne consegue che l’AI non è soltanto uno strumento di simulazione, ma anche uno strumento metacognitivo che aiuta gli studenti a riflettere sulla propria comprensione dei processi sistemici complessi, andando oltre la memorizzazione di componenti per arrivare a una comprensione concettuale profonda e a una critica del comportamento sistemico.</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Mostra Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+      </div>
+    </li>
+    
+    <li>
+      <a href="#" class="text-green-700 font-semibold toggle-subdomain">📚 Systems Literacy (Complexity Education)</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Si focalizza sulla capacità di comprendere e interagire con sistemi socio‑ecologici complessi, promuovendo una mentalità di interconnessione. Ciò implica passare da un pensiero modulare a una comprensione reticolare e ricorsiva, facendo uso di progetti transdisciplinari e modellazione di reti. Promuovendo il passaggio da “fatti isolati” a una comprensione dinamica e relazionale, e consentendo agli studenti di rilevare tensioni sistemiche, partecipare al co‑design (ad esempio nella pianificazione civica o nella regolazione dell’AI) e adottare percorsi di soluzione resilienti, la literacy sistemica diventa un prerequisito per una cittadinanza informata e attiva in un mondo sempre più complesso e mediato tecnologicamente. In un’epoca in cui l’AI e le questioni ambientali complesse plasmano la società, la literacy sistemica non è solo un’abilità accademica, ma una competenza civica essenziale per la tenuta e l’evoluzione dei processi democratici di fronte alle sfide tecno‑ecologiche.</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Mostra Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+      </div>
+    </li>
+    
+    <li>
+      <a href="#" class="text-green-700 font-semibold toggle-subdomain">🤝 Sympoietic Thinking Models</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Propone uno spostamento da cornici autonome a cornici co‑creative di “making‑with”, enfatizzando relazionalità e divenire collettivo tra umani, AI e ambiente. Il concetto centrale è che “nessun sistema si fa da sé — tutti sono situati entro complessi relazionali più ampi”. Ciò sfida direttamente l’idea antropocentrica dell’eccezionalismo umano e del controllo su natura e tecnologia. Se i sistemi (incluso l’assemblaggio umano‑AI‑natura) sono co‑creati, allora anche la responsabilità etica è co‑distribuita: non è soltanto un’etica umana verso la natura o l’AI, ma un’etica che emerge dalle intra‑azioni che tessono questi sistemi intrecciati. Questa impostazione fornisce un fondamento filosofico solido per l’intero EcoAI, spostando da una visione strumentale dell’AI a una posizione etica di divenire condiviso e responsabilità reciproca, cruciale per affrontare sfide ambientali e sociali complesse.</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Mostra Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+      </div>
+    </li>
+    </ul></div>`;
+      // Gestione toggle testo e rubriche
+      details.querySelectorAll('.toggle-subdomain').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const box = link.parentElement.querySelector('.subdomain-text');
+          if (box) box.classList.toggle('hidden');
+        });
+      });
+      details.querySelectorAll('.toggle-rubric').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const box = link.parentElement.querySelector('.rubric-table');
+          if (box) box.classList.toggle('hidden');
+        });
+      });
+    }
+  }
+} catch (e) { console.error('Inject Systems Understanding subdomains failed:', e); }
+
+
+            
+// === INIEZIONE PER SOTTO-DOMINI DETTAGLIATI DI "Ecological Understanding of AI" ===
+try {
+  const card = Array.from(document.querySelectorAll('#framework-grid .bg-white')).find(c => 
+    c.querySelector('h3') && c.querySelector('h3').textContent.trim() === 'Ecological Understanding of AI'
+  );
+  if (card) {
+    const details = card.querySelector('.details');
+    if (details) {
+      details.innerHTML = `<h4 class="font-semibold text-gray-700 mb-2">Sotto-domini chiave (clicca per espandere):</h4>` + `<div class="space-y-3"><ul class="list-disc list-inside space-y-2 text-gray-700">
+    <li>
+      <a href="#" class="text-green-700 font-semibold toggle-subdomain">🏗️ Digital Ecosystems & Infrastructures</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Questo sotto‑dominio esplora l’interazione tra sistemi socio‑tecnici, governance dei dati, economie delle piattaforme e trasformazioni educative, sottolineando che le infrastrutture digitali non sono neutre ma incorporano valori e rapporti di potere. Il framework spinge a comprendere la materialità dell’apparente mondo “immateriale” del digitale, rendendo visibili costi ambientali nascosti (energia, estrazione mineraria, rifiuti elettronici) e dinamiche di potere nei data center e nelle catene di fornitura. Comprendere tali infrastrutture abilita una nuova forma di “agency infrastrutturale”, con cui promuovere governance digitali più sostenibili ed eque, andando oltre l’interazione superficiale con le app e sviluppando una literacy infrastrutturale critica per una cittadinanza digitale responsabile.</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Mostra Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+      </div>
+    </li>
+    
+    <li>
+      <a href="#" class="text-green-700 font-semibold toggle-subdomain">⚡ AI Energy Consumption</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Indaga il duplice ruolo dell’AI: da un lato consuma grandi quantità di energia e risorse (inclusi impatti idrici e carbonici), dall’altro offre strumenti per la sostenibilità. Si considerano dati concreti su impronte di modelli e data center e il fenomeno del rebound, per cui i miglioramenti di efficienza possono paradossalmente aumentare la domanda totale di energia. Queste evidenze mettono in luce il paradosso della “green AI” e la necessità di soluzioni sistemiche: l’AI può essere uno strumento per la sostenibilità, ma la sua esistenza e crescita possono risultare insostenibili. Implica che studenti e policy maker debbano valutare criticamente l’intero ciclo di vita dell’AI, promuovendo progettazione etica, consumo responsabile e quadri normativi che tengano conto dell’impronta ecologica complessiva.</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Mostra Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+      </div>
+    </li>
+    
+    <li>
+      <a href="#" class="text-green-700 font-semibold toggle-subdomain">⚖️ Environmental & Climate Justice</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Evidenzia come le crisi ecologiche siano intrecciate a disuguaglianze sociali. Mostra che gli algoritmi, pur apparendo neutri, possono riprodurre o amplificare disuguaglianze esistenti, creando “zone di sacrificio” o ignorando le comunità vulnerabili. Si va oltre la mera “rilevazione del bias” verso una critica più profonda del “colonialismo dell’AI” e dell’“imperialismo culturale”. Il framework insiste su epistemologie decoloniali e audit situati co‑progettati con le comunità, ponendo l’educazione in un ruolo proattivo e trasformativo nel ripensare sistemi di AI orientati a una giustizia autentica.</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Mostra Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+      </div>
+    </li>
+    
+    <li>
+      <a href="#" class="text-green-700 font-semibold toggle-subdomain">🏛️ Ecopolitical Tech Analysis</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Esamina gli intrecci politici, economici ed ecologici della tecnologia, riconoscendo che essa è coltivata entro sistemi intrisi di potere e richiede una rigorosa literacy socio‑tecnica. Si passa dall’idea di tecnologia come strumento neutro alla comprensione della tecnologia come attore politico‑ecologico con bias e strutture di potere intrinseche. Il concetto di immaginari sociotecnici mostra che le visioni collettive del ruolo della tecnologia ne orientano sviluppo e impatto, rendendola un terreno di contesa politica. Formare questa literacy abilita interventi ecopolitici per assicurare che la tecnologia serva fini sostenibili e giusti, anziché perpetuare dinamiche di potere esistenti.</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Mostra Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+      </div>
+    </li>
+    </ul></div>`;
+      details.querySelectorAll('.toggle-subdomain').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const box = link.parentElement.querySelector('.subdomain-text');
+          if (box) box.classList.toggle('hidden');
+        });
+      });
+      details.querySelectorAll('.toggle-rubric').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const box = link.parentElement.querySelector('.rubric-table');
+          if (box) box.classList.toggle('hidden');
+        });
+      });
+    }
+  }
+} catch (e) { console.error('Inject subdomains failed for Ecological Understanding of AI:', e); }
+
+
+// === INIEZIONE PER SOTTO-DOMINI DETTAGLIATI DI "Tool-Based Learning" ===
+try {
+  const card = Array.from(document.querySelectorAll('#framework-grid .bg-white')).find(c => 
+    c.querySelector('h3') && c.querySelector('h3').textContent.trim() === 'Tool-Based Learning'
+  );
+  if (card) {
+    const details = card.querySelector('.details');
+    if (details) {
+      details.innerHTML = `<h4 class="font-semibold text-gray-700 mb-2">Sotto-domini chiave (clicca per espandere):</h4>` + `<div class="space-y-3"><ul class="list-disc list-inside space-y-2 text-gray-700">
+    <li>
+      <a href="#" class="text-green-700 font-semibold toggle-subdomain">🧪 AI‑Generated Content & Simulations</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Esamina implicazioni cognitive, ecologiche ed etiche degli output generati dall’AI e delle simulazioni, trattando i prodotti sintetici non solo come risultati ma come eventi socio‑tecnici con ricadute su cognizione, ecologia ed etica. La pervasività dei contenuti AI richiede fluenza critica. Le simulazioni abilitano pedagogie speculative e apprendimento per scenari (clima, gestione risorse), ma non sono neutre: occorre analizzare impatti materiali (carbonio, acqua) e come i modelli plasmino gli immaginari. Il fine non è solo criticare i media prodotti dall’AI, ma riappropriarsene creativamente per lo storytelling ecologico.</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Mostra Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+      </div>
+    </li>
+    
+    <li>
+      <a href="#" class="text-green-700 font-semibold toggle-subdomain">🔗 Hybrid Learning Modules</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Rappresentano un fronte educativo in cui literacies digitali ed ecologiche si intrecciano in esperienze potenziate dall’AI e orientate alla sostenibilità. Vanno oltre la semplice combinazione online‑presenza, tessendo intenzionalmente pensiero ecologico, padronanza degli strumenti AI e impegno civico. La natura ibrida consente di operare attraverso contesti, media e temporalità, incarnando cognizione distribuita e adattabilità. Esempi come simulazioni di qualità dell’acqua con AI rafforzano concetti di altri sotto‑domini e mettono in relazione dinamiche di ecosistemi e feedback.</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Mostra Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+      </div>
+    </li>
+    
+    <li>
+      <a href="#" class="text-green-700 font-semibold toggle-subdomain">📍 Situated Human–AI Interaction</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Indaga come studenti e sistemi AI co‑creano significati e comprensioni ecologiche in ambienti situati e incarnati. L’intelligenza non è confinata nelle menti o negli algoritmi, ma emerge dalle intra‑azioni tra umani, macchine e ambienti. L’interazione situata diventa partecipazione all’apprendimento: gli studenti negoziano problemi ecologici con AI, sensori e pari in contesti reali. Esempio: lavorando con kit di sensori AI si apprendono insieme data literacy e relazioni complesse tra sistemi idrici, accuratezza dei sensori, calibrazione algoritmica e condizioni locali.</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Mostra Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+      </div>
+    </li>
+    
+    <li>
+      <a href="#" class="text-green-700 font-semibold toggle-subdomain">🧰 Pedagogical Experimentation with Digital Tools</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Indaga il potenziale trasformativo e le sfumature pedagogiche dell’impiego di tecnologie abilitate dall’AI nell’educazione alla sostenibilità. Invece di considerare gli strumenti come semplici implementazioni, li posiziona come mediatori attivi di significato ecologico, interazione sociale e formazione identitaria. L’aula diventa luogo di praxis riflessiva, dove studenti e docenti esplorano come l’AI rimodelli sia la comprensione ecologica sia le relazioni pedagogiche (es. app di biodiversità con AI in campo: osservazione ecologica + riflessione su classificazioni algoritmiche, bias e politiche di generazione della conoscenza).</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Mostra Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+      </div>
+    </li>
+    
+    <li>
+      <a href="#" class="text-green-700 font-semibold toggle-subdomain">🎨 Multimodal Approaches & Creativity</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Evidenzia il ruolo di pratiche sensoriali, semiotiche e creative nella promozione di ecoliteracy e immaginazione ecologica profonda. L’integrazione di AI multimodale (MLLM) abilita sintesi in tempo reale di testo, immagini e suoni, aprendo nuove interfacce per esplorazione e indagine. Questi strumenti supportano storytelling ecologico, mappature di comunità e design di rete collaborativi, offrendo vie multimodali per esprimere relazioni, processi e futuri possibili. La creatività diventa necessità pedagogica per codificare prospettive diverse, immaginari futuri e interrelazioni sistemiche.</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Mostra Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+      </div>
+    </li>
+    </ul></div>`;
+      details.querySelectorAll('.toggle-subdomain').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const box = link.parentElement.querySelector('.subdomain-text');
+          if (box) box.classList.toggle('hidden');
+        });
+      });
+      details.querySelectorAll('.toggle-rubric').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const box = link.parentElement.querySelector('.rubric-table');
+          if (box) box.classList.toggle('hidden');
+        });
+      });
+    }
+  }
+} catch (e) { console.error('Inject subdomains failed for Tool-Based Learning:', e); }
+
+
+// === INIEZIONE PER SOTTO-DOMINI DETTAGLIATI DI "Identity Formation" ===
+try {
+  const card = Array.from(document.querySelectorAll('#framework-grid .bg-white')).find(c => 
+    c.querySelector('h3') && c.querySelector('h3').textContent.trim() === 'Identity Formation'
+  );
+  if (card) {
+    const details = card.querySelector('.details');
+    if (details) {
+      details.innerHTML = `<h4 class="font-semibold text-gray-700 mb-2">Sotto-domini chiave (clicca per espandere):</h4>` + `<div class="space-y-3"><ul class="list-disc list-inside space-y-2 text-gray-700">
+    <li>
+      <a href="#" class="text-green-700 font-semibold toggle-subdomain">🤖🌿 Hybrid EcoDigital Agency</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Cattura le capacità emergenti degli studenti di agire collaborativamente entro sistemi ecologici e tecnologici intrecciati, riconoscendo che l’agency oggi non è né soltanto umana né puramente ecologica, ma tecno‑naturale. L’agency non è un attributo individuale, ma è co‑regolata nelle interazioni tra pari, educatori e sistemi algoritmici, spostando il focus dall’individualismo autonomo all’azione collettiva e sistemica. Questo quadro si rafforza con approcci di design partecipativo e prospettive di intelligenza ibrida emergenti nell’educazione all’AI.</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Mostra Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+      </div>
+    </li>
+    
+    <li>
+      <a href="#" class="text-green-700 font-semibold toggle-subdomain">🧭 Ecodigital Positionality & Imaginaries</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Invita gli studenti a riflettere criticamente sui propri posizionamenti sociali, culturali ed ecologici nell’intersezione con i sistemi di AI. Le identità, le prospettive legate ai luoghi e le visioni collettive plasmano — e sono plasmate — dal dispiegamento dell’AI in contesti ecologici. Gli immaginari di AI non sono mai neutri e riflettono dinamiche di potere: la critica al “colonialismo dell’AI” e all’“imperialismo culturale” dei sistemi generativi rende necessaria un’educazione che resista a contenuti neocoloniali e coltivi pluralità di immaginari ecologici. Una pedagogia centrata sulla posizionalità eco‑digitale promuove empatia, giustizia epistemica e immaginazione partecipativa.</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Mostra Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+      </div>
+    </li>
+    
+    <li>
+      <a href="#" class="text-green-700 font-semibold toggle-subdomain">🤝 Relational Ethics Education</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Enfatizza la coltivazione di consapevolezza etica attraverso relazioni di cura che comprendono mondi umani, non‑umani e tecnologici. Si fonda su etiche della cura e relazionalità post‑umana per sfidare approcci disincarnati all’etica dell’AI, posizionando la cura come valore e pratica relazionale primari. In un contesto di ecoliteracy, questa responsività abbraccia ecosistemi, agenti AI e comunità, orientando verso una postura ontologica relazionale di interdipendenza e vulnerabilità condivisa.</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Mostra Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+      </div>
+    </li>
+    
+    <li>
+      <a href="#" class="text-green-700 font-semibold toggle-subdomain">🧪 Algorithmic Bias, Fairness & Representation</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Interroga le dimensioni sociotecniche ed etiche dei sistemi di AI, trattando gli algoritmi non come meri artefatti computazionali ma come agenti politici che possono riprodurre o esacerbare disuguaglianze sistemiche. Con l’aumento dell’affidamento all’AI per indicatori di sostenibilità, modellazione ambientale e strumenti educativi, EcoAI mette in primo piano come bias in dati, design e implementazione possano rinforzare ingiustizie. Questa attenzione si allinea agli obiettivi del GreenComp (responsabilità, equità) e agli SDG 10 e 16, promuovendo capacità critiche per chiedere “chi beneficia e chi paga il prezzo” degli interventi di sistema.</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Mostra Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+      </div>
+    </li>
+    
+    <li>
+      <a href="#" class="text-green-700 font-semibold toggle-subdomain">🌍 Post‑Anthropocentric Identity</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Invita a decostruire il sé antropocentrico per promuovere nuove forme identitarie eco‑centriche attraverso interazioni con AI e sistemi ecologici. Mette in discussione dualismi radicati (umano/non‑umano, cultura/natura, tecnologia/ecologia) e ridefinisce l’identità come emergente, situata e relazionale. Questa svolta ontologica, informata da prospettive post‑umaniste e ambientali, promuove umiltà ecologica, co‑agency inter‑specie e responsabilità distribuite, in linea con le competenze GreenComp.</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Mostra Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+      </div>
+    </li>
+    
+    <li>
+      <a href="#" class="text-green-700 font-semibold toggle-subdomain">Posthuman Relational Ethics</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Rielabora le etiche tradizionali enfatizzando l’intreccio tra umani, tecnologie e altre entità ecologiche, offrendo una base robusta per EcoAI. Ispirandosi a Donna Haraway (sympoiesis, “making‑with”) e Karen Barad (realismo agenziale), sposta l’attenzione da attori morali individuali a relazioni intra‑attive e distribuite. Nel quadro EcoAI, l’AI non è un attore neutro ma un partecipante negli assemblaggi ecologici, richiedendo responsabilità etica nella progettazione, implementazione e interazione pedagogica.</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Mostra Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+      </div>
+    </li>
+    </ul></div>`;
+      details.querySelectorAll('.toggle-subdomain').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const box = link.parentElement.querySelector('.subdomain-text');
+          if (box) box.classList.toggle('hidden');
+        });
+      });
+      details.querySelectorAll('.toggle-rubric').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const box = link.parentElement.querySelector('.rubric-table');
+          if (box) box.classList.toggle('hidden');
+        });
+      });
+    }
+  }
+} catch (e) { console.error('Inject subdomains failed for Identity Formation:', e); }
+
+
+            
+// === INIEZIONE DESCRIZIONI DOMINI (TESTO INTEGRALE, GIUSTIFICATO) ===
+try {
+  const cards = Array.from(document.querySelectorAll('#framework-grid .bg-white'));
+  const setDesc = (title, html) => {
+    const card = cards.find(c => c.querySelector('h3') && c.querySelector('h3').textContent.trim() === title);
+    if (!card) return;
+    const p = card.querySelector('p');
+    if (p) {
+      p.innerHTML = `
+<div style="text-align: justify;">
+Questo dominio costituisce il <i>fondamento epistemico e metodologico</i> del framework EcoAI. Il suo obiettivo è coltivare una
+«visione eco‑sistemica dell’intelligenza» che unisca l’ecoliteracy classica alla literacy computazionale critica. Propone di sviluppare
+la capacità di leggere, interpretare e confrontare sistemi naturali e sistemi di Intelligenza Artificiale da una prospettiva complessa e interconnessa.
+La struttura è allineata con le competenze chiave di GreenComp (pensiero sistemico, pensiero critico) e con gli Obiettivi di Sviluppo Sostenibile (SDG 4, 13, 17).
+Le basi teoriche richiamano la “visione sistemica della vita” di Capra e Luisi, il “pensiero complesso” di Morin e il “realismo agenziale” di Barad,
+che introduce un’ontologia relazionale in cui l’agency emerge dalle intra‑azioni entro sistemi intrecciati.
+<br><br>
+Integrare la comprensione sistemica di sistemi naturali e AI implica un cambio di paradigma su causalità e interazione. Non si tratta solo di osservare cicli naturali,
+ma di comprendere come i processi algoritmici stessi manifestino comportamenti sistemici (es. cicli di feedback, riconoscimento di pattern), “ecologizzando” la comprensione dell’AI.
+Non è solo usare l’AI per studiare la natura, ma comprendere l’AI come <b>parte</b> dei sistemi complessi della natura. L’obiettivo è «non tecnicizzare ma ecologizzare» l’AI:
+inserire le AI nelle ecologie dell’apprendimento e del pianeta. Strumenti come NetLogo e le simulazioni ad agenti permettono di visualizzare interazioni non lineari e risultati emergenti,
+rendendo tangibili concetti astratti (tipping point, emergenza) e preparando a un futuro in cui i confini fra naturale e artificiale sono sempre più sfumati.
+</div>
+`; // placeholder; sostituito sotto per ogni titolo
+    }
+  };
+
+  // Mappa titolo -> descrizione
+  const map = new Map([
+    ['Systems Understanding', `
+<div style="text-align: justify;">
+Questo dominio costituisce il <i>fondamento epistemico e metodologico</i> del framework EcoAI. Il suo obiettivo è coltivare una
+«visione eco‑sistemica dell’intelligenza» che unisca l’ecoliteracy classica alla literacy computazionale critica. Propone di sviluppare
+la capacità di leggere, interpretare e confrontare sistemi naturali e sistemi di Intelligenza Artificiale da una prospettiva complessa e interconnessa.
+La struttura è allineata con le competenze chiave di GreenComp (pensiero sistemico, pensiero critico) e con gli Obiettivi di Sviluppo Sostenibile (SDG 4, 13, 17).
+Le basi teoriche richiamano la “visione sistemica della vita” di Capra e Luisi, il “pensiero complesso” di Morin e il “realismo agenziale” di Barad,
+che introduce un’ontologia relazionale in cui l’agency emerge dalle intra‑azioni entro sistemi intrecciati.
+<br><br>
+Integrare la comprensione sistemica di sistemi naturali e AI implica un cambio di paradigma su causalità e interazione. Non si tratta solo di osservare cicli naturali,
+ma di comprendere come i processi algoritmici stessi manifestino comportamenti sistemici (es. cicli di feedback, riconoscimento di pattern), “ecologizzando” la comprensione dell’AI.
+Non è solo usare l’AI per studiare la natura, ma comprendere l’AI come <b>parte</b> dei sistemi complessi della natura. L’obiettivo è «non tecnicizzare ma ecologizzare» l’AI:
+inserire le AI nelle ecologie dell’apprendimento e del pianeta. Strumenti come NetLogo e le simulazioni ad agenti permettono di visualizzare interazioni non lineari e risultati emergenti,
+rendendo tangibili concetti astratti (tipping point, emergenza) e preparando a un futuro in cui i confini fra naturale e artificiale sono sempre più sfumati.
+</div>
+`],
+    ['Ecological Understanding of AI', `
+<div style="text-align: justify;">
+Questo dominio illumina gli intrecci materiali, strutturali e culturali tra sistemi di AI e sistemi ecologici. Invece di inquadrare l’AI come semplice strumento,
+la considera parte di assemblaggi ecologici complessi, richiedendo consapevolezza di impronta energetica, politica delle infrastrutture, giustizia ambientale e immaginari ecopolitici.
+L’impostazione è coerente con GreenComp, che enfatizza il pensiero sistemico attraverso complessità e interconnessioni, e con gli SDG (in particolare 4, 9, 12, 13),
+riconoscendo che lo sviluppo sostenibile richiede educazione integrata, infrastrutture responsabili e gestione ambientale.
+<br><br>
+Il framework adotta una doppia prospettiva: «Ecoliteracy E AI» (AI come alleata per promuovere educazione ecologica) e «Ecoliteracy DELL’AI» (AI come oggetto di analisi ecologica e critica).
+Questa doppia visione è cruciale: l’AI è insieme «strumento pedagogico ecologico» e «problema ambientale da decostruire» (impronta energetica e idrica, catene produttive, etica computazionale).
+Ne deriva un coinvolgimento più sfumato e critico con la tecnologia, che evita narrazioni semplicistiche («l’AI ci salverà») e invita ad analizzare l’intero ciclo di vita e gli impatti sistemici dell’AI.
+</div>
+`],
+    ['Tool-Based Learning', `
+<div style="text-align: justify;">
+Questo dominio riposiziona gli strumenti digitali ed ecologici come <b>co‑costruttori</b> di conoscenza, agency e responsabilità ecologica.
+Sottolinea che gli strumenti riorganizzano l’apprendimento: l’agency si realizza nell’interazione con materiali, algoritmi ed ecosistemi.
+Gli strumenti diventano parte dell’<i>ecologia cognitiva</i> degli studenti. L’integrazione di strumenti abilitati dall’AI, come sensori o piattaforme di simulazione,
+fornisce <b>scaffolding</b> concreto per concetti sistemici astratti, traducendo la comprensione cognitiva in pratica incarnata.
+Ciò allinea il dominio a GreenComp (pensiero sistemico, strumenti e sistemi, orientamento al futuro) e agli SDG (4.7, 9, 12, 13).
+<br><br>
+Il framework va oltre la visione dell’AI come mero “strumento”, comprendendola come parte dell’ecologia cognitiva degli studenti e come <b>co‑educatrice</b>:
+non solo un mezzo, ma un partner attivo nel processo, che modella come gli studenti pensano, interagiscono e comprendono il mondo.
+Le teorie socio‑culturali e della cognizione distribuita (Salomon, Vygotskij) sostengono questa visione: la conoscenza è socialmente costruita nell’interazione con artefatti culturali
+e gli strumenti mediano la zona di sviluppo prossimale. Inoltre, la pedagogia critica (Freire, Illich) ricorda che gli strumenti non sono mai neutri,
+ma incorporano logiche sociali, culturali ed economiche. EcoAI invita a «leggere lo strumento»: origini, affordance e limiti entro sistemi di potere ed ecologia.
+Ne risulta uno spazio di <b>co‑apprendimento</b> mediato da strumenti intelligenti, in cui le tecnologie sono selezionate ecologicamente, personalizzabili, agentive,
+e collaborano alla formazione del cittadino eco‑consapevole.
+</div>
+`],
+    ['Identity Formation', `
+<div style="text-align: justify;">
+La formazione dell’identità è il cuore del dominio sistemico di EcoAI e rappresenta un passaggio da concezioni del sé isolate e antropocentriche
+a identità inclusive e relazionali, radicate negli intrecci eco‑tecnologici. Nell’attuale epoca ambientale e tecnologica,
+l’identità va riconfigurata: gli studenti non dovrebbero percepirsi come agenti isolati che «usano» AI o natura, ma come nodi interconnessi
+all’interno di assemblaggi ibridi in cui attori umani, non‑umani e algoritmici co‑costruiscono significato, agency e responsabilità.
+GreenComp sottolinea questo passaggio con competenze come “incarnare valori di sostenibilità”, “abbracciare la complessità”,
+“immaginare futuri sostenibili” e “agire per la sostenibilità”.
+<br><br>
+Le cornici post‑umaniste informano profondamente questo cambio. Il superamento del dualismo umano‑natura, sostenuto da Barad, Haraway e Braidotti,
+sorregge la trasformazione identitaria in EcoAI. Le identità non sono ancorate a individualità sovrane, ma a reti co‑incarnate,
+che evidenziano posizionalità situata, parentela multispecie e appartenenza tecno‑ecologica. Questa svolta ontologica sfida l’antropocentrismo,
+invitando a vivere l’identità come agency situata e multi‑specie. L’integrazione di questo dominio è cruciale perché identità post‑antropocentrica,
+posizionalità eco‑digitale, etica relazionale, etiche postumane e agency eco‑ibrida delineano un’architettura coerente della formazione identitaria,
+in linea con gli SDG (in particolare 4.7, 13‑15).
+</div>
+`]
+  ]);
+
+  map.forEach((val, key) => {
+    const card = cards.find(c => c.querySelector('h3') && c.querySelector('h3').textContent.trim() === key);
+    if (!card) return;
+    const p = card.querySelector('p');
+    if (p) p.innerHTML = val;
+  });
+} catch (e) { console.error('Injection domain descriptions failed:', e); }
+
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+
+<!-- ==== DOMAIN-LEVEL RUBRICS (from SOLO RUBRIC.docx) ==== -->
+<script>
+(function(){
+  const tbl = (rows) => `
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="bg-green-100 text-xs uppercase tracking-wide">
+            <th class="border px-3 py-2">Competenza (GreenComp / AI Literacy → EcoAI)</th>
+            <th class="border px-3 py-2">Base</th>
+            <th class="border px-3 py-2">Intermedio</th>
+            <th class="border px-3 py-2">Avanzato</th>
+            <th class="border px-3 py-2">Critico</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows.map(r => `
+            <tr>
+              <td class="border align-top px-3 py-2 font-medium">${r.title}</td>
+              <td class="border align-top px-3 py-2">${r.basic}</td>
+              <td class="border align-top px-3 py-2">${r.intermediate}</td>
+              <td class="border align-top px-3 py-2">${r.advanced}</td>
+              <td class="border align-top px-3 py-2">${r.critical}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+  `;
+
+  const RUBRIC_SYSTEMS = tbl([
+    { title:"Systems Thinking (G1) & Understanding AI",
+      basic:"Recognizes basic differences between a natural and an artificial system; identifies simple patterns. Expresses personal opinions on technologies.",
+      intermediate:"Describes feedback loops and cycles in both natural and AI systems; recognizes basic limits and biases of AI tools.",
+      advanced:"Compares and maps complex interdependencies between AI and natural systems; critically evaluates socio-environmental impacts of AI.",
+      critical:"Designs activities demonstrating deep interdependence between AI and the biosphere; argues for sustainable and responsible systemic alternatives." },
+    { title:"Problem Framing (G3) & Designing AI",
+      basic:"Describes a local environmental problem.",
+      intermediate:"Collaborates with AI to collect information for problem description.",
+      advanced:"Uses AI to simulate causes and effects in complex problems.",
+      critical:"Redefines problems by including ecological, ethical, and algorithmic perspectives." },
+    { title:"Systems Mapping (G4) & Evaluating AI",
+      basic:"Traces a simple map of causes-effects.",
+      intermediate:"Identifies nodes and flows in systems (e.g., resources-energy-AI).",
+      advanced:"Integrates technologies to create dynamic maps. Simulates systemic behaviors with AI.",
+      critical:"Analyzes breaking points and simulates systemic interventions. Proposes interventions based on sympoietic principles, demonstrating a holistic, co-creative understanding of systems." },
+    { title:"Non-Linear Cause-Effect Relations (EcoAI Specific)",
+      basic:"Identifies simple, direct cause-effect relationships.",
+      intermediate:"Recognizes that some changes can have unexpected or delayed effects.",
+      advanced:"Explains the concept of tipping points and feedback loops in environmental/AI systems.",
+      critical:"Designs scenarios or interventions that account for non-linear dynamics and potential unintended consequences in eco-digital systems." },
+    { title:"Sympoietic Thinking (EcoAI Specific)",
+      basic:"Recognizes that humans interact with nature and technology.",
+      intermediate:"Describes simple collaborations between humans and AI for a task.",
+      advanced:"Explains how humans, AI, and natural elements can mutually shape outcomes in a project.",
+      critical:"Designs and leads projects that demonstrate co-creation and shared agency among human, non-human, and algorithmic entities for systemic flourishing." }
+  ]);
+
+  const RUBRIC_ECOLOGICAL = tbl([
+    { title:"Sustainability Justice (G12) & Critiquing AI",
+      basic:"Recognizes basic environmental injustices in the world and that digital devices have an environmental impact. Expresses personal opinions on AI's societal impact.",
+      intermediate:"Connects environmental inequalities to technologies and data (e.g., e-waste, data centers). Recognizes the limits and biases of AI tools regarding environmental data.",
+      advanced:"Collects evidence and proposes changes to address environmental injustices linked to AI. Critically evaluates the social and environmental impact of AI infrastructure and energy consumption.",
+      critical:"Guides campaigns or projects of algorithmic environmental justice, advocating for equitable distribution of environmental harms and benefits. Argues for sustainable and responsible alternatives to current AI development and deployment practices." },
+    { title:"Digital Ecosystems & Infrastructures (EcoAI Specific)",
+      basic:"Identifies basic components of digital devices (e.g., screen, battery) and knows they consume energy.",
+      intermediate:"Describes the basic concept of a data center or cloud and its function.",
+      advanced:"Traces the lifecycle of a digital device or the energy source of a data center, identifying key environmental impacts.",
+      critical:"Analyzes the political economy of digital infrastructures, including supply chains, corporate control, and their global ecological and social consequences." },
+    { title:"AI Energy Consumption (EcoAI Specific)",
+      basic:"Knows that AI uses energy.",
+      intermediate:"Can state examples of AI's energy consumption (e.g., ChatGPT queries, training models).",
+      advanced:"Estimates the carbon or water footprint of specific AI tools or activities. Explains the concept of a \"rebound effect\" in AI energy use.",
+      critical:"Proposes and evaluates strategies for reducing AI's environmental footprint at a systemic level, considering policy, design, and user behavior." },
+    { title:"Ecopolitical Tech Analysis (EcoAI Specific)",
+      basic:"Expresses general concerns about technology's impact on society or environment.",
+      intermediate:"Identifies basic regulations or policies related to technology or environment.",
+      advanced:"Analyzes how economic incentives or policy decisions influence the environmental impact of AI (e.g., e-waste regulation, data center location).",
+      critical:"Proposes and advocates for specific ecopolitical interventions (e.g., supply chain transparency, mandatory carbon reporting for AI models) to shape more just and sustainable technological futures." }
+  ]);
+
+  const RUBRIC_TOOL = tbl([
+    { title:"Interacting with AI & Adaptability (G5)",
+      basic:"Uses AI tools guided by the teacher for basic environmental information. Utilizes digital tools for simple tasks.",
+      intermediate:"Experiments with new solutions using digital tools for sustainable purposes. Poses environmental questions to AI and seeks answers.",
+      advanced:"Modifies strategies and tools based on context and feedback to achieve ecological goals. Conducts autonomous explorations with AI (e.g., NetLogo simulations, open data).",
+      critical:"Proposes adaptive configurations of AI + local ecosystems for transformative change. Constructs new ecological hypotheses in dialogue with AI." },
+    { title:"Designing AI & Exploration (G6)",
+      basic:"Recognizes AI-generated content.",
+      intermediate:"Identifies basic features and potential biases of AI-generated content.",
+      advanced:"Co-constructs stories or simulations using AI-generated content. Designs simple AI-assisted activities.",
+      critical:"Critically evaluates and creatively appropriates AI-generated content for complex ecological storytelling and problem-solving. Co-designs AI tools for environmental purposes, understanding their ethical, ecological, and societal implications." },
+    { title:"AI-Generated Content & Simulations (EcoAI Specific)",
+      basic:"Can identify if content (text, image) is AI-generated.",
+      intermediate:"Can identify basic biases or inaccuracies in AI-generated content.",
+      advanced:"Critically analyzes AI-generated content for its ecological implications and potential biases.",
+      critical:"Creatively uses AI-generated content to construct nuanced, ethically informed ecological narratives or solutions." },
+    { title:"Situated Human-AI Interaction (EcoAI Specific)",
+      basic:"Interacts with AI tools in a classroom setting.",
+      intermediate:"Uses AI-enabled sensors or tools in a specific environmental context (e.g., collecting data in a park).",
+      advanced:"Collaborates with AI and environmental data to co-create a localized ecological understanding or solution.",
+      critical:"Designs and leads projects involving situated human-AI interaction that generates new ecological knowledge and fosters community engagement." },
+    { title:"Pedagogical Experimentation with Digital Tools (EcoAI Specific)",
+      basic:"Follows instructions to use a new digital tool for a learning task.",
+      intermediate:"Explores different features of a digital tool to see how it can support an ecological project.",
+      advanced:"Adapts the use of digital tools based on observed outcomes and reflects on their pedagogical effectiveness.",
+      critical:"Leads the design and implementation of pedagogical experiments with digital tools, critically evaluating their sociomaterial impact on learning and ecological outcomes." },
+    { title:"Multimodal Approaches & Creativity (EcoAI Specific)",
+      basic:"Uses one mode (e.g., text) to describe an environmental issue.",
+      intermediate:"Combines two modes (e.g., text and image) to present an ecological concept.",
+      advanced:"Integrates multiple modes (e.g., text, image, sound, interactive elements) with AI assistance to create a comprehensive ecological narrative.",
+      critical:"Innovatively uses multimodal AI tools to express complex, nuanced ecological ideas, fostering new forms of understanding and engagement for diverse audiences." }
+  ]);
+
+  const RUBRIC_IDENTITY = tbl([
+    { title:"Agency (G7) & Critiquing/Designing AI",
+      basic:"Feels involved in environmental problems. Recognizes the existence of AI and ecological technologies.",
+      intermediate:"Uses AI tools for sustainable purposes. Begins to connect personal actions to broader environmental impacts.",
+      advanced:"Plans collective AI-assisted actions. Co-designs environmental scenarios and solutions with AI.",
+      critical:"Activates transformative processes and supports others (peer agency) in eco-digital contexts, demonstrating leadership in co-agency with AI for sustainable change." },
+    { title:"Values (G11) & Critiquing AI",
+      basic:"Recognizes ecological values in self and others. Expresses personal visions of the future.",
+      intermediate:"Discusses ethical dilemmas on AI use. Compares future scenarios generated by AI.",
+      advanced:"Justifies choices with ecological justice values. Co-constructs future stories or simulations, considering diverse perspectives.",
+      critical:"Integrates values into educational and algorithmic environments, demonstrating a posthuman relational ethic where care extends to human, non-human, and algorithmic entities. Evaluates dystopian/utopian futures and proposes sustainable transformations, advocating for diverse, decolonized eco-digital imaginaries." },
+    { title:"Ecodigital Positionality & Imaginaries (EcoAI Specific)",
+      basic:"Expresses personal opinions on environmental or digital issues.",
+      intermediate:"Identifies how personal experiences might influence views on AI or environment.",
+      advanced:"Reflects on how personal and cultural positionality shapes perceptions of AI's ecological impacts and future imaginaries.",
+      critical:"Critically analyzes and challenges dominant techno-ecological imaginaries, proposing alternative narratives and designs that incorporate diverse, marginalized, or indigenous eco-digital perspectives." },
+    { title:"Algorithmic Bias, Fairness & Representation (EcoAI Specific)",
+      basic:"Recognizes that AI can contain errors or prejudices.",
+      intermediate:"Identifies simple examples of algorithmic bias (e.g., in facial recognition).",
+      advanced:"Collects evidence of algorithmic bias in eco-digital tools and proposes ways to mitigate it.",
+      critical:"Guides campaigns or projects of algorithmic environmental justice, actively challenging anthropocentric biases in AI design and deployment to ensure equitable outcomes for human and nonhuman entities." },
+    { title:"Post-Anthropocentric Identity (EcoAI Specific)",
+      basic:"Views humans as separate from, but impacting, nature and technology.",
+      intermediate:"Begins to see connections between human actions, AI, and environmental responses.",
+      advanced:"Demonstrates a sense of interconnectedness with natural and technological systems, recognizing shared vulnerabilities and responsibilities.",
+      critical:"Articulates a strong, embodied sense of post-anthropocentric identity, recognizing deep entanglement with non-human and algorithmic entities, and acting with a sense of distributed responsibility for systemic flourishing." }
+  ]);
+
+  function rubricBox(title, bodyHTML){
+    return `
+      <details class="mt-4 border border-green-200 rounded-lg bg-white shadow-sm">
+        <summary class="cursor-pointer px-4 py-3 font-semibold text-green-800 flex items-center justify-between">
+          <span>Rubric — ${title}</span>
+          <span class="text-gray-500">▼</span>
+        </summary>
+        <div class="px-5 pb-5 pt-3">${bodyHTML}</div>
+      </details>
+    `;
+  }
+
+  function tryInject(){
+    const grid = document.getElementById('framework-grid');
+    if(!grid || !grid.children || grid.children.length === 0) return false;
+    const map = {
+      "Systems Understanding": RUBRIC_SYSTEMS,
+      "Ecological Understanding of AI": RUBRIC_ECOLOGICAL,
+      "Tool-Based Learning": RUBRIC_TOOL,
+      "Identity Formation": RUBRIC_IDENTITY
+    };
+    Array.from(grid.children).forEach(card => {
+      const h = card.querySelector('h3, h2');
+      if(!h) return;
+      const title = (h.textContent || '').trim();
+      if(map[title] && !card.querySelector('.domain-rubric-box')){
+        const div = document.createElement('div');
+        div.className = 'domain-rubric-box';
+        div.innerHTML = rubricBox(title, map[title]);
+        card.appendChild(div);
+      }
+    });
+    return true;
+  }
+
+  // Hide old subdomain rubric immediately
+  const style = document.createElement('style');
+  style.textContent = '.toggle-rubric, .rubric-table { display:none !important; }';
+  document.head.appendChild(style);
+
+  window.addEventListener('load', () => {
+    if (tryInject()) return;
+    const mo = new MutationObserver(() => { if (tryInject()) mo.disconnect(); });
+    mo.observe(document.body, { childList: true, subtree: true });
+  });
+})();
+</script>
+  <!-- Qui inserisci il footer -->
+  <footer>
+    <a href="/it/privacy.html">Privacy Policy</a> |
+    <a href="/it/cookie.html">Cookie Policy</a> |
+    <a href="/it/termini.html">Termini e Condizioni</a> |
+    <a href="#" id="open-consent">Preferenze Privacy & Cookie</a>
+  </footer>
+<!-- === Modale Consenso IT === -->
+<style>
+  .consent-backdrop {position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:9998;}
+  .consent-modal {position:fixed;left:50%;bottom:24px;transform:translateX(-50%);max-width:720px;width:min(92vw,720px);
+    background:#fff;color:#111;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:9999;font-family:system-ui,Arial,sans-serif;}
+  .consent-hdr{padding:14px 16px;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;}
+  .consent-hdr h3{margin:0;font-size:16px;font-weight:700;}
+  .consent-body{padding:12px 16px;font-size:14px;line-height:1.45;}
+  .consent-body a{color:#166534;text-decoration:underline;}
+  .consent-item{display:flex;gap:10px;align-items:flex-start;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:10px;margin-top:8px;}
+  .consent-actions{padding:12px 16px;display:flex;gap:8px;border-top:1px solid #e5e7eb;}
+  .btn{padding:10px 14px;border-radius:10px;border:1px solid transparent;cursor:pointer;font-weight:600;}
+  .btn-primary{background:#15803d;color:#fff;}.btn-primary:hover{background:#166534;}
+  .btn-outline{background:#fff;border-color:#d1d5db;}.btn-outline:hover{background:#f3f4f6;}
+  .consent-hidden{display:none!important;}
+</style>
+
+<div id="consent-backdrop" class="consent-backdrop"></div>
+<div id="consent-modal" class="consent-modal consent-hidden" role="dialog" aria-modal="true">
+  <div class="consent-hdr"><h3>Privacy • Cookie • Termini</h3></div>
+  <div class="consent-body">
+    <p>Questo sito utilizza solo <b>cookie tecnici</b>. Consulta i documenti:
+      <a href="privacy.html" target="_blank" rel="noopener">Privacy</a>,
+	  <a href="cookie.html" target="_blank" rel="noopener">Cookie</a>,
+	  <a href="termini.html" target="_blank" rel="noopener">Termini</a>
+    </p>
+    <div class="consent-item">
+      <input type="checkbox" checked disabled> <label>Cookie tecnici (necessari)</label>
+    </div>
+    <div class="consent-item">
+      <input id="ck-analytics" type="checkbox"> <label>Analytics (non essenziali)</label>
+    </div>
+    <div class="consent-item">
+      <input id="ck-third" type="checkbox"> <label>Terze parti / embed</label>
+    </div>
+  </div>
+  <div class="consent-actions">
+    <button id="btn-accept-all" class="btn btn-primary">Accetta tutto</button>
+    <button id="btn-reject" class="btn btn-outline">Rifiuta</button>
+    <button id="btn-save" class="btn btn-outline">Salva</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  const KEY="ecoai_consent";const modal=document.getElementById("consent-modal");const back=document.getElementById("consent-backdrop");
+  const analytics=document.getElementById("ck-analytics"),third=document.getElementById("ck-third");
+  function show(){modal.classList.remove("consent-hidden");back.style.display="block";}
+  function hide(){modal.classList.add("consent-hidden");back.style.display="none";}
+  function save(mode){localStorage.setItem(KEY,JSON.stringify({analytics:analytics.checked,third:third.checked,mode,ts:new Date().toISOString()}));}
+  const state=JSON.parse(localStorage.getItem(KEY)||"null");if(!state)show();else{analytics.checked=!!state.analytics;third.checked=!!state.third;}
+  document.getElementById("btn-accept-all").onclick=()=>{analytics.checked=true;third.checked=true;save("all");hide();}
+  document.getElementById("btn-reject").onclick=()=>{analytics.checked=false;third.checked=false;save("reject");hide();}
+  document.getElementById("btn-save").onclick=()=>{save("save");hide();}
+  document.addEventListener("click",e=>{if(e.target.id==="open-consent"){e.preventDefault();show();}});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="EcoAI Literacies overview: eco-digital and ecological literacies bridging AI systems, sustainability education, and SDG-aligned learning."/>
+  <title>EcoAI Literacies — Overview</title>
+
+<!-- Canonical & hreflang -->
+<link rel="canonical" href="https://www.ecoaiframework.com/literacies.html">
+
+<!-- Homepage EN/IT -->
+<link rel="alternate" href="https://www.ecoaiframework.com/" hreflang="en">
+<link rel="alternate" href="https://www.ecoaiframework.com/it/" hreflang="it">
+
+<!-- Literacies EN/IT -->
+<link rel="alternate" href="https://www.ecoaiframework.com/literacies.html" hreflang="en">
+<link rel="alternate" href="https://www.ecoaiframework.com/it/literacies.html" hreflang="it">
+
+<!-- Default -->
+<link rel="alternate" href="https://www.ecoaiframework.com/" hreflang="x-default">
+
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; background:#F8F7F4; color:#333; }
+    .lit-tab { transition: background-color .2s ease, color .2s ease, box-shadow .2s ease; }
+    .lit-tab[aria-selected="true"] { background-color: rgb(22 163 74); color: white; box-shadow: 0 6px 14px rgba(22,163,74,.25); }
+    details > summary::-webkit-details-marker { display:none; }
+    details > summary { list-style:none; }
+  </style>
+</head>
+<body class="antialiased">
+  <!-- ===== EcoAI Literacies (standalone) ===== -->
+  <main class="max-w-screen-2xl mx-auto px-2 md:px-4 py-14">
+    <header class="text-center mb-8">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-800">EcoAI Literacies</h1><br><br>
+      <p class="text-gray-600 mt-3 text-justify px-2">
+        The <b>EcoAI Literacies</b> are the set of literacies that connect digital practices and ecological understanding:
+        they help students and educators to <b>critically read data, platforms and AI systems</b>, to <b>design sustainable actions</b>
+        and to <b>assess impacts and environmental justice</b>. In the EcoAI framework they function as an operational “bridge” between
+        the <i>domains</i> (positionality, relational ethics, hybrid eco-agency, systems) and the <b>educational/SDG goals</b>,
+        enabling informed decisions, responsibility and civic participation.<br><br>
+		
+		<b>Why two families of literacies (eco-digital and ecological)?</b><br><br>
+		To understand eco-digital posthumanist philosophy and the EcoAI framework in education, two intertwined families of competences are needed:<br> 
+		<b>Eco-digital literacies</b> (data, algorithms, AI, visualizations, platforms), which allow us to read and co-design the digital apparatuses that cut and make reality visible;<br>
+		<b>Ecological literacies</b> which connect the natural world (cycles, systems, biodiversity, environmental justice) to virtual environments (dashboards, digital twins, VR/AR), making explicit feedbacks, thresholds and consequences.
+	  </p>
+	  <p class="text-gray-800 mt-5 text-center font-semibold text-xl md:text-3xl">
+  Click on one of the four axes to view the corresponding Literacies:
+	  </p>
+<p class="text-center mt-2">
+  <a href="/it/literacies.html" hreflang="it" class="underline text-green-700">Versione italiana</a>
+</p>
+    </header>
+        <!-- Tabs (bottoni più grandi) -->
+    <nav class="flex flex-wrap justify-center gap-4 mb-8" role="tablist" aria-label="Literacies categories">
+      <button class="lit-tab px-8 md:px-12 py-4 md:py-6 rounded-xl border-2 text-lg md:text-2xl leading-tight bg-white whitespace-normal"
+              role="tab" aria-selected="true" aria-controls="panel-foundations" id="tab-foundations" data-tab="foundations">
+        Foundations
+      </button>
+      <button class="lit-tab px-8 md:px-12 py-4 md:py-6 rounded-xl border-2 text-lg md:text-2xl leading-tight bg-white whitespace-normal"
+              role="tab" aria-selected="false" aria-controls="panel-ecodigital" id="tab-ecodigital" data-tab="ecodigital">
+        Eco-digital
+      </button>
+      <button class="lit-tab px-8 md:px-12 py-4 md:py-6 rounded-xl border-2 text-lg md:text-2xl leading-tight bg-white whitespace-normal"
+              role="tab" aria-selected="false" aria-controls="panel-ecological" id="tab-ecological" data-tab="ecological">
+        Ecological
+      </button>
+      <button class="lit-tab px-8 md:px-12 py-4 md:py-6 rounded-xl border-2 text-lg md:text-2xl leading-tight bg-white whitespace-normal"
+              role="tab" aria-selected="false" aria-controls="panel-ethics" id="tab-ethics" data-tab="ethics">
+        Ethics &amp; Governance
+      </button>
+    </nav>
+
+    <!-- Panels -->
+    <section id="lit-panels" class="space-y-10">
+
+      <!-- FOUNDATIONS -->
+      <div id="panel-foundations" role="tabpanel" aria-labelledby="tab-foundations">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <details class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Media & Information Literacy (MIL)</summary>
+            <p class="text-sm mt-2"><b>Why here?</b> Critical basis for sources, misinformation, policy and participation.</p>
+            <p class="text-sm"><b>Outcomes:</b> evaluating evidence/rhetoric, correct citations, responsible production.</p>
+          </details>
+          <details class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">DigComp (2.2)</summary>
+            <p class="text-sm mt-2">EU framework: information, communication, content creation, safety, problem solving.</p>
+          </details>
+          <details class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">GreenComp</summary>
+            <p class="text-sm mt-2">Framing, futures, values, transformative action — direct link to the SDGs.</p>
+          </details>
+          <details class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm md:col-span-2">
+            <summary class="font-semibold cursor-pointer">Futures Literacy</summary>
+            <p class="text-sm mt-2">Anticipation to decide in the present: scenarios, assumptions, retrocasting on climate/energy.</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- ECO-DIGITAL -->
+      <div id="panel-ecodigital" class="hidden" role="tabpanel" aria-labelledby="tab-ecodigital">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <details class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Data Literacy</summary>
+            <p class="text-sm mt-2">Provenance, cleaning, analysis and ethical communication of data (including reproducibility).</p>
+          </details>
+          <details class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Algorithmic Literacy</summary>
+            <p class="text-sm mt-2">Ranking/recommendations, platform power, audit and bias mitigation.</p>
+          </details>
+          <details class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">AI Literacy</summary>
+            <p class="text-sm mt-2">Capabilities/limits of models, data and bias, interpretability, ethical and design implications.</p>
+          </details>
+          <details class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Visualization Literacy</summary>
+            <p class="text-sm mt-2">Charts and maps: scales, thresholds, encodings, uncertainty, accessibility.</p>
+          </details>
+          <details class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Social / Platform Literacy</summary>
+            <p class="text-sm mt-2">Participating and deliberating online in a critical, safe and collaborative way.</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- ECOLOGICAL -->
+      <div id="panel-ecological" class="hidden" role="tabpanel" aria-labelledby="tab-ecological">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <details class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Planetary Systems</summary>
+            <p class="text-sm mt-2">Earth as a system (flows/feedback/tipping points); digital twins and school dashboards.</p>
+          </details>
+          <details class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Climate</summary>
+            <p class="text-sm mt-2">Causes/impacts, mitigation/adaptation; carbon budget in school projects.</p>
+          </details>
+          <details class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Biodiversity & Ecosystems</summary>
+            <p class="text-sm mt-2">Bioacoustics/camera-trap + AI, citizen science, ecosystem services.</p>
+          </details>
+          <details class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Water</summary>
+            <p class="text-sm mt-2">Water cycle/basins, IoT sensors + GIS, threshold management and transparency.</p>
+          </details>
+          <details class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Energy</summary>
+            <p class="text-sm mt-2">Flows, efficiencies, consumption audit and ICT/AI trade-offs.</p>
+          </details>
+          <details class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Environmental Justice</summary>
+            <p class="text-sm mt-2">Distributive/procedural/recognition justice; mapping with socio-demographic data.</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- ETHICS & GOVERNANCE -->
+      <div id="panel-ethics" class="hidden" role="tabpanel" aria-labelledby="tab-ethics">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <details class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Privacy & Data Protection</summary>
+            <p class="text-sm mt-2">Minimization, anonymization, legal bases, consent and risks (including minors).</p>
+          </details>
+          <details class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">AI Ethics & Responsible Innovation</summary>
+            <p class="text-sm mt-2">Transparency, accountability, fairness; ethics-by-design in school projects.</p>
+          </details>
+          <details class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Civic / Deliberation Literacy</summary>
+            <p class="text-sm mt-2">School-community participation and deliberation; rules, pluralism, inclusion.</p>
+          </details>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Tabs script -->
+  <script>
+    const tabs = document.querySelectorAll('[role="tab"]');
+    const panels = document.querySelectorAll('[role="tabpanel"]');
+
+    function activate(tabId) {
+      tabs.forEach(t => {
+        const on = t.id === tabId;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      panels.forEach(p => {
+        const controls = document.getElementById(tabId).getAttribute('data-tab');
+        p.classList.toggle('hidden', p.id !== 'panel-' + controls);
+      });
+    }
+
+    tabs.forEach(t => {
+      t.addEventListener('click', () => activate(t.id));
+    });
+
+    // initial state
+    activate('tab-foundations');
+  </script>
+  <footer class="text-center mt-12 py-6 text-sm bg-gray-100 border-top border-gray-200">
+  <a href="/privacy.html">Privacy Policy</a> |
+  <a href="/cookie.html">Cookie Policy</a> |
+  <a href="/terms.html">Terms and Conditions</a> |
+  <a href="#" id="open-consent">Privacy & Cookie Preferences</a>
+</footer>
+<!-- === Consent Modal EN === -->
+<style>
+  .consent-backdrop {position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:9998;}
+  .consent-modal {position:fixed;left:50%;bottom:24px;transform:translateX(-50%);max-width:720px;width:min(92vw,720px);
+    background:#fff;color:#111;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:9999;font-family:system-ui,Arial,sans-serif;}
+  .consent-hdr{padding:14px 16px;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;}
+  .consent-hdr h3{margin:0;font-size:16px;font-weight:700;}
+  .consent-body{padding:12px 16px;font-size:14px;line-height:1.45;}
+  .consent-body a{color:#166534;text-decoration:underline;}
+  .consent-item{display:flex;gap:10px;align-items:flex-start;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:10px;margin-top:8px;}
+  .consent-actions{padding:12px 16px;display:flex;gap:8px;border-top:1px solid #e5e7eb;}
+  .btn{padding:10px 14px;border-radius:10px;border:1px solid transparent;cursor:pointer;font-weight:600;}
+  .btn-primary{background:#15803d;color:#fff;}.btn-primary:hover{background:#166534;}
+  .btn-outline{background:#fff;border-color:#d1d5db;}.btn-outline:hover{background:#f3f4f6;}
+  .consent-hidden{display:none!important;}
+</style>
+
+<div id="consent-backdrop" class="consent-backdrop"></div>
+<div id="consent-modal" class="consent-modal consent-hidden" role="dialog" aria-modal="true">
+  <div class="consent-hdr"><h3>Privacy • Cookies • Terms</h3></div>
+  <div class="consent-body">
+    <p>This site uses only <b>technical cookies</b>. Please consult:
+      <a href="/privacy.html" target="_blank" rel="noopener">Privacy</a>,
+      <a href="/cookie.html" target="_blank" rel="noopener">Cookie</a>,
+      <a href="/terms.html" target="_blank" rel="noopener">Terms</a>.
+    </p>
+    <div class="consent-item">
+      <input type="checkbox" checked disabled> <label>Technical cookies (necessary)</label>
+    </div>
+    <div class="consent-item">
+      <input id="ck-analytics" type="checkbox"> <label>Analytics (non-essential)</label>
+    </div>
+    <div class="consent-item">
+      <input id="ck-third" type="checkbox"> <label>Third-party / embeds</label>
+    </div>
+  </div>
+  <div class="consent-actions">
+    <button id="btn-accept-all" class="btn btn-primary">Accept all</button>
+    <button id="btn-reject" class="btn btn-outline">Reject</button>
+    <button id="btn-save" class="btn btn-outline">Save</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  const KEY="ecoai_consent"; // same key as IT if you want shared preferences
+  const modal=document.getElementById("consent-modal");
+  const back=document.getElementById("consent-backdrop");
+  const analytics=document.getElementById("ck-analytics");
+  const third=document.getElementById("ck-third");
+
+  function show(){ modal.classList.remove("consent-hidden"); back.style.display="block"; }
+  function hide(){ modal.classList.add("consent-hidden"); back.style.display="none"; }
+  function save(mode){
+    localStorage.setItem(KEY, JSON.stringify({
+      analytics: !!analytics.checked,
+      third: !!third.checked,
+      mode,
+      ts: new Date().toISOString()
+    }));
+  }
+
+  const state = JSON.parse(localStorage.getItem(KEY) || "null");
+  if (!state) {
+    show();
+  } else {
+    analytics.checked = !!state.analytics;
+    third.checked = !!state.third;
+  }
+
+  document.getElementById("btn-accept-all").onclick = () => { analytics.checked=true; third.checked=true; save("all"); hide(); };
+  document.getElementById("btn-reject").onclick     = () => { analytics.checked=false; third.checked=false; save("reject"); hide(); };
+  document.getElementById("btn-save").onclick       = () => { save("save"); hide(); };
+
+  document.addEventListener("click", (e) => {
+    if (e.target.id === "open-consent") { e.preventDefault(); show(); }
+  });
+})();
+</script>
+</body>
+</html>

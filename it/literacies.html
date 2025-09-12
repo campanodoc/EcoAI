@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="EcoAI Literacies: sintesi delle literacies eco-digitali ed ecologiche che connettono IA, pratiche educative e sostenibilità, in linea con gli SDG e il framework EcoAI.">
+  <title>EcoAI Literacies — Sintesi</title>
+<!-- Canonical & hreflang -->
+<link rel="canonical" href="https://www.ecoaiframework.com/it/literacies.html">
+
+<!-- Homepage EN/IT -->
+<link rel="alternate" href="https://www.ecoaiframework.com/" hreflang="en">
+<link rel="alternate" href="https://www.ecoaiframework.com/it/" hreflang="it">
+
+<!-- Literacies EN/IT -->
+<link rel="alternate" href="https://www.ecoaiframework.com/literacies.html" hreflang="en">
+<link rel="alternate" href="https://www.ecoaiframework.com/it/literacies.html" hreflang="it">
+
+<!-- Default -->
+<link rel="alternate" href="https://www.ecoaiframework.com/" hreflang="x-default">
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    body { font-family: 'Inter', sans-serif; background:#F8F7F4; color:#333; }
+    .lit-tab { transition: background-color .2s ease, color .2s ease, box-shadow .2s ease; }
+    .lit-tab[aria-selected="true"] { background-color: rgb(22 163 74); color: white; box-shadow: 0 6px 14px rgba(22,163,74,.25); }
+    details > summary::-webkit-details-marker { display:none; }
+    details > summary { list-style:none; }
+    /* testo giustificato nei box */
+    .box p, .box ul { text-align: justify; }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- ===== EcoAI Literacies (standalone) ===== -->
+  <main class="max-w-screen-2xl mx-auto px-2 md:px-3 py-10">
+    <header class="mb-6">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-800 text-center">EcoAI Literacies</h1>
+      <p class="text-gray-700 mt-4 text-justify px-1">
+        Le <b>EcoAI Literacies</b> sono un insieme di alfabetizzazioni integrate che collegano pratiche digitali e comprensione ecologica.
+        Consentono a studenti e docenti di <b>leggere criticamente dati, piattaforme e sistemi di IA</b>, di <b>progettare azioni sostenibili</b>
+        e di <b>valutare impatti, rischi e giustizia ambientale</b>. Nel framework EcoAI fungono da ponte operativo tra i quattro domini
+        (Posizionalità, Etiche Relazionali, Agency Eco-ibrida, Comprensione dei Sistemi) e gli <b>obiettivi formativi/SDG</b>, abilitando
+        decisioni informate, responsabilità e partecipazione civica.
+      </p>
+      <p class="text-gray-700 mt-3 text-justify px-1">
+        <b>Perché due famiglie di literacy (eco-digitali ed ecologiche)?</b><br><br>
+		Per comprendere la filosofia eco-digitale postumanista e il framework EcoAI servono <b>due famiglie intrecciate</b>: (a) le <b>literacies eco-digitali</b> (dati, algoritmi, IA, visualizzazioni, piattaforme),
+        per leggere e co-progettare gli apparati che rendono visibile il reale; (b) le <b>literacies ecologiche</b>, che connettono cicli,
+        sistemi, biodiversità e giustizia ambientale con ambienti virtuali (dashboard, gemelli digitali, VR/AR), esplicitando feedback, soglie e conseguenze.
+      </p>
+	  <p class="text-gray-800 mt-5 text-center font-semibold text-xl md:text-3xl">
+  Clicca su uno dei quattro assi per visualizzare le Literacies corrispondenti:
+	  </p>
+    </header>
+<p class="text-center mt-2">
+  <a href="/literacies.html" hreflang="en" class="underline text-green-700">English version</a>
+</p>
+    <!-- Tabs (bottoni più grandi) -->
+    <nav class="flex flex-wrap justify-center gap-4 mb-8" role="tablist" aria-label="Categorie di literacies">
+      <button class="lit-tab px-8 md:px-12 py-4 md:py-6 rounded-xl border-2 text-lg md:text-2xl leading-tight bg-white whitespace-normal"
+              role="tab" aria-selected="true" aria-controls="panel-foundations" id="tab-foundations" data-tab="foundations">
+        Fondamenti
+      </button>
+      <button class="lit-tab px-8 md:px-12 py-4 md:py-6 rounded-xl border-2 text-lg md:text-2xl leading-tight bg-white whitespace-normal"
+              role="tab" aria-selected="false" aria-controls="panel-ecodigital" id="tab-ecodigital" data-tab="ecodigital">
+        Eco-digitali
+      </button>
+      <button class="lit-tab px-8 md:px-12 py-4 md:py-6 rounded-xl border-2 text-lg md:text-2xl leading-tight bg-white whitespace-normal"
+              role="tab" aria-selected="false" aria-controls="panel-ecological" id="tab-ecological" data-tab="ecological">
+        Ecologiche
+      </button>
+      <button class="lit-tab px-8 md:px-12 py-4 md:py-6 rounded-xl border-2 text-lg md:text-2xl leading-tight bg-white whitespace-normal"
+              role="tab" aria-selected="false" aria-controls="panel-ethics" id="tab-ethics" data-tab="ethics">
+        Etica &amp; Governance
+      </button>
+    </nav>
+
+    <!-- Panels -->
+    <section id="lit-panels" class="space-y-10">
+
+      <!-- FONDAMENTI (tradotti) -->
+      <div id="panel-foundations" role="tabpanel" aria-labelledby="tab-foundations">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <details class="box bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Alfabetizzazione ai Media e all’Informazione (MIL)</summary>
+            <p class="text-sm mt-2">Base critica per ricercare, valutare e produrre informazione; riconoscere disinformazione, manipolazioni e contesti d’uso.</p>
+            <p class="text-sm"><b>Perché qui?</b> Sostiene lettura critica di media e piattaforme usate nei progetti EcoAI; abilita cittadinanza informata.</p>
+            <p class="text-sm"><b>Esiti:</b> rubriche per valutare fonti; citazioni e licenze corrette; policy di classe su verifiche e fact-checking.</p>
+          </details>
+
+          <details class="box bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">EU DigComp (2.2)</summary>
+            <p class="text-sm mt-2">Quadro UE delle competenze digitali: informazione, comunicazione, creazione contenuti, sicurezza, problem solving.</p>
+            <p class="text-sm"><b>Perché qui?</b> Fornisce linguaggio comune e progressioni valutabili per le pratiche digitali del framework.</p>
+            <p class="text-sm"><b>Esiti:</b> mappatura attività su indicatori DigComp; schede di autovalutazione; micro-credential scolastiche.</p>
+          </details>
+
+          <details class="box bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">GreenComp</summary>
+            <p class="text-sm mt-2">Competenze per la sostenibilità (framing, futures, valori, azione trasformativa) in 12 sotto-competenze.</p>
+            <p class="text-sm"><b>Perché qui?</b> Allinea EcoAI a SDG e politiche UE; rende valutabili i livelli di padronanza.</p>
+            <p class="text-sm"><b>Esiti:</b> rubriche per livelli (Base-Critico); agganci espliciti agli SDG nei compiti; evidenze per portfolio.</p>
+          </details>
+
+          <details class="box bg-white border border-gray-200 rounded-xl p-5 shadow-sm md:col-span-2">
+            <summary class="font-semibold cursor-pointer">Alfabetizzazione ai Futuri (Futures Literacy)</summary>
+            <p class="text-sm mt-2">Capacità di usare il futuro per agire nel presente: scenari, assunti, retrocasting, incertezza e resilienza.</p>
+            <p class="text-sm"><b>Perché qui?</b> Le scelte EcoAI richiedono visione di lungo periodo e consapevolezza di rischi/compromessi.</p>
+            <p class="text-sm"><b>Esiti:</b> laboratori di scenari; diari degli assunti; mappe di rischi/opportunità su clima-energia-AI.</p>
+          </details>
+
+        </div>
+      </div>
+
+      <!-- ECO-DIGITALI (NON tradotte, in inglese) -->
+      <div id="panel-ecodigital" class="hidden" role="tabpanel" aria-labelledby="tab-ecodigital">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <details class="box bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Data Literacy</summary>
+            <p class="text-sm mt-2">Provenance, quality, cleaning, analysis, and ethical communication of data; reproducibility and documentation.</p>
+            <p class="text-sm"><b>Perché qui?</b> EcoAI projects rely on environmental/social data; rigor and transparency are essential.</p>
+            <p class="text-sm"><b>Esiti:</b> data diary; metadata sheets; reproducible notebooks; visuals with explicit uncertainty.</p>
+          </details>
+
+          <details class="box bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Algorithmic Literacy</summary>
+            <p class="text-sm mt-2">How ranking/recommendation work; where bias arises; audit and mitigation principles.</p>
+            <p class="text-sm"><b>Perché qui?</b> Platforms mediate attention/visibility; understanding algorithms prevents distortions.</p>
+            <p class="text-sm"><b>Esiti:</b> small inquiries on feeds/search; bias checklists; classroom audit protocols and reports.</p>
+          </details>
+
+          <details class="box bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">AI Literacy</summary>
+            <p class="text-sm mt-2">Model capabilities/limits; training data; systematic errors; interpretability and safety.</p>
+            <p class="text-sm"><b>Perché qui?</b> AI is both tool and object of inquiry; we need critical and responsible use.</p>
+            <p class="text-sm"><b>Esiti:</b> prompt logs; model comparisons; safety protocols (no personal data); risk sheets for activities.</p>
+          </details>
+
+          <details class="box bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Visualization Literacy</summary>
+            <p class="text-sm mt-2">Chart/map choices, scales and thresholds, visual encodings, uncertainty, accessibility.</p>
+            <p class="text-sm"><b>Perché qui?</b> Decisions depend on honest, well-designed visuals.</p>
+            <p class="text-sm"><b>Esiti:</b> class guidelines; charts with uncertainty bands; inclusive legends; peer reviews.</p>
+          </details>
+
+          <details class="box bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Social / Platform Literacy</summary>
+            <p class="text-sm mt-2">Online participation and collaboration; community norms; moderation; safety and wellbeing.</p>
+            <p class="text-sm"><b>Perché qui?</b> EcoAI projects live in social ecosystems; we need conscious, cooperative agency.</p>
+            <p class="text-sm"><b>Esiti:</b> netiquette; anti-polarization plans; collaborative roles; moderation/care reports.</p>
+          </details>
+
+        </div>
+      </div>
+
+      <!-- ECOLOGICHE (tradotte) -->
+      <div id="panel-ecological" class="hidden" role="tabpanel" aria-labelledby="tab-ecological">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <details class="box bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Sistemi Planetari</summary>
+            <p class="text-sm mt-2">Terra come sistema complesso: flussi, feedback, tipping points; uso di digital twins e dashboard.</p>
+            <p class="text-sm"><b>Perché qui?</b> Orienta al pensiero sistemico e alle interdipendenze tra natura, società e tecnologia.</p>
+            <p class="text-sm"><b>Esiti:</b> mappe di sistema; semplici simulazioni; indicatori e soglie condivise per progetti scolastici.</p>
+          </details>
+
+          <details class="box bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Clima</summary>
+            <p class="text-sm mt-2">Cause/impatti, mitigazione/adattamento; budget di carbonio ed equità intergenerazionale.</p>
+            <p class="text-sm"><b>Perché qui?</b> Rende operative scelte scolastiche e civiche coerenti con obiettivi climatici.</p>
+            <p class="text-sm"><b>Esiti:</b> calcolo impronta; piani di riduzione; scenari locali; monitoraggi periodici con indicatori chiave.</p>
+          </details>
+
+          <details class="box bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Biodiversità &amp; Ecosistemi</summary>
+            <p class="text-sm mt-2">Relazioni specie-habitat, servizi ecosistemici; citizen science, bioacustica, camera-trap con IA.</p>
+            <p class="text-sm"><b>Perché qui?</b> Collega scelte quotidiane e politiche scolastiche alla salute degli ecosistemi.</p>
+            <p class="text-sm"><b>Esiti:</b> transect scolastici; dataset aperti; mappe di hotspot; protocolli etici di rilevamento con IA.</p>
+          </details>
+
+          <details class="box bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Acqua</summary>
+            <p class="text-sm mt-2">Ciclo idrico e bacini; qualità e disponibilità; sensori IoT + GIS; governance trasparente delle soglie.</p>
+            <p class="text-sm"><b>Perché qui?</b> L’acqua è bene comune e driver di giustizia; abilita progetti territoriali concreti.</p>
+            <p class="text-sm"><b>Esiti:</b> stazioni locali low-cost; dashboard di qualità; accordi d’uso e manutenzione partecipata.</p>
+          </details>
+
+          <details class="box bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Energia</summary>
+            <p class="text-sm mt-2">Fonti, flussi, efficienze; audit dei consumi; trade-off ICT/IA; comportamenti e tecnologie.</p>
+            <p class="text-sm"><b>Perché qui?</b> L’energia connette scelte didattiche, infrastrutture digitali e impatti locali.</p>
+            <p class="text-sm"><b>Esiti:</b> energy diary; dashboard di consumo; azioni di riduzione; valutazioni costi-benefici.</p>
+          </details>
+
+          <details class="box bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Giustizia Ambientale</summary>
+            <p class="text-sm mt-2">Giustizia distributiva, procedurale e di riconoscimento; mappature con dati socio-demografici.</p>
+            <p class="text-sm"><b>Perché qui?</b> Le transizioni devono essere eque; centralità delle comunità vulnerabili.</p>
+            <p class="text-sm"><b>Esiti:</b> mappe di esposizione; protocolli di ascolto; proposte di policy scolastica e civica.</p>
+          </details>
+
+        </div>
+      </div>
+
+      <!-- ETICA & GOVERNANCE (tradotte) -->
+      <div id="panel-ethics" class="hidden" role="tabpanel" aria-labelledby="tab-ethics">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <details class="box bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Privacy e Protezione dei Dati</summary>
+            <p class="text-sm mt-2">Comprendere basi giuridiche, minimizzazione, anonimizzazione, consenso e rischi (inclusi minori).</p>
+            <p class="text-sm"><b>Perché qui?</b> Protegge persone e istituzioni; abilita fiducia e collaborazione scuola-famiglie-territorio.</p>
+            <p class="text-sm"><b>Esiti:</b> DPIA light; policy di raccolta dati; impostazioni privacy sicure; registri dei trattamenti.</p>
+          </details>
+
+          <details class="box bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Etica dell’IA &amp; Innovazione Responsabile</summary>
+            <p class="text-sm mt-2">Trasparenza, accountability, fairness; pratiche di <i>ethics-by-design</i> e valutazione dei rischi.</p>
+            <p class="text-sm"><b>Perché qui?</b> L’IA incide su diritti, valori e ambienti; serve governance educativa dei rischi.</p>
+            <p class="text-sm"><b>Esiti:</b> schede etiche di progetto; metriche di rischio; piani di mitigazione e comunicazione.</p>
+          </details>
+
+          <details class="box bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <summary class="font-semibold cursor-pointer">Alfabetizzazione Civica / Deliberativa</summary>
+            <p class="text-sm mt-2">Partecipazione e deliberazione scuola-comunità; regole del confronto, pluralismo, inclusione.</p>
+            <p class="text-sm"><b>Perché qui?</b> La cittadinanza eco-digitale richiede processi pubblici trasparenti e dialogici.</p>
+            <p class="text-sm"><b>Esiti:</b> forum deliberativi; verbali e tracciabilità decisioni; linee guida anti-polarizzazione.</p>
+          </details>
+
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Tabs script -->
+  <script>
+    const tabs = document.querySelectorAll('[role="tab"]');
+    const panels = document.querySelectorAll('[role="tabpanel"]');
+
+    function activate(tabId) {
+      tabs.forEach(t => {
+        const on = t.id === tabId;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      panels.forEach(p => {
+        const controls = document.getElementById(tabId).getAttribute('data-tab');
+        p.classList.toggle('hidden', p.id !== 'panel-' + controls);
+      });
+    }
+
+    tabs.forEach(t => {
+      t.addEventListener('click', () => activate(t.id));
+    });
+
+    // stato iniziale
+    activate('tab-foundations');
+  </script>
+  <footer class="text-center mt-12 py-6 text-sm bg-gray-100 border-t border-gray-200">
+  <a href="/it/privacy.html">Privacy Policy</a> |
+  <a href="/it/cookie.html">Cookie Policy</a> |
+  <a href="/it/termini.html">Termini e Condizioni</a> |
+  <a href="#" id="open-consent">Preferenze Privacy & Cookie</a>
+</footer>
+<!-- === Modale Consenso IT === -->
+<style>
+  .consent-backdrop {position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:9998;}
+  .consent-modal {position:fixed;left:50%;bottom:24px;transform:translateX(-50%);max-width:720px;width:min(92vw,720px);
+    background:#fff;color:#111;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:9999;font-family:system-ui,Arial,sans-serif;}
+  .consent-hdr{padding:14px 16px;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;}
+  .consent-hdr h3{margin:0;font-size:16px;font-weight:700;}
+  .consent-body{padding:12px 16px;font-size:14px;line-height:1.45;}
+  .consent-body a{color:#166534;text-decoration:underline;}
+  .consent-item{display:flex;gap:10px;align-items:flex-start;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:10px;margin-top:8px;}
+  .consent-actions{padding:12px 16px;display:flex;gap:8px;border-top:1px solid #e5e7eb;}
+  .btn{padding:10px 14px;border-radius:10px;border:1px solid transparent;cursor:pointer;font-weight:600;}
+  .btn-primary{background:#15803d;color:#fff;}.btn-primary:hover{background:#166534;}
+  .btn-outline{background:#fff;border-color:#d1d5db;}.btn-outline:hover{background:#f3f4f6;}
+  .consent-hidden{display:none!important;}
+</style>
+
+<div id="consent-backdrop" class="consent-backdrop"></div>
+<div id="consent-modal" class="consent-modal consent-hidden" role="dialog" aria-modal="true">
+  <div class="consent-hdr"><h3>Privacy • Cookie • Termini</h3></div>
+  <div class="consent-body">
+    <p>Questo sito utilizza solo <b>cookie tecnici</b>. Consulta i documenti:
+      <a href="/it/privacy.html" target="_blank" rel="noopener">Privacy</a>,
+      <a href="/it/cookie.html" target="_blank" rel="noopener">Cookie</a>,
+      <a href="/it/termini.html" target="_blank" rel="noopener">Termini</a>.
+    </p>
+    <div class="consent-item">
+      <input type="checkbox" checked disabled> <label>Cookie tecnici (necessari)</label>
+    </div>
+    <div class="consent-item">
+      <input id="ck-analytics" type="checkbox"> <label>Analytics (non essenziali)</label>
+    </div>
+    <div class="consent-item">
+      <input id="ck-third" type="checkbox"> <label>Terze parti / embed</label>
+    </div>
+  </div>
+  <div class="consent-actions">
+    <button id="btn-accept-all" class="btn btn-primary">Accetta tutto</button>
+    <button id="btn-reject" class="btn btn-outline">Rifiuta</button>
+    <button id="btn-save" class="btn btn-outline">Salva</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  const KEY="ecoai_consent"; // stessa chiave per mantenere coerenza tra EN e IT
+  const modal=document.getElementById("consent-modal");
+  const back=document.getElementById("consent-backdrop");
+  const analytics=document.getElementById("ck-analytics");
+  const third=document.getElementById("ck-third");
+
+  function show(){ modal.classList.remove("consent-hidden"); back.style.display="block"; }
+  function hide(){ modal.classList.add("consent-hidden"); back.style.display="none"; }
+  function save(mode){
+    localStorage.setItem(KEY, JSON.stringify({
+      analytics: !!analytics.checked,
+      third: !!third.checked,
+      mode,
+      ts: new Date().toISOString()
+    }));
+  }
+
+  const state = JSON.parse(localStorage.getItem(KEY) || "null");
+  if (!state) {
+    show();
+  } else {
+    analytics.checked = !!state.analytics;
+    third.checked = !!state.third;
+  }
+
+  document.getElementById("btn-accept-all").onclick = () => { analytics.checked=true; third.checked=true; save("all"); hide(); };
+  document.getElementById("btn-reject").onclick     = () => { analytics.checked=false; third.checked=false; save("reject"); hide(); };
+  document.getElementById("btn-save").onclick       = () => { save("save"); hide(); };
+
+  document.addEventListener("click", (e) => {
+    if (e.target.id === "open-consent") { e.preventDefault(); show(); }
+  });
+})();
+</script>
+</body>
+</html>
