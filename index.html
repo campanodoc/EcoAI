@@ -67,7 +67,7 @@
 <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
 <nav class="mx-auto max-w-screen-2xl px-4 md:px-6 py-4 flex justify-between items-center relative">
 <h1 class="text-2xl font-bold text-green-800">EcoAI Framework</h1>
-<a href="it/index.html"
+<a href="index.html"
    class="text-sm px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700
           absolute right-6 top-1/2 -translate-y-1/2">
   IT
@@ -182,7 +182,7 @@
 <!-- CTA: link to Literacies page (EN) -->
 <div class="py-6">
   <div class="mx-auto max-w-screen-2xl px-4 md:px-6 text-center">
-    <a href="literacies.html"
+    <a href="literacies_en.html"
        class="inline-flex items-center gap-2 px-6 md:px-8 py-4 md:py-5 text-lg md:text-xl font-semibold
               rounded-xl bg-green-700 text-white hover:bg-green-800 shadow-lg transition">
       Explore EcoAI Literacies
@@ -404,23 +404,37 @@
             </div>`,
           subdomains: [
             {
-              name: '🌍 Ecosystem Dynamics',
+              name: 'Ecosystem Dynamics',
               text: `This sub-domain explores interdependencies between natural and artificial systems
               (dynamic patterns and feedback cycles), fostering a shift from static thinking to process-oriented thinking;
               AI acts as a cognitive amplifier for visualizations and simulations.`
             },
             {
-              name: '🔁 Feedback Loops & Patterns',
+              name: 'Feedback Loops & Patterns',
               text: `Focus on feedback cycles, recurring structures, and pattern recognition across ecological and computational phenomena.`
             },
             {
-              name: '📚 Systems Literacy (Complexity Education)',
+              name: 'Systems Literacy (Complexity Education)',
               text: `Literacy in complex systems: non-linearity, critical thresholds, emergence, and adaptability.`
             },
             {
-              name: '🧩 Sympoietic Thinking Models',
+              name: 'Sympoietic Thinking Models',
               text: `Sympoietic thinking and co-production: intelligence as a distributed process in socio-techno-ecological networks.`
-            }
+            },
+			{
+			  name: 'Non-linear cause-effect relations',
+			  text: `Focuses on complex causal chains, tipping points, and delayed effects in eco-digital systems.
+                     Encourages students to move beyond linear reasoning, recognizing emergent and sometimes unexpected outcomes of
+                     interventions. AI-supported simulations can help visualize how small actions may trigger disproportionate
+                     or cascading ecological and social impacts.`
+			},
+			{
+			  name: 'Explainable AI Labs',
+              text: `Explores the use of explainable AI (XAI) methods and labs to make machine reasoning transparent and
+                     understandable. Students learn how to interpret model outputs, visualize decision paths, and critically
+                     assess algorithmic behavior in ecological contexts. The goal is to bridge complex system literacy with
+                     algorithmic transparency, fostering both trust and critical reflection on AI-assisted ecological models.`
+}
           ]
         },
         {
@@ -437,26 +451,33 @@
             </div>`,
           subdomains: [
             {
-              name: '🗺️ Digital Ecosystems & Infrastructures',
+              name: 'Digital Ecosystems & Infrastructures',
               text: `Digital infrastructures, data centers, model supply chains: environmental and territorial impacts.`
             },
             {
-              name: '⚡ AI Energy Consumption',
+              name: 'AI Energy Consumption',
               text: `Energy use and carbon/water impacts of AI systems; metrics and accountability.`
             },
             {
-              name: '⚖️ Environmental and Climate Justice',
+              name: 'Environmental and Climate Justice',
               text: `Environmental and climate justice: distribution of impacts, vulnerabilities, rights, and just transitions.`
             },
             {
-              name: '🏛️ Ecopolitical Tech Analysis',
+              name: 'Ecopolitical Tech Analysis',
               text: `Eco-political analysis of technology: bias, power, sociotechnical imaginaries, and policy.`
-            }
+            },
+			{
+			  name: 'Hybrid eco-digital agency',
+              text: `Examines how agency emerges from the entanglement of human, ecological, and algorithmic actors—focusing on co-regulation, shared responsibility, and situated decision-making in eco-digital contexts.`
+			},
+			{
+			  name: 'Digital Privacy Awareness',
+			  text: `Builds critical awareness of data privacy in eco-digital practices: consent, surveillance, data governance, and the trade-offs between environmental monitoring and personal rights.`
+			}
           ]
         },
         {
           id: 'tool-based-learning',
-          icon: '🛠️',
           title: 'Tool-Based Learning',
           description: `
             <div style="text-align:justify;">
@@ -465,23 +486,32 @@
               interactions, and understanding of the world.
             </div>`,
           subdomains: [
-            {
-              name: '🧪 AI-generated Content & Simulations',
-              text: `Critical fluency on generative outputs and simulations; uses for ecological storytelling and scenarios.`
-            },
-            {
-              name: '🔗 Hybrid Learning Modules',
-              text: `Hybrid educational modules weaving ecological and digital literacies with sustainability-oriented practices.`
-            },
-            {
-              name: '📍 Situated Human–AI Interaction',
-              text: `Situated, contextual, multimodal (MLLM) human–AI interactions for inquiry and creation.`
-            },
-            {
-              name: '🧪 Pedagogical Experimentation',
-              text: `Pedagogical experimentation with sensors, platforms, and models to translate concepts into practice.`
-            }
-          ]
+			{
+			  name: 'AI-generated content & simulations',
+              text: `Critical fluency on synthetic media and simulation-based inquiry; uses for ecological storytelling, scenario exploration, and policy testing with attention to material/ethical footprints.`
+			},
+			{
+			  name: 'Hybrid learning modules',
+		      text: `Intentional weaving of ecological and digital literacies with civic, place-based, AI-assisted practices across contexts, media, and temporalities.`
+			},
+			{
+			  name: 'Situated human–AI interaction',
+			  text: `Embodied, contextual collaboration with AI and sensors; learning emerges from in-situ tasks, constraints, and local knowledge.`
+			},
+			{
+			  name: 'Pedagogical digital experimentation',
+			  text: `Designs/iterates classroom labs with AI-enabled tools as active mediators of ecological meaning, interaction, and assessment.`
+			},
+			{
+			  name: 'Multimodal creativity',
+			  text: `MLLM-enabled narratives, community mapping, and collaborative design; integrates text–image–sound–interactive elements to express complex eco-relations.`
+			},
+			{
+			  name: 'Generative AI for Sustainability',
+              text: `Applies LLMs/mm-LLMs to sustainability challenges (data prep, ideation, coding, simulation support), with safeguards for bias, privacy, footprint and reproducibility.`
+			}
+]
+
         },
         {
           id: 'identity-formation',
@@ -493,23 +523,24 @@
               Emphasizes positionalities, relational ethics, and ecological imaginaries in interaction with AI.
             </div>`,
           subdomains: [
-            {
-              name: '🤖🌿 Hybrid EcoDigital Agency',
-              text: `Distributed, co-regulated agency across people, materials, ecosystems, and algorithmic systems.`
-            },
-            {
-              name: '🧭 Ecodigital Positionality & Imaginaries',
-              text: `Reflexivity on identities, places, and imaginaries; critique of colonialisms and algorithmic monocultures.`
-            },
-            {
-              name: '🤝 Relational Ethics Education',
-              text: `Relational ethics, care, and responsibility in eco-digital ecosystems.`
-            },
-            {
-              name: '🌐 Posthuman Relational Ethics',
-              text: `Posthuman and more-than-human visions for education and ecological justice.`
-            }
-          ]
+			{
+			  name: 'Ecodigital Agency',
+              text: `Agency as capacity-to-act emerging within eco-digital assemblages (people, places, media, algorithms). Focus on co-regulation, responsibility, and collective action for sustainability in situated contexts.`
+		},
+			{
+			  name: 'Bias, Fairness & Algorithmic Responsibility',
+              text: `From recognizing biases to assigning responsibility across the AI lifecycle. Emphasis on fairness, accountability, transparency, and remedies for harms in eco-digital education and civic uses.`
+		},
+			{
+              name: 'Ecodigital Posthuman identity and citizenship',
+              text: `Identity beyond anthropocentric separations; more-than-human citizenship grounded in care, interdependence, and ecological justice across human/non-human/algorithmic relations.`
+        },
+        {
+              name: 'Ethical Impact Assessment (ex ante/ex post)',
+              text: `Builds the ability to plan and evaluate interventions with ex-ante risk/benefit appraisal and ex-post auditing: stakeholders, rights, environmental costs, data governance, and accountability.`
+		}
+	  ]
+
         }
       ],
       competencies: {
@@ -773,6 +804,22 @@
         <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
       </div>
     </li>
+	<li>
+		<a href="#" class="text-green-700 font-semibold toggle-subdomain">➿ Non-linear cause-effect relations</a>
+	  <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Focuses on complex causal chains, tipping points, and delayed effects in eco-digital systems. Encourages students to move beyond linear reasoning, recognizing emergent and sometimes unexpected outcomes of interventions. AI-supported simulations can help visualize how small actions may trigger disproportionate or cascading ecological and social impacts.</div>
+    <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Show Rubric Table</a>
+    <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+  </div>
+</li>
+
+<li>
+  <a href="#" class="text-green-700 font-semibold toggle-subdomain">🧪 Explainable AI Labs</a>
+  <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Explores the use of explainable AI (XAI) methods and labs to make machine reasoning transparent and understandable. Students learn how to interpret model outputs, visualize decision paths, and critically assess algorithmic behavior in ecological contexts. The goal is to bridge complex system literacy with algorithmic transparency, fostering both trust and critical reflection on AI-assisted ecological models.</div>
+    <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Show Rubric Table</a>
+    <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+  </div>
+</li>
+
     </ul></div>`;
           // Toggle handling
           details.querySelectorAll('.toggle-subdomain').forEach(link => {
@@ -834,6 +881,23 @@
         <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
       </div>
     </li>
+	
+	<li>
+	  <a href="#" class="text-green-700 font-semibold toggle-subdomain">Hybrid eco-digital agency</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Examines how agency emerges from the entanglement of human, ecological, and algorithmic actors—focusing on co-regulation, shared responsibility, and situated decision-making in eco-digital contexts.</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Show Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+  </div>
+	</li>
+
+	<li>
+      <a href="#" class="text-green-700 font-semibold toggle-subdomain">Digital Privacy Awareness</a>
+      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Builds critical awareness of data privacy in eco-digital practices: consent, surveillance, data governance, and the trade-offs between environmental monitoring and personal rights.</div>
+        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Show Rubric Table</a>
+        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+  </div>
+	</li>
+
     </ul></div>`;
           details.querySelectorAll('.toggle-subdomain').forEach(link => {
             link.addEventListener('click', (e) => {
@@ -863,45 +927,54 @@
         const details = card.querySelector('.details');
         if (details) {
           details.innerHTML = `<h4 class="font-semibold text-gray-700 mb-2">Key sub-domains (click to expand):</h4>` + `<div class="space-y-3"><ul class="list-disc list-inside space-y-2 text-gray-700">
-    <li>
-      <a href="#" class="text-green-700 font-semibold toggle-subdomain">🧪 AI-Generated Content & Simulations</a>
-      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Examines the cognitive, ecological, and ethical implications of AI-generated outputs and simulations, treating synthetic products not only as results but as sociotechnical events with effects on cognition, ecology, and ethics. The pervasiveness of AI content requires critical fluency. Simulations enable speculative pedagogies and scenario-based learning (climate, resource management), but they are not neutral: it is necessary to analyze material impacts (carbon, water) and how models shape imaginaries. The goal is not only to critique AI-produced media, but to creatively reappropriate them for ecological storytelling.</div>
-        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Show Rubric Table</a>
-        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
-      </div>
-    </li>
+   <li>
+	 <a href="#" class="text-green-700 font-semibold toggle-subdomain">AI-generated content & simulations</a>
+	 <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Critical fluency on synthetic media and simulation-based inquiry; uses for ecological storytelling, scenario exploration, and policy testing with attention to material/ethical footprints.</div>
+	   <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Show Rubric Table</a>
+       <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+  </div>
+   </li>
+
+   <li>
+     <a href="#" class="text-green-700 font-semibold toggle-subdomain">Hybrid learning modules</a>
+     <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Intentional weaving of ecological and digital literacies with civic, place-based, AI-assisted practices across contexts, media, and temporalities.</div>
+       <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Show Rubric Table</a>
+       <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+  </div>
+   </li>
+
+   <li>
+     <a href="#" class="text-green-700 font-semibold toggle-subdomain">Situated human–AI interaction</a>
+     <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Embodied, contextual collaboration with AI and sensors; learning emerges from in-situ tasks, constraints, and local knowledge.</div>
+       <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Show Rubric Table</a>
+       <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+  </div>
+   </li>
+
+   <li>
+     <a href="#" class="text-green-700 font-semibold toggle-subdomain">Pedagogical digital experimentation</a>
+  <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Designs/iterates classroom labs with AI-enabled tools as active mediators of ecological meaning, interaction, and assessment.</div>
+     <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Show Rubric Table</a>
+      <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+   </div>
+   </li>
+
+   <li>
+     <a href="#" class="text-green-700 font-semibold toggle-subdomain">Multimodal creativity</a>
+  <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">MLLM-enabled narratives, community mapping, and collaborative design; integrates text–image–sound–interactive elements to express complex eco-relations.</div>
+     <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Show Rubric Table</a>
+      <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+  </div>
+  </li>
 
     <li>
-      <a href="#" class="text-green-700 font-semibold toggle-subdomain">🔗 Hybrid Learning Modules</a>
-      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Represent an educational frontier where digital and ecological literacies intertwine in AI-enhanced, sustainability-oriented experiences. They go beyond the simple online-in-person blend, intentionally weaving ecological thinking, mastery of AI tools, and civic engagement. The hybrid nature enables working across contexts, media, and temporalities, embodying distributed cognition and adaptability. Examples such as AI-supported water-quality simulations reinforce concepts from other sub-domains and connect ecosystem dynamics and feedback.</div>
-        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Show Rubric Table</a>
-        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
-      </div>
-    </li>
+     <a href="#" class="text-green-700 font-semibold toggle-subdomain">Generative AI for Sustainability</a>
+  <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Applies LLMs/mm-LLMs to sustainability challenges (data prep, ideation, coding, simulation support), with safeguards for bias, privacy, footprint and reproducibility; aligns outputs to actionable, evidence-based eco-goals.</div>
+     <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Show Rubric Table</a>
+      <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
+  </div>
+	</li>
 
-    <li>
-      <a href="#" class="text-green-700 font-semibold toggle-subdomain">📍 Situated Human–AI Interaction</a>
-      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Investigates how students and AI systems co-create meanings and ecological understandings in situated, embodied environments. Intelligence is not confined to minds or algorithms, but emerges from intra-actions among humans, machines, and environments. Situated interaction becomes participation in learning: students negotiate ecological problems with AI, sensors, and peers in real contexts. Example: working with AI sensor kits to learn both data literacy and the complex relationships among water systems, sensor accuracy, algorithmic calibration, and local conditions.</div>
-        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Show Rubric Table</a>
-        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
-      </div>
-    </li>
-
-    <li>
-      <a href="#" class="text-green-700 font-semibold toggle-subdomain">🧰 Pedagogical Experimentation with Digital Tools</a>
-      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Investigates the transformative potential and pedagogical nuances of employing AI-enabled technologies in sustainability education. Rather than treating tools as simple implementations, it positions them as active mediators of ecological meaning, social interaction, and identity formation. The classroom becomes a site of reflective praxis, where students and teachers explore how AI reshapes both ecological understanding and pedagogical relationships (e.g., AI biodiversity apps in the field: ecological observation + reflection on algorithmic classifications, bias, and knowledge-generation policies).</div>
-        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Show Rubric Table</a>
-        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
-      </div>
-    </li>
-
-    <li>
-      <a href="#" class="text-green-700 font-semibold toggle-subdomain">🎨 Multimodal Approaches & Creativity</a>
-      <div class="subdomain-text hidden mt-2 text-gray-700"><div style="text-align: justify;">Highlights the role of sensory, semiotic, and creative practices in fostering ecoliteracy and deep ecological imagination. The integration of multimodal AI (MLLM) enables real-time synthesis of text, images, and sounds, opening new interfaces for exploration and inquiry. These tools support ecological storytelling, community mapping, and collaborative network design, offering multimodal avenues to express relationships, processes, and possible futures. Creativity becomes a pedagogical necessity for encoding diverse perspectives, future imaginaries, and systemic interrelations.</div>
-        <a href="#" class="text-sm text-blue-700 mt-3 block toggle-rubric">➤ Show Rubric Table</a>
-        <div class="rubric-table hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto"></div>
-      </div>
-    </li>
     </ul></div>`;
           details.querySelectorAll('.toggle-subdomain').forEach(link => {
             link.addEventListener('click', (e) => {
@@ -1031,116 +1104,147 @@
   `;
 
   const RUBRIC_SYSTEMS = tbl([
-    { title:"Systems Thinking (G1) & Understanding AI",
-      basic:"Recognizes basic differences between a natural and an artificial system; identifies simple patterns. Expresses personal opinions on technologies.",
-      intermediate:"Describes feedback loops and cycles in both natural and AI systems; recognizes basic limits and biases of AI tools.",
-      advanced:"Compares and maps complex interdependencies between AI and natural systems; critically evaluates socio-environmental impacts of AI.",
-      critical:"Designs activities demonstrating deep interdependence between AI and the biosphere; argues for sustainable and responsible systemic alternatives." },
-    { title:"Problem Framing (G3) & Designing AI",
-      basic:"Describes a local environmental problem.",
-      intermediate:"Collaborates with AI to collect information for problem description.",
-      advanced:"Uses AI to simulate causes and effects in complex problems.",
-      critical:"Redefines problems by including ecological, ethical, and algorithmic perspectives." },
-    { title:"Systems Mapping (G4) & Evaluating AI",
-      basic:"Traces a simple map of cause-effects.",
-      intermediate:"Identifies nodes and flows in systems (e.g., resources–energy–AI).",
-      advanced:"Integrates technologies to create dynamic maps. Simulates systemic behaviors with AI.",
-      critical:"Analyzes breaking points and simulates systemic interventions. Proposes interventions based on sympoietic principles, demonstrating a holistic, co-creative understanding of systems." },
-    { title:"Non-Linear Cause–Effect Relations (EcoAI Specific)",
+    { title:"Ecosystem dynamics (G1/G4) & Understanding/Evaluating AI",
+      basic:"Recognizes key components and interactions in ecological systems; distinguishes natural vs. artificial flows.",
+      intermediate:"Describes cycles (e.g., water, carbon) and how human/AI activities interact with them using simple observations or datasets.",
+      advanced:"Maps interdependencies between ecological processes and AI-mediated processes; uses visualizations or simulations to explore dynamics.",
+      critical:"Designs learning activities linking ecological indicators and AI tools across scales, evaluating systemic impacts and trade-offs." },
+    { title:"Feedback loops & patterns (G1/G4/G3) & Understanding/Evaluating AI",
+      basic:"Identifies simple reinforcing or balancing feedback and recurring patterns.",
+      intermediate:"Traces basic stock-and-flow structures and delays; draws a simple causal-loop diagram (CLD).",
+      advanced:"Builds dynamic maps and tests loop behavior with AI tools (e.g., ABM/NetLogo) to explore stability and change.",
+      critical:"Designs interventions accounting for loop dominance, resilience, and unintended consequences; evaluates outcomes with evidence." },
+    { title:"Systems Literacy (G1/G2/G4) & Understanding/Critiquing/Evaluating",
+      basic:"Recognizes non-linearity and uncertainty; distinguishes a system from a mere collection of parts.",
+      intermediate:"Explains emergence/adaptivity with concrete examples; adopts transdisciplinary viewpoints to read eco-digital systems.",
+      advanced:"Applies systems concepts (boundaries, feedback, thresholds) to eco-digital cases; compares models and assumptions.",
+      critical:"Integrates systems reasoning into decisions/policies; justifies modeling choices and limits; reflects on ethical/systemic implications." },
+    { title:"Sympoietic thinking modules (G11/G7/G1) & Designing/Interacting/Critiquing",
+      basic:"Recognizes that humans, technologies, and environments co-produce outcomes.",
+      intermediate:"Describes simple making-with scenarios where humans and AI collaborate in ecological tasks.",
+      advanced:"Explains how humans, AI, and natural elements mutually shape outcomes in projects; documents co-agency and learning.",
+      critical:"Designs and leads modules demonstrating co-creation and shared responsibility among human, non-human, and algorithmic entities." },
+    { title:"Non-linear cause–effect relations (G1/G4) & Understanding/Evaluating",
       basic:"Identifies simple, direct cause–effect relationships.",
-      intermediate:"Recognizes that some changes can have unexpected or delayed effects.",
-      advanced:"Explains the concept of tipping points and feedback loops in environmental/AI systems.",
-      critical:"Designs scenarios or interventions that account for non-linear dynamics and potential unintended consequences in eco-digital systems." },
-    { title:"Sympoietic Thinking (EcoAI Specific)",
-      basic:"Recognizes that humans interact with nature and technology.",
-      intermediate:"Describes simple collaborations between humans and AI for a task.",
-      advanced:"Explains how humans, AI, and natural elements can mutually shape outcomes in a project.",
-      critical:"Designs and leads projects that demonstrate co-creation and shared agency among human, non-human, and algorithmic entities for systemic flourishing." }
-  ]);
+      intermediate:"Recognizes delayed, indirect, or unexpected effects.",
+      advanced:"Explains tipping points and compound feedbacks in environmental/AI systems with examples or simulations.",
+      critical:"Designs scenarios or interventions that anticipate non-linear dynamics and unintended consequences in eco-digital systems." },
+    { title:"Explainable AI Labs (G2/G4/G1) & Understanding/Evaluating/Critiquing",
+      basic:"Understands that AI decisions can be explored with simple explanations (e.g., feature importance).",
+      intermediate:"Interprets basic XAI outputs (saliency/attribution) and questions their reliability and limits.",
+      advanced:"Uses XAI methods to analyze eco-digital model decisions; communicates decision paths, assumptions, and uncertainties.",
+      critical:"Designs lab activities integrating XAI to audit/improve models for ecological use; evaluates ethics, transparency, and trade-offs." }
+]);
+
 
   const RUBRIC_ECOLOGICAL = tbl([
-    { title:"Sustainability Justice (G12) & Critiquing AI",
-      basic:"Recognizes basic environmental injustices in the world and that digital devices have an environmental impact. Expresses personal opinions on AI’s societal impact.",
+	{ title:"Sustainability Justice (G12) & Critiquing AI",
+	  basic:"Recognizes basic environmental injustices in the world and that digital devices have an environmental impact. Expresses personal opinions on AI’s societal impact.",
       intermediate:"Connects environmental inequalities to technologies and data (e.g., e-waste, data centers). Recognizes the limits and biases of AI tools regarding environmental data.",
       advanced:"Collects evidence and proposes changes to address environmental injustices linked to AI. Critically evaluates the social and environmental impact of AI infrastructure and energy consumption.",
       critical:"Guides campaigns or projects of algorithmic environmental justice, advocating for equitable distribution of environmental harms and benefits. Argues for sustainable and responsible alternatives to current AI development and deployment practices." },
-    { title:"Digital Ecosystems & Infrastructures (EcoAI Specific)",
+
+    { title:"Digital ecosystems & infrastructures (EcoAI Specific)",
       basic:"Identifies basic components of digital devices (e.g., screen, battery) and knows they consume energy.",
       intermediate:"Describes the basic concept of a data center or cloud and its function.",
       advanced:"Traces the lifecycle of a digital device or the energy source of a data center, identifying key environmental impacts.",
       critical:"Analyzes the political economy of digital infrastructures, including supply chains, corporate control, and their global ecological and social consequences." },
-    { title:"AI Energy Consumption (EcoAI Specific)",
+
+    { title:"AI energy consumption (EcoAI Specific)",
       basic:"Knows that AI uses energy.",
-      intermediate:"Can state examples of AI’s energy consumption (e.g., ChatGPT queries, training models).",
-      advanced:"Estimates the carbon or water footprint of specific AI tools or activities. Explains the concept of a “rebound effect” in AI energy use.",
-      critical:"Proposes and evaluates strategies for reducing AI’s environmental footprint at a systemic level, considering policy, design, and user behavior." },
-    { title:"Ecopolitical Tech Analysis (EcoAI Specific)",
+      intermediate:"Can state examples of AI’s energy consumption (e.g., model training, queries).",
+      advanced:"Estimates the carbon or water footprint of specific AI tools or activities and explains rebound effects.",
+      critical:"Proposes and evaluates systemic strategies (policy, design, behavior) to reduce AI’s environmental footprint." },
+
+    { title:"Ecopolitical tech analysis (EcoAI Specific)",
       basic:"Expresses general concerns about technology’s impact on society or environment.",
       intermediate:"Identifies basic regulations or policies related to technology or environment.",
       advanced:"Analyzes how economic incentives or policy decisions influence the environmental impact of AI (e.g., e-waste regulation, data center location).",
-      critical:"Proposes and advocates for specific ecopolitical interventions (e.g., supply chain transparency, mandatory carbon reporting for AI models) to shape more just and sustainable technological futures." }
-  ]);
+      critical:"Proposes and advocates for specific ecopolitical interventions (e.g., supply chain transparency, mandatory carbon reporting for AI models) to shape more just and sustainable technological futures." },
+
+  // === NEW V3 subdomain ===
+    { title:"Hybrid eco-digital agency (EcoAI Specific)",
+      basic:"Recognizes that action emerges from interactions among people, environments, and algorithms.",
+      intermediate:"Describes simple examples of shared, co-regulated action with AI in eco-digital contexts.",
+      advanced:"Designs activities where human, ecological, and algorithmic actors coordinate to pursue sustainability goals.",
+      critical:"Leads projects that demonstrate distributed agency and shared responsibility, evaluating outcomes and risks in situated eco-digital scenarios." },
+
+  // === NEW V3 subdomain ===
+    { title:"Digital Privacy Awareness (EcoAI Specific)",
+      basic:"Understands that personal/environmental data can be collected and stored by digital systems.",
+      intermediate:"Identifies basic privacy risks (consent, tracking, surveillance) in eco-digital activities.",
+      advanced:"Applies privacy-by-design practices (data minimization, purpose limitation) and evaluates trade-offs between monitoring and rights.",
+      critical:"Designs or recommends governance measures and community guidelines that balance environmental data needs with robust privacy protections and accountability." }
+]);
+
 
   const RUBRIC_TOOL = tbl([
-    { title:"Interacting with AI & Adaptability (G5)",
-      basic:"Uses AI tools guided by the teacher for basic environmental information. Utilizes digital tools for simple tasks.",
-      intermediate:"Experiments with new solutions using digital tools for sustainable purposes. Poses environmental questions to AI and seeks answers.",
-      advanced:"Modifies strategies and tools based on context and feedback to achieve ecological goals. Conducts autonomous explorations with AI (e.g., NetLogo simulations, open data).",
-      critical:"Proposes adaptive configurations of AI + local ecosystems for transformative change. Constructs new ecological hypotheses in dialogue with AI." },
-    { title:"Designing AI & Exploration (G6)",
-      basic:"Recognizes AI-generated content.",
-      intermediate:"Identifies basic features and potential biases of AI-generated content.",
-      advanced:"Co-constructs stories or simulations using AI-generated content. Designs simple AI-assisted activities.",
-      critical:"Critically evaluates and creatively appropriates AI-generated content for complex ecological storytelling and problem-solving. Co-designs AI tools for environmental purposes, understanding their ethical, ecological, and societal implications." },
-    { title:"AI-Generated Content & Simulations (EcoAI Specific)",
-      basic:"Can identify if content (text, image) is AI-generated.",
-      intermediate:"Can identify basic biases or inaccuracies in AI-generated content.",
-      advanced:"Critically analyzes AI-generated content for its ecological implications and potential biases.",
-      critical:"Creatively uses AI-generated content to construct nuanced, ethically informed ecological narratives or solutions." },
-    { title:"Situated Human–AI Interaction (EcoAI Specific)",
-      basic:"Interacts with AI tools in a classroom setting.",
-      intermediate:"Uses AI-enabled sensors or tools in a specific environmental context (e.g., collecting data in a park).",
-      advanced:"Collaborates with AI and environmental data to co-create a localized ecological understanding or solution.",
-      critical:"Designs and leads projects involving situated human–AI interaction that generates new ecological knowledge and fosters community engagement." },
-    { title:"Pedagogical Experimentation with Digital Tools (EcoAI Specific)",
-      basic:"Follows instructions to use a new digital tool for a learning task.",
-      intermediate:"Explores different features of a digital tool to see how it can support an ecological project.",
-      advanced:"Adapts the use of digital tools based on observed outcomes and reflects on their pedagogical effectiveness.",
-      critical:"Leads the design and implementation of pedagogical experiments with digital tools, critically evaluating their sociomaterial impact on learning and ecological outcomes." },
-    { title:"Multimodal Approaches & Creativity (EcoAI Specific)",
-      basic:"Uses one mode (e.g., text) to describe an environmental issue.",
-      intermediate:"Combines two modes (e.g., text and image) to present an ecological concept.",
-      advanced:"Integrates multiple modes (e.g., text, image, sound, interactive elements) with AI assistance to create a comprehensive ecological narrative.",
-      critical:"Innovatively uses multimodal AI tools to express complex, nuanced ecological ideas, fostering new forms of understanding and engagement for diverse audiences." }
-  ]);
+	{ title:"AI-generated content & simulations (G5/G6) & Interacting/Designing → Tool-Based Learning",
+      basic:"Identifies AI-generated content and simple simulation outputs; follows guided prompts.",
+      intermediate:"Interprets strengths/limits of synthetic outputs; runs or adapts basic simulations for eco-scenarios.",
+      advanced:"Builds workflows that combine AI content and simulations to explore ecological processes and policies.",
+      critical:"Designs inquiry cycles using synthetic media/simulations with validation, bias checks, and impact reflection."
+	},
+	{ title:"Hybrid learning modules (G5/G6) & Designing/Interacting → Tool-Based Learning",
+      basic:"Participates in blended activities that combine ecological topics and digital tools.",
+      intermediate:"Combines resources and contexts (classroom/field/online) to meet specific eco-learning goals.",
+      advanced:"Co-designs modules that integrate AI, local data and civic action; adapts to constraints and feedback.",
+      critical:"Leads scalable modules aligning objectives, assessment and community impact; documents transferability."
+    },
+    { title:"Situated human–AI interaction (G5/G6) & Interacting/Evaluating → Tool-Based Learning",
+      basic:"Uses AI tools and sensors in a specific place under guidance; observes context constraints.",
+      intermediate:"Collects and interprets local data with AI support; reflects on accuracy and calibration.",
+      advanced:"Coordinates human–AI tasks in-situ to build evidence for eco-decisions; documents uncertainties.",
+      critical:"Designs situated protocols balancing performance, safety, privacy and ecological ethics; evaluates outcomes."
+    },
+    { title:"Pedagogical digital experimentation (G5/G6) & Designing/Evaluating → Tool-Based Learning",
+      basic:"Explores features of a digital/AI tool for a learning task following instructions.",
+      intermediate:"Iterates small experiments; compares tool configurations and records observations.",
+      advanced:"Designs classroom labs with clear hypotheses, variables and success criteria; analyzes results.",
+      critical:"Establishes reproducible lab practices (versioning, documentation, ethics) and shares open materials."
+    },
+    { title:"Multimodal creativity (G5/G6) & Interacting/Designing → Tool-Based Learning",
+      basic:"Combines two modes (e.g., text+image) to communicate an ecological idea.",
+      intermediate:"Integrates multiple modes (text, image, sound, maps) with AI assistance to explain relations.",
+      advanced:"Produces cohesive multimodal artifacts for public communication with audience feedback.",
+      critical:"Leads collaborative, inclusive multimodal projects; ensures accessibility, provenance and licensing."
+    },
+    { title:"Generative AI for Sustainability (G5/G6) & Interacting/Designing/Evaluating → Tool-Based Learning",
+      basic:"Uses generative AI for simple sustainability tasks with guidance; notes obvious errors.",
+      intermediate:"Plans prompts/constraints to reach eco-goals; checks relevance and basic factuality.",
+      advanced:"Builds pipelines that link generative outputs to data/simulation/code; tracks footprint and privacy.",
+      critical:"Designs/assesses gen-AI solutions against bias, privacy, carbon/water metrics and reproducibility; reports impacts."
+    }
+]);
+
 
   const RUBRIC_IDENTITY = tbl([
-    { title:"Agency (G7) & Critiquing/Designing AI",
-      basic:"Feels involved in environmental problems. Recognizes the existence of AI and ecological technologies.",
-      intermediate:"Uses AI tools for sustainable purposes. Begins to connect personal actions to broader environmental impacts.",
-      advanced:"Plans collective AI-assisted actions. Co-designs environmental scenarios and solutions with AI.",
-      critical:"Activates transformative processes and supports others (peer agency) in eco-digital contexts, demonstrating leadership in co-agency with AI for sustainable change." },
-    { title:"Values (G11) & Critiquing AI",
-      basic:"Recognizes ecological values in self and others. Expresses personal visions of the future.",
-      intermediate:"Discusses ethical dilemmas on AI use. Compares future scenarios generated by AI.",
-      advanced:"Justifies choices with ecological justice values. Co-constructs future stories or simulations, considering diverse perspectives.",
-      critical:"Integrates values into educational and algorithmic environments, demonstrating a posthuman relational ethic where care extends to human, non-human, and algorithmic entities. Evaluates dystopian/utopian futures and proposes sustainable transformations, advocating for diverse, decolonized eco-digital imaginaries." },
-    { title:"Ecodigital Positionality & Imaginaries (EcoAI Specific)",
-      basic:"Expresses personal opinions on environmental or digital issues.",
-      intermediate:"Identifies how personal experiences might influence views on AI or environment.",
-      advanced:"Reflects on how personal and cultural positionality shapes perceptions of AI’s ecological impacts and future imaginaries.",
-      critical:"Critically analyzes and challenges dominant techno-ecological imaginaries, proposing alternative narratives and designs that incorporate diverse, marginalized, or indigenous eco-digital perspectives." },
-    { title:"Algorithmic Bias, Fairness & Representation (EcoAI Specific)",
-      basic:"Recognizes that AI can contain errors or prejudices.",
-      intermediate:"Identifies simple examples of algorithmic bias (e.g., in facial recognition).",
-      advanced:"Collects evidence of algorithmic bias in eco-digital tools and proposes ways to mitigate it.",
-      critical:"Guides campaigns or projects of algorithmic environmental justice, actively challenging anthropocentric biases in AI design and deployment to ensure equitable outcomes for human and nonhuman entities." },
-    { title:"Post-Anthropocentric Identity (EcoAI Specific)",
-      basic:"Views humans as separate from, but impacting, nature and technology.",
-      intermediate:"Begins to see connections between human actions, AI, and environmental responses.",
-      advanced:"Demonstrates a sense of interconnectedness with natural and technological systems, recognizing shared vulnerabilities and responsibilities.",
-      critical:"Articulates a strong, embodied sense of post-anthropocentric identity, recognizing deep entanglement with non-human and algorithmic entities, and acting with a sense of distributed responsibility for systemic flourishing." }
+    { title: "Ecodigital Agency (G7, G8)",
+      basic: "Recognizes that agency can be distributed across people, environments, and tools; participates when prompted.",
+      intermediate: "Describes examples of co-regulated action with AI in situated eco-digital tasks; reflects on roles and responsibilities.",
+      advanced: "Designs and executes group activities where human, ecological, and algorithmic actors coordinate toward sustainability goals; documents decision pathways.",
+      critical: "Leads, evaluates, and iterates distributed-agency projects; reports impacts, risks, and mitigation; mentors peers and extends practices to new contexts."
+	},
+    { title: "Bias, Fairness & Algorithmic Responsibility (G11, G7)",
+      basic: "Identifies simple cases of bias or unfairness in AI-mediated contexts; names potentially affected groups.",
+      intermediate: "Explains how data, design, and deployment choices shape outcomes; maps responsibilities across actors (developers, institutions, users).",
+      advanced: "Applies fairness checks and documentation (e.g., model cards, data sheets) and proposes mitigation and oversight for eco-digital uses.",
+      critical: "Designs governance and remedy plans; conducts/coordinates audits and communicates accountability; advocates policy changes for just, transparent AI."
+	},
+	{ title: "Ecodigital Posthuman identity and citizenship (G11, G8)",
+      basic: "Acknowledges more-than-human perspectives and expresses care toward non-human and algorithmic agents.",
+      intermediate: "Articulates eco-digital belonging and shared vulnerability; engages in respectful, inclusive practices across human/non-human/algorithmic relations.",
+      advanced: "Participates in community actions including human, non-human, and algorithmic stakeholders; mediates conflicts and integrates diverse knowledges.",
+      critical: "Leads initiatives shaping more-than-human civic norms; institutionalizes inclusive practices that foreground care, reciprocity, and ecological justice."
+	},
+	{ title: "Ethical Impact Assessment (ex ante/ex post (G7, G11))",
+      basic: "Understands the need to consider stakeholders, risks, and benefits; uses simple checklists for consent and data use.",
+      intermediate: "Plans ex-ante EIA with data governance and environmental footprint criteria; sets measurable success and risk thresholds.",
+      advanced: "Conducts ex-post audits versus predefined criteria; publishes transparent reports and proposes corrective actions and safeguards.",
+      critical: "Orchestrates full EIA lifecycle within governance frameworks; designs metrics, escalation, and feedback loops; ensures accountability and continuous improvement."
+	}
   ]);
+
 
   function rubricBox(title, bodyHTML){
     return `
@@ -1189,10 +1293,10 @@
   });
 })();
 </script>
-<footer style="text-align:center; margin-top:40px; padding:20px; font-size:14px; background:#f8f9fa; border-top:1px solid #ddd;">
-  <a href="privacy.html">Privacy Policy</a> |
-  <a href="cookie.html">Cookie Policy</a> |
-  <a href="terms.html">Terms and Conditions</a> |
+<<footer style="text-align:center; margin-top:40px; padding:20px; font-size:14px; background:#f8f9fa; border-top:1px solid #ddd;">
+  <a href="/privacy.html">Privacy Policy</a> |
+  <a href="/cookie.html">Cookie Policy</a> |
+  <a href="/terms.html">Terms and Conditions</a> |
   <a href="#" id="open-consent">Privacy & Cookie Preferences</a>
 </footer>
 
@@ -1218,9 +1322,9 @@
   <div class="consent-hdr"><h3>Privacy • Cookies • Terms</h3></div>
   <div class="consent-body">
     <p>This site uses only <b>technical cookies</b>. Please consult:
-      <a href="privacy.html" target="_blank" rel="noopener">Privacy</a>,
-      <a href="cookie.html" target="_blank" rel="noopener">Cookie</a>,
-      <a href="terms.html" target="_blank" rel="noopener">Terms</a>.
+      <a href="privacy_en.html" target="_blank" rel="noopener">Privacy</a>,
+      <a href="cookie_en.html" target="_blank" rel="noopener">Cookie</a>,
+      <a href="terms_en.html" target="_blank" rel="noopener">Terms</a>.
     </p>
     <div class="consent-item">
       <input type="checkbox" checked disabled> <label>Technical cookies (necessary)</label>
