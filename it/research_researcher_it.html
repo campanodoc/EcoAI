@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="EcoAI Framework — Ricerca e Risultati. Validazione empirica dell'EcoAI Index su 601 studenti delle scuole secondarie superiori del Sud Italia."/>
+<title>Ricerca e Risultati — EcoAI Framework</title>
+<link rel="canonical" href="https://www.ecoaiframework.com/it/research-researcher.html"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+<style>
+  body { font-family: 'Inter', sans-serif; background-color: #F8F7F4; color: #333; }
+  .lora { font-family: 'Lora', serif; }
+
+  /* Audience toggle */
+  .audience-pill {
+    cursor: pointer;
+    padding: 6px 18px;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    border: 1.5px solid #d1d5db;
+    background: white;
+    color: #6b7280;
+  }
+  .audience-pill.active {
+    background: #166534;
+    color: white;
+    border-color: #166534;
+  }
+
+  /* Layer visibility */
+  .for-public { display: block; }
+  .for-researcher { display: none; }
+  body.researcher-mode .for-public { display: none; }
+  body.researcher-mode .for-researcher { display: block; }
+  body.researcher-mode .for-researcher.inline-item { display: inline; }
+
+  /* Dimension cards */
+  .dim-card {
+    border-left: 4px solid;
+    background: white;
+    border-radius: 0 8px 8px 0;
+    padding: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .dim-card:hover { transform: translateX(4px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .d-info  { border-color: #3b82f6; }
+  .d-aati  { border-color: #8b5cf6; }
+  .d-val   { border-color: #10b981; }
+  .d-agy   { border-color: #f59e0b; }
+  .d-epas  { border-color: #ef4444; }
+
+  .acronym-badge {
+    display: inline-block;
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 2px 10px;
+    border-radius: 9999px;
+    color: white;
+    margin-bottom: 6px;
+  }
+  .bg-info  { background: #3b82f6; }
+  .bg-aati  { background: #8b5cf6; }
+  .bg-val   { background: #10b981; }
+  .bg-agy   { background: #f59e0b; }
+  .bg-epas  { background: #ef4444; }
+
+  /* Researcher blocks */
+  .researcher-block {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    padding: 10px 14px;
+  }
+  .researcher-tag {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: #166534;
+    color: white;
+    border-radius: 4px;
+    padding: 2px 7px;
+    margin-bottom: 8px;
+    display: inline-block;
+  }
+
+  /* Stat pills */
+  .stat-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 9999px;
+    padding: 3px 12px;
+    font-size: 0.75rem;
+    color: #374151;
+    font-weight: 500;
+  }
+  .stat-pill span { font-weight: 700; color: #166534; }
+
+  /* Plain language callout */
+  .plain-callout {
+    background: #fef9c3;
+    border-left: 3px solid #eab308;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: #713f12;
+    margin-top: 10px;
+  }
+
+  /* Profile tabs */
+  .profile-tab {
+    padding: 6px 20px;
+    border-radius: 8px 8px 0 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1.5px solid #e5e7eb;
+    border-bottom: none;
+    background: #f3f4f6;
+    color: #6b7280;
+    transition: all 0.2s;
+  }
+  .profile-tab.active { background: white; color: #166534; border-color: #bbf7d0; }
+
+  /* Flow steps */
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 10px;
+  }
+  .flow-number {
+    min-width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #166534;
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* SEM diagram */
+  .sem-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 88px;
+    height: 88px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .sem-node .node-label {
+    font-size: 0.6rem;
+    font-weight: 500;
+    color: inherit;
+    opacity: 0.75;
+    text-align: center;
+    line-height: 1.2;
+    margin-top: 2px;
+  }
+  .sem-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    min-width: 32px;
+    position: relative;
+  }
+  .sem-arrow::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #9ca3af;
+  }
+  .sem-arrow .beta {
+    position: absolute;
+    top: -20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #374151;
+    background: #F8F7F4;
+    padding: 1px 4px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .sem-arrow .arrowhead {
+    position: absolute;
+    right: -1px;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 9px solid #9ca3af;
+  }
+
+  /* Cluster items */
+  .cluster-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 12px;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    border: 1px solid #e5e7eb;
+    font-size: 0.85rem;
+  }
+  .cluster-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .cluster-pct { margin-left: auto; font-weight: 700; font-size: 0.8rem; color: #374151; }
+
+  /* Correlation matrix cells */
+  .corr-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .chart-container { position: relative; height: 340px; width: 100%; }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- HEADER -->
+<header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+  <nav class="mx-auto max-w-screen-2xl px-4 md:px-6 py-4 flex justify-between items-center relative">
+    <a href="/it/index.html" class="text-2xl font-bold text-green-800">EcoAI Framework</a>
+    <div class="hidden md:flex space-x-8 absolute left-1/2 -translate-x-1/2">
+      <a class="text-gray-600 hover:text-green-700 transition" href="/it/index.html#panoramica">Panoramica</a>
+      <a class="text-gray-600 hover:text-green-700 transition" href="/it/index.html#framework">Il Framework</a>
+      <a class="text-gray-600 hover:text-green-700 transition" href="/it/index.html#competenze">Competenze</a>
+      <a class="text-gray-600 hover:text-green-700 transition" href="/it/index.html#impatto-globale">Impatto Globale</a>
+      <a class="text-green-800 font-semibold border-b-2 border-green-700 transition" href="/it/research.html">Ricerca</a>
+      <a class="text-gray-600 hover:text-green-700 transition" href="/it/index.html#metodologia">Metodologia</a>
+    </div>
+    <a href="/research.html" class="text-sm px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">EN</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="py-12 bg-gradient-to-br from-green-900 via-green-800 to-green-700 text-white">
+  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div>
+        <p class="text-green-300 font-semibold text-sm uppercase tracking-widest mb-2">EcoAI Framework</p>
+        <h1 class="text-4xl md:text-5xl font-bold lora mb-4">Ricerca e Risultati</h1>
+        <p class="text-green-100 text-lg max-w-2xl">Validazione empirica dell'EcoAI Index su 601 studenti delle scuole secondarie superiori del Sud Italia — disegno misto sequenziale.</p>
+      </div>
+      <!-- Toggle lettura -->
+      <div class="flex-shrink-0">
+        <p class="text-green-300 text-xs uppercase tracking-widest mb-2 font-semibold">Modalità lettura</p>
+        <div class="flex gap-2 bg-green-900/50 p-1 rounded-full">
+          <a href="research_it.html" class="audience-pill" style="text-decoration:none">Pubblico generale</a>
+          <span class="audience-pill active">Ricercatore</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENUTO PRINCIPALE -->
+<main class="max-w-screen-2xl mx-auto px-4 md:px-8 py-12 space-y-16">
+
+  <!-- SEZIONE 1: DISEGNO DELLA RICERCA -->
+  <section id="disegno">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">1</div>
+      <h2 class="text-2xl font-bold text-gray-800">Disegno della Ricerca</h2>
+    </div>
+
+    <!-- PUBBLICO -->
+    <div class="for-public">
+      <p class="text-gray-600 mb-6 text-base leading-relaxed">Questa ricerca nasce da una domanda concreta: i giovani delle scuole secondarie superiori italiane hanno le competenze per orientarsi in un mondo segnato contemporaneamente dalla crisi ecologica e dall'intelligenza artificiale? Per rispondere, abbiamo costruito e testato uno strumento di misurazione, l'EcoAI Index, coinvolgendo oltre 600 studenti.</p>
+      <div class="flow-step">
+        <div class="flow-number">1</div>
+        <div>
+          <p class="font-semibold text-gray-800 mb-1">Fase esplorativa — 403 studenti</p>
+          <p class="text-sm text-gray-600">Ariano Irpino, maggio–giugno 2025. È stato somministrato un primo questionario per comprendere come gli studenti si rapportano alla sostenibilità e all'IA. I partecipanti sono stati poi raggruppati in cluster in base alle risposte.</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-number">2</div>
+        <div>
+          <p class="font-semibold text-gray-800 mb-1">Fase confermativa — 198 studenti</p>
+          <p class="text-sm text-gray-600">Un questionario revisionato è stato somministrato a un secondo campione. Questa fase ha confermato statisticamente le cinque dimensioni dell'EcoAI Index e le relazioni tra di esse.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RICERCATORE -->
+    <div class="for-researcher">
+      <p class="text-gray-600 mb-6 leading-relaxed">Lo studio adotta un disegno misto sequenziale con due somministrazioni distinte per funzione analitica: una fase esplorativa per lo sviluppo dello strumento e la profilazione cluster, seguita da una fase confermativa per la validazione strutturale.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mt-4">
+      <!-- Q1 -->
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full">Survey Q1 — Esplorativa</span>
+          <span class="text-gray-500 text-sm">N = 403</span>
+        </div>
+        <p class="for-public text-sm text-gray-600 mb-4">Gli studenti sono stati raggruppati in base al loro orientamento verso la sostenibilità e l'IA. Sono emersi tre profili distinti per ciascun tema.</p>
+        <div class="for-researcher researcher-block mb-4">
+          <span class="researcher-tag">Metodo</span>
+          <p class="text-xs text-gray-700">Analisi cluster k-means su batterie Likert. Due soluzioni cluster indipendenti: orientamento alla sostenibilità (3 gruppi) e posizionamento rispetto all'IA (3 gruppi).</p>
+        </div>
+
+        <p class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Cluster sostenibilità</p>
+        <div class="cluster-item"><div class="cluster-dot" style="background:#b08060"></div>Distanti dalla sostenibilità<span class="cluster-pct">30,5%</span></div>
+        <div class="cluster-item"><div class="cluster-dot" style="background:#6a9a6a"></div>Sensibili e orientati<span class="cluster-pct">36,0%</span></div>
+        <div class="cluster-item"><div class="cluster-dot" style="background:#4a7a9a"></div>Impegnati ed eco-consapevoli<span class="cluster-pct">33,5%</span></div>
+
+        <p class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 mt-4">Cluster IA</p>
+        <div class="cluster-item"><div class="cluster-dot" style="background:#c8903a"></div>Entusiasti pragmatici<span class="cluster-pct">47,7%</span></div>
+        <div class="cluster-item"><div class="cluster-dot" style="background:#8888aa"></div>Distaccati<span class="cluster-pct">27,1%</span></div>
+        <div class="cluster-item"><div class="cluster-dot" style="background:#7a3b2e"></div>Ambivalenti critici<span class="cluster-pct">25,1%</span></div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full">Survey Q2 — Confermativa</span>
+          <span class="text-gray-500 text-sm">N = 198</span>
+        </div>
+        <p class="for-public text-sm text-gray-600 mb-4">Il modello a cinque dimensioni è stato confermato statisticamente. La struttura risulta coerente tra generi e anni scolastici.</p>
+        <div class="for-researcher researcher-block mb-4">
+          <span class="researcher-tag">CFA — stimatore DWLS/WLSMV (matrice policorica, JASP)</span>
+          <div class="grid grid-cols-2 gap-2 mt-2">
+            <div class="text-center bg-white rounded-lg p-3 border border-gray-100">
+              <p class="text-lg font-bold text-green-700">0.978</p>
+              <p class="text-xs text-gray-500">CFI</p>
+            </div>
+            <div class="text-center bg-white rounded-lg p-3 border border-gray-100">
+              <p class="text-lg font-bold text-green-700">0.975</p>
+              <p class="text-xs text-gray-500">TLI</p>
+            </div>
+            <div class="text-center bg-white rounded-lg p-3 border border-gray-100">
+              <p class="text-lg font-bold text-amber-600">0.063</p>
+              <p class="text-xs text-gray-500">RMSEA</p>
+            </div>
+            <div class="text-center bg-white rounded-lg p-3 border border-gray-100">
+              <p class="text-lg font-bold text-amber-600">0.082</p>
+              <p class="text-xs text-gray-500">SRMR</p>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-2 mt-2">
+          <div class="flex items-center gap-2 p-2 bg-gray-50 rounded-lg text-sm">
+            <span class="text-green-600 font-bold">✓</span>
+            <span class="for-public text-gray-700">Invarianza configurale confermata per genere e anno scolastico</span>
+            <span class="for-researcher font-mono text-xs text-gray-700">Invarianza configurale — genere e anno scolastico</span>
+          </div>
+          <div class="flex items-center gap-2 p-2 bg-gray-50 rounded-lg text-sm">
+            <span class="text-green-600 font-bold">✓</span>
+            <span class="text-gray-700">Invarianza metrica confermata</span>
+          </div>
+          <div class="flex items-center gap-2 p-2 bg-gray-50 rounded-lg text-sm">
+            <span class="text-green-600 font-bold">✓</span>
+            <span class="for-public text-gray-700">Catena strutturale confermata: INFO → VAL/AATI → AGY → EPAS</span>
+            <span class="for-researcher font-mono text-xs text-gray-700">Catena SEM: INFO → VAL/AATI → AGY → EPAS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 2: CINQUE DIMENSIONI -->
+  <section id="dimensioni">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">2</div>
+      <h2 class="text-2xl font-bold text-gray-800">Le Cinque Dimensioni dell'EcoAI Index</h2>
+    </div>
+
+    <div class="for-public plain-callout mb-6">
+      L'EcoAI Index è uno strumento di misurazione che cattura cinque aspetti distinti della competenza eco-digitale, da quanto bene gli studenti valutano le informazioni online a se si percepiscono parte di una rete più ampia che collega esseri umani, tecnologie e natura. Ogni dimensione è misurata su una scala da 1 a 5.
+    </div>
+    <div class="for-researcher mb-6 text-sm text-gray-600 leading-relaxed">
+      Cinque costrutti latenti misurati tramite item Likert (1–5), stimati con CFA tramite stimatore DWLS. Affidabilità riportata come McDonald's ω; validità convergente tramite AVE. I pesi sono coefficienti di percorso SEM normalizzati a somma = 1,00.
+    </div>
+
+    <div class="space-y-4">
+      <!-- INFO -->
+      <div class="dim-card d-info">
+        <div class="flex flex-wrap items-start gap-3">
+          <div class="flex-shrink-0"><span class="acronym-badge bg-info">INFO</span></div>
+          <div class="flex-1 min-w-0">
+            <p class="font-semibold text-gray-800 mb-1">Alfabetizzazione Informativa Eco-Digitale</p>
+            <p class="for-public text-sm text-gray-600">Quanto bene gli studenti cercano, valutano e usano criticamente informazioni su temi ambientali e civici attraverso fonti digitali.</p>
+            <p class="for-researcher text-sm text-gray-600">Competenze di reperimento, valutazione critica e uso finalizzato dell'informazione eco-digitale su piattaforme digitali. Nodo prerequisito nella catena SEM.</p>
+            <div class="for-researcher flex gap-2 flex-wrap mt-2">
+              <span class="stat-pill">ω <span>0.655</span></span>
+              <span class="stat-pill">AVE <span>0.394</span></span>
+              <span class="stat-pill">Peso SEM <span>0.22</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AATI -->
+      <div class="dim-card d-aati">
+        <div class="flex flex-wrap items-start gap-3">
+          <div class="flex-shrink-0"><span class="acronym-badge bg-aati">AATI</span></div>
+          <div class="flex-1 min-w-0">
+            <p class="font-semibold text-gray-800 mb-1">Consapevolezza e Atteggiamenti verso l'IA</p>
+            <p class="for-public text-sm text-gray-600">Comprendere come funzionano gli algoritmi, riconoscere i bias dell'IA e sviluppare uno sguardo critico ma informato sui sistemi di intelligenza artificiale.</p>
+            <p class="for-researcher text-sm text-gray-600">Consapevolezza algoritmica, percezione del bias e orientamento etico verso la governance dell'IA. Massimo potere discriminante nella classificazione Eco-Index (η²=0,528). Massima correlazione inter-fattoriale con EPAS (r=0,822) e VAL (r=0,851).</p>
+            <div class="for-researcher flex gap-2 flex-wrap mt-2">
+              <span class="stat-pill">ω <span>0.806</span></span>
+              <span class="stat-pill">AVE <span>0.418</span></span>
+              <span class="stat-pill">Peso SEM <span>0.18</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VAL -->
+      <div class="dim-card d-val">
+        <div class="flex flex-wrap items-start gap-3">
+          <div class="flex-shrink-0"><span class="acronym-badge bg-val">VAL</span></div>
+          <div class="flex-1 min-w-0">
+            <p class="font-semibold text-gray-800 mb-1">Valori Eco-Civici</p>
+            <p class="for-public text-sm text-gray-600">Un orientamento personale verso la sostenibilità, la responsabilità ambientale collettiva e la giustizia civica come valori che guidano il comportamento eco-digitale.</p>
+            <p class="for-researcher text-sm text-gray-600">Orientamento valoriale verso sostenibilità, responsabilità ambientale collettiva e giustizia civica. Effetto soffitto documentato nella classe Eco-Index Bassa (M=3,094), che attenua il potere discriminante effettivo rispetto al valore η².</p>
+            <div class="for-researcher flex gap-2 flex-wrap mt-2">
+              <span class="stat-pill">ω <span>0.844</span></span>
+              <span class="stat-pill">AVE <span>0.525</span></span>
+              <span class="stat-pill">Peso SEM <span>0.20</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AGY -->
+      <div class="dim-card d-agy">
+        <div class="flex flex-wrap items-start gap-3">
+          <div class="flex-shrink-0"><span class="acronym-badge bg-agy">AGY</span></div>
+          <div class="flex-1 min-w-0">
+            <p class="font-semibold text-gray-800 mb-1">Agency Eco-Civica Digitale</p>
+            <p class="for-public text-sm text-gray-600">La concreta disponibilità e capacità di agire da cittadino responsabile nei contesti eco-digitali, sentendosi in grado di fare la propria parte.</p>
+            <p class="for-researcher text-sm text-gray-600">Auto-efficacia percepita e disponibilità comportamentale all'azione civica eco-digitale. Dimensione mediata nel SEM: riceve effetti da VAL e AATI, media verso EPAS. Peso normalizzato 0,24.</p>
+            <div class="for-researcher flex gap-2 flex-wrap mt-2">
+              <span class="stat-pill">ω <span>0.763</span></span>
+              <span class="stat-pill">AVE <span>0.370</span></span>
+              <span class="stat-pill">Peso SEM <span>0.24</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EPAS -->
+      <div class="dim-card d-epas">
+        <div class="flex flex-wrap items-start gap-3">
+          <div class="flex-shrink-0"><span class="acronym-badge bg-epas">EPAS</span></div>
+          <div class="flex-1 min-w-0">
+            <p class="font-semibold text-gray-800 mb-1">Scala di Agency Eco-Postumana</p>
+            <p class="for-public text-sm text-gray-600">La percezione di appartenere a reti più ampie, riconoscendosi parte di un sistema interconnesso di esseri umani, tecnologie e natura al di là della sola dimensione individuale.</p>
+            <p class="for-researcher text-sm text-gray-600">Disposizione soggettiva a riconoscersi come nodo in reti ibride umano-tecnologico-ecologiche; apertura all'integrazione relazionale. Nodo terminale nel SEM; peso normalizzato più alto (0,26). Funzione integrativa confermata dalle correlazioni elevate con AATI (r=0,822), VAL (r=0,819), AGY (r=0,814).</p>
+            <div class="for-researcher flex gap-2 flex-wrap mt-2">
+              <span class="stat-pill">ω <span>0.535</span></span>
+              <span class="stat-pill">AVE <span>0.423</span></span>
+              <span class="stat-pill">Peso SEM <span>0.26</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 3: MODELLO STRUTTURALE -->
+  <section id="sem">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">3</div>
+      <h2 class="text-2xl font-bold text-gray-800">Modello Strutturale</h2>
+    </div>
+
+    <div class="for-public plain-callout mb-6">
+      Le cinque dimensioni sono collegate a formare una catena. L'alfabetizzazione informativa costituisce il punto di partenza, influenzando come gli studenti pensano all'IA e i loro valori civici, che a loro volta alimentano una reale capacità di azione e infine un senso più profondo di identità ecologica.
+    </div>
+    <div class="for-researcher mb-4 text-sm text-gray-600">
+      Modello SEM con stimatore DWLS. Tutti i percorsi p&lt;.001 eccetto VAL→EPAS (p=.002). Effetti indiretti: INFO→AGY β=0,29; INFO→EPAS β=0,34; AATI→EPAS β=0,14. Correlazione AATI↔VAL r=0,851 (la più alta nella matrice fattoriale).
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 overflow-x-auto">
+      <div class="flex items-center justify-center gap-1 min-w-max mx-auto">
+        <div class="sem-node bg-blue-100 text-blue-800 border-2 border-blue-300">
+          <span>INFO</span>
+          <span class="node-label">Alfab.<br>Informativa</span>
+        </div>
+        <div class="sem-arrow" style="min-width:48px">
+          <span class="beta">β=0.55</span>
+          <div class="arrowhead"></div>
+        </div>
+        <div class="flex flex-col gap-3">
+          <div class="sem-node bg-purple-100 text-purple-800 border-2 border-purple-300" style="width:78px;height:70px;font-size:0.85rem">
+            <span>AATI</span>
+            <span class="node-label">Atteggiamenti<br>IA</span>
+          </div>
+          <div class="sem-node bg-emerald-100 text-emerald-800 border-2 border-emerald-300" style="width:78px;height:70px;font-size:0.85rem">
+            <span>VAL</span>
+            <span class="node-label">Valori<br>Civici</span>
+          </div>
+        </div>
+        <div class="flex flex-col gap-6 items-center" style="min-width:48px">
+          <div class="sem-arrow" style="min-width:48px">
+            <span class="beta">β=0.42</span>
+            <div class="arrowhead"></div>
+          </div>
+          <div class="sem-arrow" style="min-width:48px">
+            <span class="beta">β=0.30</span>
+            <div class="arrowhead"></div>
+          </div>
+        </div>
+        <div class="sem-node bg-amber-100 text-amber-800 border-2 border-amber-300">
+          <span>AGY</span>
+          <span class="node-label">Agency<br>Civica</span>
+        </div>
+        <div class="sem-arrow" style="min-width:48px">
+          <span class="beta">β=0.45</span>
+          <div class="arrowhead"></div>
+        </div>
+        <div class="sem-node bg-red-100 text-red-800 border-2 border-red-300">
+          <span>EPAS</span>
+          <span class="node-label">Agency<br>Eco-Post.</span>
+        </div>
+      </div>
+      <p class="text-center text-xs text-gray-400 mt-4 for-researcher">Tutti i coefficienti p&lt;.001 · VAL→EPAS p=.002 · r(AATI↔VAL)=0,851</p>
+      <p class="text-center text-xs text-gray-500 mt-4 for-public">Le competenze informative (INFO) alimentano la consapevolezza critica sull'IA e i valori civici, che insieme costruiscono la capacità di agire fino a formare un'identità ecologica integrata.</p>
+    </div>
+  </section>
+
+  <!-- SEZIONE 4: PROFILI ECO-INDEX -->
+  <section id="profili">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">4</div>
+      <h2 class="text-2xl font-bold text-gray-800">Profili Eco-Index</h2>
+    </div>
+
+    <div class="for-public plain-callout mb-6">
+      Tre profili studenteschi: in base al punteggio totale sull'EcoAI Index, gli studenti sono stati divisi in tre gruppi. Il grafico permette di esplorare come ciascun gruppo si posiziona su ogni dimensione e di individuare dove si concentrano le lacune maggiori.
+    </div>
+    <div class="for-researcher mb-4 text-sm text-gray-600">
+      Classificazione percentile (P33/P66), n≈66 per classe, N=198. Eco-Index composito: M=3,357, DS=0,559, range 2,058–4,974 (scala 1–5). Pesi derivati dai coefficienti SEM normalizzati. Potere discriminante riportato come η².
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+      <div class="flex flex-wrap gap-2 mb-6 items-center justify-between">
+        <div class="flex gap-2">
+          <button onclick="setChartType('bar')" id="btn-bar" class="profile-tab active">Grafico a barre</button>
+          <button onclick="setChartType('radar')" id="btn-radar" class="profile-tab">Radar</button>
+        </div>
+        <div class="for-researcher flex flex-wrap gap-2">
+          <span class="stat-pill">M <span>3,357</span></span>
+          <span class="stat-pill">DS <span>0,559</span></span>
+          <span class="stat-pill">N <span>198</span></span>
+        </div>
+      </div>
+
+      <div class="chart-container">
+        <canvas id="profilesChart"></canvas>
+      </div>
+
+      <div class="flex flex-wrap gap-4 justify-center mt-4 text-sm">
+        <div class="flex items-center gap-2"><div class="w-3 h-3 rounded-full" style="background:#c8a090"></div><span class="text-gray-600">Classe Bassa (n≈66)</span></div>
+        <div class="flex items-center gap-2"><div class="w-3 h-3 rounded-full" style="background:#80b870"></div><span class="text-gray-600">Classe Media (n≈66)</span></div>
+        <div class="flex items-center gap-2"><div class="w-3 h-3 rounded-full" style="background:#7090c8"></div><span class="text-gray-600">Classe Alta (n≈66)</span></div>
+      </div>
+
+      <div class="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-800">
+        <span class="font-semibold">⚠ Effetto soffitto VAL:</span>
+        <span class="for-public"> Anche gli studenti della classe Bassa superano 3,0 sui Valori Eco-Civici, suggerendo che i valori sono ampiamente condivisi ma non ancora tradotti in azione o consapevolezza critica.</span>
+        <span class="for-researcher"> VAL Classe Bassa M=3,094 supera il punto medio della scala. L'effetto soffitto attenua il contributo discriminante effettivo nonostante η²=0,416. Discusso nel §6.3.2.</span>
+      </div>
+
+      <!-- Potere discriminante — solo ricercatore -->
+      <div class="for-researcher mt-4">
+        <div class="researcher-block">
+          <span class="researcher-tag">Potere discriminante η²</span>
+          <div class="grid grid-cols-4 gap-2 mt-2">
+            <div class="text-center p-2 bg-white rounded border border-gray-100">
+              <p class="text-sm font-bold text-purple-700">0.528</p>
+              <p class="text-xs text-gray-500">AATI</p>
+            </div>
+            <div class="text-center p-2 bg-white rounded border border-gray-100">
+              <p class="text-sm font-bold text-red-600">0.474</p>
+              <p class="text-xs text-gray-500">EPAS</p>
+            </div>
+            <div class="text-center p-2 bg-white rounded border border-gray-100">
+              <p class="text-sm font-bold text-emerald-600">0.416</p>
+              <p class="text-xs text-gray-500">VAL</p>
+            </div>
+            <div class="text-center p-2 bg-white rounded border border-gray-100">
+              <p class="text-sm font-bold text-amber-600">0.406</p>
+              <p class="text-xs text-gray-500">AGY</p>
+            </div>
+          </div>
+          <p class="text-xs text-gray-500 mt-2">AATI è il principale discriminante nonostante il peso SEM più basso (0,18) — asimmetria teoricamente rilevante.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 5: MATRICE CORRELAZIONI (solo ricercatore) -->
+  <section id="correlazioni" class="for-researcher">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">5</div>
+      <h2 class="text-2xl font-bold text-gray-800">Matrice di Correlazione Inter-Fattoriale</h2>
+    </div>
+    <p class="text-sm text-gray-600 mb-4">Correlazioni tra fattori latenti dalla CFA. Valori in grassetto &gt;0,80. Nessuna correlazione supera la soglia di ridondanza (0,90), confermando la distintività empirica dei cinque costrutti.</p>
+
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 overflow-x-auto">
+      <div id="corr-matrix" class="min-w-max mx-auto"></div>
+    </div>
+  </section>
+
+  <!-- CITAZIONE -->
+  <section class="bg-green-50 border border-green-200 rounded-xl p-6">
+    <p class="text-sm font-semibold text-green-800 uppercase tracking-wide mb-2">Cita questa ricerca</p>
+    <p class="text-sm text-gray-700 font-mono leading-relaxed">
+      Rubino, D. (2025). <em>Eco-Digital Posthumanism: Eco-Digital Co-Responsible Agency, Genealogy and Research Agenda.</em> SocArXiv. <a href="https://www.researchgate.net/publication/395580797_Eco-Digital_Posthumanism_Eco-Digital_Co-Responsible_Agency_Genealogy_and_Research_Agenda" target="_blank" class="text-green-700 underline hover:text-green-900">ResearchGate</a>
+    </p>
+  </section>
+
+</main>
+
+<footer style="text-align:center; margin-top:40px; padding:20px; font-size:14px; background:#f8f9fa; border-top:1px solid #ddd;">
+  <a href="/privacy.html">Privacy Policy</a> |
+  <a href="/cookie.html">Cookie Policy</a> |
+  <a href="/terms.html">Termini e Condizioni</a>
+</footer>
+
+<script>
+// ===== TOGGLE MODALITÀ =====
+function setMode(mode) {
+  const body = document.body;
+  const btnPublic = document.getElementById('btn-public');
+  const btnResearcher = document.getElementById('btn-researcher');
+  if (mode === 'researcher') {
+    body.classList.add('researcher-mode');
+    btnResearcher.classList.add('active');
+    btnPublic.classList.remove('active');
+  } else {
+    body.classList.remove('researcher-mode');
+    btnPublic.classList.add('active');
+    btnResearcher.classList.remove('active');
+  }
+}
+
+// ===== GRAFICO PROFILI =====
+const dims = ['INFO', 'AATI', 'VAL', 'AGY', 'EPAS'];
+const low   = [2.034, 2.374, 3.094, 2.449, 2.652];
+const mid   = [2.850, 3.010, 3.637, 2.889, 3.180];
+const high  = [3.820, 3.950, 4.134, 3.750, 3.740];
+
+let currentChart = null;
+
+function buildChart(type) {
+  const ctx = document.getElementById('profilesChart').getContext('2d');
+  if (currentChart) currentChart.destroy();
+  const datasets = [
+    { label: 'Classe Bassa', data: low,  backgroundColor: type==='bar'?'rgba(200,160,144,0.7)':'rgba(200,160,144,0.3)', borderColor:'#c8a090', borderWidth:2, pointBackgroundColor:'#c8a090' },
+    { label: 'Classe Media', data: mid,  backgroundColor: type==='bar'?'rgba(128,184,112,0.7)':'rgba(128,184,112,0.3)', borderColor:'#80b870', borderWidth:2, pointBackgroundColor:'#80b870' },
+    { label: 'Classe Alta',  data: high, backgroundColor: type==='bar'?'rgba(112,144,200,0.7)':'rgba(112,144,200,0.3)', borderColor:'#7090c8', borderWidth:2, pointBackgroundColor:'#7090c8' }
+  ];
+  currentChart = new Chart(ctx, {
+    type: type === 'radar' ? 'radar' : 'bar',
+    data: { labels: dims, datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'top', labels: { font: { family: 'Inter', size: 12 } } },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed[type==='radar'?'r':'y'].toFixed(3)}` } }
+      },
+      scales: type === 'radar' ? {
+        r: { min: 1, max: 5, ticks: { stepSize: 1, font: {size:10} }, pointLabels: { font: { size: 12, weight: '600' } } }
+      } : {
+        y: { min: 1, max: 5, ticks: { stepSize: 0.5, font: {size:11} }, grid: { color: '#f3f4f6' } },
+        x: { ticks: { font: { size: 12, weight: '600' } } }
+      }
+    }
+  });
+}
+
+function setChartType(type) {
+  document.getElementById('btn-bar').classList.toggle('active', type === 'bar');
+  document.getElementById('btn-radar').classList.toggle('active', type === 'radar');
+  buildChart(type);
+}
+
+// ===== MATRICE CORRELAZIONI =====
+const corrData = {
+  labels: ['INFO','AATI','VAL','AGY','EPAS'],
+  values: [
+    [1.000, 0.674, 0.495, 0.521, 0.615],
+    [0.674, 1.000, 0.851, 0.732, 0.822],
+    [0.495, 0.851, 1.000, 0.601, 0.819],
+    [0.521, 0.732, 0.601, 1.000, 0.814],
+    [0.615, 0.822, 0.819, 0.814, 1.000]
+  ]
+};
+
+function buildCorrMatrix() {
+  const container = document.getElementById('corr-matrix');
+  if (!container) return;
+  const n = corrData.labels.length;
+  let html = `<div style="display:grid;grid-template-columns:60px repeat(${n},72px);gap:3px">`;
+  html += '<div></div>';
+  corrData.labels.forEach(l => {
+    html += `<div class="corr-cell font-semibold bg-gray-100 text-gray-700">${l}</div>`;
+  });
+  corrData.values.forEach((row, i) => {
+    html += `<div class="corr-cell font-semibold bg-gray-100 text-gray-700 text-left pl-2">${corrData.labels[i]}</div>`;
+    row.forEach((val, j) => {
+      let bg = '#f9fafb';
+      let fw = 'normal';
+      if (i === j) { bg = '#e5e7eb'; }
+      else if (val >= 0.80) { bg = '#dcfce7'; fw = '700'; }
+      else if (val >= 0.65) { bg = '#f0fdf4'; }
+      html += `<div class="corr-cell" style="background:${bg};font-weight:${fw}">${val.toFixed(3)}</div>`;
+    });
+  });
+  html += '</div>';
+  html += '<p class="text-xs text-gray-400 mt-2 italic">Verde: r ≥ 0,80. Nessun valore supera la soglia di ridondanza (0,90).</p>';
+  container.innerHTML = html;
+}
+
+buildChart('bar');
+buildCorrMatrix();
+</script>
+</body>
+</html>
