@@ -3,7 +3,6 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Homepage -->
   <url>
     <loc>https://www.ecoaiframework.com/</loc>
     <lastmod>2026-03-10</lastmod>
@@ -24,10 +23,9 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ecoaiframework.com/"/>
   </url>
 
-  <!-- Literacies -->
   <url>
     <loc>https://www.ecoaiframework.com/literacies.html</loc>
-    <lastmod>2025-09-12</lastmod>
+    <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ecoaiframework.com/literacies.html"/>
@@ -37,7 +35,7 @@
 
   <url>
     <loc>https://www.ecoaiframework.com/it/literacies.html</loc>
-    <lastmod>2025-09-12</lastmod>
+    <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ecoaiframework.com/literacies.html"/>
@@ -45,7 +43,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ecoaiframework.com/literacies.html"/>
   </url>
 
-  <!-- Research EN -->
   <url>
     <loc>https://www.ecoaiframework.com/research_researcher.html</loc>
     <lastmod>2026-03-10</lastmod>
@@ -66,7 +63,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ecoaiframework.com/research_public_en.html"/>
   </url>
 
-  <!-- Research IT -->
   <url>
     <loc>https://www.ecoaiframework.com/it/research_researcher_it.html</loc>
     <lastmod>2026-03-10</lastmod>
@@ -87,44 +83,54 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ecoaiframework.com/research_public_en.html"/>
   </url>
 
-  <!-- Policies EN -->
   <url>
     <loc>https://www.ecoaiframework.com/privacy.html</loc>
-    <lastmod>2025-09-12</lastmod>
+    <lastmod>2026-03-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ecoaiframework.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ecoaiframework.com/it/privacy.html"/>
   </url>
   <url>
     <loc>https://www.ecoaiframework.com/cookie.html</loc>
-    <lastmod>2025-09-12</lastmod>
+    <lastmod>2026-03-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ecoaiframework.com/cookie.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ecoaiframework.com/it/cookie.html"/>
   </url>
   <url>
     <loc>https://www.ecoaiframework.com/terms.html</loc>
-    <lastmod>2025-09-12</lastmod>
+    <lastmod>2026-03-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ecoaiframework.com/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ecoaiframework.com/it/termini.html"/>
   </url>
 
-  <!-- Policies IT -->
   <url>
     <loc>https://www.ecoaiframework.com/it/privacy.html</loc>
-    <lastmod>2025-09-12</lastmod>
+    <lastmod>2026-03-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ecoaiframework.com/it/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ecoaiframework.com/privacy.html"/>
   </url>
   <url>
     <loc>https://www.ecoaiframework.com/it/cookie.html</loc>
-    <lastmod>2025-09-12</lastmod>
+    <lastmod>2026-03-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ecoaiframework.com/it/cookie.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ecoaiframework.com/cookie.html"/>
   </url>
   <url>
     <loc>https://www.ecoaiframework.com/it/termini.html</loc>
-    <lastmod>2025-09-12</lastmod>
+    <lastmod>2026-03-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ecoaiframework.com/it/termini.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ecoaiframework.com/terms.html"/>
   </url>
 
 </urlset>
