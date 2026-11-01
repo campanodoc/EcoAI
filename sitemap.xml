@@ -181,4 +181,20 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://www.ecoaiframework.com/it/collabora.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ecoaiframework.com/collaborate.html"/>
   </url>
+  <url>
+    <loc>https://www.ecoaiframework.com/qa.html</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ecoaiframework.com/qa.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ecoaiframework.com/it/qa.html"/>
+  </url>
+  <url>
+    <loc>https://www.ecoaiframework.com/it/qa.html</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ecoaiframework.com/it/qa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ecoaiframework.com/qa.html"/>
+  </url>
 </urlset>

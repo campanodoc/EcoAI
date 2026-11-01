@@ -259,13 +259,13 @@
   }
 </style>
 </head>
-<body class="antialiased">
+<body class="antialiased researcher-mode">
 
 <!-- HEADER / NAV -->
 <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
   <nav class="mx-auto max-w-screen-2xl px-4 md:px-6 py-4 flex justify-between items-center relative">
     <a href="index.html" class="text-2xl font-bold text-green-800">EcoAI Framework</a>
-    <div class="hidden md:flex absolute left-1/2 -translate-x-1/2" style="gap:1.1rem; font-size:.88rem; white-space:nowrap;"><a class="text-gray-600 hover:text-green-700 transition" href="index.html#panoramica">Overview</a><a class="text-gray-600 hover:text-green-700 transition" href="index.html#framework">The Framework</a><a class="text-gray-600 hover:text-green-700 transition" href="index.html#competenze">Competences</a><a class="text-gray-600 hover:text-green-700 transition" href="index.html#impatto-globale">Global Impact</a><a class="text-gray-600 hover:text-green-700 transition" href="index.html#metodologia">Methodology</a><a class="text-gray-600 hover:text-green-700 transition" href="about.html">About</a><a class="text-gray-600 hover:text-green-700 transition" href="training.html">Training</a><a class="text-gray-600 hover:text-green-700 transition" href="collaborate.html">Collaborate</a><a class="text-green-800 font-semibold border-b-2 border-green-700 transition" href="research_researcher.html">Research</a></div>
+    <div class="hidden md:flex flex-1 justify-center" style="margin:0 1rem;gap:1.1rem; font-size:.88rem; white-space:nowrap;"><a class="text-gray-600 hover:text-green-700 transition" href="index.html#panoramica">Overview</a><a class="text-gray-600 hover:text-green-700 transition" href="index.html#framework">The Framework</a><a class="text-gray-600 hover:text-green-700 transition" href="index.html#competenze">Competences</a><a class="text-gray-600 hover:text-green-700 transition" href="index.html#impatto-globale">Global Impact</a><a class="text-gray-600 hover:text-green-700 transition" href="index.html#metodologia">Methodology</a><a class="text-gray-600 hover:text-green-700 transition" href="about.html">About</a><a class="text-gray-600 hover:text-green-700 transition" href="training.html">Training</a><a class="text-gray-600 hover:text-green-700 transition" href="collaborate.html">Collaborate</a><a class="text-green-800 font-semibold border-b-2 border-green-700 transition" href="research_researcher.html">Research</a><a class="text-gray-600 hover:text-green-700 transition" href="qa.html">Q&amp;A</a></div>
     <a href="it/research_researcher_it.html" class="text-sm px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">IT</a>
   </nav>
 </header>
@@ -279,15 +279,7 @@
         <h1 class="text-4xl md:text-5xl font-bold lora mb-4">Research &amp; Findings</h1>
         <p class="text-green-100 text-lg max-w-2xl">Empirical validation of the EcoAI Index in two surveys of upper-secondary students in southern Italy (403 and 198 respondents), with a sequential quantitative design.</p>
       </div>
-      <!-- Audience toggle -->
-      <div class="flex-shrink-0">
-        <p class="text-green-300 text-xs uppercase tracking-widest mb-2 font-semibold">Reading mode</p>
-        <div class="flex gap-2 bg-green-900/50 p-1 rounded-full">
-          <a href="research_public_en.html" class="audience-pill" style="text-decoration:none">General public</a>
-          <span class="audience-pill active">Researcher</span>
-        </div>
       </div>
-    </div>
   </div>
 </section>
 
@@ -607,22 +599,6 @@
 </footer>
 
 <script>
-// ===== AUDIENCE MODE =====
-function setMode(mode) {
-  const body = document.body;
-  const btnPublic = document.getElementById('btn-public');
-  const btnResearcher = document.getElementById('btn-researcher');
-  if (mode === 'researcher') {
-    body.classList.add('researcher-mode');
-    btnResearcher.classList.add('active');
-    btnPublic.classList.remove('active');
-  } else {
-    body.classList.remove('researcher-mode');
-    btnPublic.classList.add('active');
-    btnResearcher.classList.remove('active');
-  }
-}
-
 // ===== PROFILES CHART =====
 const dims = ['INFO', 'AATI', 'VAL', 'AGY', 'EPAS'];
 const low   = [2.047, 2.430, 2.797, 2.508, 2.552];

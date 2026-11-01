@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcoAI Framework: Q &amp; A</title>
+<meta content="Questions and answers on Ecodigital Posthumanism, Infrastructural Reflexivity and the EcoAI Index." name="description"/>
+<style>
+    :root {
+      --navy: #14532d;
+      --navy-light: #166534;
+      --green: #15803d;
+      --green-dark: #166534;
+      --mint: #f0fdf4;
+      --white: #ffffff;
+      --background: #f5f7f6;
+      --text: #24343a;
+      --muted: #62747a;
+      --line: #dbe6e2;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .topbar-inner {
+      width: min(var(--max-width), calc(100% - 32px));
+      min-height: 82px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .site-title {
+      margin: 0;
+      color: var(--white);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.9rem, 3.5vw, 3rem);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    .home-button {
+      flex: 0 0 auto;
+      padding: 11px 17px;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      border-radius: 7px;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .home-button:hover,
+    .home-button:focus {
+      background: var(--green);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      color: var(--white);
+    }
+
+    .hero-inner {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 56px 0 48px;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 1.05rem;
+    }
+
+    .layout {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 80px;
+      display: grid;
+      grid-template-columns: 275px minmax(0, 1fr);
+      gap: 38px;
+      align-items: start;
+    }
+
+    .index {
+      position: sticky;
+      top: 105px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--white);
+    }
+
+    .index h3 {
+      margin: 0 0 14px;
+      color: var(--navy);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .index a {
+      display: block;
+      padding: 8px 10px;
+      margin: 3px 0;
+      border-radius: 7px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      line-height: 1.35;
+    }
+
+    .index a:hover,
+    .index a:focus {
+      background: var(--mint);
+      color: var(--green-dark);
+    }
+
+    .section {
+      margin: 0 0 48px;
+      scroll-margin-top: 110px;
+    }
+
+    .section h2 {
+      margin: 0 0 19px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--green);
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      font-weight: 500;
+    }
+
+    .section-note {
+      margin: -7px 0 20px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    details {
+      margin: 0 0 11px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    details[open] {
+      border-color: #a5cfc4;
+    }
+
+    summary {
+      position: relative;
+      cursor: pointer;
+      list-style: none;
+      padding: 17px 52px 17px 18px;
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 18px;
+      top: 12px;
+      color: var(--green);
+      font-size: 1.6rem;
+      font-weight: 400;
+    }
+
+    details[open] summary::after {
+      content: "−";
+    }
+
+    .answer {
+      padding: 0 20px 20px;
+      color: #405159;
+    }
+
+    .answer p {
+      margin: 0;
+    }
+
+    .formulas {
+      padding: 28px;
+      border-radius: 14px;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .formulas h2 {
+      color: var(--white);
+      border-color: #6fd0b7;
+    }
+
+    .formulas blockquote {
+      margin: 11px 0;
+      padding: 12px 15px;
+      border-left: 3px solid #6fd0b7;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    footer {
+      padding: 30px 16px;
+      background: var(--navy);
+      color: rgba(255, 255, 255, 0.7);
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 850px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .index {
+        position: static;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar-inner {
+        min-height: 72px;
+      }
+
+      .site-title {
+        font-size: 1.55rem;
+      }
+
+      .home-button {
+        padding: 8px 10px;
+        font-size: 0.78rem;
+      }
+
+      .hero-inner {
+        padding: 42px 0;
+      }
+    }
+  
+    .paper-notice { margin: 0 0 20px; padding: 16px 18px; border: 1px solid #a5cfc4; border-left: 4px solid var(--green); border-radius: 10px; background: #f1f8f6; color: #405159; }
+    .paper-notice p { margin: 0 0 8px; }
+    .paper-notice p:last-child { margin: 0; }
+    .section h3 { color: var(--navy); margin: 26px 0 12px; font-size: 1.15rem; }
+    .references { margin-top: 22px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 10px; background: var(--white); color: #405159; font-size: 0.92rem; }
+    .references h3 { margin-top: 0; }
+    .references p { margin: 0 0 9px; padding-left: 1.6em; text-indent: -1.6em; }
+    .references a { color: var(--green); word-break: break-all; }
+</style>
+</head>
+<body>
+<nav class="eco-topnav" style="background:rgba(255,255,255,0.95); border-bottom:1px solid #d4d0ca; padding:8px 24px; min-height:56px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 20px; position:sticky; top:0; z-index:100; font-family:Inter,system-ui,sans-serif; margin-bottom:0;"><a href="index.html" style="font-weight:700; font-size:15px; color:#166534; text-decoration:none;">EcoAI Framework</a><div style="display:flex; flex-wrap:wrap; gap:6px 18px; font-size:13px;"><a href="index.html#panoramica" style="text-decoration:none; color:#374151;">Overview</a><a href="index.html#framework" style="text-decoration:none; color:#374151;">The Framework</a><a href="index.html#competenze" style="text-decoration:none; color:#374151;">Competences</a><a href="index.html#impatto-globale" style="text-decoration:none; color:#374151;">Global Impact</a><a href="index.html#metodologia" style="text-decoration:none; color:#374151;">Methodology</a><a href="about.html" style="text-decoration:none; color:#374151;">About</a><a href="training.html" style="text-decoration:none; color:#374151;">Training</a><a href="collaborate.html" style="text-decoration:none; color:#374151;">Collaborate</a><a href="research_researcher.html" style="text-decoration:none; color:#374151;">Research</a><a href="qa.html" style="text-decoration:none; color:#166534; font-weight:600;">Q&amp;A</a></div><a href="it/qa.html" style="background:#166534; color:white; padding:4px 14px; border-radius:4px; font-size:12px; font-weight:600; text-decoration:none;">IT</a></nav>
+<section class="hero">
+<div class="hero-inner"><h1 style="margin:0 0 14px;color:#fff;font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:500;letter-spacing:-0.02em;">Q&amp;A</h1>
+<p>
+      Critical questions and consultation answers on the ontological, epistemological, methodological and empirical architecture of the EcoAI research programme.
+    </p>
+</div>
+</section>
+<div class="layout">
+<aside class="index">
+<h3>Contents</h3>
+<a href="#part1">I. General architecture</a>
+<a href="#part2">II. Ontology and epistemology</a>
+<a href="#part3">III. The Index in simple terms</a>
+<a href="#part4">IV. Empirical validation</a>
+<a href="#part5">V. Originality and limitations</a>
+<a href="#formulas">Short formulas</a>
+<a href="#part6">VI. Integrations</a>
+<a href="#part7">VII. Reference paper</a>
+<a href="#extra-domains">VIII. Domains and subdomains</a><a href="#extra-methods">IX. Statistical methods explained</a></aside>
+<main>
+<section class="section" id="part1">
+<h2>Part I. The General Architecture of Ecodigital Posthumanism</h2>
+<details>
+<summary>1. What fundamental theoretical problem does Ecodigital Posthumanism seek to address?</summary>
+<div class="answer">
+<p>
+            The central problem is the persistent analytical separation between ecological and digital processes. Ecological theories often treat the digital as an external instrument, while digital studies may treat ecological materiality as a mere substrate. Ecodigital Posthumanism argues instead that the two domains are empirically entangled and mutually conditioning, while remaining analytically distinguishable and causally asymmetrical.
+          </p>
+</div>
+</details>
+<details>
+<summary>2. What does the term “ecodigital system” mean?</summary>
+<div class="answer">
+<p>
+            The ecodigital system is a material-relational configuration in which ecological and ecomedial processes jointly participate in the formation of subjects, practices, knowledge and capacities for action. It does not refer simply to the coexistence of nature and technology. It indicates that ecological conditions materially enable digital infrastructures, while those infrastructures reorganise extraction, attention, consumption, classification and knowledge.
+          </p>
+</div>
+</details>
+<details>
+<summary>3. Why use the term “ecomedial” rather than simply “digital”?</summary>
+<div class="answer">
+<p>
+            The term “digital” can suggest an immaterial or purely technical domain. “Ecomedial” emphasises that platforms, interfaces, algorithms and computational environments form mediating environments in which perceptions, dispositions and practices are shaped. It also connects technical mediation to its material, energetic and ecological conditions.
+          </p>
+</div>
+</details>
+<details>
+<summary>4. In what sense are ecological and ecomedial domains co-constitutive?</summary>
+<div class="answer">
+<p>
+            They are co-constitutive because neither can be adequately analysed as completely external to the other. Digital infrastructures depend on bodies, minerals, energy, territories, labour and logistics. At the same time, digital practices reorganise how resources, attention, knowledge and ecological action are perceived and distributed.
+          </p>
+</div>
+</details>
+<details>
+<summary>5. If the two domains are co-constitutive, why emphasise asymmetry?</summary>
+<div class="answer">
+<p>
+            Because co-constitution does not imply causal equivalence. Ecomedial infrastructures depend materially on geological, energetic, bodily and ecological substrates, while ecology does not depend ontologically on the digital in the same sense. Digital systems may reorganise ecological processes, but they do not eliminate the material priority of the substrates that make them possible.
+          </p>
+</div>
+</details>
+<details>
+<summary>6. What forms of asymmetry does the framework distinguish?</summary>
+<div class="answer">
+<p>
+            The framework distinguishes at least three forms. The first is material asymmetry: computational infrastructures depend on energy, extraction and labour. The second is agentic asymmetry: different actors possess radically unequal capacities to alter the configuration. The third is epistemic and geopolitical asymmetry: some subjects, languages and institutions have greater capacity to produce, validate and circulate knowledge.
+          </p>
+</div>
+</details>
+<details>
+<summary>7. Does asymmetry contradict distributed agency?</summary>
+<div class="answer">
+<p>
+            No. Distributed agency means that effects emerge through relations among subjects, institutions, devices and material processes. It does not mean that all participants contribute in the same way or possess equal power. The distribution of causal efficacy must be distinguished from the distribution of responsibility, control and capacity for intervention.
+          </p>
+</div>
+</details>
+<details>
+<summary>8. What is original about the concept of dual habitus?</summary>
+<div class="answer">
+<p>
+            Dual habitus does not refer to two separate subjects or identities. It refers to a single differentiated dispositional architecture formed through heterogeneous ecological and ecomedial conditions. Its originality lies in showing how dispositions sedimented in one register may be transferred, reactivated or brought into tension in the other.
+          </p>
+</div>
+</details>
+<details>
+<summary>9. Why call it “dual habitus” if it is one architecture?</summary>
+<div class="answer">
+<p>
+            “Dual” does not indicate an ontological division of the subject. It refers to two distinct registers in which dispositions are formed and activated. The architecture remains unified, while the conditions shaping it are heterogeneous. The distinction becomes analytically useful when the demands of the two registers diverge or when a disposition is transferred from one domain to the other.
+          </p>
+</div>
+</details>
+<details>
+<summary>10. What distinguishes the ecological register from the ecomedial one?</summary>
+<div class="answer">
+<p>
+            The ecological register is sedimented through practices situated in environments whose materiality is not constitutively organised by computational formatting, even when some of their feedback is later measured or quantified. Pain, temperature and air quality are examples of ecological feedback that can be perceived directly or made the object of technical measurement. The ecomedial register is sedimented through practices mediated by computational interfaces, in which the return of action arrives already selected and formatted according to the categories of the device, and can be modified by whoever sets those categories. The distinction concerns the regime of formatting of experience, and the body remains present in the ecomedial register (posture, gesture, perception, fatigue, affect), reorganised rather than suspended.
+          </p>
+</div>
+</details>
+<details>
+<summary>11. What is transductive decoupling?</summary>
+<div class="answer">
+<p>
+            In the ecological register two components of embodiment tend to sediment together: operative hexis (tactile automatisms, eye-hand coordination, response rhythms) and the perceptual and evaluative criteria that orient relevance, visibility and value. In the ecomedial register operative hexis forms as well, and some of its elementary components are largely transferable across interfaces, whereas evaluative criteria remain dependent on the regime of the threshold crossed and require recalibration when that regime changes. Operative routine and evaluative criterion therefore do not necessarily co-sediment. The synthetic formula is transductive decoupling, to be read as differential coupling and not as separation. The proposition has the status of a theoretical hypothesis: testing it would require comparative observations on the transferability of routines and criteria across platforms, which the empirical design of the EcoAI Index does not provide.
+          </p>
+</div>
+</details>
+<details>
+<summary>12. How does the framework resolve the tension between habitus and intra-action?</summary>
+<div class="answer">
+<p>
+            It does not merge them or assign them the same function. Intra-action describes the relational constitution through which boundaries, capacities and positions become determinate within a specific configuration. Habitus describes the temporal sedimentation of repeated relations into relatively durable orientations. Intra-action therefore concerns situated constitution, while habitus concerns dispositional duration. The two notions operate on different temporal scales: intra-action on the scale of the event, sedimentation on the scale of recurrent sequences of intra-actions.
+          </p>
+</div>
+</details>
+<details>
+<summary>13. Does habitus not presuppose already-formed subjects, in tension with Barad?</summary>
+<div class="answer">
+<p>
+            The framework reduces the problem without eliminating it. Habitus does not ontologically precede intra-action; it is its precipitate: dispositions emerge through reiterated relations and then continue to shape subsequent situations, within which new intra-actions occur that may reconfigure them. Sedimentation so understood describes the temporal stabilisation of relationally produced regularities, and the subject does not possess an original habitus with which to enter relations. The formulation is a proposal of this work and not a necessary consequence of either position. It remains open what persists across intra-actions without becoming a preformed entity. Sedimentation must also be distinguished from Bourdieu's hysteresis, which concerns the misalignment between dispositions and changed conditions of the field, that is, the relation between habitus and field and not the one between habitus and intra-action.
+          </p>
+</div>
+</details>
+<details>
+<summary>14. Is the relationship between Barad and Bourdieu a theoretical synthesis?</summary>
+<div class="answer">
+<p>
+            No. Barad and Bourdieu cannot be juxtaposed without friction: habitus presupposes duration and relative stability of dispositions, whereas Baradian onto-epistemology makes entities emerge from intra-action. The framework establishes a functional connection between distinct registers. Barad provides an account of relational constitution, Bourdieu an account of social and dispositional sedimentation, and their full compatibility is not claimed. Among the tensions of Ecodigital Posthumanism, those between Barad and Latour and between Braidotti and Haraway remain open as heuristic resources, because their productivity lies in the conflict. The Barad-Bourdieu tension is instead treated, because the dispositional architecture on which the interpretation of the data rests depends on it. The treatment is the temporal differentiation described in the previous answers, which reduces the incompatibility without eliminating it.
+          </p>
+</div>
+</details>
+<details>
+<summary>15. How do you respond to the criticism that the framework is a theoretical collage?</summary>
+<div class="answer">
+<p>
+            The framework adopts theoretical bricolage in the sense of Kincheloe (2001): the deliberate construction of an analytical device from different traditions, in which the coherence sought is functional rather than systematic. The metaphor of the bricoleur comes from Lévi-Strauss (1962/2015), who elaborates it to describe mythical thought as a reassembly of heterogeneous materials. The researcher selects conceptual tools for the function each performs in the device, declares the tensions that the selection produces and keeps them open as heuristic resources. The validity of the construction depends on the clarity of the assigned functions, the explicit treatment of tensions and the capacity of the resulting configuration to generate distinctions unavailable in each theory considered alone, and not on the original homogeneity of its sources.
+          </p>
+</div>
+</details>
+<details>
+<summary>16. What is the difference between bricolage and eclecticism?</summary>
+<div class="answer">
+<p>
+            Eclecticism may simply juxtapose concepts without making the criteria of selection or incompatibility explicit. The bricolage used here is constrained. Each tradition must perform a specific function, must not unnecessarily duplicate another component and must retain visible tensions. The resulting construction must also produce identifiable theoretical, epistemological or methodological consequences.
+          </p>
+</div>
+</details>
+<details>
+<summary>17. What internal logic holds the theoretical construction together?</summary>
+<div class="answer">
+<p>
+            The logic is configurational. Barad clarifies relational constitution; Bourdieu clarifies dispositional sedimentation; media theory clarifies the function of interfaces; infrastructure studies expose material substrates; decolonial critique reveals historical and geopolitical asymmetries. The construction is coherent because each component answers a different question within the same problem.
+          </p>
+</div>
+</details>
+<details>
+<summary>18. What does “device-as-threshold” mean?</summary>
+<div class="answer">
+<p>
+            The device is not treated as a simple channel transporting unchanged content. It is a transductive threshold that selects, encodes, amplifies, attenuates and reformats what passes among bodily practice, environmental signal and computational operation. The threshold is the situated point of transformation, while infrastructure is the wider system sustaining it. The term designates a construct specific to Ecodigital Posthumanism and should not be sought in the literature under this label, although two genealogies make its properties intelligible: Simondon's transduction (1958/2017) and Stiegler's tertiary retention (1994/1998), for which technical objects are external deposits of memory that condition perception and anticipation.
+          </p>
+</div>
+</details>
+<details>
+<summary>19. Why use “threshold” rather than “medium” or “interface”?</summary>
+<div class="answer">
+<p>
+            “Threshold” emphasises passage and transformation between heterogeneous registers. “Interface” may describe a point of contact, but not necessarily the selection and reformatting that occur there. The concept of threshold signals that what crosses the device does not remain identical.
+          </p>
+</div>
+</details>
+<details>
+<summary>20. What does transduction mean in this framework?</summary>
+<div class="answer">
+<p>
+            Transduction is the change of form that occurs when content, experience or signal crosses a technical threshold. An experience becomes a predefined response, a behaviour becomes a recorded event, and a methodological question becomes a prompt. Transduction makes clear that technical mediation produces transformation and loss, not merely transmission. The notion comes from Simondon (1958/2017): what passes through is not simply transported but transformed in the act of transit.
+          </p>
+</div>
+</details>
+<details>
+<summary>21. What does asymmetric executive programmability mean?</summary>
+<div class="answer">
+<p>
+            Many computational infrastructures, though not the ecomedial register as a whole, display an asymmetric executive programmability of operating conditions: the modification of a rule applies itself in the environment of action, so that an update to an algorithmic ranking is in force the instant it is deployed. In the socially organised fields of the ecological register, norms require enforcement and interpretation and may meet contestation or non-compliance: a zoning plan has to be enforced. Not everything is programmable to the same degree. Biophysical regularities are not programmable from any position (nobody rewrites thermodynamics), whereas the socio-ecological conditions of access to and use of resources can be governed to a considerable extent. The asymmetry lies in the distance between modifying the condition and its effect, and not in the absence of governance of the ecological field.
+          </p>
+</div>
+</details>
+<details>
+<summary>22. What are nodes and super-nodes?</summary>
+<div class="answer">
+<p>
+            The node designates the position of the subject in the ecodigital system: the point at which dispositions sedimented according to ecological and ecomedial registers are activated within specific relational and infrastructural configurations. Node is not a synonym of actant: it designates a subjective and dispositional position, whereas non-human entities, algorithms, materials and infrastructures can participate agentively in the configuration without being nodes. The super-node designates a position endowed with a structurally stabilised capacity to intervene on the conditions within which other nodes act. The node ordinarily exercises agency within conditions it has not set, the super-node holds agency over the conditions. The distinction prevents distributed agency from being mistaken for an equal distribution of power.
+          </p>
+</div>
+</details>
+<details>
+<summary>23. Are super-nodes simply large platforms?</summary>
+<div class="answer">
+<p>
+            Large platforms are paradigmatic examples, but the super-node is not a class of actors. It is a position that can be occupied by a platform, a state, an AI laboratory, an infrastructure owner, depending on the capacity to configure the conditions of others' action. The power exercised there is an effect of position and not an essential attribute of whoever occupies it, and it can operate through programmable rules, legal norms, control of decisive resources and organisation of the conditions of visibility.
+          </p>
+</div>
+</details>
+<details>
+<summary>24. Does a super-node have a habitus?</summary>
+<div class="answer">
+<p>
+            No. As an organisational position, the super-node does not possess an individual habitus. Organisations do sediment, through procedures, archives, decision routines, technical standards and artefacts, and the difference from the node lies in the support. In the node the deposit is embodied in a body and operates as a generative disposition of practices without explicit calculation. In the organisation it is externalised in transmissible devices, which outlive the turnover of persons and can become the object of explicit decision, without being docile for that reason: standards, archives and infrastructures have their own inertia and produce path dependence. The individuals working inside a super-node do have a habitus, but when they act in the capacity of the position they act through procedures that do not coincide with their own dispositions, following the Weberian distinction between the office and the person who holds it (Weber, 1922/1978).
+          </p>
+</div>
+</details>
+<details>
+<summary>25. What is ecodigital co-responsible agency?</summary>
+<div class="answer">
+<p>
+            It is a distributed and asymmetrical capacity for action emerging through participation in the ecodigital configuration. Responsibility does not derive solely from individual intention, but from involvement in relations producing effects. Responsibility nevertheless remains differentiated according to control, knowledge, position and capacity to modify the configuration.
+          </p>
+</div>
+</details>
+<details>
+<summary>26. Does responsibility as participation risk blaming everyone equally?</summary>
+<div class="answer">
+<p>
+            No. Co-responsibility does not mean equal blame. It means that participation creates a relation to systemic effects. Concrete responsibility must be graded according to power, intention, access to information, dependency and actual capacity for intervention.
+          </p>
+</div>
+</details>
+<details>
+<summary>27. What is systemic tuning?</summary>
+<div class="answer">
+<p>
+            Systemic tuning designates the reflexive and collective orientation of the reconfiguration of the conditions of the system. Second-order effects can emerge collectively from networks of nodes, through aggregation, coordination and reflexive orientation, without any node acquiring the status of super-node. The concept does not presuppose a subject outside the system able to transform it sovereignly: it describes reconfigurations within structural constraints, whose effects depend on the position of the actors. The technical or institutional capacity to reconfigure does not coincide with this orientation, and a super-node may hold that capacity while using it mainly to stabilise the existing arrangement. Like the chain super-node, device-threshold, node, systemic tuning describes a proposed mechanism, which the data of the EcoAI Index are not able to test.
+          </p>
+</div>
+</details>
+<details>
+<summary>28. How does systemic tuning differ from adaptation?</summary>
+<div class="answer">
+<p>
+            Adaptation may describe a passive response to existing conditions. Systemic tuning includes the possibility of selectively modifying relations, practices, thresholds and criteria from within constraints. It does not guarantee radical transformation, but neither does it reduce agency to conformity.
+          </p>
+</div>
+</details>
+<details>
+<summary>29. What is the overall originality of Ecodigital Posthumanism?</summary>
+<div class="answer">
+<p>
+            Its originality does not lie in the isolated invention of every component. It lies in the formalisation of a new architecture that treats ecological and ecomedial domains as co-constitutive but asymmetrical, connects relational constitution to dispositional sedimentation, interprets the device as a transductive threshold, distinguishes nodes from super-nodes and derives from this configuration a theory of co-responsible agency. The contribution is therefore architectural, conceptual and generative.
+          </p>
+</div>
+</details>
+</section>
+<section class="section" id="part2">
+<h2>Part II. The Connection Between Ontology and Epistemology</h2>
+<details>
+<summary>30. How does the framework move from ontology to epistemology?</summary>
+<div class="answer">
+<p>
+            The transition follows a conditional implication. If subjects, instruments and objects emerge within materially organised relations, then sociological knowledge is also produced within configurations that help delimit what becomes observable and interpretable. Epistemology is not mechanically deduced from ontology, but develops one of its consequences for research practice.
+          </p>
+</div>
+</details>
+<details>
+<summary>31. Why can infrastructures not be treated as neutral instruments?</summary>
+<div class="answer">
+<p>
+            Because some of their properties modify access, format, classification, inference or circulation. A platform may exclude participants, constrain responses, impose categories or make some information more visible than others. The framework does not, however, claim that every infrastructural dependency automatically produces an epistemic effect.
+          </p>
+</div>
+</details>
+<details>
+<summary>32. What is the difference between a material condition, an ecological consequence and an epistemic effect?</summary>
+<div class="answer">
+<p>
+            A material condition makes a practice technically possible. An ecological consequence concerns energy, extraction, emissions or waste. An epistemic effect occurs when an infrastructural property changes what can be observed, recorded, classified, interpreted or circulated. These dimensions may interact, but they must not be inferred automatically from one another.
+          </p>
+</div>
+</details>
+<details>
+<summary>33. What is the relationship between dual habitus and knowledge production?</summary>
+<div class="answer">
+<p>
+            Researchers do not enter inquiry with an abstract rationality. They bring dispositions formed within ecological, institutional and ecomedial environments. Instruments, interfaces and attentional rhythms may reactivate or reorganise those dispositions. Dual habitus therefore provides a basis for analysing how sedimented forms of perception and judgement operate through technically mediated research environments.
+          </p>
+</div>
+</details>
+<details>
+<summary>34. Does the device constitute the object of research?</summary>
+<div class="answer">
+<p>
+            It does not necessarily create the social referent. It contributes, however, to constituting that referent as an epistemic object by delimiting who counts as a respondent, which properties are recorded and which categories become available. The framework therefore distinguishes the existence of the referent from its methodological configuration as a knowable object.
+          </p>
+</div>
+</details>
+<details>
+<summary>35. What does this epistemological consequence imply in the monograph?</summary>
+<div class="answer">
+<p>
+            If the knowing subject, the measuring instruments and the infrastructures belong to the same ecodigital configuration, there is no external position from which to observe it: the researcher is also a node, and the instruments employed function as device-thresholds. An online questionnaire selects who can respond and in what form, an administration platform establishes what counts as data, statistical software makes some operations immediate and others burdensome. Bourdieu’s reflexivity (1990) asks researchers to make explicit the social and disciplinary position of those who produce knowledge, and the framework extends it to the material, ecological and infrastructural conditions of research. The question concerns how the specific operations of the instruments affected access to the field, the construction of data, interpretation and the circulation of results, and not which instruments were used. This posture did not guide the design of the surveys ex ante: the monograph states it as a theoretical consequence of the framework and refers back to it where technical choices affected the data, because claiming otherwise would be a retrospective reconstruction. The full analytical apparatus (axes, levels, criteria) is developed in the reference paper (Part VII).
+          </p>
+</div>
+</details>
+</section>
+<section class="section" id="part3">
+<h2>Part III. The EcoAI Index in Simple Terms: The Five Dimensions</h2>
+<p class="section-note">A reading guide to the five scales of the EcoAI Index, with example statements from the questionnaire. Statements are translated from the Italian original.</p>
+<details>
+<summary>36. What is the EcoAI Index?</summary>
+<div class="answer">
+<p>
+            It is a questionnaire for secondary-school students that measures five dimensions of eco-civic orientation in the digital age: INFO, AATI, VAL, AGY and EPAS. Each dimension is a scale (a sub-index) made up of a few statements that students answer on five levels, from “not at all” to “extremely”. In the final version there are 25 statements. The five scales yield a composite score, the EcoAI Index, which describes a student’s position in a profile configuration and not a single capacity: two students with the same score can have very different dimensional profiles. The instrument selectively operationalises the EcoAI Framework and does not exhaust its theory. It is conceived as a systemic-relational monitoring device, in which individual data are the way of accessing collective patterns.
+          </p>
+</div>
+</details>
+<details>
+<summary>37. What is INFO?</summary>
+<div class="answer">
+<p>
+            INFO (Informational Eco-Digital Literacy) measures digital information practices on environmental and social issues: how students search for, compare and circulate information. Example statements: “I look online for reliable news on environmental or social issues”, “I compare several sources before forming an opinion”, “I share content to raise awareness about the environment or rights”. It describes declared practices and not verified competences, and it does not measure ecoliteracy as a whole. In the Framework it is the closest operational translation of Systems Understanding, limited to its informational component. (Items translated from the Italian questionnaire.)
+          </p>
+</div>
+</details>
+<details>
+<summary>38. What is AATI?</summary>
+<div class="answer">
+<p>
+            AATI (AI Awareness and Trust) measures awareness of artificial intelligence systems and orientations of trust towards their use. Example statements: “I can recognise when content is AI-generated”, “I understand how algorithms influence what I see online”, “I know the environmental risks linked to AI”, “I trust AI tools when used for educational or environmental purposes”. It does not ask whether AI is good or bad, but whether students understand how it works, who builds it, which biases it incorporates and which environmental impacts it produces. Two declared limits: the only item on scepticism about AI impartiality was excluded from the final version, and no item measures the energy consumption of the systems. (Items translated from the Italian questionnaire.)
+          </p>
+</div>
+</details>
+<details>
+<summary>39. What is VAL?</summary>
+<div class="answer">
+<p>
+            VAL (Eco-Civic Values) measures students’ normative positions on the relationship between technology and the environment. Example statements: “Protecting the environment is everyone’s responsibility”, “Technologies must consider social and environmental impacts”, “We should use AI for a sustainable future”. Two caveats from the monograph: seven items out of eight mention technology, so VAL does not measure eco-civic values in a general sense; and the prescriptive form (“must”, “should”) makes social desirability the strongest rival hypothesis for any result on this scale. Five items remain in the final scale, while VAL_7 and VAL_8, on the algorithmic and environmental ethics of AI, are analysed separately. (Items translated from the Italian questionnaire.)
+          </p>
+</div>
+</details>
+<details>
+<summary>40. What is AGY?</summary>
+<div class="answer">
+<p>
+            AGY (Eco-Digital Agency) measures the perceived capacity to act on civic and environmental issues, including through digital tools. Example statements: “I feel able to propose ideas to improve the community”, “I can motivate others to take part in civic initiatives”, “Digital technologies amplify my voice and my impact”. It includes a reverse item, “It’s all useless, what I do changes nothing”, which captures civic resignation. It has a very low loading (λ = 0.198) but was retained because no other item captures that negative pole. The battery is semantically heterogeneous: it combines perceived capacity, declared behaviour, intention and a belief about the effectiveness of digital means. (Items translated from the Italian questionnaire.)
+          </p>
+</div>
+</details>
+<details>
+<summary>41. What is EPAS?</summary>
+<div class="answer">
+<p>
+            EPAS (Eco-Posthuman Agency Scale) is the most theoretical scale of the Index. It asks students to what extent they recognise themselves as part of a shared environment that includes people, technologies and nature. Example statements: “I feel part of a shared environment of people, technologies and nature”, “I believe people, machines and nature can work together to improve the planet”, “I feel responsible for using technology sustainably”. In the final version it has three items, because a fourth (on technology distancing people from nature) was excluded after estimation. EPAS captures only one component of Eco-Posthuman Agency, the perceptual-dispositional one that a questionnaire can reach: the orientation with which students recognise themselves as relational nodes in such configurations. It does not measure agency actually exercised, the capacity to intervene on the conditions of the system (systemic tuning), or the position of node or super-node. The statement on responsibility also keeps the individual subject as the centre of action and, taken alone, does not measure distributed agency. The psychometric status of the scale is preliminary. (Items translated from the Italian questionnaire.)
+          </p>
+</div>
+</details>
+<details>
+<summary>42. How are the five dimensions read together?</summary>
+<div class="answer">
+<p>
+            As a profile. The dimensions are correlated, with the weakest associations for INFO (from 0.497 to 0.687) and the highest between AATI and VAL (0.859), AATI and EPAS (0.825), VAL and EPAS (0.813) and AGY and EPAS (0.811). In the structural model INFO predicts AATI and VAL, AATI predicts AGY, and AGY and VAL predict EPAS. These are relations measured at the same moment: they describe a configuration, and not a temporal or causal sequence or a hierarchy of stages. The hypothesis that one dimension enables the next is theoretical and not a result of the estimation.
+          </p>
+</div>
+</details>
+</section>
+<section class="section" id="part4">
+<h2>Part IV. Empirical Validation of the EcoAI Index</h2>
+<p class="section-note">Results of the confirmatory cycle as reported in the monograph (November 2026 version). All data are cross-sectional and self-reported.</p>
+<details>
+<summary>43. How does the EcoAI Index relate to Ecodigital Posthumanism?</summary>
+<div class="answer">
+<p>
+            The Index selectively operationalises some parts of the Framework: information practices, attitudes towards AI, values, agency and a posthuman-relational disposition. It does not test Ecodigital Posthumanism as a whole and is not evidence for its ontological claims. The results provide preliminary evidence of the psychometric detectability of a perceptual-dispositional component, and not a test of the dual habitus as a formative mechanism. The theoretical construct, its partial operationalisation and the hypothesised formative mechanism remain distinct.
+          </p>
+</div>
+</details>
+<details>
+<summary>44. What is the research design?</summary>
+<div class="answer">
+<p>
+            The design is sequential quantitative in two phases. The exploratory phase (Q1) collected 403 questionnaires between March and May 2025 and produced descriptive and classificatory analyses, without a predefined measurement model. The confirmatory phase (Q2) collected 198 questionnaires with items written to saturate five latent factors specified in advance: the EcoAI Index and the dimensional comparisons rest on 191 cases, CFA and SEM on 151 complete cases on the twenty-five indicators. Q1 and Q2 are two independent samples collected with instruments of a different nature, so the comparison is neither longitudinal nor a replication. Both samples are school-based and not nationally representative, with a prevalence of male students (68.2% of the 195 respondents who reported gender), and validation on representative samples remains to be carried out.
+          </p>
+</div>
+</details>
+<details>
+<summary>45. Why are there 25 items rather than 30?</summary>
+<div class="answer">
+<p>
+            The confirmatory questionnaire contained 30 construct items and five left the final model. VAL_7 and VAL_8, on the algorithmic and environmental ethics of AI, were kept out of the main scale because of their different conceptual placement and are analysed separately. AATI_6, VAL_4 and EPAS_4 were excluded after estimation: the first two for lack of factor loading (λ = 0.137 and λ = −0.002), EPAS_4 because its removal raises the reliability of EPAS from ω = 0.654 to ω = 0.729. The 25-indicator configuration is therefore the outcome of an empirically informed respecification. Excluding AATI_6 reduces the representation of the critical component of AATI, and excluding EPAS_4 leaves the separative polarity of the technology-nature relation without indicators.
+          </p>
+</div>
+</details>
+<details>
+<summary>46. What did the confirmatory factor analysis show?</summary>
+<div class="answer">
+<p>
+            The five-factor CFA (N = 151, DWLS on a polychoric matrix with robust standard errors) shows CFI = 0.978, TLI = 0.975, RMSEA = 0.064 (90% CI 0.053 to 0.075) and SRMR = 0.082. Fit is acceptable by conventional thresholds but not close: the close-fit test rejects RMSEA ≤ 0.05 (p = 0.022), and SRMR slightly exceeds 0.08 and should be taken as a caution. All loadings are significant, with heterogeneous size: the highest is VAL_1 (λ = 0.822), the lowest AGY_6 (λ = 0.198). The final configuration is compatible with the observed structure of the data, without demonstrating its uniqueness or correctness.
+          </p>
+</div>
+</details>
+<details>
+<summary>47. Are the five scales reliable?</summary>
+<div class="answer">
+<p>
+            Reliability (McDonald’s omega) exceeds 0.70 for four dimensions: VAL 0.839, AATI 0.791, AGY 0.776 and EPAS 0.729. INFO has ω = 0.662 and is the dimension to revise first, because it aggregates contiguous but not homogeneous practices. Average variance extracted (AVE) exceeds 0.50 only for EPAS (0.535) and VAL (0.519), while INFO (0.399), AATI (0.405) and AGY (0.381) remain below. Convergent validity is therefore not uniform, and the Fornell and Larcker (1981) threshold, designed for continuous data with maximum likelihood estimation, serves here as an orientative criterion.
+          </p>
+</div>
+</details>
+<details>
+<summary>48. Why has the reliability of EPAS changed with respect to earlier versions?</summary>
+<div class="answer">
+<p>
+            With the three items of the final configuration EPAS has ω = 0.729 and AVE = 0.535, the highest in the model. The value derives from the exclusion of EPAS_4: with four items reliability was ω = 0.654 and AVE 0.414. An earlier four-item specification reported ω = 0.535 and a negative loading for EPAS_4, whereas in the master used for this revision the loading is positive (λ = 0.236): the two estimates should not be merged. The psychometric status of EPAS remains preliminary. The HTMT ratio with AGY is 0.880, above the conservative threshold of 0.85, and the empirical separation between EPAS and AGY is an open question. What is needed is item revision (including recovery of the negative pole, with cognitive interviews), replication on independent samples and longitudinal designs.
+          </p>
+</div>
+</details>
+<details>
+<summary>49. Can the scales be told apart?</summary>
+<div class="answer">
+<p>
+            Only in part. No correlation between factors exceeds 0.90, but the heterotrait-monotrait ratio (HTMT) exceeds the conservative threshold of 0.85 for the AGY-EPAS pair (0.880), and AATI-VAL reaches 0.842. The Fornell and Larcker criterion is not satisfied by six pairs out of ten. Discriminant validity cannot therefore be declared fully satisfied. The result is expected in an integrated framework, which does not presuppose orthogonal but correlated dimensions, and it is declared as a limit. The distinction between AGY and EPAS is maintained on the basis of the theoretical specification, and the data do not return a clear empirical separation.
+          </p>
+</div>
+</details>
+<details>
+<summary>50. Was measurement invariance tested?</summary>
+<div class="answer">
+<p>
+            At item level it cannot be estimated on this sample: in the smaller group several indicators have empty response categories or fewer than five observations, and the corresponding thresholds are not identifiable. The test was therefore run on the one-factor general model estimated on the five construct means (N = 191), from which the Index weights derive. By gender (132 males, 59 females) the three levels of invariance are not rejected, with a power caveat due to the 59 cases of the smaller group: this is absence of evidence against invariance and not evidence in favour. By cohort (lower years 108, upper years 83) configural and metric invariance are not rejected, whereas scalar invariance is rejected (Δχ²(4) = 14.953, p = 0.005, ΔCFI = −0.036) and the non-invariance is located in the intercept of VAL: partial scalar invariance is obtained. Index scores are therefore comparable across genders and not across cohorts.
+          </p>
+</div>
+</details>
+<details>
+<summary>51. What did the structural model show?</summary>
+<div class="answer">
+<p>
+            The model (N = 151) specifies five paths: INFO predicts AATI (β = 0.708) and VAL (β = 0.527), AATI predicts AGY (β = 0.732), AGY (β = 0.511) and VAL (β = 0.518) predict EPAS, with a residual covariance between the disturbances of AATI and VAL. The fit indices coincide with those of the CFA (CFI = 0.978, TLI = 0.975, RMSEA = 0.064, SRMR = 0.082): the model is compatible with the hypothesised relational structure but does not constitute independent corroboration of it. The two paths to EPAS have equivalent size, and the data do not support a hierarchy between them. The data are cross-sectional: coefficients describe associations measured at the same moment and do not warrant causal conclusions or conclusions on temporal direction. For EPAS the variance explained is R² = 0.860, to be read with caution given its empirical proximity to AGY.
+          </p>
+</div>
+</details>
+<details>
+<summary>52. How is the EcoAI Index built?</summary>
+<div class="answer">
+<p>
+            The Index is the weighted sum of the standardised scores of the five dimensions. The weights do not derive from the structural model: they are the normalised loadings of a one-factor general model estimated on the five construct means (maximum likelihood, N = 191; CFI = 0.981, RMSEA = 0.078, SRMR = 0.034, with the fit test at the edge of significance, p = 0.056). The weights are INFO 0.160, AATI 0.215, VAL 0.215, AGY 0.181 and EPAS 0.230. On the 191 cases the Index has M = 0.006 and SD = 0.762. It is a composite profile index: it does not follow the logic “this student has high ecodigital citizenship” as if it were a single capacity, but “this student sits in this specific configuration”.
+          </p>
+</div>
+</details>
+<details>
+<summary>53. What are the Low, Medium and High classes? Are they stages?</summary>
+<div class="answer">
+<p>
+            They are the empirical terciles of the Index in the sample of 191 cases (thresholds −0.338 and 0.285 on the standardised score), with 64, 63 and 64 students. The balance is an artefact of the percentile procedure. The labels indicate relative positions in the sample, and not theoretical levels, developmental stages or substantive types. The Framework’s pedagogical rubrics (Basic, Intermediate, Advanced, Autonomous-Critical) are distinct from the classes: they are teaching tools associated with the constructs, not transformations of scores, and they do not represent ontological stages or a linear progression towards “mature” forms of subjectivity.
+          </p>
+</div>
+</details>
+<details>
+<summary>54. What differentiates the three classes?</summary>
+<div class="answer">
+<p>
+            On all five dimensions the means rise from the Low to the High class, with large effects (η² from 0.313 for INFO to 0.570 for EPAS, p &lt; 0.001, N = 191). EPAS goes from 2.552 to 4.089 and has the widest absolute gap (1.537 points); then come AATI (η² = 0.532), VAL (0.524), AGY (0.381) and INFO (0.313). Because the classes are defined through the Index and every dimension contributes to building it, the part-whole relation amplifies the differences. Recomputing the classes after excluding the dimension being compared (leave-one-out) lowers the η² (EPAS 0.385, AATI 0.376, VAL 0.318, AGY 0.249, INFO 0.200) but they remain substantial, and the margin between EPAS and AATI is too small to speak of a primacy of EPAS. The preliminary hypothesis of a ceiling effect for VAL in the Low class is not supported: its mean (2.797) stays below the midpoint of the scale. Levene’s test signals heterogeneity of variances for INFO and EPAS, and Welch’s test confirms significance on all dimensions. The differences do not warrant causal or developmental inferences.
+          </p>
+</div>
+</details>
+<details>
+<summary>55. What are VAL_7 and VAL_8?</summary>
+<div class="answer">
+<p>
+            They are two items on the algorithmic and environmental responsibility of AI (“algorithms should respect cultural diversity and not create discrimination”, “artificial intelligence should help people protect the environment”). They are not part of the final VAL scale and are reported as descriptive and exploratory material. They differentiate the Index classes significantly (η² = 0.261 and 0.250) and are associated mainly with VAL (ρ = 0.631 and 0.632). With two items it cannot be established whether they measure a distinct dimension: the hypothesis has not been subjected to factor testing and remains open.
+          </p>
+</div>
+</details>
+<details>
+<summary>56. How is Barad’s relational ontology reconciled with a measure that captures individuals?</summary>
+<div class="answer">
+<p>
+            The instrument measures individuals, and this is not a contradiction to be resolved: it is the condition of a survey design on individual respondents. Ecodigital posthuman theory denies the autonomy and originarity of the subject with respect to relations, not its existence. EPAS measures the subject’s predisposition to recognise and inhabit the relation, and not the relation itself: a necessary but not sufficient condition for Eco-Posthuman Agency in the full sense of the theory. The relational level would require observational, qualitative and sociomaterial strategies. The most precise interpretive limit is that the instrument cannot tell apart students who declare relational openness because they have worked it out as a stable orientation from students who declare it because the school and discursive context makes it a legitimate answer. Standard psychometrics (CFA, loadings, omega) assesses the formal quality of the instrument, and the question whether the measurement apparatus co-constitutes the phenomenon it measures remains a distinct theoretical argument.
+          </p>
+</div>
+</details>
+<details>
+<summary>57. Does the EcoAI Index measure systemic tuning?</summary>
+<div class="answer">
+<p>
+            No. In the monograph systemic tuning appears as an interpretive frame for the pedagogical implications (§6.6.1): the dispositions measured are read as situated effects of an ecodigital configuration, and the transformation of eco-civic competences as systemic tuning within structural constraints, and not as a linear trajectory of acquisition. The results of EPAS do not allow inferring agency actually exercised, capacity for systemic tuning, node or super-node position, or stability of the disposition over time: these would require behavioural observation, longitudinal designs or designs sensitive to positional asymmetries. The five dimensions should be read as circumscribed empirical traces and not as measures of tuning.
+          </p>
+</div>
+</details>
+</section>
+<section class="section" id="part5">
+<h2>Part V. Originality and Limitations</h2>
+<details>
+<summary>58. Are you simply renaming existing concepts?</summary>
+<div class="answer">
+<p>
+            The framework uses existing concepts, but reorganises them within a new architecture with specific functions and relations. Originality does not require every term to lack a genealogy. It requires the construction to produce an object, a problem and analytical consequences that cannot be reduced to the sum of its sources.
+          </p>
+</div>
+</details>
+<details>
+<summary>59. Which elements are most clearly original?</summary>
+<div class="answer">
+<p>
+            The formalisation of the ecodigital system as a co-constitutive and asymmetrical configuration; the dual habitus architecture; the device-as-threshold as a transductive operator between registers; the distinction between nodes and super-nodes; systemic tuning; ecodigital co-responsible agency; and, in the reference paper (Part VII), infrastructural reflexivity with its three axes, five operational levels and six epistemic criteria.
+          </p>
+</div>
+</details>
+<details>
+<summary>60. Which elements are adaptations rather than independent inventions?</summary>
+<div class="answer">
+<p>
+            Intra-action, habitus, sympoiesis, standpoint, data colonialism, epistemicide, tertiary retention and the ecology of attention derive from established traditions. The contribution lies in assigning them specific functions and showing how they enter into tension within the ecodigital configuration. Their genealogies must therefore always be stated precisely.
+          </p>
+</div>
+</details>
+<details>
+<summary>61. How do you demonstrate that the construction is not arbitrary?</summary>
+<div class="answer">
+<p>
+            Through four constraints: each component answers a defined problem; theoretical functions should not be unnecessarily duplicated; tensions must be made explicit; and the construction must generate operational consequences. In the reference paper (Part VII), those consequences take the form of operational levels, epistemic criteria and the analysis of the LLM case.
+          </p>
+</div>
+</details>
+<details>
+<summary>62. What is the most important logical connection in the entire project?</summary>
+<div class="answer">
+<p>
+            The central connection is: ontological co-constitution, infrastructural mediation, epistemological consequence and methodological revision. If knowable phenomena emerge within materially organised configurations, then the infrastructures participating in those configurations must enter reflexive analysis. From this follows the need to identify mechanisms, limits and consequences for sociological claims.
+          </p>
+</div>
+</details>
+<details>
+<summary>63. What is the framework’s main risk?</summary>
+<div class="answer">
+<p>
+            The main risk is conceptual proliferation or an excessively broad definition of infrastructure. This is why the reference paper introduces identifiable mechanisms, proportionality and empirical vulnerability. These constraints prevent every condition from being automatically classified as epistemically relevant.
+          </p>
+</div>
+</details>
+<details>
+<summary>64. What is the main empirical limitation?</summary>
+<div class="answer">
+<p>
+            The data rest on two samples of secondary-school students that are not nationally representative, with a male prevalence and no data on socio-economic origin. The design is cross-sectional and the data are self-reported: they capture declarations and not practices, and adherence to general value statements is subject to social desirability. The model is estimated on a single sample (N = 151) and item-level invariance cannot be estimated. Still to be carried out are replication on independent and representative samples, longitudinal designs, the integration of qualitative methods (particularly for EPAS) and the revision of the EPAS and INFO items. Empirically distinguishing the ecological and ecomedial registers of sedimentation would require indicators dedicated to each and a survey of practices, and not only of declared dispositions.
+          </p>
+</div>
+</details>
+<details>
+<summary>65. What is the main normative limitation?</summary>
+<div class="answer">
+<p>
+            Distributed agency does not automatically provide a complete rule for assigning responsibility. The framework offers criteria for differentiating position, capacity and control, but must still develop more fully the normative procedures through which those differences become specific obligations.
+          </p>
+</div>
+</details>
+<details>
+<summary>66. Which theoretical traditions are excluded from the framework?</summary>
+<div class="answer">
+<p>
+            The monograph declares deliberate exclusions, which are choices of perimeter and not judgements of irrelevance. It does not develop the ontological dimension of the philosophy of technology (technology as “Gestell” in Heidegger, the autonomisation of technology in Ellul), because it inherits from the preprint the operational construct of the device as a transductive interface. It does not integrate classical ecofeminism, land-based pedagogy and indigenous knowledges, or the taxonomy of Education for Sustainable Development (education about, in, for sustainability). The choice is motivated by the pedagogical-empirical orientation of the framework and by its anchoring in the Italian institutional context and in European frameworks (GreenComp, DigComp).
+          </p>
+</div>
+</details>
+<details>
+<summary>67. What is the most concise answer to the question, “What does your work add?”</summary>
+<div class="answer">
+<p>
+            It adds an architecture connecting posthuman relationality, ecological materiality, digital mediation, dispositional sedimentation and geopolitical asymmetry. From this architecture it derives a form of reflexivity capable of transforming research infrastructures from technical background conditions into epistemically evaluable objects. The contribution is not a new list of factors, but a configurational procedure for determining when and how those factors affect sociological claims.
+          </p>
+</div>
+</details>
+</section>
+<section class="section formulas" id="formulas">
+<h2>Short Formulas</h2>
+<blockquote>
+        Dual habitus distinguishes two registers of dispositional formation within a single subjective architecture.
+      </blockquote>
+<blockquote>
+        Barad explains relational constitution, Bourdieu explains temporal sedimentation, and the framework keeps them distinct.
+      </blockquote>
+<blockquote>
+        Co-constitution is asymmetric: the digital depends materially on the ecological while recursively reorganising its practices and consequences.
+      </blockquote>
+<blockquote>
+        Distributed agency and responsibility are distinct: causal efficacy, control and accountability remain separate.
+      </blockquote>
+<blockquote>
+        The device selects, encodes and reformats, which is why it functions as a transductive threshold.
+      </blockquote>
+<blockquote>
+        The originality is architectural: concepts with established genealogies are assigned new functions within a configuration irreducible to its individual sources.
+      </blockquote>
+<blockquote>
+        EPAS does not measure agency exercised. It records the orientation with which a student recognises themselves as part of configurations that include people, technologies and nature.
+      </blockquote>
+<blockquote>
+        Low, Medium and High indicate relative positions in the sample. They do not indicate theoretical levels or developmental stages.
+      </blockquote>
+</section>
+<section class="section" id="part6">
+<h2>Part VI. Integrations</h2>
+<details>
+<summary>68. What is “awareness” within the ecodigital system, and how does it relate to attentional ecologies?</summary>
+<div class="answer">
+<p>
+            Awareness is a situated and unevenly distributed capacity that takes form within nodes as an effect of their position at the intersection of the ecological and ecomedial habitus fields. It is produced through the frictions generated by the misalignment between dispositions formed under different material and operational conditions, and through exposure to flows that render those conditions structurally legible. It is not a psychological attribute but a structurally conditioned capacity whose distribution reflects the asymmetries of the system. The concept draws on Citton’s attentional ecologies: collective, distributed conditions in which attention is shaped by environmental and infrastructural arrangements rather than being an internal faculty of the subject. Within the ecodigital system, ecomedial infrastructures configure these attentional ecologies through design choices that privilege specific modes of perception, conditioning how nodes recognise the relations that traverse them.
+          </p>
+</div>
+</details>
+<details>
+<summary>69. Is there a formal statement of the ecodigital co-responsible agency thesis?</summary>
+<div class="answer">
+<p>
+            Yes. The theoretical formula is: “If agency is distributed across humans, non-humans and digital infrastructures, then responsibility must also be shared ecologically and technologically.” This distribution of responsibility is presented as a coherent ethical commitment within the configuration, not as a logical necessity derived automatically from the ontology. Keeping this distinction explicit allows the framework to avoid the objection in Question 26: shared responsibility does not collapse into equal blame precisely because the sharing is an ethical position taken on the ontology, open to argument, rather than a mechanical entailment of it.
+          </p>
+</div>
+</details>
+<details>
+<summary>70. Is “ecodigital asymmetry” a distinct technical term, or just a description?</summary>
+<div class="answer">
+<p>
+            It names, specifically, the structural condition produced by the unequal capacity to regulate, redirect and intensify the flows of data, energy and material resources that sustain the system. Super-nodes occupy positions that let them organise these flows; that unevenly distributed capacity is the structural basis the framework labels ecodigital asymmetry. It is the mechanism underlying the agentic and epistemic-geopolitical forms of asymmetry named in Question 6, not a fourth separate form.
+          </p>
+</div>
+</details>
+<details>
+<summary>71. Why is the geopolitical dimension recorded but not developed in the monograph?</summary>
+<div class="answer">
+<p>
+            The material conditions of research are asymmetrically distributed on a global scale, and infrastructural reflexivity therefore also has geopolitical implications: Dussel’s notion of exteriority (2002) and de Sousa Santos’s analysis of epistemicide (2014) indicate the direction in which that asymmetry should be investigated. The monograph does not pursue it and records its relevance without opening an autonomous axis of analysis. In the reference paper (Part VII) the critical-geopolitical axis is instead one of the three axes of infrastructural reflexivity.
+          </p>
+</div>
+</details>
+</section>
+<section class="section" id="part7">
+<h2>Part VII. Reference Paper</h2>
+<div class="paper-notice">
+<p><strong>Reference section.</strong> The questions in this part (72 to 102) come from the contribution to the edited volume <em>Epistemic Shift in the Post-Digital Society: The Dilemma of Knowledge Production</em> (McGraw-Hill), titled <em>Eco-Digital Posthumanism: Rethinking Sociological Knowledge in the Digital Anthropocene</em> (2027). They are reproduced in full and are kept separate from the rest of the page, which is based on the monograph.</p>
+<p>Terminology follows the paper (for example “Eco-Digital”), whereas Parts I-VI follow the monograph (“ecodigital”). The contribution is forthcoming and should be treated as work in progress.</p>
+</div>
+<h3>Infrastructural reflexivity</h3>
+<details>
+<summary>72. What is infrastructural reflexivity?</summary>
+<div class="answer">
+<p>
+            It is the systematic analysis of how specific infrastructural mediations affect the construction, evaluation and circulation of sociological knowledge. It integrates reflexivity concerning the social position of the researcher with the analysis of platforms, classifications, computational systems and geopolitical asymmetries involved in research.
+          </p>
+</div>
+</details>
+<details>
+<summary>73. Why is classical reflexivity not sufficient?</summary>
+<div class="answer">
+<p>
+            Classical reflexivity remains necessary because it shows that knowledge is socially situated. The problem is that the position of the researcher now operates through technical and institutional infrastructures that select populations, organise data and structure visibility. Infrastructural reflexivity therefore widens the perimeter of self-interrogation without replacing Mannheim, Bourdieu or Harding.
+          </p>
+</div>
+</details>
+<details>
+<summary>74. What is original about infrastructural reflexivity in relation to infrastructure studies?</summary>
+<div class="answer">
+<p>
+            Infrastructure studies analyse infrastructural properties, standards, classifications and forms of invisibility. Infrastructural reflexivity redirects those resources toward the researcher’s own practice, asking how a specific infrastructure alters the epistemic status of a specific claim. The unit of analysis is not infrastructure alone, but the relation between a knowing practice and its infrastructural configuration.
+          </p>
+</div>
+</details>
+<details>
+<summary>75. How does it differ from critical data studies?</summary>
+<div class="answer">
+<p>
+            Critical data studies show that data and algorithms are not neutral. Infrastructural reflexivity turns that critique into a procedure directed at the researcher’s own methodological operations. It is not enough to state that a platform is opaque or biased. The analysis must specify the mechanism through which that property affects the research process.
+          </p>
+</div>
+</details>
+<details>
+<summary>76. How does it differ from technical disclosure?</summary>
+<div class="answer">
+<p>
+            Technical disclosure names the tools used. Infrastructural reflexivity specifies what was delegated, how the material was transformed, which alternatives were available, what limits remain and what consequences follow for the claims. Disclosure is therefore necessary but insufficient.
+          </p>
+</div>
+</details>
+<details>
+<summary>77. What are the three analytical axes?</summary>
+<div class="answer">
+<p>
+            The ontological axis examines how researchers, instruments and phenomena become determinate within the research configuration. The material-ecomedial axis analyses thresholds, interfaces, substrates and attentional conditions. The critical-geopolitical axis examines the unequal distribution of visibility, capacity and authority across languages, institutions, populations and territories.
+          </p>
+</div>
+</details>
+<details>
+<summary>78. Are the three axes a checklist?</summary>
+<div class="answer">
+<p>
+            No. They do not need to receive equal space and do not necessarily produce the same diagnosis. A study may activate one axis more strongly than another, but it must still assess whether the others are relevant. Their function is configurational: they hold together different consequences without reducing them to a single cause.
+          </p>
+</div>
+</details>
+<details>
+<summary>79. Why is the ontological axis necessary in a methodological framework?</summary>
+<div class="answer">
+<p>
+            Because every methodology presupposes a view of the relationship among subject, instrument and object. The ontological axis makes explicit that empirical objects do not arrive in research already fully delimited. Research procedures help define their boundaries, observable properties and legitimate forms of representation.
+          </p>
+</div>
+</details>
+<details>
+<summary>80. Why does the material-ecomedial axis not simply amount to environmental sustainability?</summary>
+<div class="answer">
+<p>
+            Because it includes but is not limited to ecological cost. It also analyses how interfaces, formats, attentional rhythms and computational procedures transform empirical material. A system may have a high ecological cost without changing a specific inference, while a low-energy interface may produce serious epistemic exclusion.
+          </p>
+</div>
+</details>
+<details>
+<summary>81. Why is the critical-geopolitical axis more than a general analysis of bias?</summary>
+<div class="answer">
+<p>
+            Because it distinguishes different mechanisms: data extraction, platform dependency, visibility hierarchies, epistemic exclusion and epistemicide. The term “bias” risks flattening differences of scale and severity. The framework instead requires identification of the mechanism that is actually documented.
+          </p>
+</div>
+</details>
+<details>
+<summary>82. How does the framework address the tension between posthumanism and decoloniality?</summary>
+<div class="answer">
+<p>
+            It does not resolve the tension through synthesis. Posthumanism decentres the human as the exclusive measure of agency, while decolonial critique shows that full humanity has never been equally distributed. The framework maintains a disciplined tension: the first register asks how agency is distributed across relations, while the second asks who controls the conditions of that distribution.
+          </p>
+</div>
+</details>
+<details>
+<summary>83. Why is this tension productive?</summary>
+<div class="answer">
+<p>
+            Because it prevents two opposite errors. Posthumanism without historical analysis may treat all subjects as if they entered relationality from the same position. Decolonial critique, if it ignores infrastructural and non-human efficacy, may reduce every effect to human intention. The tension forces the framework to retain both relational distribution and historical inequality.
+          </p>
+</div>
+</details>
+<details>
+<summary>84. What are the five operational levels?</summary>
+<div class="answer">
+<p>
+            The first is infrastructural identification: identifying the systems, platforms, models and services involved. The second is functional specification: determining what each one does in the research process. The third is epistemic mechanism analysis: identifying how those functions affect access, selection, classification or inference. The fourth is analysis of limits of knowability: distinguishing verified information, provider statements, estimates and unavailable information. The fifth is methodological consequence: determining whether the condition changes a decision, limits a claim or introduces uncertainty.
+          </p>
+</div>
+</details>
+<details>
+<summary>85. Why use five levels rather than extended disclosure?</summary>
+<div class="answer">
+<p>
+            Because a list of technologies does not show their epistemic relevance. The five levels require movement from identification to function, from function to mechanism and from mechanism to methodological consequence. Without the final step, reflexivity risks becoming an inventory.
+          </p>
+</div>
+</details>
+<details>
+<summary>86. What are the six epistemic criteria?</summary>
+<div class="answer">
+<p>
+            Traceability, contestability, comparative adequacy, empirical vulnerability, proportionality and uncertainty disclosure. They make it possible to evaluate whether an infrastructural analysis is strong or weak, rather than treating it as adequate simply because it mentions platforms or algorithms.
+          </p>
+</div>
+</details>
+<details>
+<summary>87. What does traceability mean?</summary>
+<div class="answer">
+<p>
+            It is the capacity to reconstruct how empirical material was transformed into a claim. It does not require absolute transparency, which is often impossible. It requires documenting the knowable steps and identifying where the chain becomes opaque.
+          </p>
+</div>
+</details>
+<details>
+<summary>88. What does contestability mean?</summary>
+<div class="answer">
+<p>
+            It is the capacity of researchers, participants or other relevant actors to question and challenge the operations involved. When a proprietary system makes effective contestation impossible, that impossibility becomes part of the epistemic assessment.
+          </p>
+</div>
+</details>
+<details>
+<summary>89. What does comparative adequacy mean?</summary>
+<div class="answer">
+<p>
+            An infrastructure must be evaluated against plausible alternatives. The criterion prevents efficiency, accessibility or automation from being treated as sufficient justification. A solution is adequate only in relation to what it replaces and to the comparative consequences it introduces.
+          </p>
+</div>
+</details>
+<details>
+<summary>90. What does empirical vulnerability mean?</summary>
+<div class="answer">
+<p>
+            A theory or interpretation must be capable of being wrong. The framework must therefore allow for the possibility that a hypothesised infrastructural effect is absent or negligible. This criterion prevents relationality from becoming an explanation capable of absorbing any contrary evidence.
+          </p>
+</div>
+</details>
+<details>
+<summary>91. What does proportionality mean?</summary>
+<div class="answer">
+<p>
+            Analytical attention must be proportionate to the relevance of the mechanism. Not every dependency requires the same depth of analysis. A marginal condition may require only identification, while a system that changes the sample or classification requires more extensive examination.
+          </p>
+</div>
+</details>
+<details>
+<summary>92. What does uncertainty disclosure mean?</summary>
+<div class="answer">
+<p>
+            Researchers must distinguish what is directly verified from what derives from provider statements, estimates, inferences or speculation. The aim is not to eliminate uncertainty, but to prevent it from being converted into rhetorical certainty.
+          </p>
+</div>
+</details>
+<details>
+<summary>93. Is infrastructural reflexivity falsifiable?</summary>
+<div class="answer">
+<p>
+            It is not a single causal theory, but it contains requirements of empirical vulnerability. An analysis may show that a particular dependency did not alter access, classification or inference. Applications may also be criticised when they fail to specify mechanisms, alternatives or methodological consequences.
+          </p>
+</div>
+</details>
+<details>
+<summary>94. Does it risk imposing an infinite inventory of infrastructures?</summary>
+<div class="answer">
+<p>
+            No. Relevance and proportionality limit the analysis to conditions whose mechanisms affect the research question or the status of the claims. The framework rejects both the neutralisation of infrastructure and the impossible obligation to document every material dependency.
+          </p>
+</div>
+</details>
+<h3>The LLM example</h3>
+<details>
+<summary>95. Why use LLM-assisted thematic analysis as an example?</summary>
+<div class="answer">
+<p>
+            Because it makes all three axes visible within a single case. The LLM reorganises the relationship between researcher and data, introduces an opaque transformation through model and interface, and raises questions of linguistic representation, access and control. It is therefore a methodologically dense illustration, not an empirical validation of the framework.
+          </p>
+</div>
+</details>
+<details>
+<summary>96. Why does the example not constitute validation?</summary>
+<div class="answer">
+<p>
+            The paper does not present a comparative experiment designed to test the effectiveness of infrastructural reflexivity. It uses a theoretically informed case to show which questions the framework makes possible. Validation would require systematic applications across different contexts, disciplines and infrastructures.
+          </p>
+</div>
+</details>
+<details>
+<summary>97. What is the analytical chain in LLM use?</summary>
+<div class="answer">
+<p>
+            Corpus, segmentation, prompt, model, output and human review. Each stage transforms the conditions under which the material becomes analytically available. The object of analysis is therefore not “the model” in isolation, but the entire configuration.
+          </p>
+</div>
+</details>
+<details>
+<summary>98. Does the model interpret?</summary>
+<div class="answer">
+<p>
+            The paper does not need to resolve the metaphysical question of whether the model interprets in the same sense as a human. The methodologically relevant question is which distinctions it produces, under which conditions and with what role in the final decision. The system’s causal efficacy is not equivalent to normative responsibility.
+          </p>
+</div>
+</details>
+<details>
+<summary>99. Does human oversight guarantee validity?</summary>
+<div class="answer">
+<p>
+            No. Human review has epistemic value only when the researcher possesses sufficient access, expertise and time to evaluate the output. A purely formal review may legitimise the output automatically without making it genuinely contestable.
+          </p>
+</div>
+</details>
+<details>
+<summary>100. Which epistemic categories does the LLM case distinguish?</summary>
+<div class="answer">
+<p>
+            Documented effects, plausible risks and inaccessible conditions. Documented effects derive from available studies. Plausible risks are supported by broader knowledge of the infrastructure but are not demonstrated in every case. Inaccessible conditions concern data or procedures that the researcher cannot verify.
+          </p>
+</div>
+</details>
+<details>
+<summary>101. Why is this distinction important?</summary>
+<div class="answer">
+<p>
+            Because it prevents theoretically plausible risks from being presented as empirically observed effects. It also prevents lack of access from being treated as evidence that no problem exists. The strength of each claim is calibrated to the type of evidence available.
+          </p>
+</div>
+</details>
+<details>
+<summary>102. How are the six criteria applied to LLMs?</summary>
+<div class="answer">
+<p>
+            Traceability requires documenting the model, prompts, delegated operations and human decisions. Contestability requires generated codes to remain open to rejection against the corpus. Comparative adequacy compares the workflow with manual or collaborative alternatives. Empirical vulnerability allows generated themes to prove inadequate. Proportionality calibrates scrutiny to the role assigned to the model. Uncertainty disclosure distinguishes verified information, provider statements and unknown conditions.
+          </p>
+</div>
+</details>
+<h3>Short formulas from the paper</h3>
+<blockquote style="border-left:3px solid #6fd0b7;margin:10px 0;padding:10px 14px;background:#f1f8f6;color:#405159">Infrastructural reflexivity requires identifying the infrastructures whose mechanisms affect the researchers’ claims.</blockquote>
+<blockquote style="border-left:3px solid #6fd0b7;margin:10px 0;padding:10px 14px;background:#f1f8f6;color:#405159">The three axes indicate what to examine, the five operational levels how to analyse it, the six epistemic criteria how to evaluate its quality.</blockquote>
+<blockquote style="border-left:3px solid #6fd0b7;margin:10px 0;padding:10px 14px;background:#f1f8f6;color:#405159">The LLM case is a methodological illustration in the reference paper.</blockquote>
+<blockquote style="border-left:3px solid #6fd0b7;margin:10px 0;padding:10px 14px;background:#f1f8f6;color:#405159">The framework requires the strength of claims to remain proportionate to what can be traced, contested and known.</blockquote>
+<div class="references">
+<h3>References</h3>
+<p>Bourdieu, P. (1990). <em>The logic of practice</em>. Polity Press.</p>
+<p>de Sousa Santos, B. (2014). <em>Epistemologies of the South: Justice against epistemicide</em>. Paradigm Publishers.</p>
+<p>Dussel, E. (2002). <em>Ethics of liberation in the age of globalization and exclusion</em>. Duke University Press.</p>
+<p>Fornell, C., &amp; Larcker, D. F. (1981). Evaluating structural equation models. <em>Journal of Marketing Research, 18</em>(1), 39–50. <a href="https://doi.org/10.1177/002224378101800104">https://doi.org/10.1177/002224378101800104</a></p>
+<p>Kincheloe, J. L. (2001). Describing the bricoleur: Conceptualizing a new rigor in qualitative research. <em>Qualitative Inquiry, 7</em>(6), 679–692. <a href="https://doi.org/10.1177/107780040100700601">https://doi.org/10.1177/107780040100700601</a></p>
+<p>Lévi-Strauss, C. (2015). <em>Il pensiero selvaggio</em>. Il Saggiatore. ISBN 9788842217771. (Opera originale pubblicata nel 1962)</p>
+<p>Rubino, G. (2027). Eco-Digital Posthumanism: Rethinking Sociological Knowledge in the Digital Anthropocene. In <em>Epistemic Shift in the Post-Digital Society: The Dilemma of Knowledge Production</em>. McGraw-Hill. (Volume curato)</p>
+<p>Simondon, G. (2017). <em>On the mode of existence of technical objects</em>. Univocal Publishing. ISBN 9781517906001. (Opera originale pubblicata nel 1958)</p>
+<p>Stiegler, B. (1998). <em>Technics and time, 1: The fault of Epimetheus</em> (R. Beardsworth &amp; G. Collins, Trans.). Stanford University Press. ISBN 9780804730419. (Opera originale pubblicata nel 1994)</p>
+<p>Weber, M. (1978). <em>Economy and society: An outline of interpretive sociology</em> (G. Roth &amp; C. Wittich, Eds.). University of California Press. ISBN 9780520035003. (Opera originale pubblicata nel 1922)</p>
+</div>
+</section>
+<section class="section" id="extra-domains"><h2>Part VIII. Four pedagogical domains and 23 subdomains</h2><p class="section-note">Source: EcoAI Monograph, November 2026, §3.2. The four domains are interdependent pedagogical entry points, not stages; they do not map one-to-one onto the five Index factors.</p><details><summary>103. What does the Systems Understanding domain cover?</summary><div class="answer"><p>This domain develops the understanding of ecological, social, media and algorithmic systems through interdependence, feedback, non-linearity, delays and emergent processes. It is a cognitive resource, not a mandatory first stage.</p><p><strong>In simple terms: learn how parts connect and what indirect effects a change may produce.</strong></p></div></details><h3>Subdomains of Systems Understanding</h3><details><summary>104. What is the Ecosystem Dynamics subdomain?</summary><div class="answer"><p>Studies ecological networks, cycles, energy flows, resilience and emergence, comparing them cautiously with digital networks without equating their mechanisms.</p><p><strong>In simple terms: What happens to an ecosystem when one species or resource changes?</strong></p></div></details><details><summary>105. What is the Feedback Loops &amp; Non-Linear Relations subdomain?</summary><div class="answer"><p>Examines reinforcing and balancing feedback, delays and non-proportional responses in natural, social and algorithmic systems.</p><p><strong>In simple terms: More recommendations attract attention, which can drive further recommendations.</strong></p></div></details><details><summary>106. What is the Systems Literacy subdomain?</summary><div class="answer"><p>Develops the ability to identify patterns, interdependencies, leverage points and constraints in complex systems.</p><p><strong>In simple terms: Look beyond a single cause and reconstruct the network of relations.</strong></p></div></details><details><summary>107. What is the Sympoietic Thinking subdomain?</summary><div class="answer"><p>Introduces sympoiesis: making-with processes involving people, organisms and material components in the configuration of action.</p><p><strong>In simple terms: Environmental outcomes are not produced by one actor alone.</strong></p></div></details><details><summary>108. What is the Patterns, Relational Fields &amp; Ecological Cognition subdomain?</summary><div class="answer"><p>Develops recognition of recurrent configurations and relational fields while separating analogies from causal differences.</p><p><strong>In simple terms: Similar patterns do not imply identical mechanisms.</strong></p></div></details><details><summary>109. What is the Digital-Ecological Systems Mapping subdomain?</summary><div class="answer"><p>Uses maps and models to connect technological supply chains, consumption, data, resources, territories and governance.</p><p><strong>In simple terms: Trace a smartphone from minerals to servers and electronic waste.</strong></p></div></details><details><summary>110. What does the Ecological Understanding of AI domain cover?</summary><div class="answer"><p>This domain situates AI and computation within the material infrastructures sustaining them: energy, water, hardware, extraction, networks, waste, labour and governance. Sustainability cannot be reduced to one emissions figure.</p><p><strong>In simple terms: every AI service depends on physical infrastructure, resources and political decisions, whose costs are unevenly distributed.</strong></p></div></details><h3>Subdomains of Ecological Understanding of AI</h3><details><summary>111. What is the Digital Ecosystems &amp; Infrastructures subdomain?</summary><div class="answer"><p>Makes visible data centres, networks, cables, cooling infrastructure and institutional choices behind digital services.</p><p><strong>In simple terms: The cloud is not immaterial: it runs on physical facilities.</strong></p></div></details><details><summary>112. What is the AI Energy Consumption &amp; Carbon Footprint subdomain?</summary><div class="answer"><p>Examines training and inference energy and emissions according to model, hardware, usage and electricity mix, avoiding unsupported generalisations.</p><p><strong>In simple terms: Two AI services can use very different amounts of energy; ask how each figure was measured.</strong></p></div></details><details><summary>113. What is the Hybrid Ecodigital Agency subdomain?</summary><div class="answer"><p>Examines how algorithms and interfaces shape effects and possibilities for action without attributing moral intentions to them.</p><p><strong>In simple terms: An algorithm changes what we see without becoming a person.</strong></p></div></details><details><summary>114. What is the Environmental &amp; Climate Justice subdomain?</summary><div class="answer"><p>Examines the social and geographic distribution of AI benefits, extraction, consumption and impacts; distinguishes data extraction from mineral extraction.</p><p><strong>In simple terms: Who enjoys the benefits, and who bears environmental costs?</strong></p></div></details><details><summary>115. What is the Ecopolitical Tech Analysis subdomain?</summary><div class="answer"><p>Analyses ownership, interests, classification criteria and opportunities to challenge technical governance.</p><p><strong>In simple terms: Who sets the system rules, and who can change them?</strong></p></div></details><details><summary>116. What is the Digital Privacy Awareness subdomain?</summary><div class="answer"><p>Examines data collection, storage, circulation and use through contextual integrity and infrastructure; does not assume a fixed environmental impact for every data point.</p><p><strong>In simple terms: Ask why an app collects information and where it goes.</strong></p></div></details><details><summary>117. What does the Identity Formation domain cover?</summary><div class="answer"><p>This domain investigates how subject positioning, responsibility, values and possibilities for action emerge in configurations involving humans, other living beings, data, technologies and institutions. It is not a single psychological trait.</p><p><strong>In simple terms: who we become and what we can do also depend on our relations and circumstances.</strong></p></div></details><h3>Subdomains of Identity Formation</h3><details><summary>118. What is the Post-Anthropocentric Identity subdomain?</summary><div class="answer"><p>Questions the self-sufficient subject by recognising dependencies among humans, other living beings, matter and technology without erasing human responsibility.</p><p><strong>In simple terms: Our identity also takes shape through relations with other beings and environments.</strong></p></div></details><details><summary>119. What is the Ecodigital Positionality &amp; Imaginaries subdomain?</summary><div class="answer"><p>Examines how infrastructures and collective imaginaries shape what seems possible, desirable and achievable.</p><p><strong>In simple terms: Platforms also influence how we imagine the future, but do not determine it alone.</strong></p></div></details><details><summary>120. What is the Relational Ethics subdomain?</summary><div class="answer"><p>Situates responsibility within relations and asymmetric capacities to affect outcomes without imposing equal blame.</p><p><strong>In simple terms: Those controlling the rules bear different responsibilities from those subject to them.</strong></p></div></details><details><summary>121. What is the Posthuman Relational Ethics subdomain?</summary><div class="answer"><p>Extends ethical concern to non-human life and technological mediation while distinguishing operational effects from moral responsibility.</p><p><strong>In simple terms: Caring for ecosystems does not mean machines have moral consciousness.</strong></p></div></details><details><summary>122. What is the Ecodigital Agency subdomain?</summary><div class="answer"><p>Concerns situated civic and environmental action through digital configurations, distinct from perceived capacity captured by AGY.</p><p><strong>In simple terms: Running a digital civic initiative differs from merely saying you could.</strong></p></div></details><details><summary>123. What is the Algorithmic Bias, Fairness &amp; Representation subdomain?</summary><div class="answer"><p>Examines how algorithmic classification, ranking and generation may reproduce hierarchies and uneven visibility.</p><p><strong>In simple terms: Check whether a search system treats groups and viewpoints differently.</strong></p></div></details><details><summary>124. What does the Tool-Based Learning domain cover?</summary><div class="answer"><p>This domain concerns educational practices that use and critically examine tools, devices, simulations and AI, including affordances, constraints, selection mechanisms and ecological and ethical implications. It is not a necessary final stage.</p><p><strong>In simple terms: use digital tools for learning while questioning how they change what we see, do and understand.</strong></p></div></details><h3>Subdomains of Tool-Based Learning</h3><details><summary>125. What is the Critical AI Literacy subdomain?</summary><div class="answer"><p>Builds the capacity to verify outputs, sources, biases, assumptions and limits of generative systems; prompting is only one technique.</p><p><strong>In simple terms: A good prompt is not enough: check whether the answer is reliable.</strong></p></div></details><details><summary>126. What is the Hybrid Learning Ecosystems subdomain?</summary><div class="answer"><p>Designs learning environments combining local experience, environmental data, digital tools and collaboration, with attention to affordances and constraints.</p><p><strong>In simple terms: Measure neighbourhood air quality and compare results on a shared map.</strong></p></div></details><details><summary>127. What is the AI-Mediated Inquiry subdomain?</summary><div class="answer"><p>Uses simulations, models and data to test ecological hypotheses while stressing that a model is selective representation, not reality itself.</p><p><strong>In simple terms: Change one parameter in a climate simulation and discuss what it leaves out.</strong></p></div></details><details><summary>128. What is the GenAI for Sustainability subdomain?</summary><div class="answer"><p>Explores sustainability scenarios, narratives and projects with generative AI while evaluating accuracy, bias, limitations and ecological costs.</p><p><strong>In simple terms: Use AI to compare sustainability proposals without blindly trusting its response.</strong></p></div></details><details><summary>129. What is the Delegation &amp; Accountability subdomain?</summary><div class="answer"><p>Examines which task components may be delegated to agentic systems, under what constraints, with traceability, human verification and accountability.</p><p><strong>In simple terms: Decide what an AI agent may do, what must be checked and who answers for errors.</strong></p></div></details></section><section class="section" id="extra-methods"><h2>Part IX. Why these statistical methods? Explanations and results</h2><p class="section-note">Source: EcoAI Monograph, November 2026, §§4.2, 5.2 and 6.2. These questions explain procedures reported in answers 43–57.</p><details><summary>130. Why use a five-factor CFA?</summary><div class="answer"><p>Confirmatory Factor Analysis asks whether the theoretically specified structure is compatible with item covariation. Unlike exploratory analysis, it tests five factors specified in advance. In the monograph, for 151 complete cases and 25 items, CFI = 0.978, TLI = 0.975, RMSEA = 0.064 and SRMR = 0.082: broadly acceptable fit, but neither a proof of theory nor close fit (close-fit p = 0.022).</p></div></details><details><summary>131. Why use polychoric correlations?</summary><div class="answer"><p>Items have five ordered response categories. Polychoric correlations estimate associations between ordinal responses under an underlying continuous latent-response and threshold assumption. This is useful when the assumption is defensible; it does not make the data genuinely continuous. They form the CFA input matrix reported in the monograph.</p></div></details><details><summary>132. Why robust DWLS estimation?</summary><div class="answer"><p>Diagonally Weighted Least Squares uses primarily diagonal weights to fit a model to polychoric correlations; robust adjustments address standard errors and fit statistics. The choice reflects ordinal items and a limited sample. It cannot resolve sparse response categories or the limitations of N = 151.</p></div></details><details><summary>133. What do CFI, TLI, RMSEA and SRMR mean here?</summary><div class="answer"><p>CFI and TLI assess comparative fit against an independence model, with differing adjustments; RMSEA estimates discrepancy per degree of freedom and SRMR summarises standardised residual discrepancies. In the CFA: 0.978; 0.975; 0.064 (90% CI 0.053–0.075); 0.082. No single index gives a binary verdict: SRMR and the close-fit test warrant caution.</p></div></details><details><summary>134. Why McDonald’s omega rather than alpha alone?</summary><div class="answer"><p>Omega assesses scale reliability using factor loadings without requiring equal loadings, unlike classical alpha assumptions. In the monograph: INFO 0.662; AATI 0.791; VAL 0.839; AGY 0.776; EPAS 0.729. INFO is the weakest; omega does not establish validity or perfect conceptual homogeneity.</p></div></details><details><summary>135. What is AVE and why calculate it?</summary><div class="answer"><p>Average Variance Extracted summarises the average share of indicator variance attributable to the latent factor. It is a guideline for convergent validity, not a definitive test. Values: INFO 0.399; AATI 0.405; VAL 0.519; AGY 0.381; EPAS 0.535. Only VAL and EPAS exceed 0.50, showing uneven convergence.</p></div></details><details><summary>136. What is HTMT and why does it matter for AGY and EPAS?</summary><div class="answer"><p>The Heterotrait-Monotrait ratio compares cross-construct item correlations with within-construct correlations. It is a diagnostic of discriminant validity, namely whether factors can be distinguished empirically. AGY–EPAS = 0.880, exceeding the conservative 0.85 threshold: their empirical separation remains uncertain despite a theoretical distinction.</p></div></details><details><summary>137. Why use SEM and what do its coefficients establish?</summary><div class="answer"><p>Structural Equation Modelling specifies paths among latent factors while accounting for measurement error under the model. Estimated paths: INFO to AATI β = 0.708; INFO to VAL 0.527; AATI to AGY 0.732; AGY to EPAS 0.511; VAL to EPAS 0.518. Cross-sectional data and CFA-identical fit mean these are theory-compatible associations, not confirmed causal directions or independent validation.</p></div></details><details><summary>138. Why test invariance, and why not at item level?</summary><div class="answer"><p>Measurement invariance asks whether scale structure and parameters are comparable across groups. Sparse or empty response categories prevented identifiable item-level estimation; testing instead used the general factor on five construct means (N = 191). Gender constraints were not rejected, with limited power; cohort scalar invariance failed and partial scalar invariance was obtained by freeing the VAL intercept. Full cohort score comparability cannot be assumed.</p></div></details><details><summary>139. Why factor-derived weights and leave-one-out checks?</summary><div class="answer"><p>Index weights come from a separate general-factor model on five construct means (N = 191), not from SEM paths: INFO 0.160; AATI 0.215; VAL 0.215; AGY 0.181; EPAS 0.230. Comparing Index-defined groups on one of their contributing dimensions creates part–whole dependence; leave-one-out rebuilds groups without that dimension. Effect sizes decline, for EPAS η² from 0.570 to 0.385: a robustness check, not external validation.</p></div></details></section></main>
+</div>
+<footer>
+  © 2026 Gianfranco Rubino, EcoAI Framework<br/><span style="font-size:.85rem"><a href="/privacy.html" style="color:inherit">Privacy Policy</a> | <a href="/cookie.html" style="color:inherit">Cookie Policy</a> | <a href="/terms.html" style="color:inherit">Terms and Conditions</a></span>
+</footer>
+</body>
+</html>
