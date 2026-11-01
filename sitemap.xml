@@ -133,4 +133,52 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.ecoaiframework.com/terms.html"/>
   </url>
 
+  <url>
+    <loc>https://www.ecoaiframework.com/about.html</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ecoaiframework.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ecoaiframework.com/it/chi-sono.html"/>
+  </url>
+  <url>
+    <loc>https://www.ecoaiframework.com/it/chi-sono.html</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ecoaiframework.com/it/chi-sono.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ecoaiframework.com/about.html"/>
+  </url>
+  <url>
+    <loc>https://www.ecoaiframework.com/training.html</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ecoaiframework.com/training.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ecoaiframework.com/it/formazione.html"/>
+  </url>
+  <url>
+    <loc>https://www.ecoaiframework.com/it/formazione.html</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ecoaiframework.com/it/formazione.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ecoaiframework.com/training.html"/>
+  </url>
+  <url>
+    <loc>https://www.ecoaiframework.com/collaborate.html</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ecoaiframework.com/collaborate.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ecoaiframework.com/it/collabora.html"/>
+  </url>
+  <url>
+    <loc>https://www.ecoaiframework.com/it/collabora.html</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.ecoaiframework.com/it/collabora.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ecoaiframework.com/collaborate.html"/>
+  </url>
 </urlset>
