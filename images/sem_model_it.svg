@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 340" width="1720" height="680" font-family="Inter, system-ui, sans-serif">
+<rect width="860" height="340" fill="#ffffff"/>
+<defs>
+<marker id="aINFO" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L0,8 L9,4 z" fill="#2e5c7a"/></marker>
+<marker id="aAATI" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L0,8 L9,4 z" fill="#7a3b2e"/></marker>
+<marker id="aVAL" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L0,8 L9,4 z" fill="#3a6b3a"/></marker>
+<marker id="aAGY" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L0,8 L9,4 z" fill="#8a6b2e"/></marker>
+<marker id="aEPAS" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L0,8 L9,4 z" fill="#6b4a8a"/></marker>
+<marker id="ag" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto-start-reverse"><path d="M0,0 L0,8 L9,4 z" fill="#888"/></marker></defs>
+<rect x="30" y="125" width="110" height="60" rx="3" fill="#f0f5f9" stroke="#2e5c7a" stroke-width="1.8"/>
+<text x="85" y="152" text-anchor="middle" font-size="16" font-weight="600" fill="#2e5c7a">INFO</text>
+<text x="85" y="170" text-anchor="middle" font-size="11" font-style="italic" fill="#2e5c7a">esogena</text>
+<rect x="260" y="40" width="110" height="72" rx="3" fill="#faf2f0" stroke="#7a3b2e" stroke-width="1.8"/>
+<text x="315" y="67" text-anchor="middle" font-size="16" font-weight="600" fill="#7a3b2e">AATI</text>
+<text x="315" y="85" text-anchor="middle" font-size="11" font-style="italic" fill="#7a3b2e">consapevolezza IA</text>
+<text x="315" y="102" text-anchor="middle" font-size="11" fill="#555">R² = 0,502</text>
+<rect x="260" y="210" width="110" height="72" rx="3" fill="#f2f7f2" stroke="#3a6b3a" stroke-width="1.8"/>
+<text x="315" y="237" text-anchor="middle" font-size="16" font-weight="600" fill="#3a6b3a">VAL</text>
+<text x="315" y="255" text-anchor="middle" font-size="11" font-style="italic" fill="#3a6b3a">valori eco-civici</text>
+<text x="315" y="272" text-anchor="middle" font-size="11" fill="#555">R² = 0,278</text>
+<rect x="480" y="40" width="110" height="72" rx="3" fill="#faf6ef" stroke="#8a6b2e" stroke-width="1.8"/>
+<text x="535" y="67" text-anchor="middle" font-size="16" font-weight="600" fill="#8a6b2e">AGY</text>
+<text x="535" y="85" text-anchor="middle" font-size="11" font-style="italic" fill="#8a6b2e">agency</text>
+<text x="535" y="102" text-anchor="middle" font-size="11" fill="#555">R² = 0,536</text>
+<rect x="700" y="119" width="110" height="72" rx="3" fill="#f6f2fa" stroke="#6b4a8a" stroke-width="1.8"/>
+<text x="755" y="146" text-anchor="middle" font-size="16" font-weight="600" fill="#6b4a8a">EPAS</text>
+<text x="755" y="164" text-anchor="middle" font-size="11" font-style="italic" fill="#6b4a8a">eco-postumana</text>
+<text x="755" y="181" text-anchor="middle" font-size="11" fill="#555">R² = 0,860</text>
+<path d="M140,148 C200,148 200,70 260,70" stroke="#7a3b2e" stroke-width="2.6" fill="none" marker-end="url(#aAATI)"/>
+<text x="168" y="100" text-anchor="middle" font-size="13" font-weight="600" fill="#7a3b2e" stroke="#fff" stroke-width="4" paint-order="stroke">β = 0,708</text>
+<path d="M140,162 C200,162 200,246 260,246" stroke="#3a6b3a" stroke-width="2.2" fill="none" marker-end="url(#aVAL)"/>
+<text x="168" y="262" text-anchor="middle" font-size="13" font-weight="500" fill="#3a6b3a" stroke="#fff" stroke-width="4" paint-order="stroke">β = 0,527</text>
+<path d="M370,70 L480,70" stroke="#7a3b2e" stroke-width="3" fill="none" marker-end="url(#aAATI)"/>
+<text x="425" y="60" text-anchor="middle" font-size="13" font-weight="600" fill="#7a3b2e" stroke="#fff" stroke-width="4" paint-order="stroke">β = 0,732</text>
+<path d="M590,76 C660,76 670,135 700,148" stroke="#8a6b2e" stroke-width="2.4" fill="none" marker-end="url(#aAGY)"/>
+<text x="640" y="62" text-anchor="middle" font-size="13" font-weight="500" fill="#8a6b2e" stroke="#fff" stroke-width="4" paint-order="stroke">β = 0,511</text>
+<path d="M370,246 C540,246 650,185 700,164" stroke="#3a6b3a" stroke-width="2.4" fill="none" marker-end="url(#aVAL)"/>
+<text x="590" y="244" text-anchor="middle" font-size="13" font-weight="500" fill="#3a6b3a" stroke="#fff" stroke-width="4" paint-order="stroke">β = 0,518</text>
+<path d="M315,112 L315,210" stroke="#888" stroke-width="1.3" stroke-dasharray="4,4" fill="none" marker-start="url(#ag)" marker-end="url(#ag)"/>
+<text x="360" y="166" text-anchor="middle" font-size="12" fill="#666" stroke="#fff" stroke-width="4" paint-order="stroke">r residua = 0,798</text>
+<text x="430" y="322" text-anchor="middle" font-size="11" fill="#666">Stime standardizzate · DWLS su matrice policorica · N = 151 · tutti i percorsi p < .001 · linea tratteggiata: correlazione residua</text></svg>
