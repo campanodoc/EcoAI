@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="EcoAI Framework Research & Findings — Empirical validation, EcoAI Index, SEM model and Eco-Index profiles."/>
+<meta name="description" content="EcoAI Framework Research & Findings — Empirical validation, EcoAI Index, SEM model and EcoAI Index profiles."/>
 <title>Research & Findings — EcoAI Framework</title>
 <link rel="canonical" href="https://www.ecoaiframework.com/research.html"/>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -387,16 +387,16 @@
         <div class="space-y-2 mt-2">
           <div class="flex items-center gap-2 p-2 bg-gray-50 rounded-lg text-sm">
             <span class="text-green-600 font-bold">✓</span>
-            <span class="text-gray-700">Configural invariance — gender &amp; school year</span>
+            <span class="text-gray-700">Gender: configural, metric and scalar invariance not rejected</span>
           </div>
           <div class="flex items-center gap-2 p-2 bg-gray-50 rounded-lg text-sm">
             <span class="text-green-600 font-bold">✓</span>
-            <span class="text-gray-700">Metric invariance confirmed</span>
+            <span class="text-gray-700">Cohort: configural and metric invariance; partial scalar invariance freeing the VAL intercept</span>
           </div>
           <div class="flex items-center gap-2 p-2 bg-gray-50 rounded-lg text-sm">
             <span class="text-green-600 font-bold">✓</span>
             <span class="for-public">Structural associations: INFO → AATI/VAL; AATI → AGY; AGY/VAL → EPAS</span>
-            <span class="for-researcher font-mono text-xs">SEM chain: INFO → VAL/AATI → AGY → EPAS</span>
+            <span class="for-researcher font-mono text-xs">SEM associations: INFO → AATI/VAL; AATI → AGY; AGY/VAL → EPAS</span>
           </div>
         </div>
       </div>
@@ -427,7 +427,7 @@
           <div class="flex-1 min-w-0">
             <p class="font-semibold text-gray-800 mb-1">Eco-Digital Information Literacy</p>
             <p class="for-public text-sm text-gray-600">How well students search for, evaluate, and critically use information on environmental and civic issues through digital sources.</p>
-            <p class="for-researcher text-sm text-gray-600">Competences in retrieval, critical evaluation, and purposive use of eco-digital information across digital platforms. Prerequisite node in the SEM chain.</p>
+            <p class="for-researcher text-sm text-gray-600">Competences in retrieval, critical evaluation, and purposive use of eco-digital information across digital platforms. Exogenous predictor in the final SEM.</p>
             <div class="for-researcher flex gap-2 flex-wrap mt-2">
               <span class="stat-pill">ω <span>0.662</span></span>
               <span class="stat-pill">AVE <span>0.399</span></span>
@@ -446,7 +446,7 @@
           <div class="flex-1 min-w-0">
             <p class="font-semibold text-gray-800 mb-1">AI Awareness &amp; Critical Attitudes</p>
             <p class="for-public text-sm text-gray-600">Understanding how algorithms work, recognizing AI bias, and developing a critical but informed stance toward AI systems.</p>
-            <p class="for-researcher text-sm text-gray-600">Algorithmic awareness, bias perception, and ethical orientation toward AI governance. Highest discriminant power in Eco-Index classification (η²=0.528). Highest inter-factor correlation with EPAS (r=0.825) and VAL (r=0.859).</p>
+            <p class="for-researcher text-sm text-gray-600">Algorithmic awareness, bias perception and ethical orientation toward AI governance. It has the second-highest discriminant power across EcoAI Index classes (η²=0.532), after EPAS (η²=0.570).</p>
             <div class="for-researcher flex gap-2 flex-wrap mt-2">
               <span class="stat-pill">ω <span>0.791</span></span>
               <span class="stat-pill">AVE <span>0.405</span></span>
@@ -484,7 +484,7 @@
           <div class="flex-1 min-w-0">
             <p class="font-semibold text-gray-800 mb-1">Eco-Digital Civic Agency</p>
             <p class="for-public text-sm text-gray-600">The actual willingness and capacity to act as a responsible citizen in eco-digital contexts — feeling capable of making a difference.</p>
-            <p class="for-researcher text-sm text-gray-600">Perceived self-efficacy and behavioral readiness for eco-digital civic action. Mediated dimension in the SEM: receives effects from both VAL and AATI, mediates toward EPAS. Normalized weight 0.24.</p>
+            <p class="for-researcher text-sm text-gray-600">Perceived self-efficacy and readiness for eco-digital civic action. In the final SEM, it receives the association from AATI and is associated with EPAS; VAL is associated directly with EPAS.</p>
             <div class="for-researcher flex gap-2 flex-wrap mt-2">
               <span class="stat-pill">ω <span>0.776</span></span>
               <span class="stat-pill">AVE <span>0.381</span></span>
@@ -521,79 +521,24 @@
       <div class="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">3</div>
       <h2 class="text-2xl font-bold text-gray-800">Structural Model</h2>
     </div>
-
-    <div class="for-public plain-callout mb-6">
-      The five dimensions are connected to form a chain. Information literacy builds the foundation, shaping how students think about AI and their values, which in turn drives real civic action, and ultimately a deeper sense of ecological identity.
-    </div>
-    <div class="for-researcher mb-4 text-sm text-gray-600">Structural Equation Model (SEM) with DWLS estimator. All paths p&lt;.001 except VAL→EPAS β=0.518 (p&lt;.001). Indirect effects: INFO→AGY β=0.29; INFO→EPAS β=0.34; AATI→EPAS β=0.14. AATI↔VAL correlation r=0.859 (highest in factor matrix).</div>
-
-    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 overflow-x-auto">
-      <div class="flex items-center justify-center gap-1 min-w-max mx-auto">
-        <!-- INFO -->
-        <div class="sem-node bg-blue-100 text-blue-800 border-2 border-blue-300">
-          <span>INFO</span>
-          <span class="node-label">Information<br>Literacy</span>
-        </div>
-        <!-- arrow -->
-        <div class="sem-arrow" style="min-width:48px">
-          <span class="beta">β=0.708</span>
-          <div class="arrowhead"></div>
-        </div>
-        <!-- VAL + AATI stacked -->
-        <div class="flex flex-col gap-3">
-          <div class="sem-node bg-purple-100 text-purple-800 border-2 border-purple-300" style="width:78px;height:70px;font-size:0.85rem">
-            <span>AATI</span>
-            <span class="node-label">AI Attitudes</span>
-          </div>
-          <div class="sem-node bg-emerald-100 text-emerald-800 border-2 border-emerald-300" style="width:78px;height:70px;font-size:0.85rem">
-            <span>VAL</span>
-            <span class="node-label">Civic Values</span>
-          </div>
-        </div>
-        <!-- arrows -->
-        <div class="flex flex-col gap-6 items-center" style="min-width:48px">
-          <div class="sem-arrow" style="min-width:48px">
-            <span class="beta">β=0.527</span>
-            <div class="arrowhead"></div>
-          </div>
-          <div class="sem-arrow" style="min-width:48px">
-            <span class="beta">β=0.732</span>
-            <div class="arrowhead"></div>
-          </div>
-        </div>
-        <!-- AGY -->
-        <div class="sem-node bg-amber-100 text-amber-800 border-2 border-amber-300">
-          <span>AGY</span>
-          <span class="node-label">Civic Agency</span>
-        </div>
-        <!-- arrow -->
-        <div class="sem-arrow" style="min-width:48px">
-          <span class="beta">β=0.511</span>
-          <div class="arrowhead"></div>
-        </div>
-        <!-- EPAS -->
-        <div class="sem-node bg-red-100 text-red-800 border-2 border-red-300">
-          <span>EPAS</span>
-          <span class="node-label">Eco-Posthuman<br>Agency</span>
-        </div>
-      </div>
-      <p class="text-center text-xs text-gray-400 mt-4 for-researcher">All coefficients p&lt;.001 · VAL→EPAS β=0.518, p&lt;.001 · r(AATI↔VAL)=0.859</p>
-      <p class="text-center text-xs text-gray-500 mt-4 for-public">Reading: information skills (INFO) feed into critical AI awareness and civic values, which together build agency, which culminates in eco-posthuman identity.</p>
+    <div class="plain-callout mb-6">The final SEM describes associations among the five dimensions in cross-sectional data; it does not establish a causal sequence. INFO is associated with AATI and VAL; AATI with AGY; and both AGY and VAL with EPAS.</div>
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3"><div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center"><p class="font-semibold text-gray-800">INFO → AATI</p><p class="text-2xl font-bold text-green-800 mt-1">β=0.708</p></div><div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center"><p class="font-semibold text-gray-800">INFO → VAL</p><p class="text-2xl font-bold text-green-800 mt-1">β=0.527</p></div><div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center"><p class="font-semibold text-gray-800">AATI → AGY</p><p class="text-2xl font-bold text-green-800 mt-1">β=0.732</p></div><div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center"><p class="font-semibold text-gray-800">AGY → EPAS</p><p class="text-2xl font-bold text-green-800 mt-1">β=0.511</p></div><div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center"><p class="font-semibold text-gray-800">VAL → EPAS</p><p class="text-2xl font-bold text-green-800 mt-1">β=0.518</p></div></div>
+      <p class="text-center text-xs text-gray-500 mt-5">CFA and SEM: N=151, DWLS/WLSMV estimator; all reported final paths p&lt;.001. VAL → AGY was excluded from the final model.</p>
     </div>
   </section>
 
-  <!-- ===== SECTION 4: ECO-INDEX PROFILES (interactive chart) ===== -->
   <section id="profiles">
     <div class="flex items-center gap-3 mb-6">
       <div class="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">4</div>
-      <h2 class="text-2xl font-bold text-gray-800">Eco-Index Profiles</h2>
+      <h2 class="text-2xl font-bold text-gray-800">EcoAI Index Profiles</h2>
     </div>
 
     <div class="for-public plain-callout mb-6">
       <strong>Three student profiles:</strong> Based on their total EcoAI Index score, students were divided into three groups. The chart below lets you explore how each group scores on each dimension — and spot where the gaps are.
     </div>
     <div class="for-researcher mb-4 text-sm text-gray-600">
-      Percentile-based classification (P33/P66), n=64 per class, N=198. EcoAI Index on the original 1–5 metric: M=3.119, SD=0.592, range 1.911–4.632. Weights derive from the one-factor aggregation model, distinct from the SEM. Discriminant power reported as η².
+      Percentile-based classification (P33/P66), n=64/63/64, N=191. EcoAI Index on the original 1–5 metric: M=3.119, SD=0.592, range 1.911–4.632. Weights derive from the one-factor aggregation model, distinct from the SEM. Discriminant power reported as η².
     </div>
 
     <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
