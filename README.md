@@ -11,7 +11,7 @@
 
 This repository hosts the static website for the **EcoAI Framework**, an interdisciplinary research project integrating Ecoliteracy and Artificial Intelligence literacy into civic education at the secondary school level.
 
-The site presents the theoretical framework, the empirical validation of the **EcoAI Index** (N=601 students, southern Italy), and supporting scientific publications.
+The site presents the theoretical framework, two independent empirical phases for the **EcoAI Index** (exploratory N=403; confirmatory administration N=198; final CFA/SEM N=151; index and invariance N=191), and supporting scientific publications.
 
 ---
 
@@ -63,16 +63,16 @@ Each language has two versions of the Research page, linked by a toggle in the h
 
 Five latent dimensions validated via CFA (DWLS estimator, N=198):
 
-| Dimension | ω | AVE | SEM weight |
+| Dimension | ω | AVE | Index weight |
 |-----------|---|-----|------------|
-| INFO — Eco-Digital Information Literacy | 0.655 | 0.394 | 0.22 |
-| AATI — AI Awareness & Critical Attitudes | 0.806 | 0.418 | 0.18 |
-| VAL — Eco-Civic Values | 0.844 | 0.525 | 0.20 |
-| AGY — Eco-Digital Civic Agency | 0.763 | 0.370 | 0.24 |
-| EPAS — Eco-Posthuman Agency Scale | 0.535 | 0.423 | 0.26 |
+| INFO — Eco-Digital Information Literacy | 0.662 | 0.399 | 0.160 |
+| AATI — AI Awareness & Critical Attitudes | 0.791 | 0.405 | 0.215 |
+| VAL — Eco-Civic Values | 0.839 | 0.519 | 0.215 |
+| AGY — Eco-Digital Civic Agency | 0.776 | 0.381 | 0.181 |
+| EPAS — Eco-Posthuman Agency Scale | 0.729 | 0.535 | 0.230 |
 
-**CFA fit:** CFI=0.978 · TLI=0.975 · RMSEA=0.063 · SRMR=0.082  
-**Composite Eco-Index:** M=3.357, SD=0.559, range 2.058–4.974 (scale 1–5)
+**CFA fit:** CFI=0.978 · TLI=0.975 · RMSEA=0.064 · SRMR=0.082  
+**EcoAI Index (original 1–5 metric):** M=3.119, SD=0.592, range 1.911–4.632 (N=191)
 
 ---
 
@@ -107,3 +107,4 @@ Google Search Console → URL Inspection → Request Indexing for each new or up
 ---
 
 *Last updated: March 2026*
+
