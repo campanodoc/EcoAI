@@ -505,14 +505,14 @@
           RMSEA=0.064 · SRMR=0.082
         </div>
         <div style="margin-bottom:6px">
-          <span style="font-family:Georgia,'Times New Roman',serif; font-size:8pt; color:var(--muted)">Invarianza</span><br>
-          Configurale ✓ · Metrica ✓<br>
-          by gender and school cohort
+          <span style="font-family:Georgia,'Times New Roman',serif; font-size:8pt; color:var(--muted)">Measurement invariance</span><br>
+          Gender: configural, metric and scalar invariance not rejected<br>
+          Cohort: partial scalar invariance, VAL intercept freed
         </div>
         <div>
           <span style="font-family:Georgia,'Times New Roman',serif; font-size:8pt; color:var(--muted)">SEM</span><br>
-          Confirmed structural chain<br>
-          INFO → VAL/AATI → AGY → EPAS
+          Final structural associations<br>
+          INFO → AATI/VAL; AATI → AGY; AGY/VAL → EPAS
         </div>
       </div>
     </div>
@@ -577,92 +577,13 @@
   </div>
 
   <!-- SEM PATHS -->
-  <div class="section-label">Structural model (SEM) — path coefficients β</div>
+  <div class="section-label">Final structural model — path coefficients β</div>
   <div class="panel">
-    <div class="sem-container">
-      <svg class="sem-svg" viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
-          </marker>
-          <marker id="arr-info" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L8,3 z" fill="#2e5c7a"/>
-          </marker>
-          <marker id="arr-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L8,3 z" fill="#7a3b2e"/>
-          </marker>
-          <marker id="arr-grn" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L8,3 z" fill="#3a6b3a"/>
-          </marker>
-          <marker id="arr-amb" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L8,3 z" fill="#8a6b2e"/>
-          </marker>
-          <marker id="arr-pur" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L8,3 z" fill="#6b4a8a"/>
-          </marker>
-        </defs>
-
-        <!-- Node: INFO -->
-        <rect x="30" y="105" width="90" height="50" rx="2" fill="#f0f5f9" stroke="#2e5c7a" stroke-width="1.5"/>
-        <text x="75" y="127" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#2e5c7a">INFO</text>
-        <text x="75" y="143" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9.5" fill="#2e5c7a" font-style="italic">prerequisite</text>
-
-        <!-- Node: AATI -->
-        <rect x="230" y="50" width="90" height="50" rx="2" fill="#faf2f0" stroke="#7a3b2e" stroke-width="1.5"/>
-        <text x="275" y="72" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#7a3b2e">AATI</text>
-        <text x="275" y="88" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9.5" fill="#7a3b2e" font-style="italic">AI critical</text>
-
-        <!-- Node: VAL -->
-        <rect x="230" y="160" width="90" height="50" rx="2" fill="#f2f7f2" stroke="#3a6b3a" stroke-width="1.5"/>
-        <text x="275" y="182" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#3a6b3a">VAL</text>
-        <text x="275" y="198" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9.5" fill="#3a6b3a" font-style="italic">civic values</text>
-
-        <!-- Node: AGY -->
-        <rect x="460" y="105" width="90" height="50" rx="2" fill="#faf6ef" stroke="#8a6b2e" stroke-width="1.5"/>
-        <text x="505" y="127" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#8a6b2e">AGY</text>
-        <text x="505" y="143" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9.5" fill="#8a6b2e" font-style="italic">agency</text>
-
-        <!-- Node: EPAS -->
-        <rect x="660" y="105" width="90" height="50" rx="2" fill="#f6f2fa" stroke="#6b4a8a" stroke-width="1.5"/>
-        <text x="705" y="127" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#6b4a8a">EPAS</text>
-        <text x="705" y="143" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9.5" fill="#6b4a8a" font-style="italic">integration</text>
-
-        <!-- INFO → AATI β=0.708 -->
-        <path d="M120,120 Q175,75 230,75" stroke="#7a3b2e" stroke-width="2" fill="none" marker-end="url(#arr-red)"/>
-        <text x="168" y="85" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#7a3b2e">β=0.708</text>
-
-        <!-- INFO → VAL β=0.527 -->
-        <path d="M120,145 Q175,170 230,178" stroke="#3a6b3a" stroke-width="2" fill="none" marker-end="url(#arr-grn)"/>
-        <text x="168" y="174" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#3a6b3a">β=0.527</text>
-
-        <!-- AATI → AGY β=0.729 -->
-        <path d="M320,75 Q390,90 460,120" stroke="#7a3b2e" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arr-red)"/>
-        <text x="390" y="88" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#7a3b2e">β=0.729</text>
-
-        <!-- VAL → AGY β=0.38 -->
-        <path d="M320,178 Q390,170 460,145" stroke="#3a6b3a" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arr-grn)"/>
-        <text x="390" y="178" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#3a6b3a">β=0.38</text>
-
-        <!-- AGY → EPAS β=0.511 -->
-        <path d="M550,130 L660,130" stroke="#6b4a8a" stroke-width="2.5" fill="none" marker-end="url(#arr-pur)"/>
-        <text x="605" y="120" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#6b4a8a" font-weight="500">β=0.511</text>
-
-        <!-- VAL → EPAS β=0.518 (long arc) -->
-        <path d="M320,195 Q520,230 660,155" stroke="#3a6b3a" stroke-width="1.2" fill="none" stroke-dasharray="4,4" marker-end="url(#arr-grn)"/>
-        <text x="500" y="238" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#3a6b3a">β=0.518</text>
-
-        <!-- indirect effect label -->
-        <text x="400" y="25" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#999" font-style="italic">Indirect effects: INFO→AGY β=0.29 · INFO→EPAS β=0.34 · AATI→EPAS β=0.14</text>
-
-        <!-- correlation AATI ↔ VAL -->
-        <path d="M265,100 Q240,135 265,160" stroke="#888" stroke-width="1" fill="none" stroke-dasharray="2,3"/>
-        <text x="228" y="133" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8.5" fill="#888">r=0.859</text>
-      </svg>
-    </div>
-    <p class="caption">Solid lines = main direct paths; dashed lines = mediated paths or indirect effects. All reported final paths p&lt;.001. The AATI↔VAL correlation (r=0.859) is the highest in the factor matrix.</p>
+    <div class="dim-stats" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center"><div class="dim-stat" style="min-width:130px">INFO → AATI<span>β=0.708</span></div><div class="dim-stat" style="min-width:130px">INFO → VAL<span>β=0.527</span></div><div class="dim-stat" style="min-width:130px">AATI → AGY<span>β=0.732</span></div><div class="dim-stat" style="min-width:130px">AGY → EPAS<span>β=0.511</span></div><div class="dim-stat" style="min-width:130px">VAL → EPAS<span>β=0.518</span></div></div>
+    <p class="caption">Cross-sectional associations, not causal relations. CFA/SEM N=151; DWLS/WLSMV estimator; all paths p&lt;.001. VAL → AGY excluded.</p>
   </div>
 
-  <!-- ECO-INDEX -->
+    <!-- ECO-INDEX -->
   <div class="section-label">Eco-Index — weighted composition</div>
   <div class="panel">
     <div class="index-bar">
