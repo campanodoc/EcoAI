@@ -1,27 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1050" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
   <title id="title">Framework EcoAI: Postumanesimo ecodigitale</title>
   <desc id="desc">Quattro domini disposti su due assi: ideale-reale e sistemico-individuale.</desc>
   <defs>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000" flood-opacity=".14"/></filter>
-    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#566159"/></marker>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#566159"/>
+    </marker>
   </defs>
-  <rect width="1600" height="1050" rx="34" fill="#f7f5ef"/>
-  <rect x="190" y="45" width="1220" height="105" rx="22" fill="#285f49" filter="url(#shadow)"/>
-  <text x="800" y="112" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="50" font-weight="700">Postumanesimo ecodigitale</text>
-  <line x1="250" y1="555" x2="1350" y2="555" stroke="#566159" stroke-width="5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
-  <line x1="800" y1="205" x2="800" y2="930" stroke="#566159" stroke-width="5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
-  <text x="170" y="570" text-anchor="middle" fill="#39433d" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700">Ideale</text>
-  <text x="1430" y="570" text-anchor="middle" fill="#39433d" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700">Reale</text>
-  <text x="800" y="192" text-anchor="middle" fill="#39433d" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700">Sistemico</text>
-  <text x="800" y="985" text-anchor="middle" fill="#39433d" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700">Individuale</text>
-  <g filter="url(#shadow)">
-    <rect x="250" y="245" width="470" height="240" rx="28" fill="#dbeadf" stroke="#3d7659" stroke-width="4"/>
-    <rect x="880" y="245" width="470" height="240" rx="28" fill="#d9e8ef" stroke="#47738a" stroke-width="4"/>
-    <rect x="250" y="625" width="470" height="240" rx="28" fill="#eaddef" stroke="#785a83" stroke-width="4"/>
-    <rect x="880" y="625" width="470" height="240" rx="28" fill="#f2e5cf" stroke="#8b6c3f" stroke-width="4"/>
+  <rect width="1200" height="800" rx="28" fill="#f7f5ef"/>
+  <rect x="160" y="30" width="880" height="78" rx="18" fill="#285f49"/>
+  <text x="600" y="81" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="38" font-weight="700">Postumanesimo ecodigitale</text>
+  <line x1="150" y1="408" x2="1050" y2="408" stroke="#566159" stroke-width="4" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <line x1="600" y1="145" x2="600" y2="700" stroke="#566159" stroke-width="4" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="70" y="418" text-anchor="middle" fill="#39433d" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="700">Ideale</text>
+  <text x="1130" y="418" text-anchor="middle" fill="#39433d" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="700">Reale</text>
+  <text x="600" y="135" text-anchor="middle" fill="#39433d" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="700">Sistemico</text>
+  <text x="600" y="744" text-anchor="middle" fill="#39433d" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="700">Individuale</text>
+  <g>
+    <rect x="140" y="175" width="400" height="170" rx="24" fill="#dbeadf" stroke="#3d7659" stroke-width="3"/>
+    <rect x="660" y="175" width="400" height="170" rx="24" fill="#d9e8ef" stroke="#47738a" stroke-width="3"/>
+    <rect x="140" y="475" width="400" height="170" rx="24" fill="#eaddef" stroke="#785a83" stroke-width="3"/>
+    <rect x="660" y="475" width="400" height="170" rx="24" fill="#f2e5cf" stroke="#8b6c3f" stroke-width="3"/>
   </g>
-  <text x="485" y="340" text-anchor="middle" fill="#254d39" font-family="Georgia, serif" font-size="41" font-weight="700"><tspan x="485">Comprensione</tspan><tspan x="485" dy="54">dei sistemi</tspan></text>
-  <text x="1115" y="340" text-anchor="middle" fill="#315b70" font-family="Georgia, serif" font-size="39" font-weight="700"><tspan x="1115">Comprensione ecologica</tspan><tspan x="1115" dy="54">dell’IA</tspan></text>
-  <text x="485" y="720" text-anchor="middle" fill="#60466a" font-family="Georgia, serif" font-size="40" font-weight="700"><tspan x="485">Formazione</tspan><tspan x="485" dy="54">dell’identità</tspan></text>
-  <text x="1115" y="720" text-anchor="middle" fill="#72552f" font-family="Georgia, serif" font-size="38" font-weight="700"><tspan x="1115">Apprendimento mediato</tspan><tspan x="1115" dy="54">da strumenti</tspan></text>
+  <text x="340" y="247" text-anchor="middle" fill="#254d39" font-family="Georgia, serif" font-size="31" font-weight="700">
+    <tspan x="340">Comprensione</tspan><tspan x="340" dy="42">dei sistemi</tspan>
+  </text>
+  <text x="860" y="247" text-anchor="middle" fill="#315b70" font-family="Georgia, serif" font-size="29" font-weight="700">
+    <tspan x="860">Comprensione ecologica</tspan><tspan x="860" dy="42">dell’IA</tspan>
+  </text>
+  <text x="340" y="547" text-anchor="middle" fill="#60466a" font-family="Georgia, serif" font-size="31" font-weight="700">
+    <tspan x="340">Formazione</tspan><tspan x="340" dy="42">dell’identità</tspan>
+  </text>
+  <text x="860" y="547" text-anchor="middle" fill="#72552f" font-family="Georgia, serif" font-size="29" font-weight="700">
+    <tspan x="860">Apprendimento mediato</tspan><tspan x="860" dy="42">da strumenti</tspan>
+  </text>
 </svg>
