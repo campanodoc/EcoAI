@@ -442,16 +442,16 @@
 
   <div class="header">
     <h1>Framework EcoAI — Sintesi Strutturale</h1>
-    <p>Relazioni tra dimensioni, modello SEM, profili Eco-Index e continuità Q1→Q2</p>
+    <p>Relazioni tra dimensioni, modello SEM, profili Indice EcoAI e continuità Q1→Q2</p>
   </div>
 
   <!-- BRIDGE Q1 → Q2 -->
   <div class="section-label">Disegno della ricerca</div>
   <div class="bridge">
     <div class="q-box">
-      <h3>Questionario (Survey) Q1 — Esplorativa (N=403)</h3>
+      <h3>Questionario Q1 — Esplorativa (N=403)</h3>
       <div style="margin-bottom:12px">
-        <div class="section-label" style="margin-bottom:6px">Gruppi (Cluster) sostenibilità</div>
+        <div class="section-label" style="margin-bottom:6px">Gruppi di sostenibilità</div>
         <div class="cluster-item">
           <div class="cluster-dot" style="background:#b08060"></div>
           Distanti dalla sostenibilità
@@ -506,13 +506,13 @@
         </div>
         <div style="margin-bottom:6px">
           <span style="font-family:Georgia,'Times New Roman',serif; font-size:8pt; color:var(--muted)">Invarianza</span><br>
-          Configurale ✓ · Metrica ✓<br>
-          per genere e coorte scolastica
+          Genere: configurale, metrica e scalare non respinta<br>
+          Coorte: scalare parziale, intercetta VAL libera
         </div>
         <div>
           <span style="font-family:Georgia,'Times New Roman',serif; font-size:8pt; color:var(--muted)">SEM</span><br>
-          Catena strutturale confermata<br>
-          INFO → VAL/AATI → AGY → EPAS
+          Associazioni strutturali finali<br>
+          INFO → AATI/VAL; AATI → AGY; AGY/VAL → EPAS
         </div>
       </div>
     </div>
@@ -524,7 +524,7 @@
     <div class="dims-grid">
       <div class="dim-card d-info">
         <span class="acronym">INFO</span>
-        <span class="dim-name">Alfabetizzazione Informativa Eco-Digitale</span>
+        <span class="dim-name">Alfabetizzazione informativa ecodigitale</span>
         <div class="dim-desc">Competenze di ricerca, valutazione e uso critico di informazioni su temi ambientali e civici attraverso fonti digitali</div>
         <div class="dim-stats">
           <div class="dim-stat">ω<span>0.662</span></div>
@@ -534,7 +534,7 @@
       </div>
       <div class="dim-card d-aati">
         <span class="acronym">AATI</span>
-        <span class="dim-name">Consapevolezza Critica e Atteggiamenti verso l'IA</span>
+        <span class="dim-name">Consapevolezza e atteggiamenti critici verso l’IA</span>
         <div class="dim-desc">Comprensione del funzionamento degli algoritmi, percezione dei distorsioni sistematiche (bias), orientamento verso una IA eticamente governata</div>
         <div class="dim-stats">
           <div class="dim-stat">ω<span>0.791</span></div>
@@ -544,7 +544,7 @@
       </div>
       <div class="dim-card d-val">
         <span class="acronym">VAL</span>
-        <span class="dim-name">Valori Eco-Civici</span>
+        <span class="dim-name">Valori ecocivici</span>
         <div class="dim-desc">Orientamento valoriale verso sostenibilità, responsabilità ambientale collettiva, giustizia civica</div>
         <div class="dim-stats">
           <div class="dim-stat">ω<span>0.839</span></div>
@@ -554,7 +554,7 @@
       </div>
       <div class="dim-card d-agy">
         <span class="acronym">AGY</span>
-        <span class="dim-name">Agentività civica ecodigitale (Agency Eco-Civica Digitale)</span>
+        <span class="dim-name">Agency ecodigitale civica</span>
         <div class="dim-desc">Capacità e disponibilità ad agire come cittadino responsabile nei contesti eco-digitali; senso di efficacia e orientamento all'azione</div>
         <div class="dim-stats">
           <div class="dim-stat">ω<span>0.776</span></div>
@@ -564,8 +564,8 @@
       </div>
       <div class="dim-card d-epas">
         <span class="acronym">EPAS</span>
-        <span class="dim-name">Scala di agentività ecopostumana (Scala di Agency Eco-Postumana)</span>
-        <div class="dim-desc">Disposizione soggettiva a riconoscersi parte di reti ibride umano-tecnologico-ecologiche; apertura all'integrazione relazionale</div>
+        <span class="dim-name">Scala dell’agency eco-postumana</span>
+        <div class="dim-desc">Componente percettivo-disposizionale dell’agency eco-postumana; non misura l’agency strutturale di nodi e super-nodi</div>
         <div class="dim-stats">
           <div class="dim-stat">ω<span>0.729</span></div>
           <div class="dim-stat">AVE<span>0.535</span></div>
@@ -573,97 +573,18 @@
         </div>
       </div>
     </div>
-    <p class="caption">ω = coefficiente omega di McDonald; AVE = varianza estratta media; peso = peso normalizzato nel calcolo dell'Eco-Index (somma = 1.00)</p>
+    <p class="caption">ω = coefficiente omega di McDonald; AVE = varianza estratta media; peso = peso normalizzato nel calcolo dell'Indice EcoAI (somma = 1.00)</p>
   </div>
 
   <!-- SEM PATHS -->
-  <div class="section-label">Modello strutturale (SEM) — percorsi e coefficienti β</div>
+  <div class="section-label">Modello strutturale finale — coefficienti di percorso β</div>
   <div class="panel">
-    <div class="sem-container">
-      <svg class="sem-svg" viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
-          </marker>
-          <marker id="arr-info" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L8,3 z" fill="#2e5c7a"/>
-          </marker>
-          <marker id="arr-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L8,3 z" fill="#7a3b2e"/>
-          </marker>
-          <marker id="arr-grn" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L8,3 z" fill="#3a6b3a"/>
-          </marker>
-          <marker id="arr-amb" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L8,3 z" fill="#8a6b2e"/>
-          </marker>
-          <marker id="arr-pur" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L8,3 z" fill="#6b4a8a"/>
-          </marker>
-        </defs>
-
-        <!-- Node: INFO -->
-        <rect x="30" y="105" width="90" height="50" rx="2" fill="#f0f5f9" stroke="#2e5c7a" stroke-width="1.5"/>
-        <text x="75" y="127" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#2e5c7a">INFO</text>
-        <text x="75" y="143" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9.5" fill="#2e5c7a" font-style="italic">prerequisito</text>
-
-        <!-- Node: AATI -->
-        <rect x="230" y="50" width="90" height="50" rx="2" fill="#faf2f0" stroke="#7a3b2e" stroke-width="1.5"/>
-        <text x="275" y="72" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#7a3b2e">AATI</text>
-        <text x="275" y="88" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9.5" fill="#7a3b2e" font-style="italic">critica IA</text>
-
-        <!-- Node: VAL -->
-        <rect x="230" y="160" width="90" height="50" rx="2" fill="#f2f7f2" stroke="#3a6b3a" stroke-width="1.5"/>
-        <text x="275" y="182" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#3a6b3a">VAL</text>
-        <text x="275" y="198" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9.5" fill="#3a6b3a" font-style="italic">valori civici</text>
-
-        <!-- Node: AGY -->
-        <rect x="460" y="105" width="90" height="50" rx="2" fill="#faf6ef" stroke="#8a6b2e" stroke-width="1.5"/>
-        <text x="505" y="127" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#8a6b2e">AGY</text>
-        <text x="505" y="143" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9.5" fill="#8a6b2e" font-style="italic">Agentività (Agency)</text>
-
-        <!-- Node: EPAS -->
-        <rect x="660" y="105" width="90" height="50" rx="2" fill="#f6f2fa" stroke="#6b4a8a" stroke-width="1.5"/>
-        <text x="705" y="127" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="500" fill="#6b4a8a">EPAS</text>
-        <text x="705" y="143" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9.5" fill="#6b4a8a" font-style="italic">integrazione</text>
-
-        <!-- INFO → AATI β=0.708 -->
-        <path d="M120,120 Q175,75 230,75" stroke="#7a3b2e" stroke-width="2" fill="none" marker-end="url(#arr-red)"/>
-        <text x="168" y="85" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#7a3b2e">β=0.708</text>
-
-        <!-- INFO → VAL β=0.527 -->
-        <path d="M120,145 Q175,170 230,178" stroke="#3a6b3a" stroke-width="2" fill="none" marker-end="url(#arr-grn)"/>
-        <text x="168" y="174" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#3a6b3a">β=0.527</text>
-
-        <!-- AATI → AGY β=0.729 -->
-        <path d="M320,75 Q390,90 460,120" stroke="#7a3b2e" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arr-red)"/>
-        <text x="390" y="88" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#7a3b2e">β=0.729</text>
-
-        <!-- VAL → AGY β=0.38 -->
-        <path d="M320,178 Q390,170 460,145" stroke="#3a6b3a" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arr-grn)"/>
-        <text x="390" y="178" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#3a6b3a">β=0.38</text>
-
-        <!-- AGY → EPAS β=0.511 -->
-        <path d="M550,130 L660,130" stroke="#6b4a8a" stroke-width="2.5" fill="none" marker-end="url(#arr-pur)"/>
-        <text x="605" y="120" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#6b4a8a" font-weight="500">β=0.511</text>
-
-        <!-- VAL → EPAS β=0.518 (long arc) -->
-        <path d="M320,195 Q520,230 660,155" stroke="#3a6b3a" stroke-width="1.2" fill="none" stroke-dasharray="4,4" marker-end="url(#arr-grn)"/>
-        <text x="500" y="238" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#3a6b3a">β=0.518</text>
-
-        <!-- indirect effect label -->
-        <text x="400" y="25" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#999" font-style="italic">Effetti indiretti: INFO→AGY β=0.29 · INFO→EPAS β=0.34 · AATI→EPAS β=0.14</text>
-
-        <!-- correlation AATI ↔ VAL -->
-        <path d="M265,100 Q240,135 265,160" stroke="#888" stroke-width="1" fill="none" stroke-dasharray="2,3"/>
-        <text x="228" y="133" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="8.5" fill="#888">r=0.859</text>
-      </svg>
-    </div>
-    <p class="caption">Linee continue = percorsi diretti principali; linee tratteggiate = percorsi mediati o effetti indiretti. Tutti i percorsi finali riportati hanno p&lt;.001. La correlazione AATI↔VAL (r=0.859) è la più elevata della matrice fattoriale.</p>
+    <div class="dim-stats" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center"><div class="dim-stat" style="min-width:130px">INFO → AATI<span>β=0,708</span></div><div class="dim-stat" style="min-width:130px">INFO → VAL<span>β=0,527</span></div><div class="dim-stat" style="min-width:130px">AATI → AGY<span>β=0,732</span></div><div class="dim-stat" style="min-width:130px">AGY → EPAS<span>β=0,511</span></div><div class="dim-stat" style="min-width:130px">VAL → EPAS<span>β=0,518</span></div></div>
+    <p class="caption">Associazioni su dati trasversali, non relazioni causali. CFA/SEM N=151; stimatore DWLS/WLSMV; tutti i percorsi p&lt;.001. VAL → AGY escluso.</p>
   </div>
 
-  <!-- ECO-INDEX -->
-  <div class="section-label">Eco-Index — composizione ponderata</div>
+    <!-- ECO-INDEX -->
+  <div class="section-label">Indice EcoAI — composizione ponderata</div>
   <div class="panel">
     <div class="index-bar">
       <div class="index-seg" style="width:16%; background:#2e5c7a;">
@@ -691,7 +612,7 @@
   </div>
 
   <!-- PROFILES -->
-  <div class="section-label">Profili Eco-Index (classificazione percentile P33/P66, n=66 per classe)</div>
+  <div class="section-label">Profili dell’Indice EcoAI (classificazione percentile P33/P66; n=64/63/64)</div>
   <div class="profiles-grid" style="margin-bottom:24px">
     <div class="profile-low">
       <div class="profile-card">
@@ -786,7 +707,7 @@
   </div>
 
   <!-- DISCRIMINANT POWER -->
-  <div class="section-label">Potere discriminante tra classi Eco-Index (η²)</div>
+  <div class="section-label">Potere discriminante tra classi Indice EcoAI (η²)</div>
   <div class="discriminant-row" style="margin-bottom:24px">
     <div class="disc-item">
       <span class="disc-dim" style="color:#7a3b2e">AATI</span>
