@@ -280,11 +280,11 @@
         <div class="space-y-2 mt-2">
           <div class="flex items-center gap-2 p-2 bg-gray-50 rounded-lg text-sm">
             <span class="text-green-600 font-bold">✓</span>
-            <span class="text-gray-700">Configural invariance confirmed across gender and school year</span>
+            <span class="text-gray-700">Gender: configural, metric and scalar invariance not rejected</span>
           </div>
           <div class="flex items-center gap-2 p-2 bg-gray-50 rounded-lg text-sm">
             <span class="text-green-600 font-bold">✓</span>
-            <span class="text-gray-700">Metric invariance confirmed</span>
+            <span class="text-gray-700">Cohort: configural and metric invariance; partial scalar invariance freeing the VAL intercept</span>
           </div>
           <div class="flex items-center gap-2 p-2 bg-gray-50 rounded-lg text-sm">
             <span class="text-green-600 font-bold">✓</span>
@@ -365,63 +365,17 @@
       <div class="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">3</div>
       <h2 class="text-2xl font-bold text-gray-800">Structural Model</h2>
     </div>
-
-    <div class="plain-callout mb-6">
-      The five dimensions are connected to form a chain. Information literacy builds the foundation, shaping how students think about AI and their values, which in turn drives real civic action and ultimately a deeper sense of ecological identity.
-    </div>
-
-    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 overflow-x-auto">
-      <div class="flex items-center justify-center gap-1 min-w-max mx-auto">
-        <div class="sem-node bg-blue-100 text-blue-800 border-2 border-blue-300">
-          <span>INFO</span>
-          <span class="node-label">Information<br>Literacy</span>
-        </div>
-        <div class="sem-arrow" style="min-width:48px">
-          <span class="beta">β=0.708</span>
-          <div class="arrowhead"></div>
-        </div>
-        <div class="flex flex-col gap-3">
-          <div class="sem-node bg-purple-100 text-purple-800 border-2 border-purple-300" style="width:78px;height:70px;font-size:0.85rem">
-            <span>AATI</span>
-            <span class="node-label">AI<br>Attitudes</span>
-          </div>
-          <div class="sem-node bg-emerald-100 text-emerald-800 border-2 border-emerald-300" style="width:78px;height:70px;font-size:0.85rem">
-            <span>VAL</span>
-            <span class="node-label">Civic<br>Values</span>
-          </div>
-        </div>
-        <div class="flex flex-col gap-6 items-center" style="min-width:48px">
-          <div class="sem-arrow" style="min-width:48px">
-            <span class="beta">β=0.527</span>
-            <div class="arrowhead"></div>
-          </div>
-          <div class="sem-arrow" style="min-width:48px">
-            <span class="beta">β=0.732</span>
-            <div class="arrowhead"></div>
-          </div>
-        </div>
-        <div class="sem-node bg-amber-100 text-amber-800 border-2 border-amber-300">
-          <span>AGY</span>
-          <span class="node-label">Civic<br>Agency</span>
-        </div>
-        <div class="sem-arrow" style="min-width:48px">
-          <span class="beta">β=0.511</span>
-          <div class="arrowhead"></div>
-        </div>
-        <div class="sem-node bg-red-100 text-red-800 border-2 border-red-300">
-          <span>EPAS</span>
-          <span class="node-label">Eco-Posthuman<br>Agency</span>
-        </div>
-      </div>
-      <p class="text-center text-xs text-gray-500 mt-4">Information competences (INFO) feed critical awareness of AI and civic values, which together build the capacity to act and ultimately form an integrated ecological identity.</p>
+    <div class="plain-callout mb-6">The final SEM describes associations among the five dimensions in cross-sectional data; it does not establish a causal sequence. INFO is associated with AATI and VAL; AATI with AGY; and both AGY and VAL with EPAS.</div>
+    <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3"><div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center"><p class="font-semibold text-gray-800">INFO → AATI</p><p class="text-2xl font-bold text-green-800 mt-1">β=0.708</p></div><div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center"><p class="font-semibold text-gray-800">INFO → VAL</p><p class="text-2xl font-bold text-green-800 mt-1">β=0.527</p></div><div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center"><p class="font-semibold text-gray-800">AATI → AGY</p><p class="text-2xl font-bold text-green-800 mt-1">β=0.732</p></div><div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center"><p class="font-semibold text-gray-800">AGY → EPAS</p><p class="text-2xl font-bold text-green-800 mt-1">β=0.511</p></div><div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center"><p class="font-semibold text-gray-800">VAL → EPAS</p><p class="text-2xl font-bold text-green-800 mt-1">β=0.518</p></div></div>
+      <p class="text-center text-xs text-gray-500 mt-5">CFA and SEM: N=151, DWLS/WLSMV estimator; all reported final paths p&lt;.001. VAL → AGY was excluded from the final model.</p>
     </div>
   </section>
 
-  <!-- SECTION 4: ECO-INDEX PROFILES -->
   <section id="profiles">
     <div class="flex items-center gap-3 mb-6">
       <div class="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">4</div>
-      <h2 class="text-2xl font-bold text-gray-800">Eco-Index Profiles</h2>
+      <h2 class="text-2xl font-bold text-gray-800">EcoAI Index Profiles</h2>
     </div>
 
     <div class="plain-callout mb-6">
