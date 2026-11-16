@@ -172,24 +172,7 @@
 <select class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500" id="competence-selector">
 </select>
 </div>
-<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm" id="competence-details">
-                    <div class="bg-green-50 p-4 rounded-lg border border-green-200">
-                        <h4 class="font-bold text-green-800 mb-1">Base</h4>
-                        <p class="text-gray-700">Riconosce la differenza tra un sistema naturale e uno artificiale.</p>
-                    </div>
-                    <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
-                        <h4 class="font-bold text-yellow-800 mb-1">Intermedio</h4>
-                        <p class="text-gray-700">Descrive retroazione e cicli in entrambi i sistemi.</p>
-                    </div>
-                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                        <h4 class="font-bold text-blue-800 mb-1">Avanzato</h4>
-                        <p class="text-gray-700">Confronta e mappa complesse interdipendenze tra IA e sistemi naturali.</p>
-                    </div>
-                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-200">
-                        <h4 class="font-bold text-purple-800 mb-1">Critico</h4>
-                        <p class="text-gray-700">Progetta attività che dimostrano una profonda interdipendenza tra IA e biosfera.</p>
-                    </div>
-                </div>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm" id="competence-details"></div>
 <h3 class="text-2xl font-bold text-center mt-20 mb-4 text-gray-800">Relazione tra domini EcoAI e aree GreenComp</h3>
 <p class="text-sm text-gray-600 max-w-3xl mx-auto mb-6 text-center">Mappa qualitativa delle corrispondenze concettuali. Le connessioni non sono punteggi empirici né equivalenze tra framework.</p>
 <div class="chart-container">
@@ -289,6 +272,12 @@
 <div class="container mx-auto px-6 text-center">
 <p>© 2026 EcoAI Framework. Tutti i diritti riservati.</p>
 <p class="text-sm text-gray-400 mt-2">Questa dashboard interattiva presenta l’architettura pedagogica del Framework EcoAI.</p>
+<p class="text-sm text-gray-300 mt-4">
+<a class="hover:text-white" href="/it/privacy.html">Informativa sulla privacy</a> |
+<a class="hover:text-white" href="/it/cookie.html">Informativa sui cookie</a> |
+<a class="hover:text-white" href="/it/termini.html">Termini e condizioni</a> |
+<a class="hover:text-white" href="#" id="open-consent">Preferenze relative a privacy e cookie</a>
+</p>
 </div>
 </footer>
 <script>
@@ -584,13 +573,6 @@ mobileMenuButton.addEventListener('click', () => {
         });
     </script>
 
-<!-- Qui inserisci il footer -->
-  <footer>
-    <a href="http://www.ecoaiframework.com/it/privacy.html">Informativa sulla privacy</a> |
-    <a href="http://www.ecoaiframework.com/it/cookie.html">Informativa sui cookie</a> |
-    <a href="http://www.ecoaiframework.com/it/termini.html">Termini e Condizioni</a> |
-    <a href="http://www.ecoaiframework.com/it/index.html#" id="open-consent">Preferenze relative a privacy e cookie</a>
-  </footer>
 <!-- === Modale Consenso IT === -->
 <style>
   .consent-backdrop {position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:9998;}
