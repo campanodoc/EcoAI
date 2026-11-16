@@ -530,68 +530,6 @@
       sdgGrid.appendChild(card);
     });
 
-    const sdgCounts = data.sdgs.reduce((acc, sdg) => {
-      acc[sdg.id] = sdg.connections.length;
-      return acc;
-    }, {});
-    const sdgDoughnutCanvas = document.getElementById('sdgDoughnutChart');
-    if (sdgDoughnutCanvas && typeof Chart !== 'undefined') new Chart(sdgDoughnutCanvas, {
-      type: 'doughnut',
-      data: {
-        labels: data.sdgs.map(s => `SDG ${s.id}: ${s.title}`),
-        datasets: [{
-          label: 'Number of EcoAI Connections',
-          data: Object.values(sdgCounts),
-          backgroundColor: [
-            '#E5243B', '#DDA63A', '#4C9F38', '#C5192D', '#FF3A21',
-            '#26BDE2', '#FCC30B', '#A21942', '#FD6925'
-          ],
-          hoverOffset: 4
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false }
-        }
-      }
-    });
-
-    const populationPieCanvas = document.getElementById('populationPieChart');
-    if (populationPieCanvas && typeof Chart !== 'undefined') new Chart(populationPieCanvas, {
-      type: 'pie',
-      data: {
-        labels: ['14–15 years', '16–17 years', '18–19 years'],
-        datasets: [{
-          label: '',
-          data: [35, 45, 20],
-          backgroundColor: ['#6B8E23', '#8FBC8F', '#9ACD32'],
-          hoverOffset: 4
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { position: 'bottom' },
-          tooltip: {
-            displayColors: false,
-            callbacks: {
-              title: () => '',
-              label: function(context) {
-                const dataset = context.dataset;
-                const total = dataset.data.reduce((a, b) => a + b, 0);
-                const value = dataset.data[context.dataIndex];
-                const pct = total > 0 ? ((value / total) * 100).toFixed(1) : 0;
-                return `${pct}%`;
-              }
-            }
-          }
-        }
-      }
-    });
-
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
 
