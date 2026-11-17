@@ -1,0 +1,56 @@
+:root {
+  --site-title-size: clamp(32px, 4vw, 40px);
+  --site-section-size: 24px;
+  --site-text-size: 17px;
+  --site-note-size: 14px;
+  --site-heading-leading: 1.2;
+  --site-text-leading: 1.6;
+  --site-reading-width: 68ch;
+}
+
+html body {
+  font-size: var(--site-text-size);
+  line-height: var(--site-text-leading);
+  text-align: left;
+}
+
+body h1 {
+  --site-heading-size: var(--site-title-size);
+}
+
+html body :is(h1, h2, h3, .content-card-title) {
+  font-size: var(--site-heading-size, var(--site-section-size));
+  line-height: var(--site-heading-leading);
+  text-align: left;
+}
+
+html body .hero-title {
+  text-align: center;
+}
+
+body .site-brand {
+  font-size: var(--site-section-size);
+  line-height: var(--site-heading-leading);
+}
+
+html body :is(p, li, blockquote, .content-card-body, .reading-width) {
+  font-size: var(--site-text-size);
+  line-height: var(--site-text-leading);
+  text-align: left;
+}
+
+html body :is(td, th, caption, figcaption, .text-note, .caption, .footnote, .section-note, .references p, .references li) {
+  font-size: var(--site-note-size);
+  line-height: var(--site-text-leading);
+  text-align: left;
+}
+
+body .reading-width {
+  max-width: var(--site-reading-width);
+  margin-inline: auto;
+}
+
+body .stat-value {
+  display: block;
+  text-align: center;
+}

@@ -38,7 +38,6 @@
   }
 
   .header {
-    text-align: center;
     margin-bottom: 48px;
     padding-bottom: 24px;
     border-bottom: 2px solid #166534;
@@ -46,14 +45,12 @@
 
   .header h1 {
     font-family: Inter, system-ui, sans-serif;
-    font-size: 12pt;
     font-weight: 700;
     letter-spacing: 0.02em;
     margin-bottom: 6px;
   }
 
   .header p {
-    font-size: 9pt;
     color: var(--muted);
     font-style: italic;
   }
@@ -102,7 +99,6 @@
     border: 1.5px solid;
     border-radius: 2px;
     padding: 14px 10px;
-    text-align: center;
     position: relative;
   }
 
@@ -124,8 +120,6 @@
   }
 
   .dim-card .dim-desc {
-    font-size: 9pt;
-    line-height: 1.4;
     color: var(--ink);
     margin-bottom: 10px;
   }
@@ -423,6 +417,7 @@
     font-style: italic;
   }
 </style>
+<link rel="stylesheet" href="../assets/typography.css">
 </head>
 <body>
   <!-- Site nav bar -->
@@ -440,8 +435,8 @@
 
 <div class="page">
 
-  <div class="header">
-    <h1>Framework EcoAI — Sintesi Strutturale</h1>
+  <div class="header reading-width">
+    <h1 class="hero-title">Framework EcoAI — Sintesi Strutturale</h1>
     <p>Relazioni tra dimensioni, modello SEM, profili Indice EcoAI e continuità Q1→Q2</p>
   </div>
 
@@ -525,7 +520,7 @@
       <div class="dim-card d-info">
         <span class="acronym">INFO</span>
         <span class="dim-name">Alfabetizzazione informativa ecodigitale</span>
-        <div class="dim-desc">Competenze di ricerca, valutazione e uso critico di informazioni su temi ambientali e civici attraverso fonti digitali</div>
+        <div class="dim-desc content-card-body">Competenze di ricerca, valutazione e uso critico di informazioni su temi ambientali e civici attraverso fonti digitali</div>
         <div class="dim-stats">
           <div class="dim-stat">ω<span>0.662</span></div>
           <div class="dim-stat">AVE<span>0.399</span></div>
@@ -535,7 +530,7 @@
       <div class="dim-card d-aati">
         <span class="acronym">AATI</span>
         <span class="dim-name">Consapevolezza e atteggiamenti critici verso l’IA</span>
-        <div class="dim-desc">Comprensione del funzionamento degli algoritmi, percezione dei distorsioni sistematiche (bias), orientamento verso una IA eticamente governata</div>
+        <div class="dim-desc content-card-body">Comprensione del funzionamento degli algoritmi, percezione dei distorsioni sistematiche (bias), orientamento verso una IA eticamente governata</div>
         <div class="dim-stats">
           <div class="dim-stat">ω<span>0.791</span></div>
           <div class="dim-stat">AVE<span>0.405</span></div>
@@ -545,7 +540,7 @@
       <div class="dim-card d-val">
         <span class="acronym">VAL</span>
         <span class="dim-name">Valori ecocivici</span>
-        <div class="dim-desc">Orientamento valoriale verso sostenibilità, responsabilità ambientale collettiva, giustizia civica</div>
+        <div class="dim-desc content-card-body">Orientamento valoriale verso sostenibilità, responsabilità ambientale collettiva, giustizia civica</div>
         <div class="dim-stats">
           <div class="dim-stat">ω<span>0.839</span></div>
           <div class="dim-stat">AVE<span>0.519</span></div>
@@ -555,7 +550,7 @@
       <div class="dim-card d-agy">
         <span class="acronym">AGY</span>
         <span class="dim-name">Agency ecodigitale civica</span>
-        <div class="dim-desc">Capacità e disponibilità ad agire come cittadino responsabile nei contesti eco-digitali; senso di efficacia e orientamento all'azione</div>
+        <div class="dim-desc content-card-body">Capacità e disponibilità ad agire come cittadino responsabile nei contesti eco-digitali; senso di efficacia e orientamento all'azione</div>
         <div class="dim-stats">
           <div class="dim-stat">ω<span>0.776</span></div>
           <div class="dim-stat">AVE<span>0.381</span></div>
@@ -565,7 +560,7 @@
       <div class="dim-card d-epas">
         <span class="acronym">EPAS</span>
         <span class="dim-name">Scala dell’agency eco-postumana</span>
-        <div class="dim-desc">Componente percettivo-disposizionale dell’agency eco-postumana; non misura l’agency strutturale di nodi e super-nodi</div>
+        <div class="dim-desc content-card-body">Componente percettivo-disposizionale dell’agency eco-postumana; non misura l’agency strutturale di nodi e super-nodi</div>
         <div class="dim-stats">
           <div class="dim-stat">ω<span>0.729</span></div>
           <div class="dim-stat">AVE<span>0.535</span></div>

@@ -258,6 +258,7 @@
     flex-shrink: 0;
   }
 </style>
+<link rel="stylesheet" href="assets/typography.css">
 </head>
 <body class="antialiased">
 
@@ -284,7 +285,7 @@
       <div>
         <p class="text-green-300 font-semibold text-sm uppercase tracking-widest mb-2">EcoAI Framework</p>
         <h1 class="text-4xl md:text-5xl font-bold lora mb-4">Research &amp; Findings</h1>
-        <p class="text-green-100 text-lg max-w-2xl">Two independent empirical phases in southern Italy: exploratory (N=403) and confirmatory (N=198). Final models: CFA/SEM N=151; index and invariance N=191.</p>
+        <p class="reading-width text-green-100 text-lg max-w-2xl">Two independent empirical phases in southern Italy: exploratory (N=403) and confirmatory (N=198). Final models: CFA/SEM N=151; index and invariance N=191.</p>
       </div>
       <!-- Audience toggle -->
       <div class="flex-shrink-0">
@@ -310,19 +311,19 @@
 
     <!-- PUBLIC -->
     <div class="for-public">
-      <p class="text-gray-600 mb-6 text-base leading-relaxed">This research set out to answer a concrete question: <strong>do young people in Italian secondary schools have the competences to navigate a world shaped by both ecological crisis and artificial intelligence?</strong> To find out, we built and tested a measurement tool — the EcoAI Index — with over 600 students.</p>
+      <p class="reading-width text-gray-600 mb-6 text-base leading-relaxed">This research set out to answer a concrete question: <strong>do young people in Italian secondary schools have the competences to navigate a world shaped by both ecological crisis and artificial intelligence?</strong> To find out, we built and tested a measurement tool — the EcoAI Index — with over 600 students.</p>
       <div class="flow-step">
         <div class="flow-number">1</div>
         <div>
-          <p class="font-semibold text-gray-800 mb-1">Exploratory Phase — 403 students</p>
-          <p class="text-sm text-gray-600">Ariano Irpino, May–June 2025. We administered a first questionnaire to understand how students relate to sustainability and AI. We then grouped them into clusters based on their responses.</p>
+          <div class="content-card-title font-semibold text-gray-800 mb-1">Exploratory Phase — 403 students</div>
+          <p class="content-card-body text-sm text-gray-600">Ariano Irpino, May–June 2025. We administered a first questionnaire to understand how students relate to sustainability and AI. We then grouped them into clusters based on their responses.</p>
         </div>
       </div>
       <div class="flow-step">
         <div class="flow-number">2</div>
         <div>
-          <p class="font-semibold text-gray-800 mb-1">Confirmatory Phase — 198 students</p>
-          <p class="text-sm text-gray-600">A refined questionnaire was administered to a second sample. This phase statistically confirmed the five dimensions of the EcoAI Index and their relationships.</p>
+          <div class="content-card-title font-semibold text-gray-800 mb-1">Confirmatory Phase — 198 students</div>
+          <p class="content-card-body text-sm text-gray-600">A refined questionnaire was administered to a second sample. This phase statistically confirmed the five dimensions of the EcoAI Index and their relationships.</p>
         </div>
       </div>
     </div>
@@ -367,19 +368,19 @@
           <span class="researcher-tag">CFA — DWLS/WLSMV estimator (polychoric matrix, JASP)</span>
           <div class="grid grid-cols-2 gap-2 mt-2">
             <div class="text-center bg-white rounded-lg p-3 border border-gray-100">
-              <p class="text-lg font-bold text-green-700">0.978</p>
+              <span class="stat-value text-lg font-bold text-green-700">0.978</span>
               <p class="text-xs text-gray-500">CFI</p>
             </div>
             <div class="text-center bg-white rounded-lg p-3 border border-gray-100">
-              <p class="text-lg font-bold text-green-700">0.975</p>
+              <span class="stat-value text-lg font-bold text-green-700">0.975</span>
               <p class="text-xs text-gray-500">TLI</p>
             </div>
             <div class="text-center bg-white rounded-lg p-3 border border-gray-100">
-              <p class="text-lg font-bold text-amber-600">0.064</p>
+              <span class="stat-value text-lg font-bold text-amber-600">0.064</span>
               <p class="text-xs text-gray-500">RMSEA</p>
             </div>
             <div class="text-center bg-white rounded-lg p-3 border border-gray-100">
-              <p class="text-lg font-bold text-amber-600">0.082</p>
+              <span class="stat-value text-lg font-bold text-amber-600">0.082</span>
               <p class="text-xs text-gray-500">SRMR</p>
             </div>
           </div>
@@ -410,7 +411,7 @@
       <h2 class="text-2xl font-bold text-gray-800">The Five EcoAI Index Dimensions</h2>
     </div>
 
-    <div class="for-public plain-callout mb-6">
+    <div class="for-public plain-callout reading-width mb-6">
       <strong>The EcoAI Index</strong> is a measurement tool that captures five distinct aspects of eco-digital competence, from how well students evaluate online information to whether they feel part of a broader human-technology-nature network. Each dimension is scored on a 1–5 scale.
     </div>
     <div class="for-researcher mb-6 text-sm text-gray-600 leading-relaxed">
@@ -425,7 +426,7 @@
             <span class="acronym-badge bg-info">INFO</span>
           </div>
           <div class="flex-1 min-w-0">
-            <p class="font-semibold text-gray-800 mb-1">Eco-Digital Information Literacy</p>
+            <div class="content-card-title font-semibold text-gray-800 mb-1">Eco-Digital Information Literacy</div>
             <p class="for-public text-sm text-gray-600">How well students search for, evaluate, and critically use information on environmental and civic issues through digital sources.</p>
             <p class="for-researcher text-sm text-gray-600">Competences in retrieval, critical evaluation, and purposive use of eco-digital information across digital platforms. Exogenous predictor in the final SEM.</p>
             <div class="for-researcher flex gap-2 flex-wrap mt-2">
@@ -444,7 +445,7 @@
             <span class="acronym-badge bg-aati">AATI</span>
           </div>
           <div class="flex-1 min-w-0">
-            <p class="font-semibold text-gray-800 mb-1">AI Awareness &amp; Critical Attitudes</p>
+            <div class="content-card-title font-semibold text-gray-800 mb-1">AI Awareness &amp; Critical Attitudes</div>
             <p class="for-public text-sm text-gray-600">Understanding how algorithms work, recognizing AI bias, and developing a critical but informed stance toward AI systems.</p>
             <p class="for-researcher text-sm text-gray-600">Algorithmic awareness, bias perception and ethical orientation toward AI governance. It has the second-highest discriminant power across EcoAI Index classes (η²=0.532), after EPAS (η²=0.570).</p>
             <div class="for-researcher flex gap-2 flex-wrap mt-2">
@@ -463,7 +464,7 @@
             <span class="acronym-badge bg-val">VAL</span>
           </div>
           <div class="flex-1 min-w-0">
-            <p class="font-semibold text-gray-800 mb-1">Eco-Civic Values</p>
+            <div class="content-card-title font-semibold text-gray-800 mb-1">Eco-Civic Values</div>
             <p class="for-public text-sm text-gray-600">A personal commitment to sustainability, collective environmental responsibility, and civic justice — values that guide eco-digital behavior.</p>
             <p class="for-researcher text-sm text-gray-600">Value orientation toward sustainability, collective environmental responsibility and civic justice. VAL contributes directly to EPAS in the final SEM.</p>
             <div class="for-researcher flex gap-2 flex-wrap mt-2">
@@ -482,7 +483,7 @@
             <span class="acronym-badge bg-agy">AGY</span>
           </div>
           <div class="flex-1 min-w-0">
-            <p class="font-semibold text-gray-800 mb-1">Eco-Digital Civic Agency</p>
+            <div class="content-card-title font-semibold text-gray-800 mb-1">Eco-Digital Civic Agency</div>
             <p class="for-public text-sm text-gray-600">The actual willingness and capacity to act as a responsible citizen in eco-digital contexts — feeling capable of making a difference.</p>
             <p class="for-researcher text-sm text-gray-600">Perceived self-efficacy and readiness for eco-digital civic action. In the final SEM, it receives the association from AATI and is associated with EPAS; VAL is associated directly with EPAS.</p>
             <div class="for-researcher flex gap-2 flex-wrap mt-2">
@@ -501,7 +502,7 @@
             <span class="acronym-badge bg-epas">EPAS</span>
           </div>
           <div class="flex-1 min-w-0">
-            <p class="font-semibold text-gray-800 mb-1">Eco-Posthuman Agency Scale</p>
+            <div class="content-card-title font-semibold text-gray-800 mb-1">Eco-Posthuman Agency Scale</div>
             <p class="for-public text-sm text-gray-600">A sense of belonging to wider networks — recognizing oneself as part of an interconnected human-technology-nature system, not just an individual user.</p>
             <p class="for-researcher text-sm text-gray-600">Operationalises the perceptual-dispositional component of eco-posthuman agency: recognising oneself within human, technological and ecological networks. It does not measure the structurally differentiated agency of nodes and super-nodes. Outcome node in the final SEM; highest index weight (0.230) in the separate aggregation model. Integrative function confirmed by elevated correlations with AATI (r=0.825), VAL (r=0.813), AGY (r=0.811).</p>
             <div class="for-researcher flex gap-2 flex-wrap mt-2">
@@ -521,10 +522,10 @@
       <div class="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">3</div>
       <h2 class="text-2xl font-bold text-gray-800">Structural Model</h2>
     </div>
-    <div class="plain-callout mb-6">The final SEM describes associations among the five dimensions in cross-sectional data; it does not establish a causal sequence. INFO is associated with AATI and VAL; AATI with AGY; and both AGY and VAL with EPAS.</div>
+    <div class="plain-callout reading-width mb-6">The final SEM describes associations among the five dimensions in cross-sectional data; it does not establish a causal sequence. INFO is associated with AATI and VAL; AATI with AGY; and both AGY and VAL with EPAS.</div>
     <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
       <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3"><div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center"><p class="font-semibold text-gray-800">INFO → AATI</p><p class="text-2xl font-bold text-green-800 mt-1">β=0.708</p></div><div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center"><p class="font-semibold text-gray-800">INFO → VAL</p><p class="text-2xl font-bold text-green-800 mt-1">β=0.527</p></div><div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center"><p class="font-semibold text-gray-800">AATI → AGY</p><p class="text-2xl font-bold text-green-800 mt-1">β=0.732</p></div><div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center"><p class="font-semibold text-gray-800">AGY → EPAS</p><p class="text-2xl font-bold text-green-800 mt-1">β=0.511</p></div><div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center"><p class="font-semibold text-gray-800">VAL → EPAS</p><p class="text-2xl font-bold text-green-800 mt-1">β=0.518</p></div></div>
-      <p class="text-center text-xs text-gray-500 mt-5">CFA and SEM: N=151, DWLS/WLSMV estimator; all reported final paths p&lt;.001. VAL → AGY was excluded from the final model.</p>
+      <p class="reading-width text-note text-gray-500 mt-5">CFA and SEM: N=151, DWLS/WLSMV estimator; all reported final paths p&lt;.001. VAL → AGY was excluded from the final model.</p>
     </div>
   </section>
 
@@ -534,7 +535,7 @@
       <h2 class="text-2xl font-bold text-gray-800">EcoAI Index Profiles</h2>
     </div>
 
-    <div class="for-public plain-callout mb-6">
+    <div class="for-public plain-callout reading-width mb-6">
       <strong>Three student profiles:</strong> Based on their total EcoAI Index score, students were divided into three groups. The chart below lets you explore how each group scores on each dimension — and spot where the gaps are.
     </div>
     <div class="for-researcher mb-4 text-sm text-gray-600">
@@ -592,7 +593,7 @@
 </main>
 
 <!-- FOOTER -->
-<footer style="text-align:center; margin-top:40px; padding:20px; font-size:14px; background:#f8f9fa; border-top:1px solid #ddd;">
+<footer style="margin-top:40px; padding:20px; font-size:14px; background:#f8f9fa; border-top:1px solid #ddd;">
   <a href="/privacy.html">Privacy Policy</a> |
   <a href="/cookie.html">Cookie Policy</a> |
   <a href="/terms.html">Terms and Conditions</a>
