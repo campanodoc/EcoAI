@@ -42,15 +42,20 @@
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 600px;
+            max-width: 840px;
             margin-left: auto;
             margin-right: auto;
-            height: 300px;
-            max-height: 400px;
+            height: 430px;
+        }
+        @media (max-width: 767px) {
+            .chart-container {
+                width: calc(100% + 24px);
+                margin-inline: -12px;
+            }
         }
         @media (min-width: 768px) {
             .chart-container {
-                height: 350px;
+                height: 510px;
             }
         }
         .sdg-card {
@@ -419,7 +424,7 @@
                                 }
                             },
                             plugins: {
-                                legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 10 } },
+                                legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 10, font: { size: 16 } } },
                                 tooltip: {
                                     callbacks: {
                                         label: context => `${context.dataset.label}: ${relevanceLabels[context.raw - 1]}`
