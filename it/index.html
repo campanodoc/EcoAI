@@ -42,15 +42,20 @@
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 600px;
+            max-width: 840px;
             margin-left: auto;
             margin-right: auto;
-            height: 300px;
-            max-height: 400px;
+            height: 430px;
+        }
+        @media (max-width: 767px) {
+            .chart-container {
+                width: calc(100% + 24px);
+                margin-inline: -12px;
+            }
         }
         @media (min-width: 768px) {
             .chart-container {
-                height: 350px;
+                height: 510px;
             }
         }
         .sdg-card {
@@ -92,33 +97,21 @@
 <main class="max-w-[1500px] mx-auto px-1 md:px-2">
 <section class="py-4 bg-white" id="panoramica">
 <div class="mx-auto max-w-screen-2xl px-4 md:px-6 text-center">
-<h2 class="text-4xl font-bold mb-4 text-gray-800">EcoAI framework: Un Modello Pedagogico per l'Antropocene</h2>
-<p class="text-lg text-gray-600 max-w-5xl mx-auto mb-12">Il framework EcoAI propone un approccio interdisciplinare per integrare alfabetizzazione ecologica (Ecoliteracy) e intelligenza artificiale (IA, AI in inglese) nell'educazione civica delle scuole secondarie, formando una nuova generazione di cittadini ecotecnologici.</p>
-<div class="grid md:grid-cols-3 gap-8 text-left">
-<div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
-<h3 class="text-xl font-semibold mb-3 text-green-800"> Obiettivi della Ricerca</h3>
-<ul class="space-y-2 text-gray-700 list-disc list-inside">
-<li>Esplorare le percezioni degli studenti su sostenibilità e IA.</li>
-<li>Analizzare l'intersezione tra alfabetizzazione (literacy) ambientale e digitale.</li>
-<li>Sviluppare un modello pedagogico integrato per l'educazione civica.</li>
-</ul>
-</div>
-<div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
-<h3 class="text-xl font-semibold mb-3 text-green-800"> Domande di Ricerca</h3>
-<ul class="space-y-2 text-gray-700 list-disc list-inside">
-<li>Come gli studenti percepiscono l'impatto dell'IA sulle questioni ambientali?</li>
-<li>Qual è il livello di Alfabetizzazione ecologica e competenze civiche ambientali dei giovani?</li>
-<li>Come i media digitali influenzano la cittadinanza ecologica?</li>
-</ul>
-</div>
-<div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
-<h3 class="text-xl font-semibold mb-3 text-green-800"> Cornice Teorica</h3>
-<ul class="space-y-2 text-gray-700 list-disc list-inside">
-<li><b>Postumanesimo ecodigitale:</b> Elaborazione teorica della teoria ecodigitale postumanista.</li>
-<li><b>Alfabetizzazione ecomediale (Ecomedia Literacy):</b> Analisi critica dell'impatto ecologico delle tecnologie mediali.</li>
-<li><b>Educazione Civica Digitale e OSS (SDGs):</b> Contesto normativo nazionale ed internazionale di riferimento.</li>
-</ul>
-</div>
+<h2 class="text-4xl font-bold mb-4 text-gray-800">Framework EcoAI: un modello sociopedagogico per l’Antropocene</h2>
+<div class="max-w-5xl mx-auto text-left text-gray-700 space-y-2">
+  <p class="text-lg text-gray-600">Il framework EcoAI propone un approccio interdisciplinare per integrare alfabetizzazione ecologica (Ecoliteracy) e intelligenza artificiale nell'educazione civica delle scuole secondarie, formando una nuova generazione di cittadini ecotecnologici.</p>
+  <h3 class="pt-2 text-xl font-semibold text-green-800">Cosa ha prodotto la ricerca</h3>
+  <p>Una mappatura di come 403 studenti della scuola secondaria di secondo grado si rapportano a sostenibilità e IA, con tre profili ricorrenti.</p>
+  <p>Un modello di competenze in quattro domini, con rubriche per progettare e osservare la didattica, che integra literacy ambientale, mediale e algoritmica.</p>
+  <p>L’EcoAI Index: cinque scale e 25 indicatori, costruito e validato in due fasi, pensato per monitorare l’educazione civica e il Target 4.7 dell’Agenda 2030.</p>
+  <h3 class="pt-2 text-xl font-semibold text-green-800">Cosa emerge dai dati</h3>
+  <p><b>IA e ambiente:</b> emerge la richiesta di un’IA governata da principi etici, di equità e di sostenibilità. La richiesta si lega ai valori ambientali più che alla sfiducia verso la tecnologia.</p>
+  <p><b>Ecoliteracy:</b> l’adesione ai valori ambientali generali è diffusa anche dove agency e competenze restano basse. Quasi un terzo del campione esplorativo (30,5%) risulta distante dai temi della sostenibilità.</p>
+  <p><b>Media digitali e cittadinanza:</b> solo un quarto degli studenti (25,1%) legge l’IA in modo critico. Eppure, nel modello strutturale, è proprio la consapevolezza critica verso l’IA il legame più forte con l’agency ecodigitale (β = 0,732).</p>
+  <h3 class="pt-2 text-xl font-semibold text-green-800">Cornice teorica</h3>
+  <p><b>Postumanesimo Ecodigitale:</b> la teoria originale su cui poggia il framework. Legge agency e responsabilità come capacità distribuite e asimmetriche tra persone, infrastrutture digitali e ambienti (Rubino, 2025, preprint SocArXiv).</p>
+  <p><b>Ecomedia literacy:</b> i media letti come ambienti con un costo materiale (energia, estrazione, infrastrutture). È la prospettiva sviluppata nella review sistematica e bibliometrica pubblicata su Visions for Sustainability (2026).</p>
+  <p><b>Educazione civica e Agenda 2030:</b> la Legge 92/2019 e le relative Linee guida come quadro normativo, il Target 4.7 come orizzonte in cui l’EcoAI Index opera da strumento di monitoraggio.</p>
 </div>
 </div>
 </section>
@@ -129,10 +122,10 @@
     <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
       <h3 class="text-2xl font-bold text-green-900 mb-2 text-center">Fondamenti scientifici del Framework</h3>
       <p class="text-gray-700 leading-relaxed text-justify">EcoAI si fonda sul Postumanesimo ecodigitale e sulla ricerca relativa all’alfabetizzazione ecologica, ai media digitali e all’intelligenza artificiale. I quattro domini sono analiticamente distinti ma interdipendenti: nessuno costituisce un prerequisito o uno stadio finale. La tassonomia vigente è presentata di seguito; le Alfabetizzazioni EcoAI sono risorse trasversali e non ulteriori domini.</p>
-    </div>
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-4">
-      <a href="http://www.ecoaiframework.com/documents/Eco_Digital_Posthumanism.pdf" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-5 py-3 rounded-lg font-semibold bg-green-700 text-white hover:bg-green-800 transition shadow">Nota di definizione del Postumanesimo ecodigitale</a>
-      <a href="https://ojs.unito.it/index.php/visions/article/view/13942" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-5 py-3 rounded-lg font-semibold bg-white text-green-800 border border-green-300 hover:bg-green-100 transition shadow-sm">Alfabetizzazione ecologica e media sociali — rassegna sistematica e bibliometrica <span class="ml-2 text-xs font-normal">(pubblicata)</span></a>
+  <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-4">
+        <a href="https://www.researchgate.net/publication/395580797_Eco-Digital_Posthumanism_Eco-Digital_Co-Responsible_Agency_Genealogy_and_Research_Agenda" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-5 py-3 rounded-lg font-semibold bg-green-700 text-white hover:bg-green-800 transition shadow">Nota di definizione del Postumanesimo ecodigitale</a>
+        <a href="https://ojs.unito.it/index.php/visions/article/view/13942" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-5 py-3 rounded-lg font-semibold bg-white text-green-800 border border-green-300 hover:bg-green-100 transition shadow-sm">Alfabetizzazione ecologica e media sociali: rassegna sistematica e bibliometrica</a>
+      </div>
     </div>
   </div>
 </section>
@@ -168,6 +161,21 @@
     <p class="mt-3 text-gray-600">Esplora le competenze del framework, la validazione empirica dell'EcoAI Index o la raccolta completa di domande e risposte.</p>
   </div>
 </div>
+<div class="mx-auto max-w-screen-2xl px-4 md:px-6">
+<details class="mb-8 bg-gray-50 rounded-lg border border-gray-200 p-5">
+  <summary class="cursor-pointer font-semibold text-green-800">Rubriche EcoAI: funzione, limiti ed esempio</summary>
+  <div class="mt-4 text-gray-700 space-y-3">
+    <p>Le rubriche hanno funzione pedagogico-valutativa e formativa; non sono scale psicometriche e non equivalgono all’EcoAI Index. I livelli descrivono differenze qualitative nell’interpretazione dei problemi, nella rappresentazione delle relazioni, nell’uso degli strumenti e nella giustificazione delle scelte.</p>
+    <p><strong>Esempio: Alfabetizzazione sistemica e mappatura.</strong></p>
+    <ol class="list-decimal pl-6 space-y-2">
+      <li><strong>Alfabetizzazione frammentata:</strong> riconosce elementi ecologici o digitali, ma non li integra.</li>
+      <li><strong>Comprensione interconnessa:</strong> descrive alcune relazioni tra energia, materia, informazioni, tecnologia e ambiente.</li>
+      <li><strong>Alfabetizzazione sistemica matura:</strong> mappa componenti, processi, flussi, criticità e ritardi con strumenti appropriati.</li>
+      <li><strong>Alfabetizzazione ecodigitale avanzata:</strong> integra infrastrutture dati, energia, governance algoritmica, materialità del digitale e limiti planetari.</li>
+    </ol>
+  </div>
+</details>
+</div>
 <section class="py-8 bg-white" id="competenze">
 <div class="mx-auto max-w-screen-2xl px-4 md:px-6">
 <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Sviluppo delle Competenze</h2>
@@ -195,19 +203,6 @@
 </div>
 <p id="chart-fallback" class="hidden text-center text-red-700 mt-4">Il grafico delle relazioni con GreenComp non è stato caricato.</p>
 
-<details class="mt-10 bg-gray-50 rounded-lg border border-gray-200 p-5">
-  <summary class="cursor-pointer font-semibold text-green-800">Rubriche EcoAI: funzione, limiti ed esempio</summary>
-  <div class="mt-4 text-gray-700 space-y-3">
-    <p>Le rubriche hanno funzione pedagogico-valutativa e formativa; non sono scale psicometriche e non equivalgono all’EcoAI Index. I livelli descrivono differenze qualitative nell’interpretazione dei problemi, nella rappresentazione delle relazioni, nell’uso degli strumenti e nella giustificazione delle scelte.</p>
-    <p><strong>Esempio: Alfabetizzazione sistemica e mappatura.</strong></p>
-    <ol class="list-decimal pl-6 space-y-2">
-      <li><strong>Alfabetizzazione frammentata:</strong> riconosce elementi ecologici o digitali, ma non li integra.</li>
-      <li><strong>Comprensione interconnessa:</strong> descrive alcune relazioni tra energia, materia, informazioni, tecnologia e ambiente.</li>
-      <li><strong>Alfabetizzazione sistemica matura:</strong> mappa componenti, processi, flussi, criticità e ritardi con strumenti appropriati.</li>
-      <li><strong>Alfabetizzazione ecodigitale avanzata:</strong> integra infrastrutture dati, energia, governance algoritmica, materialità del digitale e limiti planetari.</li>
-    </ol>
-  </div>
-</details>
 </div>
 </section>
 <section class="pt-10 pb-12" id="impatto-globale">
@@ -419,7 +414,7 @@
                                 }
                             },
                             plugins: {
-                                legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 10 } },
+                                legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 10, font: { size: 16 } } },
                                 tooltip: {
                                     callbacks: {
                                         label: context => `${context.dataset.label}: ${relevanceLabels[context.raw - 1]}`
