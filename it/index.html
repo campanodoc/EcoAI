@@ -132,22 +132,26 @@
 </section>
 <section class="py-8" id="framework">
 <div class="mx-auto max-w-screen-2xl px-4 md:px-6">
-<h2 class="text-3xl font-bold mb-12 text-gray-800">I Quattro Quadranti del Framework EcoAI</h2>
-<img src="../images/ecoai-framework-it.svg" alt="Framework EcoAI" class="mx-auto mb-8 rounded-lg shadow-lg w-full max-w-4xl">
-<p class="reading-width text-lg text-gray-600 max-w-5xl mx-auto mb-12">Il framework si articola in quattro domini analiticamente distinti ma interdipendenti. La diversa numerosità dei sottodomini è intenzionale e non implica una gerarchia. Seleziona ciascun dominio per esplorarne i contenuti.</p>
+<h2 hidden>I Quattro Quadranti del Framework EcoAI</h2>
+<p class="reading-width text-lg text-gray-600 max-w-5xl mx-auto mb-6">Il framework si articola in quattro domini analiticamente distinti ma interdipendenti. La diversa numerosità dei sottodomini è intenzionale e non implica una gerarchia. Seleziona ciascun dominio per esplorarne i contenuti.</p>
+<img src="../images/ecoai-framework-it.svg" alt="Framework EcoAI" class="mx-auto mb-8 block w-full h-auto">
 <div class="grid md:grid-cols-2 gap-8" id="framework-grid">
 </div>
 </div>
 </section>
-<!-- CTA: link alla pagina delle Literacies + Ricerca (IT) -->
 <div class="py-6">
-  <div class="mx-auto max-w-screen-2xl px-4 md:px-6 text-center">
-    <div class="flex flex-col sm:flex-row sm:flex-wrap gap-4 justify-center items-center">
+  <div class="mx-auto max-w-screen-2xl px-4 md:px-6">
+    <p class="reading-width mb-5 text-gray-600">Esplora le competenze del framework, consulta le rubriche EcoAI, approfondisci la validazione empirica dell’EcoAI Index o accedi alla raccolta completa di domande e risposte.</p>
+    <div class="flex flex-col sm:flex-row sm:flex-wrap gap-4 justify-center items-stretch sm:items-center">
       <a href="literacies.html" class="inline-flex items-center gap-2 px-6 md:px-8 py-4 md:py-5 text-lg md:text-xl font-semibold
                 rounded-xl bg-green-700 text-white hover:bg-green-800 shadow-lg transition">
         Esplora le Alfabetizzazioni EcoAI
         <span aria-hidden="true">→</span>
       </a>
+      <button type="button" id="rubrics-toggle" aria-expanded="false" aria-controls="rubrics-panel" class="inline-flex items-center gap-2 px-6 md:px-8 py-4 md:py-5 text-lg md:text-xl font-semibold
+                rounded-xl bg-white text-green-800 border-2 border-green-700 hover:bg-green-50 shadow-lg transition">
+        Rubriche EcoAI: funzione, limiti ed esempio
+      </button>
       <a href="research_researcher_it.html" class="inline-flex items-center gap-2 px-6 md:px-8 py-4 md:py-5 text-lg md:text-xl font-semibold
                 rounded-xl bg-white text-green-800 border-2 border-green-700 hover:bg-green-50 shadow-lg transition">
         Ricerca e Risultati
@@ -159,13 +163,8 @@
         <span aria-hidden="true">→</span>
       </a>
     </div>
-    <p class="mt-3 text-gray-600">Esplora le competenze del framework, la validazione empirica dell'EcoAI Index o la raccolta completa di domande e risposte.</p>
-  </div>
-</div>
-<div class="mx-auto max-w-screen-2xl px-4 md:px-6">
-<details class="mb-8 bg-gray-50 rounded-lg border border-gray-200 p-5">
-  <summary class="cursor-pointer font-semibold text-green-800">Rubriche EcoAI: funzione, limiti ed esempio</summary>
-  <div class="mt-4 text-gray-700 space-y-3">
+    <div id="rubrics-panel" class="reading-width mt-6 bg-gray-50 rounded-lg border border-gray-200 px-5 pb-5" hidden>
+      <div class="mt-4 text-gray-700 space-y-3">
     <p>Le rubriche hanno funzione pedagogico-valutativa e formativa; non sono scale psicometriche e non equivalgono all’EcoAI Index. I livelli descrivono differenze qualitative nell’interpretazione dei problemi, nella rappresentazione delle relazioni, nell’uso degli strumenti e nella giustificazione delle scelte.</p>
     <p><strong>Esempio: Alfabetizzazione sistemica e mappatura.</strong></p>
     <ol class="list-decimal pl-6 space-y-2">
@@ -175,12 +174,23 @@
       <li><strong>Alfabetizzazione ecodigitale avanzata:</strong> integra infrastrutture dati, energia, governance algoritmica, materialità del digitale e limiti planetari.</li>
     </ol>
   </div>
-</details>
+    </div>
+  </div>
 </div>
+<script>
+  const rubricsToggle = document.getElementById('rubrics-toggle');
+  const rubricsPanel = document.getElementById('rubrics-panel');
+
+  rubricsToggle.addEventListener('click', () => {
+    const expanded = rubricsToggle.getAttribute('aria-expanded') === 'true';
+    rubricsToggle.setAttribute('aria-expanded', String(!expanded));
+    rubricsPanel.hidden = expanded;
+  });
+</script>
 <section class="py-8 bg-white" id="competenze">
 <div class="mx-auto max-w-screen-2xl px-4 md:px-6">
 <h2 class="text-3xl font-bold mb-12 text-gray-800">Sviluppo delle Competenze</h2>
-<p class="reading-width text-lg text-gray-600 max-w-5xl mx-auto mb-12">EcoAI dialoga con GreenComp senza derivarne direttamente. I quattro livelli sono una progressione pedagogica proposta dal Framework, non stadi di sviluppo empiricamente dimostrati. Seleziona una competenza per visualizzare i descrittori.</p>
+<p class="reading-width text-lg text-gray-600 max-w-5xl mx-auto mb-12">EcoAI dialoga con GreenComp senza derivarne direttamente. I quattro livelli sono una progressione pedagogica proposta dal Framework. Seleziona una competenza per visualizzare i descrittori.</p>
 <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200 mb-12">
 <label class="block text-lg font-medium text-gray-700 mb-2" for="competence-selector">Seleziona una Competenza Chiave:</label>
 <select class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500" id="competence-selector">

@@ -1,11 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1050" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -30 1600 1080" role="img" aria-labelledby="title desc">
   <title id="title">Framework EcoAI: Postumanesimo ecodigitale</title>
   <desc id="desc">Quattro domini disposti su due assi: ideale-reale e sistemico-individuale.</desc>
   <defs>
     <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000" flood-opacity=".14"/></filter>
     <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#566159"/></marker>
   </defs>
-  <rect width="1600" height="1050" rx="34" fill="#f7f5ef"/>
+  <rect y="-30" width="1600" height="1080" fill="#f7f5ef"/>
+  <text x="800" y="22" text-anchor="middle" fill="#254d39" font-family="Inter, Arial, sans-serif" font-size="45" font-weight="700">I Quattro Quadranti del Framework EcoAI</text>
   <rect x="190" y="45" width="1220" height="105" rx="22" fill="#285f49" filter="url(#shadow)"/>
   <text x="800" y="112" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="50" font-weight="700">Postumanesimo ecodigitale</text>
   <line x1="250" y1="555" x2="1350" y2="555" stroke="#566159" stroke-width="5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
@@ -21,7 +22,7 @@
     <rect x="880" y="625" width="470" height="240" rx="28" fill="#f2e5cf" stroke="#8b6c3f" stroke-width="4"/>
   </g>
   <text x="485" y="340" text-anchor="middle" fill="#254d39" font-family="Georgia, serif" font-size="41" font-weight="700"><tspan x="485">Comprensione</tspan><tspan x="485" dy="54">dei sistemi</tspan></text>
-  <text x="1115" y="340" text-anchor="middle" fill="#315b70" font-family="Georgia, serif" font-size="39" font-weight="700"><tspan x="1115">Comprensione ecologica</tspan><tspan x="1115" dy="54">dell’IA</tspan></text>
+  <text x="1115" y="340" text-anchor="middle" fill="#315b70" font-family="Georgia, serif" font-size="39" font-weight="700"><tspan x="1115">Comprensione</tspan><tspan x="1115" dy="54">ecologica dell’IA</tspan></text>
   <text x="485" y="720" text-anchor="middle" fill="#60466a" font-family="Georgia, serif" font-size="40" font-weight="700"><tspan x="485">Formazione</tspan><tspan x="485" dy="54">dell’identità</tspan></text>
-  <text x="1115" y="720" text-anchor="middle" fill="#72552f" font-family="Georgia, serif" font-size="38" font-weight="700"><tspan x="1115">Apprendimento mediato</tspan><tspan x="1115" dy="54">da strumenti</tspan></text>
+  <text x="1115" y="720" text-anchor="middle" fill="#72552f" font-family="Georgia, serif" font-size="38" font-weight="700"><tspan x="1115">Apprendimento</tspan><tspan x="1115" dy="54">mediato da strumenti</tspan></text>
 </svg>
