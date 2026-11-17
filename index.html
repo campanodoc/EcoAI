@@ -34,10 +34,9 @@
 <!-- Visualization & Content Choices: 
         - Report Info: Core four quadrants of the EcoAI framework. Goal: Organize & Inform. Viz/Method: 2x2 interactive grid of cards built with HTML/Tailwind. Interaction: Click to expand/collapse detailed descriptions and sub-domains. Justification: Visually represents the core structure and allows progressive disclosure of information. Library: Vanilla JS.
         - Report Info: Competence levels (Basic, Intermediate, Advanced, Critical) and their link to GreenComp. Goal: Compare & Inform. Viz/Method: A radar chart (Chart.js/Canvas) to show the relationship between quadrants and GreenComp areas, plus a dynamic text block. Interaction: User selects a competence, and the text block updates to show the definitions for all four levels. Justification: The radar chart provides a holistic comparison, while the interactive text allows for focused exploration of specific competencies. Library: Chart.js, Vanilla JS.
-        - Report Info: Alignment with UN SDGs. Goal: Inform & Show Relationships. Viz/Method: A donut chart (Chart.js/Canvas) for a quantitative overview and an interactive grid of SDG icons (HTML/CSS/Tailwind). Interaction: Hovering over an SDG icon reveals a tooltip with related EcoAI sub-domains. Justification: The chart offers a quick summary of impact, while the interactive grid provides a more detailed, engaging exploration of the connections. Library: Chart.js, Vanilla JS.
-        - Report Info: Research methodology population. Goal: Inform. Viz/Method: A simple pie chart (Chart.js/Canvas). Justification: Adds a visual element to a text-heavy section, making the target demographic information more accessible. Library: Chart.js.
+        - Report Info: Alignment with UN SDGs. Goal: Inform & Show Relationships. Viz/Method: An interactive grid of SDG icons. Interaction: Hovering over an SDG icon reveals the related EcoAI domains. Library: Vanilla JS.
     -->
-<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+<!-- The central framework diagram is an accessible SVG; the GreenComp crosswalk uses Chart.js. -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -78,7 +77,7 @@
 <h1 class="text-2xl font-bold text-green-800">EcoAI Framework</h1>
 <a href="it/index.html"
    class="text-sm px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700
-          absolute right-6 top-1/2 -translate-y-1/2">
+          absolute right-16 md:right-6 top-1/2 -translate-y-1/2">
   IT
 </a>
 <div class="hidden md:flex space-x-8 absolute left-1/2 -translate-x-1/2">
@@ -141,7 +140,7 @@
       <p class="text-gray-700 leading-relaxed text-justify">EcoAI is grounded in Eco-Digital Posthumanism and in research on ecoliteracy, digital media and artificial intelligence. The four domains are analytically distinct but interdependent: none is a prerequisite or terminal stage. The current taxonomy is presented below; EcoAI Literacies are cross-cutting resources and are not additional domains.</p>
     </div>
     <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-4">
-      <span class="inline-flex items-center justify-center px-5 py-3 rounded-lg font-semibold bg-gray-100 text-gray-400 border border-gray-200 cursor-not-allowed shadow-sm">Ecoliteracy &amp; Social Media — Systematic and Bibliometric Review <span class="ml-2 text-xs font-normal">(forthcoming)</span></span>
+      <a href="https://ojs.unito.it/index.php/visions/article/view/13942" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-5 py-3 rounded-lg font-semibold bg-white text-green-800 border border-green-300 hover:bg-green-100 transition shadow-sm">Ecoliteracy &amp; Social Media — Systematic and Bibliometric Review <span class="ml-2 text-xs font-normal">(published)</span></a>
       <a href="https://www.researchgate.net/publication/395580797_Eco-Digital_Posthumanism_Eco-Digital_Co-Responsible_Agency_Genealogy_and_Research_Agenda" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-5 py-3 rounded-lg font-semibold bg-white text-green-800 border border-green-300 hover:bg-green-100 transition shadow-sm">Eco-Digital Posthumanism — ResearchGate</a>
     </div>
   </div>
@@ -163,7 +162,7 @@
 <!-- CTA: link to Literacies + Research pages (EN) -->
 <div class="py-6">
   <div class="mx-auto max-w-screen-2xl px-4 md:px-6 text-center">
-    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+    <div class="flex flex-col sm:flex-row sm:flex-wrap gap-4 justify-center items-center">
       <a href="literacies.html"
          class="inline-flex items-center gap-2 px-6 md:px-8 py-4 md:py-5 text-lg md:text-xl font-semibold
                 rounded-xl bg-green-700 text-white hover:bg-green-800 shadow-lg transition">
@@ -176,8 +175,14 @@
         Research &amp; Findings
         <span aria-hidden="true">→</span>
       </a>
+      <a href="qa.html"
+         class="inline-flex items-center gap-2 px-6 md:px-8 py-4 md:py-5 text-lg md:text-xl font-semibold
+                rounded-xl bg-white text-green-800 border-2 border-green-700 hover:bg-green-50 shadow-lg transition">
+        Questions &amp; Answers
+        <span aria-hidden="true">→</span>
+      </a>
     </div>
-    <p class="mt-3 text-gray-600">Explore the framework competences or the empirical validation of the EcoAI Index.</p>
+    <p class="mt-3 text-gray-600">Explore the framework competences, the empirical validation of the EcoAI Index or the complete questions and answers collection.</p>
   </div>
 </div>
 
@@ -185,8 +190,7 @@
 <div class="mx-auto max-w-screen-2xl px-4 md:px-6">
 <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Competence Development</h2>
 <p class="text-lg text-gray-600 max-w-5xl mx-auto mb-12 text-center">
-  The framework aligns EcoAI competences with the European GreenComp model, defining four levels of mastery.  
-  Select a competence to view the level descriptors.
+  EcoAI enters into dialogue with GreenComp without being directly derived from it. The four levels are a pedagogical progression proposed by the Framework, not empirically demonstrated developmental stages. Select a competence to view its descriptors.
 </p>
 
 <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200 mb-12">
@@ -198,81 +202,83 @@
 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm" id="competence-details">
 </div>
 
-<h3 class="text-2xl font-bold text-center mt-20 mb-8 text-gray-800">Relationship between Quadrants and GreenComp Areas</h3>
+<h3 class="text-2xl font-bold text-center mt-20 mb-4 text-gray-800">Relationship between EcoAI Domains and GreenComp Areas</h3>
+<p class="text-sm text-gray-600 max-w-3xl mx-auto mb-6 text-center">Qualitative map of conceptual correspondences. Connections are neither empirical scores nor equivalences between frameworks.</p>
 <div class="chart-container">
-<canvas id="competenceRadarChart"></canvas>
+<canvas id="competenceRadarChart" role="img" aria-label="Qualitative map of correspondences between the four EcoAI domains and the four GreenComp areas">The chart requires JavaScript.</canvas>
 </div>
+<p id="chart-fallback" class="hidden text-center text-red-700 mt-4">The chart could not be loaded. The same correspondences are reported in the table below.</p>
+
+<details class="mt-10 bg-gray-50 rounded-lg border border-gray-200 p-5">
+  <summary class="cursor-pointer font-semibold text-green-800">EcoAI rubrics: function, limits and example</summary>
+  <div class="mt-4 text-gray-700 space-y-3">
+    <p>The rubrics serve a pedagogical and formative assessment function; they are not psychometric scales and are not equivalent to the EcoAI Index. Their levels describe qualitative differences in interpreting problems, representing relations, using tools and justifying choices.</p>
+    <p><strong>Example: Systems Literacy and Mapping.</strong></p>
+    <ol class="list-decimal pl-6 space-y-2">
+      <li><strong>Fragmented literacy:</strong> recognises ecological or digital elements but does not integrate them.</li>
+      <li><strong>Interconnected understanding:</strong> describes some relations among energy, matter, information, technology and environment.</li>
+      <li><strong>Mature systems literacy:</strong> maps components, processes, flows, criticalities and delays with appropriate tools.</li>
+      <li><strong>Advanced eco-digital literacy:</strong> integrates data infrastructures, energy, algorithmic governance, digital materiality and planetary limits.</li>
+    </ol>
+  </div>
+</details>
 </div>
 
 <div class="prose max-w-none px-8" style="text-align: justify;">
-<h3 class="text-xl font-semibold mb-2">Foundational frameworks for the development and assessment of EcoAI competences</h3>
+<h3 class="text-xl font-semibold mb-2">Positioning in relation to international frameworks</h3>
 <p>
-  The evaluative robustness of EcoAI is based on the deep integration with established standards of sustainability education
-  and <i>AI literacy</i>. In particular, the framework takes <b>GreenComp</b> as its primary reference and integrates it with AI literacy models
-  (Long &amp; Magerko; AICOS; Generative AI Literacy) to achieve a multilayered assessment strategy combining <b>qualitative depth</b>
-  and <b>quantitative rigor</b>.
+  EcoAI brings together sustainability, digital infrastructures, artificial intelligence, information practices, agency and subject positioning. GreenComp, DigComp and educational AI-literacy frameworks are comparative references with different functions: the correspondence is conceptual and pedagogical, not direct derivation or evidence of validation.
 </p>
 
 <h4 class="font-semibold mt-4">GreenComp: European framework of competences for sustainability</h4>
 <p>
-  GreenComp structures sustainability competence into <b>four areas</b> and <b>twelve sub-competences</b> (including: <i>Systems thinking</i> – G1,
-  <i>Critical thinking</i> – G2, <i>Agency</i> – G7, <i>Sustainability justice</i> – G12). EcoAI <b>explicitly adapts</b> GreenComp,
-  defining <b>four levels of mastery</b> – Basic, Intermediate, Advanced, Critical – and rubrics already contextualized to eco-digital scenarios.
-  This correspondence provides a <b>common language</b>, recognized at European level, to describe competence progression,
-  facilitating comparability and transferability of learning outcomes.
+  GreenComp organises sustainability competence into four interconnected areas: <i>Embodying sustainability values</i>, <i>Embracing complexity in sustainability</i>, <i>Envisioning sustainable futures</i> and <i>Acting for sustainability</i>. EcoAI shares its attention to values, complexity, futures and action, while taking the relations among ecological systems, digital infrastructures and AI as its specific object.
 </p>
 
-<h4 class="font-semibold mt-4">AI Literacy: Long &amp; Magerko, AICOS and Generative AI Literacy</h4>
+<h4 class="font-semibold mt-4">AI literacy, DigComp, UNESCO and OECD</h4>
 <p>
-  The framework integrates multiple models to fully cover the dimensions of AI literacy and Ministry guidelines for the introduction of Artificial Intelligence in schools.
-  The model of <b>Long &amp; Magerko</b> (Understanding, Interacting, Critiquing, Designing, Evaluating) is mapped onto EcoAI quadrants
-  (e.g., Understanding → Systems Understanding; Interacting → Tool-Based Learning; Critiquing → Identity Formation; Designing → Hybrid modules; Evaluating → Digital ecosystems).
-  <b>AICOS</b> provides a validated <i>quantitative scale</i> for measuring AI literacy (dimensions such as: understanding AI, working with AI,
-  social impact, bias/fairness, decision and responsibility), useful as a <b>psychometric benchmark</b> to validate rubrics and questionnaires (Cronbach’s α &gt; .8).
-  <b>Generative AI Literacy</b> (Annapureddy et al.) specifically enriches the Tool-Based Learning domain with operational and reflective competences on generative systems.
+  DigComp provides a reference for digital competence; UNESCO and OECD–European Commission frameworks directly address AI-related competences; AI-literacy research helps distinguish understanding, use, critical evaluation and responsibility. EcoAI uses them for functional positioning without presenting them as direct sources of its taxonomy or as validation of its rubrics and EcoAI Index.
 </p>
 
 <p>
-  The result is a <b>multi-layer validation</b>: GreenComp structures the qualitative levels; the specific descriptors for AI build on Long &amp; Magerko
-  and Generative AI Literacy; AICOS enables the <b>quantitative validation</b> of items and scales. Together, these elements ensure
-  broad coverage, theoretical coherence, and <b>empirical solidity</b>.
+  EcoAI's specificity lies in how these problems are configured together, not in a claim to replace or surpass existing frameworks.
 </p>
 
-<h4 class="font-semibold mt-4">Consolidated alignment table (Quadrants ↔ Competences ↔ AI Literacy ↔ SDG)</h4>
+<h4 class="font-semibold mt-4">Conceptual correspondences (not equivalences)</h4>
 <div class="mt-2 bg-gray-50 p-4 rounded-lg border border-gray-200 overflow-x-auto">
 <table class="w-full text-sm text-left border-collapse">
 <thead class="bg-green-100">
 <tr>
-<th class="border px-2 py-1">EcoAI framework Quadrant</th>
-<th class="border px-2 py-1">Key GreenComp competences</th>
-<th class="border px-2 py-1">AI Literacy (Long &amp; Magerko)</th>
+<th class="border px-2 py-1">EcoAI domain</th>
+<th class="border px-2 py-1">Relevant GreenComp areas</th>
+<th class="border px-2 py-1">AI-literacy functions</th>
 <th class="border px-2 py-1">Associated SDGs</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="border px-2 py-1">Systems Understanding</td>
-<td class="border px-2 py-1">G1, G2, G3, G4, G9, G10, G11</td>
+<td class="border px-2 py-1">Complexity; sustainable futures</td>
 <td class="border px-2 py-1">Understanding / Evaluating</td>
 <td class="border px-2 py-1">4, 13, 15, 17</td>
 </tr>
 <tr>
 <td class="border px-2 py-1">Ecological Understanding of AI</td>
-<td class="border px-2 py-1">G4, G12</td>
+<td class="border px-2 py-1">Values; complexity; action</td>
 <td class="border px-2 py-1">Critiquing / Evaluating</td>
 <td class="border px-2 py-1">4, 9, 12, 13, 16</td>
 </tr>
 <tr>
-<td class="border px-2 py-1">Tool-Based Learning</td>
-<td class="border px-2 py-1">G5, G6</td>
-<td class="border px-2 py-1">Interacting / Designing</td>
-<td class="border px-2 py-1">4, 9, 11, 12, 13</td>
-</tr>
-<tr>
 <td class="border px-2 py-1">Identity Formation</td>
-<td class="border px-2 py-1">G7, G8, G11</td>
+<td class="border px-2 py-1">Values; sustainable futures; action</td>
 <td class="border px-2 py-1">Interacting / Critiquing / Designing</td>
 <td class="border px-2 py-1">4.7, 5, 10, 16</td>
+</tr>
+<tr>
+<td class="border px-2 py-1">Tool-Based Learning</td>
+<td class="border px-2 py-1">Complexity; sustainable futures; action</td>
+<td class="border px-2 py-1">Interacting / Designing / Evaluating</td>
+<td class="border px-2 py-1">4, 9, 11, 12, 13</td>
 </tr>
 </tbody>
 </table>
@@ -280,16 +286,7 @@
 
 <h4 class="font-semibold mt-4">Integration of SDGs in the European and Italian context</h4>
 <p>
-  The EcoAI Framework aims to <b>deepen</b> the links already outlined in the SDGs by building targeted connections with the most relevant goals.  
-  For example, for <i>AI energy consumption</i> (SDGs 10 and 13), it is relevant to develop modules that estimate the carbon and water footprint of AI systems while analyzing
-  the unequal distribution of ecological costs. Similarly, through <i>Hybrid learning modules</i> (SDG 4.7), it is possible
-  to activate global citizenship practices involving human-AI collaboration on transnational environmental issues.
-  <br><br>
-  The <b>EcoAI rubrics</b> already integrate these connections, explicitly incorporating SDG targets into the level descriptors.
-  At the <i>Critical</i> level of the <b>Agency</b> competence, for example, the ability to propose AI-assisted interventions
-  for climate justice in line with target 13, or to contribute to multi-stakeholder partnerships for sustainable innovation
-  in line with target 17, is included. In this way, the framework does not consider the SDGs as external elements, but as constitutive references
-  already woven into its pedagogical architecture.
+  The SDGs provide pedagogical references for connecting EcoAI domains to concrete problems; they do not validate the Framework. Activities may, for example, examine electricity demand, energy mix, carbon footprint, water use and the unequal distribution of AI's ecological costs, or support global-citizenship and collective-action practices addressing transnational environmental problems.
 </p>
 </div>
 </section>
@@ -312,8 +309,13 @@
 </main>
 <footer class="bg-gray-800 text-white py-8">
   <div class="container mx-auto px-6 text-center">
-    <p>© 2025 EcoAI Doctoral Project. All rights reserved.</p>
-    <p class="text-sm text-gray-400 mt-2">This interactive dashboard is a visualization of the research framework.</p>
+    <p>© 2026 EcoAI Framework. All rights reserved.</p>
+    <p class="text-sm text-gray-300 mt-4">
+      <a class="hover:text-white" href="/privacy.html">Privacy Policy</a> |
+      <a class="hover:text-white" href="/cookie.html">Cookie Policy</a> |
+      <a class="hover:text-white" href="/terms.html">Terms and Conditions</a> |
+      <a class="hover:text-white" href="#" id="open-consent">Privacy &amp; Cookie Preferences</a>
+    </p>
   </div>
 </footer>
 
@@ -368,29 +370,29 @@
         }
       ],
       competencies: {
-        'G1: Systems Thinking': {
-          base: 'Recognizes the difference between a natural and an artificial system.',
-          intermedio: 'Describes feedback and cycles in both systems.',
-          avanzato: 'Compares and maps complex interdependencies between AI and natural systems.',
-          critico: 'Designs activities that demonstrate a deep interdependence between AI and the biosphere.'
+        'Systems thinking': {
+          base: 'Recognises ecological, social and technological components of a problem.',
+          intermedio: 'Describes relations, feedback loops and delays among components.',
+          avanzato: 'Builds maps that make boundaries, flows, thresholds and uncertainty explicit.',
+          critico: 'Compares models and interventions, discussing assumptions, limits and unintended effects.'
         },
-        'G2: Critical Thinking': {
-          base: 'Expresses personal opinions about technologies.',
-          intermedio: 'Recognizes the limits and biases of AI tools.',
-          avanzato: 'Critically evaluates the social and environmental impact of AI.',
-          critico: 'Argues for sustainable and responsible systemic alternatives.'
+        'Critical thinking': {
+          base: 'Distinguishes an opinion from a claim supported by evidence.',
+          intermedio: 'Recognises limits, bias and uncertainty in sources and AI tools.',
+          avanzato: 'Compares sources, data and model outputs while documenting the criteria used.',
+          critico: 'Formulates contestable and revisable conclusions, justifying alternatives and responsibilities.'
         },
-        'G7: Agency': {
-          base: 'Feels engaged with environmental problems.',
-          intermedio: 'Uses AI to develop sustainable responses.',
-          avanzato: 'Plans collective actions assisted by AI.',
-          critico: 'Activates transformative processes and supports others (peer agency).'
+        'Futures literacy': {
+          base: 'Recognises immediate and delayed consequences of eco-digital choices.',
+          intermedio: 'Develops alternative scenarios and identifies assumptions and trade-offs.',
+          avanzato: 'Compares scenarios using evidence, uncertainty and the distribution of impacts.',
+          critico: 'Uses scenarios to revise decisions and design adaptive long-term action.'
         },
-        'G12: Sustainability Justice': {
-          base: 'Recognizes basic environmental injustices in the world.',
-          intermedio: 'Connects environmental inequalities to technologies and data.',
-          avanzato: 'Collects evidence and proposes changes to address injustices.',
-          critico: 'Leads campaigns or projects of algorithmic environmental justice.'
+        'Collective action': {
+          base: 'Participates in a shared activity while recognising roles and objectives.',
+          intermedio: 'Shares data, tasks and verification criteria with the group.',
+          avanzato: 'Co-designs an eco-digital intervention with explicit actors and responsibilities.',
+          critico: 'Documents governance, accountability, conflicts and collective learning in the intervention.'
         }
       },
       sdgs: [
@@ -471,41 +473,49 @@
     competenceSelector.addEventListener('change', (e) => updateCompetenceDetails(e.target.value));
     updateCompetenceDetails(Object.keys(data.competencies)[0]);
 
-    new Chart(document.getElementById('competenceRadarChart'), {
-      type: 'radar',
-      data: {
-        labels: ['Systems Thinking', 'Justice', 'Agency', 'Critical Thinking', 'Adaptability'],
-        datasets: [{
-          label: 'Systems Understanding',
-          data: [5, 3, 3, 4, 3],
-          backgroundColor: 'rgba(34, 139, 34, 0.2)',
-          borderColor: 'rgba(34, 139, 34, 1)',
-          borderWidth: 2
-        }, {
-          label: 'Identity Formation',
-          data: [3, 5, 5, 4, 4],
-          backgroundColor: 'rgba(75, 0, 130, 0.2)',
-          borderColor: 'rgba(75, 0, 130, 1)',
-          borderWidth: 2
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          r: {
-            angleLines: { display: true },
-            suggestedMin: 0,
-            suggestedMax: 5,
-            pointLabels: { font: { size: 12 } },
-            ticks: { backdropColor: 'rgba(255, 255, 255, 0.75)' }
+    const radarCanvas = document.getElementById('competenceRadarChart');
+    const chartFallback = document.getElementById('chart-fallback');
+    if (typeof Chart === 'undefined') {
+      chartFallback.classList.remove('hidden');
+    } else {
+      try {
+        new Chart(radarCanvas, {
+          type: 'radar',
+          data: {
+            labels: [['Sustainability', 'values'], ['Complexity in', 'sustainability'], ['Sustainable', 'futures'], ['Acting for', 'sustainability']],
+            datasets: [
+              { label: 'Systems Understanding', data: [0, 1, 1, 0], borderColor: '#2f6f4e', backgroundColor: 'rgba(47,111,78,.08)', borderWidth: 2 },
+              { label: 'Ecological Understanding of AI', data: [1, 1, 0, 1], borderColor: '#47738a', backgroundColor: 'rgba(71,115,138,.08)', borderWidth: 2 },
+              { label: 'Identity Formation', data: [1, 0, 1, 1], borderColor: '#785a83', backgroundColor: 'rgba(120,90,131,.08)', borderWidth: 2 },
+              { label: 'Tool-Based Learning', data: [0, 1, 1, 1], borderColor: '#8b6c3f', backgroundColor: 'rgba(139,108,63,.08)', borderWidth: 2 }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              r: {
+                min: 0,
+                max: 1,
+                ticks: { display: false, stepSize: 1 },
+                pointLabels: { font: { size: 11 } }
+              }
+            },
+            plugins: {
+              legend: { position: 'bottom' },
+              tooltip: {
+                callbacks: {
+                  label: context => `${context.dataset.label}: ${context.raw === 1 ? 'conceptual correspondence' : 'not primary'}`
+                }
+              }
+            }
           }
-        },
-        plugins: {
-          legend: { position: 'top' }
-        }
+        });
+      } catch (error) {
+        chartFallback.classList.remove('hidden');
+        console.error('EcoAI GreenComp chart:', error);
       }
-    });
+    }
 
     const sdgGrid = document.getElementById('sdg-grid');
     data.sdgs.forEach(sdg => {
@@ -525,78 +535,11 @@
       sdgGrid.appendChild(card);
     });
 
-    const sdgCounts = data.sdgs.reduce((acc, sdg) => {
-      acc[sdg.id] = sdg.connections.length;
-      return acc;
-    }, {});
-    new Chart(document.getElementById('sdgDoughnutChart'), {
-      type: 'doughnut',
-      data: {
-        labels: data.sdgs.map(s => `SDG ${s.id}: ${s.title}`),
-        datasets: [{
-          label: 'Number of EcoAI Connections',
-          data: Object.values(sdgCounts),
-          backgroundColor: [
-            '#E5243B', '#DDA63A', '#4C9F38', '#C5192D', '#FF3A21',
-            '#26BDE2', '#FCC30B', '#A21942', '#FD6925'
-          ],
-          hoverOffset: 4
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false }
-        }
-      }
-    });
-
-    new Chart(document.getElementById('populationPieChart'), {
-      type: 'pie',
-      data: {
-        labels: ['14–15 years', '16–17 years', '18–19 years'],
-        datasets: [{
-          label: '',
-          data: [35, 45, 20],
-          backgroundColor: ['#6B8E23', '#8FBC8F', '#9ACD32'],
-          hoverOffset: 4
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { position: 'bottom' },
-          tooltip: {
-            displayColors: false,
-            callbacks: {
-              title: () => '',
-              label: function(context) {
-                const dataset = context.dataset;
-                const total = dataset.data.reduce((a, b) => a + b, 0);
-                const value = dataset.data[context.dataIndex];
-                const pct = total > 0 ? ((value / total) * 100).toFixed(1) : 0;
-                return `${pct}%`;
-              }
-            }
-          }
-        }
-      }
-    });
-
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
 
       });
 </script>
-<footer style="text-align:center; margin-top:40px; padding:20px; font-size:14px; background:#f8f9fa; border-top:1px solid #ddd;">
-  <a href="/privacy.html">Privacy Policy</a> |
-  <a href="/cookie.html">Cookie Policy</a> |
-  <a href="/terms.html">Terms and Conditions</a> |
-  <a href="#" id="open-consent">Privacy & Cookie Preferences</a>
-</footer>
-
 <!-- === Consent Modal EN === -->
 <style>
   .consent-backdrop {position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:9998;}
