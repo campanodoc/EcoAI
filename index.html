@@ -75,6 +75,37 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
     </style>
+<style id="greencomp-sdg-refinements">
+.chart-domain-legend{max-width:840px;margin:.75rem auto 0}
+.chart-domain-heading{margin:0 0 .6rem;color:#1f2937;font-size:1rem;font-weight:700;text-align:left}
+.chart-domain-heading small{display:block;margin-top:.15rem;color:#6b7280;font-size:.82rem;font-weight:400}
+.chart-domain-list{display:grid;grid-template-columns:1fr;gap:.35rem;margin:0;padding:0;list-style:none}
+@media(min-width:640px){.chart-domain-list{grid-template-columns:1fr 1fr}}
+.chart-domain-button{display:flex;width:100%;align-items:center;gap:.65rem;padding:.5rem .65rem;border:1px solid transparent;border-radius:.4rem;background:transparent;color:#374151;font:inherit;font-size:1rem;line-height:1.35;text-align:left;cursor:pointer}
+.chart-domain-button:hover,.chart-domain-button:focus-visible{background:#f3f4f6;border-color:#d1d5db;outline:none}
+.chart-domain-button.is-active{background:#f0fdf4;border-color:#86efac;color:#14532d;font-weight:700}
+.chart-domain-button.is-muted{color:#9ca3af}
+.chart-domain-swatch{width:.9rem;height:.9rem;flex:none;border-radius:.15rem}
+.sdgx-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;max-width:80rem;margin:0 auto 2.5rem}
+@media(min-width:768px){.sdgx-grid{grid-template-columns:1fr 1fr}}
+.sdgx-card{display:flex;gap:1rem;background:#fff;border:1px solid #e5e7eb;border-radius:.5rem;padding:1.25rem;box-shadow:0 1px 2px rgba(0,0,0,.05);text-align:left}
+.sdgx-card img{width:5rem;height:5rem;flex:none;border-radius:.5rem}
+.sdgx-card h3{margin:0 0 .4rem;font-size:1.1rem;font-weight:600;color:#166534}
+.sdgx-card p{margin:0;color:#374151;line-height:1.55;font-size:.95rem}
+.sdgx-sub{max-width:80rem;margin:0 auto .75rem;font-size:1.05rem;font-weight:600;color:#374151;text-align:center}
+.sdg-icon-button{display:block;width:100%;padding:0;border:0;border-radius:.5rem;background:transparent;cursor:pointer}
+.sdg-icon-button:focus-visible{outline:3px solid #16a34a;outline-offset:3px}
+.sdg-icon-button.is-selected img{outline:4px solid #15803d;outline-offset:3px}
+.sdg-connection-details{max-width:64rem;margin:1.25rem auto 0;padding:1rem 1.25rem;border:1px solid #d1d5db;border-radius:.5rem;background:#fff;text-align:left}
+.sdg-connection-details h3{margin:0 0 .45rem;color:#166534;font-size:1.1rem;font-weight:700}
+.sdg-connection-details p{margin:.3rem 0;color:#374151;font-size:1rem;line-height:1.55}
+@media(max-width:639px){
+  .sdgx-card{align-items:flex-start;padding:1rem}
+  .sdgx-card img{width:4.5rem;height:4.5rem}
+  .sdgx-card h3{font-size:1.05rem}
+  .chart-domain-button{font-size:1.05rem}
+}
+</style>
 <link rel="stylesheet" href="assets/typography.css">
 </head>
 <body class="antialiased">
@@ -206,9 +237,9 @@
 </script>
 <section class="py-8 bg-white" id="competenze">
 <div class="mx-auto max-w-screen-2xl px-4 md:px-6">
-<h2 class="text-3xl font-bold mb-12 text-gray-800">Competence Development</h2>
-<p class="reading-width text-lg text-gray-600 max-w-5xl mx-auto mb-12">
-  EcoAI enters into dialogue with GreenComp without being directly derived from it. The four levels are a pedagogical progression proposed by the Framework. Select a competence to view its descriptors.
+<h2 class="text-3xl font-bold mb-6 md:mb-12 text-gray-800">Competence Development</h2>
+<p class="reading-width text-lg text-gray-600 max-w-5xl mx-auto mb-6 md:mb-12">
+  EcoAI adopts GreenComp as a pedagogical reference and reworks some of its competence areas, integrating them with ecological literacy and critical AI literacy. The four levels organise a pedagogical progression proposed by the Framework. Select a competence to view its descriptors.
 </p>
 
 <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200 mb-12">
@@ -235,6 +266,10 @@
 <div class="chart-container">
 <canvas id="competenceRadarChart" role="img" aria-label="Qualitative map of correspondences between the four EcoAI domains and five representative GreenComp competences">The chart requires JavaScript.</canvas>
 </div>
+<div class="chart-domain-legend">
+  <p class="chart-domain-heading">The 4 domains <small>Select a domain to highlight it</small></p>
+  <ul class="chart-domain-list" id="domain-legend-list" aria-label="EcoAI domains"></ul>
+</div>
 <p id="chart-fallback" class="hidden text-red-700 mt-4">The GreenComp relationship chart could not be loaded.</p>
 
 </div>
@@ -248,8 +283,17 @@
     <p class="reading-width text-lg text-gray-600 max-w-5xl mx-auto mb-12">
       The EcoAI Framework directly contributes to numerous United Nations Sustainable Development Goals, promoting education for a fair and sustainable future. The SDGs provide pedagogical references for connecting EcoAI domains to concrete problems. Activities may, for example, examine electricity consumption, the composition of energy sources, carbon footprint, water use and the unequal distribution of AI’s ecological costs; or support global-citizenship and collective-action practices addressing transnational environmental problems.
     </p>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mt-6 mb-6" id="sdg-grid">
+    
+<div class="sdgx-grid" id="sdg-argued">
+  <div class="sdgx-card"><img src="images/SDG4.png" alt="SDG 4: Quality Education, target 4.7"><div><h3>SDG 4: Quality Education (target 4.7)</h3><p>The framework proposes ecological literacy and critical AI literacy competences for secondary education, in dialogue with GreenComp, and the EcoAI Index as a group-level monitoring tool. Domains: Systems Understanding, Tool-Based Learning and Identity Formation.</p></div></div>
+  <div class="sdgx-card"><img src="images/SDG13.png" alt="SDG 13: Climate Action"><div><h3>SDG 13: Climate Action</h3><p>Ecological Understanding of AI brings the energy use and infrastructure of AI systems into teaching, while Systems Understanding develops the reading of feedback loops. The AATI scale records declared awareness of the environmental risks of AI.</p></div></div>
+  <div class="sdgx-card"><img src="images/SDG10.png" alt="SDG 10: Reduced Inequalities"><div><h3>SDG 10: Reduced Inequalities</h3><p>Identity Formation addresses bias, fairness and representation in algorithmic systems, taking environmental and climate justice as a criterion of analysis.</p></div></div>
+  <div class="sdgx-card"><img src="images/SDG16.png" alt="SDG 16: Peace, Justice and Strong Institutions"><div><h3>SDG 16: Peace, Justice and Strong Institutions</h3><p>The framework treats algorithmic accountability and civic participation as educational objectives, operationalised in part by the VAL and AGY scales.</p></div></div>
 </div>
+<p class="sdgx-sub">Other SDG connections</p>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mt-6 mb-6" id="sdg-grid">
+</div>
+<div class="sdg-connection-details" id="sdg-connection-details" aria-live="polite" hidden></div>
   </div>
 </section>
 
@@ -430,7 +474,7 @@
     } else {
       try {
         const relevanceLabels = ['secondary relevance', 'relevant', 'central relevance'];
-        new Chart(radarCanvas, {
+        const radarChart = new Chart(radarCanvas, {
           type: 'radar',
           data: {
             labels: [['Systems', 'thinking'], ['Supporting', 'fairness'], ['Collective', 'action'], ['Critical', 'thinking'], ['Adaptability']],
@@ -452,11 +496,12 @@
                 angleLines: { display: true, color: 'rgba(55,65,81,.18)' },
                 grid: { color: 'rgba(55,65,81,.15)' },
                 ticks: { display: false, stepSize: 1 },
-                pointLabels: { color: '#374151', font: { size: 11, weight: '600' } }
+                pointLabels: { color: '#374151', font: { size: window.innerWidth < 640 ? 13 : 15, weight: '600' } }
               }
             },
             plugins: {
-              legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 10, font: { size: 16 } } },
+              title: { display: true, text: 'GreenComp Areas', color: '#1f2937', font: { size: 17, weight: '700' }, padding: { bottom: 12 } },
+              legend: { display: false },
               tooltip: {
                 callbacks: {
                   label: context => `${context.dataset.label}: ${relevanceLabels[context.raw - 1]}`
@@ -465,6 +510,41 @@
             }
           }
         });
+
+        const legendList = document.getElementById('domain-legend-list');
+        let activeDomain = null;
+        radarChart.data.datasets.forEach(dataset => {
+          dataset.baseBorderColor = dataset.borderColor;
+          dataset.baseBackgroundColor = dataset.backgroundColor;
+          dataset.basePointColor = dataset.pointBackgroundColor;
+        });
+        radarChart.data.datasets.forEach((dataset, index) => {
+          const item = document.createElement('li');
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'chart-domain-button';
+          button.setAttribute('aria-pressed', 'false');
+          button.innerHTML = `<span class="chart-domain-swatch" style="background:${dataset.baseBorderColor}"></span><span>${dataset.label}</span>`;
+          button.addEventListener('click', () => {
+            activeDomain = activeDomain === index ? null : index;
+            radarChart.data.datasets.forEach((current, currentIndex) => {
+              const highlighted = activeDomain === null || activeDomain === currentIndex;
+              current.borderColor = highlighted ? current.baseBorderColor : 'rgba(148,163,184,.30)';
+              current.backgroundColor = highlighted ? current.baseBackgroundColor : 'rgba(148,163,184,.03)';
+              current.pointBackgroundColor = highlighted ? current.basePointColor : 'rgba(148,163,184,.30)';
+              current.borderWidth = activeDomain === currentIndex ? 4 : (activeDomain === null ? 2 : 1);
+              current.pointRadius = activeDomain === currentIndex ? 5 : (activeDomain === null ? 3 : 2);
+            });
+            legendList.querySelectorAll('.chart-domain-button').forEach((control, controlIndex) => {
+              control.classList.toggle('is-active', activeDomain === controlIndex);
+              control.classList.toggle('is-muted', activeDomain !== null && activeDomain !== controlIndex);
+              control.setAttribute('aria-pressed', String(activeDomain === controlIndex));
+            });
+            radarChart.update();
+          });
+          item.appendChild(button);
+          legendList.appendChild(item);
+        });
       } catch (error) {
         chartFallback.classList.remove('hidden');
         console.error('EcoAI GreenComp chart:', error);
@@ -472,20 +552,48 @@
     }
 
     const sdgGrid = document.getElementById('sdg-grid');
-    data.sdgs.forEach(sdg => {
+    const sdgDetails = document.getElementById('sdg-connection-details');
+    const secondarySdgIds = [9, 11, 12, 15, 17];
+    const sdgMeanings = {
+          9: 'Promotes resilient infrastructure, responsible innovation and sustainable industrial processes.',
+          11: 'Promotes inclusive, safe, resilient and sustainable cities and communities.',
+          12: 'Promotes responsible production and consumption throughout the life cycle.',
+          15: 'Protects terrestrial ecosystems, biodiversity and the sustainable use of natural resources.',
+          17: 'Supports cooperation and partnerships among different actors to achieve sustainability goals.'
+        };
+    data.sdgs.filter(sdg => secondarySdgIds.includes(sdg.id)).forEach(sdg => {
       const card = document.createElement('div');
-      card.className = 'relative group';
-      card.innerHTML = `
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'sdg-icon-button';
+      button.setAttribute('aria-expanded', 'false');
+      button.setAttribute('aria-controls', 'sdg-connection-details');
+      button.innerHTML = `
         <img src="./images/SDG${sdg.id}.png"
              alt="SDG ${sdg.id}: ${sdg.title}"
              class="w-full h-auto rounded-lg shadow-md sdg-card">
-        <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center text-white text-center p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
-          <div>
-            <p class="font-bold">SDG ${sdg.id}: ${sdg.title}</p>
-            <p class="text-xs mt-1">Connected to: ${sdg.connections.join(', ')}</p>
-          </div>
-        </div>
       `;
+      button.addEventListener('click', () => {
+        const wasSelected = button.classList.contains('is-selected');
+        sdgGrid.querySelectorAll('.sdg-icon-button').forEach(control => {
+          control.classList.remove('is-selected');
+          control.setAttribute('aria-expanded', 'false');
+        });
+        if (wasSelected) {
+          sdgDetails.hidden = true;
+          sdgDetails.innerHTML = '';
+          return;
+        }
+        button.classList.add('is-selected');
+        button.setAttribute('aria-expanded', 'true');
+        sdgDetails.innerHTML = `
+          <h3>SDG ${sdg.id}: ${sdg.title}</h3>
+          <p><strong>Meaning:</strong> ${sdgMeanings[sdg.id]}</p>
+          <p><strong>Related EcoAI domains and subdomains:</strong> ${sdg.connections.join(', ')}.</p>
+        `;
+        sdgDetails.hidden = false;
+      });
+      card.appendChild(button);
       sdgGrid.appendChild(card);
     });
 
