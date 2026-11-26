@@ -89,3 +89,6 @@ body .stat-value {
   body .hero-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 2.5rem; margin-top: 1rem; }
   body .hero-cols > div > h3 { margin-top: 0; padding-top: 0; }
 }
+
+/* Research design section: justified text */
+body #design p, body #disegno p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
