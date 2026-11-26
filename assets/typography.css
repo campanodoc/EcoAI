@@ -54,3 +54,41 @@ body .stat-value {
   display: block;
   text-align: center;
 }
+
+/* ===== Desktop layout (>= 1024px): tighter spacing and wider reading column.
+   Mobile and tablet are not affected. ===== */
+@media (min-width: 1024px) {
+  :root { --site-reading-width: 1080px; }
+
+  /* narrower page container, so side margins stay small on wide monitors */
+  body main.max-w-screen-2xl,
+  body main > section > div.max-w-screen-2xl,
+  body main > div.max-w-screen-2xl { max-width: 1280px; }
+
+  /* menu links never wrap on two lines */
+  body header nav a { white-space: nowrap; }
+
+  /* vertical rhythm */
+  body main.space-y-16 > :not([hidden]) ~ :not([hidden]) { margin-top: 2.5rem; }
+  body main.py-12 { padding-top: 2rem; padding-bottom: 2rem; }
+  body main.py-14 { padding-top: 2rem; padding-bottom: 2rem; }
+  body .mb-12 { margin-bottom: 2rem; }
+  body .mb-16 { margin-bottom: 2.5rem; }
+  body .mt-16 { margin-top: 2.5rem; }
+  body .mt-20 { margin-top: 3rem; }
+
+  /* section titles followed by a centred reading block are centred with it */
+  body .flex.items-center.gap-3:has(+ .reading-width),
+  body .flex.items-center.gap-3:has(+ div > .reading-width:first-child) { justify-content: center; }
+  body .flex.items-center.gap-3 + .reading-width { margin-bottom: 1.5rem; }
+
+  body :is(h2, h3):has(+ .reading-width) { text-align: center; }
+
+  /* home hero: the three text groups sit side by side */
+  body .hero-wide { max-width: none; }
+  body .hero-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 2.5rem; margin-top: 1rem; }
+  body .hero-cols > div > h3 { margin-top: 0; padding-top: 0; }
+}
+
+/* Research design section: justified text */
+body #design p, body #disegno p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
